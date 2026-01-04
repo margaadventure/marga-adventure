@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ActivityPage from "../components/ActivityPage";
+---
+
+<Layout
+    title="Birdwatching"
+    description="Spot the rare avian wonders of Nepal. With over 850 species, including the Spiny Babbler, our birdwatching tours are a paradise for naturalists."
+    image="/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.jpg"
+>
+    <ActivityPage
+        title="Wings Over the Himalayas"
+        subtitle="Birdwatching"
+        description="Embark on a birdwatching journey through Nepal, a hidden sanctuary boasting over 900 avian species. From the tropical wetlands of Koshi Tappu to the alpine forests of the Annapurna region, this small nation offers a rare density of diverse habitats. Spot the endemic Spiny Babbler, the gleaming Himalayan Monal, and vast flocks of migratory waterfowl. Whether you are a casual birder or a seasoned ornithologist, the Himalayan skies promise sightings that will leave you breathless."
+        heroImage="/images/Wildlife/getty-images-FmsP_fMI5Ms-unsplash.jpg"
+        highlights={[
+            "Koshi Tappu Wildlife Reserve",
+            "Phulchowki Hill",
+            "Chitwan National Park",
+            "Bardiya National Park",
+        ]}
+        galleryImages={[
+            "/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.jpg",
+            "/images/Wildlife/getty-images-qqI0q5UCQEY-unsplash.jpg",
+            "/images/Wildlife/abhijit-sinha-bAt2ZzaOCXo-unsplash.jpg",
+        ]}
+        client:visible
+    />
+</Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ActivityPage from "../components/ActivityPage";
+---
+
+<Layout
+    title="Photography Trips"
+    description="Capture the light of the Himalayas. Designed for photographers, these trips chase the golden hour over Everest and the shadows of ancient temples."
+    image="/images/Capture/Nepal-RBR_060_15_52-EV0A0678.jpg"
+>
+    <ActivityPage
+        title="Chasing Light in the Himalayas"
+        subtitle="Photography Trip"
+        description="Nepal is a living masterpiece painted in light and shadow. Frame the golden dawn igniting the himalayan peaks and the ancient, mist-shrouded temples where time stands still. From the haunting gaze of a Sadhu to the raw power of a Bengal tiger, every shutter click captures a story of resilience and beauty. This is not just photography; it is a visual pilgrimage into the soul of the Himalayas."
+        heroImage="/images/Capture/Nepal-RBR_097_13_50-R62_0755.webp"
+        highlights={[
+            "Sunrise at Sarangkot",
+            "Hidden Alleys of Bhaktapur",
+            "Monastic Life in Mustang",
+            "Wildlife Portraits in Chitwan",
+        ]}
+        galleryImages={[
+            "/images/Capture/Nepal-RBR_060_15_52-EV0A0678.webp",
+            "/images/Capture/Nepal-RBR_096_10_48-R62_7944.webp",
+            "/images/Capture/Nepal-RBR_094_09_46-R62_5603-Avec accentuation-Bruit.webp",
+        ]}
+        client:visible
+    />
+</Layout>

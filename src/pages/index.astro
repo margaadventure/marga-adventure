@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HomeContent from "../components/HomeContent";
+import { getImage } from "astro:assets";
+import heroBg from "../assets/images/hero-bg.jpg";
+
+const optimizedHero = await getImage({
+	src: heroBg,
+	format: "webp",
+	width: 2560,
+});
+---
+
+<Layout
+	title="Home"
+	description="Welcome to Marga Adventure. An exclusive gateway to the Himalayas, offering premium trekking, spiritual retreats, and cultural experiences in Nepal, Bhutan, and Tibet."
+>
+	<HomeContent client:load heroImageSrc={optimizedHero.src} />
+</Layout>

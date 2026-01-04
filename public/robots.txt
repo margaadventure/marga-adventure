@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://margaadventure.com/sitemap-index.xml

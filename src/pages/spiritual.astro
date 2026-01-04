@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ActivityPage from "../components/ActivityPage";
+---
+
+<Layout
+    title="Spiritual Retreat"
+    description="Awaken your spirit in the birthplace of peace. From Lumbini to high-altitude monasteries, our spiritual retreats offer a path to inner silence."
+    image="/images/Spirituality Retreat/buddha-face.jpg"
+>
+    <ActivityPage
+        title="Awaken in the Himalayas"
+        subtitle="Spiritual Retreat"
+        description="Nepal is a sanctuary where the spirit finds its home. From the sacred birth of peace in Lumbini to the meditative silence of high-altitude monasteries, every breath here feels like a prayer. Immerse yourself in the rhythm of chanting monks and the stillness of the mountains. This is not just a retreat; it is a soulful journey to rediscover your inner light amidst the clouds."
+        heroImage="/images/Spirituality Retreat/statue-of-man.jpg"
+        highlights={[
+            "Lumbini: Birthplace of Buddha",
+            "Kopan Monastery Meditation",
+            "Muktinath Pilgrimage",
+            "Yoga in Pokhara",
+        ]}
+        galleryImages={[
+            "/images/Spirituality Retreat/healing-bowl.jpg",
+            "/images/Spirituality Retreat/buddha-with-flower.jpg",
+            "/images/Spirituality Retreat/room-with-asent.jpg",
+        ]}
+        client:visible
+    />
+</Layout>

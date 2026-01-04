@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DestinationPage from "../components/DestinationPage";
+import { getImage } from "astro:assets";
+import bhutanBg from "../assets/images/Bhutan/Bhutan-bg.jpg";
+import bhutanGate from "../assets/images/Bhutan/bhutan-gate.jpg";
+import bhutanWeave from "../assets/images/Bhutan/bhutan-weave.jpg";
+import bhutanFurniture from "../assets/images/Bhutan/bhutan-furniture.jpg";
+
+const optimizedBg = await getImage({
+    src: bhutanBg,
+    format: "webp",
+    width: 2560,
+});
+const optimizedGate = await getImage({
+    src: bhutanGate,
+    format: "webp",
+    width: 800,
+});
+const optimizedWeave = await getImage({
+    src: bhutanWeave,
+    format: "webp",
+    width: 800,
+});
+const optimizedFurniture = await getImage({
+    src: bhutanFurniture,
+    format: "webp",
+    width: 800,
+});
+---
+
+<Layout
+    title="Bhutan"
+    description="Experience the Kingdom of Bhutan, the Last Shangri-La. Immerse yourself in a land where Gross National Happiness is a way of life, with ancient dzongs and pristine nature."
+>
+    <DestinationPage
+        country="Bhutan"
+        heroImage={optimizedBg.src}
+        mainTitle="The Last <span class='text-brand italic font-serif'>Shangri-La</span>"
+        description="Discover Bhutan, the Land of the Thunder Dragon. Nestled deep in the Himalayas, this ancient kingdom prioritizes Gross National Happiness over material wealth. Explore the iconic Tiger’s Nest monastery, witness vibrant festivals, and marvel at pristine mountain landscapes. It is a unique destination where spirituality and nature exist in perfect harmony."
+        features={[
+            {
+                title: "Architectural Marvels",
+                text: "Stand before the grand gates of Punakha Dzong, where administrative prowess meets monastic peace.",
+                image: optimizedGate.src,
+            },
+            {
+                title: "Living Heritage",
+                text: "Experience the timeless traditions of daily life, from archery tournaments to the weaving of intricate textiles.",
+                image: optimizedWeave.src,
+            },
+            {
+                title: "Sacred Arts",
+                text: "Witness the devotion in every brushstroke of Thangka paintings and the craft of traditional furniture.",
+                image: optimizedFurniture.src,
+            },
+        ]}
+        client:visible
+    />
+</Layout>

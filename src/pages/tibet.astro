@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DestinationPage from "../components/DestinationPage";
+import { getImage } from "astro:assets";
+import tibetBg from "../assets/images/Tibet/tibet-bg.jpg";
+import tibetPillar from "../assets/images/Tibet/tibet pillar.jpg";
+import tibetYak from "../assets/images/Tibet/tibet-yak.jpg";
+import tibetCulture from "../assets/images/Tibet/tibet-culture.jpg";
+
+const optimizedBg = await getImage({
+    src: tibetBg,
+    format: "webp",
+    width: 2560,
+});
+const optimizedPillar = await getImage({
+    src: tibetPillar,
+    format: "webp",
+    width: 800,
+});
+const optimizedYak = await getImage({
+    src: tibetYak,
+    format: "webp",
+    width: 800,
+});
+const optimizedCulture = await getImage({
+    src: tibetCulture,
+    format: "webp",
+    width: 800,
+});
+---
+
+<Layout
+    title="Tibet"
+    description="Journey to the Roof of the World. Explore the mystique of Tibet, from the Potala Palace to the sacred Mount Kailash, in a journey of spiritual awakening."
+>
+    <DestinationPage
+        country="Tibet"
+        heroImage={optimizedBg.src}
+        mainTitle="The Roof of the <span class='text-brand italic font-serif'>World</span>"
+        description="Journey to Tibet, where ancient spirituality meets the clouds. Marvel at the majestic Potala Palace in Lhasa, circle the sacred Mount Kailash, and gaze upon the north face of Everest. With its turquoise lakes and high-altitude plateaus, Tibet offers a profound landscape steeped in mystery and deep Buddhist tradition."
+        features={[
+            {
+                title: "Sacred Pillars",
+                text: "Walk beneath ancient structures that have stood guard over the plateau for centuries.",
+                image: optimizedPillar.src,
+            },
+            {
+                title: "Nomadic Spirit",
+                text: "Encounter the resilient culture of the high-altitude nomads and their yak caravans.",
+                image: optimizedYak.src,
+            },
+            {
+                title: "Deep Devotion",
+                text: "Immerse yourself in a land where every step is a pilgrimage and every breath is a prayer.",
+                image: optimizedCulture.src,
+            },
+        ]}
+        client:visible
+    />
+</Layout>

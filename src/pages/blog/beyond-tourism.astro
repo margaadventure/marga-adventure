@@ -1,0 +1,185 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero";
+
+const article = {
+    title: "Tourism that Heals",
+    subtitle: "Beyond the Transaction",
+    heroImage: "/images/Community/school-group.webp",
+    date: "December 31, 2025",
+    author: "Marga Team",
+    readTime: "3 min read",
+};
+---
+
+<Layout
+    title={article.title}
+    description="Discover how your journey puts roofs over heads and books in hands. A look into our 'Sharing Warmth' initiative in the remote villages of Nepal."
+    image={article.heroImage}
+>
+    <PageHero
+        title="Beyond Tourism"
+        subtitle="When you travel with heart, you leave more than footprints."
+        image={article.heroImage}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center border border-gray-100"
+                    >
+                        <img
+                            src="/logo.png"
+                            alt="Marga Team"
+                            class="w-8 h-8 object-contain"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            {article.author}
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            Community Initiative
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {article.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {article.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "We often ask what we can get from a destination. But the
+                    most profound travel experiences happen when we ask: what
+                    can we give?"
+                </p>
+
+                <p
+                    class="mb-8 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]"
+                >
+                    In the high villages of Ruby Valley, the winter wind bites
+                    hard. It finds the gaps in the stone walls; it creeps under
+                    thin blankets. For many years, we walked through these
+                    villages as trekkers, admirers of the landscape. We took our
+                    photos of the snow-capped peaks and the smiling children.
+                </p>
+                <p class="mb-8">
+                    But one day, we stopped just looking. We started <em
+                        >seeing</em
+                    >. We saw that behind the beautiful smiles, there were
+                    shivering hands. We saw that the "rustic charm" of a school
+                    often meant a roof that leaked icy water onto textbooks.
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    The Birth of 'Sharing Warmth'
+                </h3>
+                <p class="mb-8">
+                    We realized that Marga Adventure could not just be a tour
+                    company. We had to be a bridge. A bridge between the
+                    resources of our guests and the needs of our hosts.
+                </p>
+                <p class="mb-8">
+                    This is not "charity" in the cold, distant sense. This is
+                    family. When you Trek with us, a portion of your fee goes
+                    directly into the <strong>Sharing Warmth</strong> fund. But more
+                    than that, we invite you to be part of the distribution.
+                </p>
+
+                <div class="my-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src="/images/Community/library-balloons.webp"
+                            alt="Children with balloons"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src="/images/Community/playground-fun.webp"
+                            alt="Playground Fun"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    A Story of a Jacket
+                </h3>
+                <p class="mb-8">
+                    Last year, a guest named Sarah joined us. She didn't just
+                    bring her camera; she brought warmth. We visited a small
+                    school in Dhading. She handed a thick, down jacket to a
+                    young girl named Pema.
+                </p>
+                <p class="mb-8">
+                    Pema didn't speak English, and Sarah didn't speak Tamang.
+                    But when Pema put on that jacket, and her shoulders dropped
+                    from their perpetual shiver, and she looked up with eyes
+                    that held the whole universe... no words were needed. Sarah
+                    later told us, <em
+                        >"I came to see Everest, but I found my heart in
+                        Dhading."</em
+                    >
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    Join the Circle
+                </h3>
+                <p class="mb-8">
+                    This is the invitation. Don't just be a tourist passing
+                    through. Be a thread in the fabric of these lives. Come with
+                    us, not just to see the mountains, but to move them, a
+                    little bit, for someone else.
+                </p>
+                <p>
+                    Because true warmth is the only thing that grows when you
+                    share it.
+                </p>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href="/blog/philosophy-of-silence"
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← Previous</a
+                >
+                <a
+                    href="/blog"
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >Back to Journal</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>

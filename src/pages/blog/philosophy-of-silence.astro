@@ -1,0 +1,177 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero";
+
+const article = {
+    title: "The Rebellion of Silence",
+    subtitle: "Philosophy of Marga",
+    heroImage: "/images/Spirituality Retreat/buddha-face.jpg",
+    date: "December 31, 2025",
+    author: "Deepak Mahato Tharu",
+    readTime: "6 min read",
+};
+---
+
+<Layout
+    title={article.title}
+    description="In a noisy world, silence is rebellion. Learn how Marga Adventure integrates mindfulness and silence into high-altitude trekking."
+    image={article.heroImage}
+>
+    <PageHero
+        title="Silence"
+        subtitle="The loudest sound in the world."
+        image={article.heroImage}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden"
+                    >
+                        <img
+                            src="/images/deepak-profile.webp"
+                            alt="Deepak"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            {article.author}
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            CIO & Strategist
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {article.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {article.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "We live in an age of notification. The ping, the buzz, the
+                    red dot. To choose silence in a world screaming for your
+                    attention is the ultimate act of rebellion."
+                </p>
+
+                <p class="mb-8">
+                    When was the last time you heard absolutely nothing? No
+                    distant hum of traffic, no whir of a server room, no
+                    playlist filling the void. Just... nothing. Or perhaps, just
+                    the terrifyingly loud sound of your own heartbeat, or the
+                    crunch of snow under a boot at 4,000 meters?
+                </p>
+                <p class="mb-8">
+                    At Marga Adventure, we believe that in the 21st century, the
+                    greatest luxury is not gold taps or 500-thread-count sheets. <strong
+                        >The ultimate luxury is undistracted attention.</strong
+                    > It is the ability to be fully here, now.
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    The Digital Detox
+                </h3>
+                <p class="mb-8">
+                    As a technologist, I see the toll. We are wired but
+                    disconnected. We curate our lives for an audience we don't
+                    know, missing the life happening right in front of us. We
+                    curate our trips to break this cycle. We take you to the
+                    shadow of the Annapurnas, where the signal bars fade to
+                    zero.
+                </p>
+                <p class="mb-8">
+                    Panic sets in for the first hour. The phantom vibration in
+                    your pocket. The itch to check email. Boredom sets in for
+                    the second. You don't know where to look.
+                </p>
+                <p class="mb-8">
+                    And then, something magical—almost spiritual—happens. The
+                    boredom gives way to observation. You notice the way the
+                    light turns the snow gold at sunset. You notice the
+                    intricate carving on a Mani stone. You notice that the knot
+                    in your chest has loosened. You are free.
+                </p>
+
+                <div
+                    class="my-16 bg-brand/5 p-8 rounded-3xl border border-brand/10"
+                >
+                    <h4
+                        class="font-bold text-brand uppercase tracking-widest mb-4 text-sm"
+                    >
+                        The Marga Protocol
+                    </h4>
+                    <ul class="list-disc pl-5 space-y-2 marker:text-brand">
+                        <li>
+                            <strong>Phone-Free Dinners:</strong> To encourage real
+                            conversation, seeing faces instead of screens.
+                        </li>
+                        <li>
+                            <strong>Silent Walking:</strong> Specific hours on the
+                            trail dedicated to walking meditation, syncing breath
+                            with step.
+                        </li>
+                        <li>
+                            <strong>Evening Reflection:</strong> Guided sessions to
+                            process the day's journey, writing in journals instead
+                            of posting to feeds.
+                        </li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    Returning Home
+                </h3>
+                <p class="mb-8">
+                    Our goal is not just to give you a break, but to give you a
+                    tool. When you return to the cacophony of the city, you
+                    carry a piece of the Himalayan silence within you. You
+                    realize that you can access that "Marga" state anywhere. You
+                    realize you don't have to answer every ping.
+                </p>
+                <p>
+                    Silence isn't empty. It's full of the answers you've been
+                    too busy to hear.
+                </p>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href="/blog/the-origin-story"
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← Previous</a
+                >
+                <a
+                    href="/blog/beyond-tourism"
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >Next Story →</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>
