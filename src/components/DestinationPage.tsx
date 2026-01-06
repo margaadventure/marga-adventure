@@ -8,9 +8,19 @@ interface DestinationPageProps {
   description: string;
   features: { title: string; text: string; image: string }[];
   mainTitle?: string;
+  activeMonths?: string[];
+  seasonNote?: string;
 }
 
-const DestinationPage: React.FC<DestinationPageProps> = ({ country, heroImage, description, features, mainTitle }) => {
+const DestinationPage: React.FC<DestinationPageProps> = ({
+  country,
+  heroImage,
+  description,
+  features,
+  mainTitle,
+  activeMonths = ['MAR', 'APR', 'MAY', 'SEP', 'OCT', 'NOV'],
+  seasonNote = "Spring and Autumn offer the clearest views and most comfortable temperatures for cultural tours and trekking."
+}) => {
   return (
     <div className="bg-white">
       <PageHero title={`Explore ${country}`} subtitle="Beyond the mountains, a new culture awaits." image={heroImage} />
@@ -54,17 +64,19 @@ const DestinationPage: React.FC<DestinationPageProps> = ({ country, heroImage, d
         <div className="max-w-5xl mx-auto bg-gray-50 rounded-none p-12 md:p-16 border border-gray-100 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Best Time to Visit</h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {['MAR', 'APR', 'MAY'].map(m => (
-              <div key={m} className="w-20 h-20 rounded-none bg-brand text-white flex items-center justify-center font-bold shadow-lg shadow-brand/20">{m}</div>
-            ))}
-            <div className="w-20 h-20 rounded-none border-2 border-gray-200 text-gray-300 flex items-center justify-center font-bold">JUN</div>
-            <div className="w-20 h-20 rounded-none border-2 border-gray-200 text-gray-300 flex items-center justify-center font-bold">JUL</div>
-            <div className="w-20 h-20 rounded-none border-2 border-gray-200 text-gray-300 flex items-center justify-center font-bold">AUG</div>
-            {['SEP', 'OCT', 'NOV'].map(m => (
-              <div key={m} className="w-20 h-20 rounded-none bg-brand text-white flex items-center justify-center font-bold shadow-lg shadow-brand/20">{m}</div>
+            {['MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV'].map(m => (
+              <div
+                key={m}
+                className={`w-20 h-20 rounded-none flex items-center justify-center font-bold transition-colors ${activeMonths.includes(m)
+                  ? 'bg-brand text-white shadow-lg shadow-brand/20'
+                  : 'border-2 border-gray-200 text-gray-300'
+                  }`}
+              >
+                {m}
+              </div>
             ))}
           </div>
-          <p className="mt-8 text-gray-500 text-sm font-light">Spring and Autumn offer the clearest views and most comfortable temperatures for cultural tours and trekking.</p>
+          <p className="mt-8 text-gray-500 text-sm font-light">{seasonNote}</p>
         </div>
       </section>
     </div>
