@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import DestinationPage from "../components/DestinationPage";
 import { getImage } from "astro:assets";
 import tibetBg from "../assets/images/Tibet/tibet-bg.jpg";
-import tibetPillar from "../assets/images/Tibet/tibet pillar.jpg";
+import mountKailash from "../assets/images/Tibet/mount-kailash.jpg";
 import tibetYak from "../assets/images/Tibet/tibet-yak.jpg";
 import tibetCulture from "../assets/images/Tibet/tibet-culture.jpg";
 
@@ -12,8 +12,8 @@ const optimizedBg = await getImage({
     format: "webp",
     width: 2560,
 });
-const optimizedPillar = await getImage({
-    src: tibetPillar,
+const optimizedKailash = await getImage({
+    src: mountKailash,
     format: "webp",
     width: 800,
 });
@@ -42,7 +42,7 @@ const optimizedCulture = await getImage({
             {
                 title: "Mount Kailash",
                 text: "Circle the sacred Mount Kailash, a pilgrimage site for Buddhists and Hindus.",
-                image: optimizedPillar.src,
+                image: optimizedKailash.src,
             },
             {
                 title: "Nomadic Spirit",
