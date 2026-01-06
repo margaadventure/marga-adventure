@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 <div className="pt-16 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-10">
-                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">© 2026 Marga Adventure — The Gateway to Silence</p>
+                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">© 2026 Marga Adventure</p>
                     <div className="flex gap-12 text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">
                         <a href="#" className="hover:text-brand transition-colors">Privacy</a>
                         <a href="#" className="hover:text-brand transition-colors">Terms</a>

@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import { LogoIcon } from '../constants';
 
+import img1 from '../assets/images/menu-carousal/1000000991.jpg';
+import img2 from '../assets/images/menu-carousal/Mustang .jpg';
+import img3 from '../assets/images/menu-carousal/NEP2025-103.jpg';
+import img4 from '../assets/images/menu-carousal/NEP2025-142.jpg';
+import img5 from '../assets/images/menu-carousal/NEP2025-293.jpg';
+import img6 from '../assets/images/menu-carousal/NEP2025-359.jpg';
+import img7 from '../assets/images/menu-carousal/NEP2025-389.jpg';
+import img8 from '../assets/images/menu-carousal/Nepal-RBR_097_12_08-R62_0005.jpg';
+
 interface MenuOverlayProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const SCROLL_IMAGES = [
-  '/images/Trekking/DSCN7275.jpg',
-  '/images/Spirituality Retreat/buddha-face.jpg',
-  '/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.jpg',
-  '/images/Capture/Nepal-RBR_060_15_52-EV0A0678.jpg',
-  '/images/Trekking/PA120680.JPG',
-  '/images/Wildlife/getty-images-FmsP_fMI5Ms-unsplash.jpg',
+  img1.src,
+  img2.src,
+  img3.src,
+  img4.src,
+  img5.src,
+  img6.src,
+  img7.src,
+  img8.src,
 ];
 
 export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
@@ -65,7 +76,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
       <div className="flex-1 flex flex-col md:flex-row relative z-10 overflow-hidden">
 
         {/* Column 1: Main Menu Items */}
-        <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start px-8 md:px-12 lg:px-16 gap-6 bg-brand overflow-y-auto h-full py-12 md:py-20 no-scrollbar transition-all duration-500 border-r border-white/10 z-20 relative`}>
+        <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start pl-12 pr-8 md:pl-24 md:pr-12 lg:pl-32 lg:pr-16 gap-6 bg-brand overflow-y-auto h-full py-12 md:py-20 no-scrollbar transition-all duration-500 border-r border-white/10 z-20 relative`}>
           <a href="/" onClick={onClose} className="group text-2xl md:text-4xl font-bold text-white hover:text-white/70 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left">
             Home
           </a>
@@ -284,7 +295,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
             <>
               <div className="flex flex-col animate-vertical-scroll w-full transition-all duration-700">
                 {[...SCROLL_IMAGES, ...SCROLL_IMAGES].map((src, idx) => (
-                  <div key={idx} className="relative w-full h-[50vh] shrink-0 mb-8">
+                  <div key={idx} className="relative w-full h-[50vh] shrink-0">
                     <img
                       src={src}
                       alt="Marga Experience"

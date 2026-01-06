@@ -25,7 +25,7 @@ const ContactPage: React.FC = () => {
             {/* Info Side */}
             <div>
                <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
-                  Our headquarters is located in the heart of Kathmandu. Visit us at Baneshwor to discuss your 18+ years of trekking heritage with our founder Buddhiman Tamang.
+                  Visit us at our headquater located in heart of Kathmandu, Nepal. Here, you can meet our travel experts and discuss your next adventure.
                </p>
 
                <div className="space-y-12">
@@ -78,13 +78,13 @@ const ContactPage: React.FC = () => {
                <form className="space-y-6">
                   <div>
                      <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
-                     <input type="text" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="John Doe" />
+                     <input type="text" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Your Name" />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                      <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone Number *</label>
-                        <input type="tel" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="+977..." />
+                        <input type="tel" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="987654321" />
                      </div>
                      <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email Address *</label>

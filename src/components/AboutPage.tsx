@@ -5,21 +5,32 @@ import PageHero from './PageHero';
 const TEAM = [
    { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
    { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: '/images/deepak-profile.webp', note: 'Tech Strategy & Innovation' },
-   { name: 'Dorje Sherpa', role: 'Lead Guide', img: 'https://images.unsplash.com/photo-1627161683077-e34782c24d81?auto=format&fit=crop&q=80&w=600', note: 'Summit Specialist' },
-   { name: 'Maya Gurung', role: 'Wellness Expert', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600', note: 'Meditation Lead' },
+   { name: 'Yoga Instructor', role: 'Chief Information Officer', img: '/images/deepak-profile.webp', note: 'Tech Strategy & Innovation' },
+
+
 ];
 
 const AboutPage: React.FC = () => {
    return (
       <div className="bg-white">
          <PageHero
-            title="About Marga"
+            title="Marga Adventure"
             subtitle="A journey within."
             image="/images/Trekking/DSCN7142.webp"
             parallax={true}
          />
 
          <section className="py-24 px-6 md:px-12 lg:px-24">
+            {/* New Intro Section */}
+            <div className="max-w-3xl mx-auto text-center mb-24">
+               <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-4 block">About Marga Adventure</span>
+               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Finding Your Path in the <span className="italic font-light text-brand">Himalayas</span></h2>
+               <div className="text-gray-500 text-lg leading-relaxed font-light space-y-6">
+                  <p>In Sanskrit and Nepali, the word "Marga" means "The Path" or "The Way."</p>
+                  <p>At Marga Adventure, we believe that travel is more than just moving from one place to another; it is about finding the right path-one that leads to discovery, connection, and peace of mind. We are a company built on a foundation of decades of experience.</p>
+               </div>
+            </div>
+
             <div className="max-w-4xl mx-auto my-12">
                <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Our Visionary</span>
                <div className="flex flex-col md:flex-row gap-12 items-start">
