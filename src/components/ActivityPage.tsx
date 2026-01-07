@@ -7,7 +7,7 @@ interface ActivityPageProps {
   subtitle: string;
   description: string;
   heroImage: string;
-  highlights: string[];
+  highlights: (string | { text: string; link: string })[];
   galleryImages: string[];
 }
 
@@ -36,7 +36,11 @@ const ActivityPage: React.FC<ActivityPageProps> = ({ title, subtitle, descriptio
                   <div className="w-8 h-8 rounded-none bg-white flex items-center justify-center text-brand shadow-sm shrink-0 font-serif italic">
                     {index + 1}
                   </div>
-                  <span className="text-gray-900 font-semibold self-center">{highlight}</span>
+                  {typeof highlight === 'string' ? (
+                    <span className="text-gray-900 font-semibold self-center">{highlight}</span>
+                  ) : (
+                    <a href={highlight.link} className="text-gray-900 font-semibold self-center hover:text-brand underline decoration-brand decoration-2 underline-offset-4">{highlight.text}</a>
+                  )}
                 </div>
               ))}
             </div>

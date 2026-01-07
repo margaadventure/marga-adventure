@@ -1,108 +1,104 @@
-
 import React from 'react';
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts';
-import { EVEREST_ELEVATION_DATA } from '../constants';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from 'recharts';
 
-const ElevationGraph: React.FC = () => {
-  return (
-    <section className="py-32 bg-gray-50 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div className="max-w-xl">
-            <span className="text-brand font-bold tracking-[0.5em] text-[10px] uppercase mb-4 block">Vertical Progression</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Altitude Profile: <span className="font-light italic">Summit Path</span></h2>
-            <p className="text-gray-400 font-light leading-relaxed">Chart your trajectory across the Khumbu valley. Reach the absolute peak within 14 days of acclimatization and ascent.</p>
-          </div>
-          <div className="hidden md:flex items-center gap-10 text-right bg-white px-10 py-6 rounded-3xl border border-gray-100 shadow-sm">
-            <div>
-              <div className="text-4xl font-bold text-brand tracking-tighter">14</div>
-              <div className="text-[8px] text-gray-400 tracking-[0.3em] uppercase font-bold mt-1">Days Total</div>
-            </div>
-            <div className="w-px h-10 bg-gray-100"></div>
-            <div>
-              <div className="text-4xl font-bold text-gray-900 tracking-tighter">5,364</div>
-              <div className="text-[8px] text-gray-400 tracking-[0.3em] uppercase font-bold mt-1">Peak (m)</div>
-            </div>
-          </div>
-        </div>
+interface ElevationGraphProps {
+  data: { day: string; altitude: number }[];
+}
 
-        <div className="bg-white p-6 md:p-14 rounded-[3.5rem] shadow-2xl shadow-gray-200/40 border border-gray-100 h-[550px] w-full relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-            <svg className="w-48 h-48 text-brand" fill="currentColor" viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6z" /></svg>
-          </div>
-
-          <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-            <AreaChart
-              data={EVEREST_ELEVATION_DATA}
-              margin={{ top: 30, right: 30, left: 0, bottom: 0 }}
-            >
-              <defs>
-                <linearGradient id="colorElevation" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#1E73BE" stopOpacity={0.4} />
-                  <stop offset="50%" stopColor="#1E73BE" stopOpacity={0.1} />
-                  <stop offset="95%" stopColor="#1E73BE" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="6 6" vertical={false} stroke="#f5f5f5" />
-              <XAxis
-                dataKey="day"
-                axisLine={false}
-                tickLine={false}
-                tick={{ fill: '#9ca3af', fontSize: 9, fontWeight: 700, letterSpacing: '0.1em' }}
-                dy={25}
-              />
-              <YAxis
-                axisLine={false}
-                tickLine={false}
-                tick={{ fill: '#9ca3af', fontSize: 9, fontWeight: 700 }}
-                unit="m"
-                domain={['dataMin - 1000', 'dataMax + 500']}
-                dx={-15}
-              />
-              <Tooltip
-                content={({ active, payload }) => {
-                  if (active && payload && payload.length) {
-                    const data = payload[0].payload;
-                    return (
-                      <div className="bg-white/95 backdrop-blur-md px-6 py-4 rounded-2xl shadow-2xl border border-gray-100 animate-in slide-in-from-bottom-2 duration-300">
-                        <p className="text-[8px] font-bold text-brand uppercase tracking-[0.4em] mb-1">{data.day}</p>
-                        <p className="font-bold text-gray-900 text-sm mb-1">{data.location}</p>
-                        <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 rounded-full bg-brand"></div>
-                          <p className="font-mono text-gray-500 text-xs">{data.elevation.toLocaleString()} meters</p>
-                        </div>
-                      </div>
-                    );
-                  }
-                  return null;
-                }}
-                cursor={{ stroke: '#1E73BE', strokeWidth: 1, strokeDasharray: '4 4' }}
-              />
-              <Area
-                type="monotone"
-                dataKey="elevation"
-                stroke="#1E73BE"
-                strokeWidth={4}
-                fillOpacity={1}
-                fill="url(#colorElevation)"
-                // Removed invalid 'shadow' property to fix TypeScript error in recharts activeDot config
-                activeDot={{ r: 8, strokeWidth: 4, stroke: '#fff', fill: '#1E73BE' }}
-                animationDuration={2000}
-                animationEasing="ease-in-out"
-              />
-            </AreaChart>
-          </ResponsiveContainer>
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-white p-4 border border-gray-100 shadow-xl shadow-blue-900/5 rounded-none ring-1 ring-black/5">
+        <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Day {label}</p>
+        <div className="flex items-end gap-1">
+          <p className="text-brand font-bold text-2xl leading-none">
+            {payload[0].value.toLocaleString()}
+          </p>
+          <span className="text-gray-400 text-xs font-medium mb-0.5">m</span>
         </div>
       </div>
-    </section>
+    );
+  }
+  return null;
+};
+
+const ElevationGraph: React.FC<ElevationGraphProps> = ({ data }) => {
+  // Find max altitude for reference dot
+  const maxAltitudePoint = data.reduce((prev, current) => (prev.altitude > current.altitude) ? prev : current, data[0]);
+
+  return (
+    <div className="w-full bg-white p-8 border border-gray-100 shadow-sm mt-8 relative overflow-hidden group hover:shadow-md transition-shadow duration-500">
+      <div className="flex justify-between items-end mb-8 relative z-10">
+        <div>
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-[0.2em]">Elevation Profile</h3>
+          <p className="text-gray-400 text-xs mt-2 font-light">Altitude gain over time</p>
+        </div>
+        <div className="text-right">
+          <span className="block text-brand font-bold text-lg">{maxAltitudePoint.altitude.toLocaleString()}m</span>
+          <span className="text-[10px] text-gray-400 uppercase tracking-wider">Max Elevation</span>
+        </div>
+      </div>
+
+      <div className="h-[350px] w-full -ml-4">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart
+            data={data}
+            margin={{
+              top: 20,
+              right: 20,
+              left: 0,
+              bottom: 0,
+            }}
+          >
+            <defs>
+              <linearGradient id="colorAltitude" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#1E73BE" stopOpacity={0.15} />
+                <stop offset="95%" stopColor="#1E73BE" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
+            <XAxis
+              dataKey="day"
+              tick={{ fontSize: 11, fill: '#9CA3AF', fontWeight: 500 }}
+              tickLine={false}
+              axisLine={{ stroke: '#f3f4f6' }}
+              interval={0}
+              padding={{ left: 20, right: 20 }}
+              dy={10}
+            />
+            <YAxis
+              tick={{ fontSize: 11, fill: '#9CA3AF', fontWeight: 500 }}
+              tickLine={false}
+              axisLine={false}
+              unit="m"
+              dx={-10}
+            />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ stroke: '#1E73BE', strokeWidth: 1, strokeDasharray: '4 4' }}
+            />
+            <Area
+              type="monotone"
+              dataKey="altitude"
+              stroke="#1E73BE"
+              strokeWidth={3}
+              fillOpacity={1}
+              fill="url(#colorAltitude)"
+              activeDot={{ r: 6, strokeWidth: 0, fill: '#1E73BE' }}
+            />
+            <ReferenceDot
+              x={maxAltitudePoint.day}
+              y={maxAltitudePoint.altitude}
+              r={4}
+              fill="#fff"
+              stroke="#1E73BE"
+              strokeWidth={3}
+              isFront={true}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
   );
 };
 
