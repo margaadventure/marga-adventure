@@ -37,6 +37,26 @@ const Footer: React.FC = () => {
                                 </a>
                             </div>
                         </div>
+                        <div>
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-6">Associations</p>
+                            <div className="grid grid-cols-3 gap-6 items-center">
+                                <img
+                                    src="/images/Association Logo/Nepal-Tourism-Board_Logo-full.jpg"
+                                    alt="Nepal Tourism Board"
+                                    className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/Association Logo/taan-logo.jpg"
+                                    alt="TAAN"
+                                    className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                                />
+                                <img
+                                    src="/images/Association Logo/NMA-Logo-removebg-preview.png"
+                                    alt="NMA"
+                                    className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                                />
+                            </div>
+                        </div>
                     </div>
 
                     {/* Nepal Links Column */}
