@@ -1,0 +1,102 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TripItineraryPage from "../../components/TripItineraryPage";
+
+const itinerary = [
+    {
+        day: "Day 1",
+        title: "Arrival, transfer to hotel and Vibrational Alignment",
+        description:
+            "Upon arrival in Kathmandu, you will be transferred to your tranquil hotel away from the city's bustle. The journey begins with a gentle orientation followed by a traditional Tibetan Sound Healing session in the evening. The deep vibrations of the handmade singing bowls will help clear travel fatigue and ground your energy. Enjoy a light, organic vegetarian dinner to prepare your body for the week ahead.",
+    },
+    {
+        day: "Day 2",
+        title: "Spiritual Awakening in Boudhanath Stupa",
+        description:
+            "Start with a sunrise mindfulness practice before visiting the Boudhanath Stupa, the center of Tibetan Buddhism in Nepal. You will light butter lamps and circumambulate the dome with local pilgrims. In the afternoon, travel to a nearby monastery Kopan for a private guided meditation and a dharma talk on compassion. The day ends with a silent reflection period at your hotel.",
+    },
+    {
+        day: "Day 3",
+        title: "Journey to the Lake City",
+        description:
+            'Fly to Pokhara, a city renowned for its healing energy and stunning lakes. After checking into your lakeside wellness resort, take a "forest bathing" walk along the shores of Phewa Lake. In the afternoon, enjoy a private boat ride to the Tal Barahi Temple, situated on an island. Use this time to connect with the element of water, allowing the stillness of the lake to calm your mind.',
+    },
+    {
+        day: "Day 4",
+        title: "Mountain Energy and Inner Peace",
+        description:
+            "Rise early for a drive to Sarangkot for a sunrise yoga session facing the Annapurna range. As the sun hits Machhapuchhre (Fishtail) mountain, you will perform sun salutations in the crisp mountain air. Afterward, hike silently up to the World Peace Pagoda. This white stupa offers panoramic views and a profound sense of serenity. Spend the afternoon journaling or resting in the resort’s garden.",
+    },
+    {
+        day: "Day 5",
+        title: "Ayurvedic Healing and Grounding",
+        description:
+            'Today focuses on physical restoration through Ayurveda. After a morning meditation, visit a specialized wellness center for a consultation and a traditional Ayurvedic massage using warm herbal oils. In the afternoon, visit the Gupteshwor Cave to experience the grounding energy of the earth element. The evening is reserved for a "Trataka" (candle gazing) meditation to improve focus and inner clarity before sleep.',
+    },
+    {
+        day: "Day 6",
+        title: "Ancient Roots and Reflection",
+        description:
+            "Fly back to Kathmandu and travel to the medieval city of Bhaktapur. Walk through its car-free cobblestone streets, observing the slow pace of life and ancient craftsmanship. You will participate in a clay pottery workshop, a grounding activity that connects you tactilely to the earth. In the evening, enjoy a farewell dinner with a traditional cultural performance, celebrating the journey you have undertaken.",
+    },
+    {
+        day: "Day 7",
+        title: "Departure with Gratitude",
+        description:
+            'Begin your final morning with a gratitude circle and a short closing ceremony to seal the benefits of your practice. Depending on your flight schedule, you may have time for last-minute souvenir shopping for singing bowls or incense. You will be transferred to the airport with a renewed sense of purpose and a "khada" (ceremonial scarf) for safe travels and good fortune.',
+    },
+];
+
+const highlights = [
+    {
+        title: "Tibetan Sound Healing",
+        description:
+            "Experience deep vibrational therapy with singing bowls to release tension and align chakras.",
+    },
+    {
+        title: "Monastery Immersion",
+        description:
+            "Participate in a private meditation session with monks at a hilltop monastery near Boudhanath.",
+    },
+    {
+        title: "Sunrise Yoga",
+        description:
+            "Practice mindfulness facing the Annapurna range at Sarangkot as the sun illuminates the Himalayas.",
+    },
+    {
+        title: "Ayurvedic Rejuvenation",
+        description:
+            "Indulge in a traditional massage using herbal oils sourced from the Nepalese highlands.",
+    },
+    {
+        title: "Peace Pagoda Hike",
+        description:
+            "A silent, meditative walk through the forest to the World Peace Pagoda overlooking Phewa Lake.",
+    },
+];
+
+const overview = `This transformative wellness journey in Nepal blends ancient Himalayan spirituality with restorative nature experiences. Designed to realign the mind, body, and spirit, the trip takes you from the energy centers of Kathmandu to the serene lakeside of Pokhara. Through sound healing, monastery visits, and mountain yoga, you will disconnect from daily stress and reconnect with your inner self amidst the world’s highest peaks.`;
+---
+
+<Layout
+    title="The Path to Inner Peace | Marga Adventure"
+    description="A transformative wellness journey in Nepal blending ancient spirituality, sound healing, and mountain yoga."
+>
+    <TripItineraryPage
+        title="The Path to Inner Peace"
+        subtitle="Wellness Journey"
+        heroImage="/images/Spirituality Retreat/healing-bowl.webp"
+        overview={overview}
+        highlights={highlights}
+        itinerary={itinerary}
+        tripStats={{
+            duration: "7 Days",
+            maxAltitude: "Wellness / Yoga",
+            maxAltitudeLabel: "Trip Type",
+            difficulty: "Easy",
+            groupSize: "2-10 Pax",
+        }}
+        showElevationGraph={false}
+        client:visible
+    />
+</Layout>
