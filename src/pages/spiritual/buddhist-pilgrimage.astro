@@ -1,0 +1,102 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TripItineraryPage from "../../components/TripItineraryPage";
+
+const itinerary = [
+    {
+        day: "Day 1",
+        title: "Arrival in the Land of Stupas",
+        description:
+            'Arrive in Kathmandu and transfer directly to a hotel in the Boudha area, the Tibetan heart of Nepal. In the late afternoon, immerse yourself in the spiritual atmosphere by joining the "Kora" (circumambulation) around the massive Boudhanath Stupa. The air is thick with the scent of incense and the sound of "Om Mani Padme Hum." This ritual walk helps you leave behind the mundane world and enter a sacred space of intention.',
+    },
+    {
+        day: "Day 2",
+        title: "Foundations of the Dharma",
+        description:
+            "Begin the day with a private meditation session overlooking the stupa. Later, visit the Kopan Monastery or a similar institution for an introduction to Buddhist philosophy and a Dharma talk by a senior monk. You will learn about the Four Noble Truths and the practice of compassion. The afternoon is spent in silent reflection or exploring the artisan workshops around Boudha, where thangka paintings and statues are crafted with meditative precision.",
+    },
+    {
+        day: "Day 3",
+        title: "Pilgrimage to the Birthplace",
+        description:
+            "Take a morning flight to Bhairahawa and drive to Lumbini, the birthplace of Lord Buddha. Check into a hotel near the Sacred Garden. In the afternoon, visit the Mayadevi Temple and sit in meditation under the Bodhi tree near the sacred pond. This is a powerful location to connect with the roots of Buddhism. The peaceful energy of the gardens provides an ideal setting for contemplation on the impermanence of life.",
+    },
+    {
+        day: "Day 4",
+        title: "Mindfulness in the Monastic Zone",
+        description:
+            'Dedicate the day to exploring the Lumbini Monastic Zone, which features temples built by Buddhist communities from around the world. We will practice walking meditation between the sites, observing the different architectural interpretations of the Dharma. The afternoon is free for self-guided practice or a discussion on mindfulness techniques. The lack of city noise here allows for a deep "mental detox" and strengthens your focus.',
+    },
+    {
+        day: "Day 5",
+        title: "The Act of Supreme Generosity",
+        description:
+            "Fly back to Kathmandu and drive to the serene hilltop of Namobuddha. This site is legendary for the story of the Buddha (in a previous life) offering his body to a starving tigress. The energy here is one of overwhelming compassion and selflessness. You will stay at the monastery guest house, eating simple vegetarian meals and witnessing the evening debating or chanting sessions of the young monks.",
+    },
+    {
+        day: "Day 6",
+        title: "Swayambhu and the Primordial Light",
+        description:
+            'Wake up early to observe the morning puja (prayer ceremony) with the monks at Namobuddha. After breakfast, drive back to Kathmandu to visit Swayambhunath (the Monkey Temple), perched on a hill overlooking the valley. It represents the "self-arisen" wisdom of the Buddha. Explore the complex of shrines and enjoy the sunset over the city. A farewell dinner will be arranged at a traditional restaurant, celebrating the spiritual insights gained.',
+    },
+    {
+        day: "Day 7",
+        title: "Carrying the Dhamma Home",
+        description:
+            "On your final morning, engage in a closing circle to share experiences and dedicate the merit of your practice to the benefit of all beings. You may have a few hours to purchase prayer flags or beads as reminders of your journey. You will be transferred to the airport, carrying not just souvenirs, but a lighter heart and a set of practical mindfulness tools to integrate into your daily life.",
+    },
+];
+
+const highlights = [
+    {
+        title: "Birthplace of Buddha",
+        description:
+            "Meditate in the Sacred Garden of Lumbini, exactly where Prince Siddhartha was born.",
+    },
+    {
+        title: "Monastic Life",
+        description:
+            "Stay overnight at a monastery guest house to experience the daily rhythm of monks’ chanting and prayers.",
+    },
+    {
+        title: "Boudhanath Kora",
+        description:
+            "Join thousands of devotees in the daily ritual circumambulation of the Great Stupa.",
+    },
+    {
+        title: "Dharma Teachings",
+        description:
+            "Receive an introductory talk on Buddhist philosophy from a resident Lama (teacher).",
+    },
+    {
+        title: "Namobuddha Visit",
+        description:
+            'Explore the site of "Supreme Generosity," a serene hilltop sacred to the previous life of the Buddha.',
+    },
+];
+
+const overview = `This journey traces the sacred path of Buddhism in Nepal, blending cultural discovery with deep spiritual practice. From the birthplace of Lord Buddha in the plains to the ancient stupas of the Kathmandu Valley, this retreat offers a balance of guided meditation, monastic interaction, and historical insight. It is designed for those seeking to understand the essence of the Dharma while experiencing the profound tranquility of Nepal’s most holy sites.`;
+---
+
+<Layout
+    title="A Buddhist Pilgrimage | Marga Adventure"
+    description="Trace the sacred path of Buddhism in Nepal, from Lumbini's gardens to Kathmandu's ancient stupas."
+>
+    <TripItineraryPage
+        title="A Buddhist Pilgrimage"
+        subtitle="Path of Enlightenment"
+        heroImage="/images/Spirituality Retreat/buddha-face.webp"
+        overview={overview}
+        highlights={highlights}
+        itinerary={itinerary}
+        tripStats={{
+            duration: "7 Days",
+            maxAltitude: "Culture / Spirit",
+            maxAltitudeLabel: "Trip Type",
+            difficulty: "Easy",
+            groupSize: "2-10 Pax",
+        }}
+        showElevationGraph={false}
+        client:visible
+    />
+</Layout>

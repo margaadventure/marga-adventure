@@ -248,9 +248,9 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
 
                                         <div className={`grid transition-all duration-500 ease-in-out ${activeDay === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                                             <div className="overflow-hidden">
-                                                <div className="p-6 md:p-8 pt-0 border-t border-dashed border-gray-100">
+                                                <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-dashed border-gray-100">
                                                     {(day.stats?.altitude || day.stats?.distance || day.stats?.duration) && (
-                                                        <div className="flex flex-wrap gap-3 mb-8 mt-6">
+                                                        <div className="flex flex-wrap gap-3 mb-8">
                                                             {day.stats?.altitude && (
                                                                 <div className="flex items-center gap-2 text-[10px] font-bold text-brand uppercase tracking-widest bg-brand/5 px-4 py-2 rounded-none border border-brand/10">
                                                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 19.5L15 12l-6 9H3l7-10 6 10h6.5z"></path></svg>
