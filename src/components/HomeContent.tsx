@@ -39,7 +39,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                     </div>
                 </div>
 
-                <a href="/contact" className="absolute bottom-12 flex flex-col items-center gap-4 text-white/40 group cursor-pointer transition-all hover:text-white">
+                <a href="/contact" className="absolute bottom-24 flex flex-col items-center gap-4 text-white/40 group cursor-pointer transition-all hover:text-white">
                     <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Follow the Marga</span>
                     <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent group-hover:h-24 transition-all duration-700"></div>
                 </a>
