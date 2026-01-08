@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PageHero from './PageHero';
 import ElevationGraph from './ElevationGraph';
+import ContactModal from './ContactModal';
 
 interface DayItinerary {
     day: string;
@@ -50,6 +51,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
     showElevationGraph = true
 }) => {
     const [activeDay, setActiveDay] = useState<number | null>(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Extract altitude data for graph
     const elevationData = itinerary.map(day => {
@@ -300,9 +302,12 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                             <p className="text-gray-500 text-sm mb-8 font-light">Secure your spot for an unforgettable Himalayan adventure.</p>
 
                             <div className="space-y-4 mb-8">
-                                <a href="/contact" className="block w-full bg-brand text-white text-center py-5 font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-brand/20">
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="block w-full bg-brand text-white text-center py-5 font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-brand/20"
+                                >
                                     Enquire Now
-                                </a>
+                                </button>
                             </div>
 
                             <div className="border-t border-gray-100 pt-6 text-center">
@@ -342,6 +347,12 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                 </div>
 
             </div>
+
+            <ContactModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                tripTitle={title}
+            />
         </div>
     );
 };
