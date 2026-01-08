@@ -1,0 +1,206 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TripItineraryPage from "../../components/TripItineraryPage";
+
+const itinerary = [
+    {
+        day: "Day 1",
+        title: "Arrival in Kathmandu and transfer to hotel",
+        description:
+            "Upon your arrival at Tribhuvan International Airport in Kathmandu, you will be greeted and transferred to your hotel in the city. The rest of the day is free for you to rest after your journey, stroll through the vibrant streets of Thamel, or simply relax. In the evening, there will be a trek briefing where you will meet your guide and discuss the Manaslu Circuit adventure ahead while permits and logistics are finalized.",
+        stats: {},
+    },
+    {
+        day: "Day 2",
+        title: "Drive from Kathmandu to Machha Khola",
+        description:
+            "The journey begins with a long but scenic drive heading west along the Prithvi Highway. The road winds along the banks of the Trishuli River and later follows the Budhi Gandaki Valley. You pass through terraced fields, waterfalls, and small towns before reaching the starting point of the trek at Machha Khola, a riverside village where you spend the night.",
+        stats: {
+            duration: "7-8 hrs",
+            altitude: "930m",
+        },
+    },
+    {
+        day: "Day 3",
+        title: "Trek from Machha Khola to Jagat",
+        description:
+            "Your first trekking day takes you on a narrow trail that follows the Budhi Gandaki River. You cross suspension bridges, pass through Khorlabesi village, and enjoy a break at Tatopani, known for its natural hot springs. The trail then undulates through forests and small hamlets before climbing to the stone-paved village of Jagat, the official entry point into the restricted Manaslu region.",
+        stats: {
+            duration: "6-7 hrs",
+            altitude: "1,410m",
+        },
+    },
+    {
+        day: "Day 4",
+        title: "Trek from Jagat to Deng",
+        description:
+            "Leaving Jagat, you walk through charming villages like Salleri and Philim, surrounded by terraced millet and corn fields. The valley begins to narrow as you follow the river through gorges and lush subtropical forests. The day ends with a gradual climb to Deng, a small but culturally rich settlement influenced by Tibetan traditions.",
+        stats: {
+            duration: "6-7 hrs",
+            altitude: "1,804m",
+        },
+    },
+    {
+        day: "Day 5",
+        title: "Trek from Deng to Namrung",
+        description:
+            "Today the landscape changes as you ascend into higher terrain. The trail passes through dense bamboo and rhododendron forests and across suspension bridges. You gradually climb past alpine villages, with glimpses of snow peaks along the way. Finally, you reach Namrung, a beautiful village with traditional stone houses, where you will have your first close views of Manaslu and Ganesh Himal.",
+        stats: {
+            duration: "6-7 hrs",
+            altitude: "2,630m",
+        },
+    },
+    {
+        day: "Day 6",
+        title: "Trek from Namrung to Lho",
+        description:
+            "The trek from Namrung begins with a gradual ascent through forests and farmland. The route passes mani walls and monasteries that reflect the Tibetan Buddhist culture of the region. As you approach Lho, the views open up dramatically, with Himal Chuli and Manaslu rising in the distance. Lho is a picturesque village, home to Ribung Monastery, offering stunning sunset views of the mountains.",
+        stats: {
+            duration: "4-5 hrs",
+            altitude: "3,180m",
+        },
+    },
+    {
+        day: "Day 7",
+        title: "Trek from Lho to Samagaun",
+        description:
+            "The trail today follows through pine forests and streams, with increasingly dramatic mountain scenery. Along the way you pass Shyala village, surrounded by fields and snow-capped peaks. The trek continues gently to Samagaun, a large and culturally significant village where Tibetan influence is strongly felt. The rest of the day can be spent exploring the village and its monasteries.",
+        stats: {
+            duration: "4-5 hrs",
+            altitude: "3,530m",
+        },
+    },
+    {
+        day: "Day 8",
+        title: "Acclimatization in Samagaun",
+        description:
+            "You spend the day in Samagaun to allow your body to adapt to the higher altitude. There are several options for side trips: you can hike up to Pungyen Gompa for spectacular views of the glaciers, visit the turquoise waters of Birendra Lake, or even make a challenging excursion towards Manaslu Base Camp. After exploration, you return to Samagaun for the night.",
+        stats: {
+            altitude: "3,530m",
+        },
+    },
+    {
+        day: "Day 9",
+        title: "Trek from Samagaun to Samdo",
+        description:
+            "Leaving Samagaun, the trail ascends gradually as the valley becomes more open and barren, surrounded by high peaks. After a few hours of steady trekking, you arrive at Samdo, a Tibetan refugee village near the border with Tibet. The settlement is rich in culture and provides an excellent opportunity to observe traditional mountain life.",
+        stats: {
+            duration: "4-5 hrs",
+            altitude: "3,860m",
+        },
+    },
+    {
+        day: "Day 10",
+        title: "Trek from Samdo to Dharamsala / Larke Phedi",
+        description:
+            "The trail climbs steadily today, becoming rockier and more barren as you ascend. With the snowy peaks rising high above, you trek toward Dharamsala, also known as Larke Phedi, a small and basic settlement at the base of the pass. This is the last stop before the big crossing, so you rest early in preparation for the next day’s challenge.",
+        stats: {
+            duration: "4-5 hrs",
+            altitude: "4,460m",
+        },
+    },
+    {
+        day: "Day 11",
+        title: "Cross Larke La Pass and trek to Bimthang",
+        description:
+            "This is the most challenging yet rewarding day of the trek. Starting before dawn, you make a gradual but steady climb over rocky and icy terrain to reach the top of Larke La Pass (5,160m). From the summit, you are rewarded with breathtaking views of Himlung Himal, Cheo Himal, Kang Guru, Annapurna II, and Manaslu itself. After savoring the panorama, you descend carefully across moraines and past frozen lakes before reaching the beautiful valley of Bimthang, where you rest after a long day.",
+        stats: {
+            duration: "8-9 hrs",
+            altitude: "5,160m (Pass)",
+        },
+    },
+    {
+        day: "Day 12",
+        title: "Trek from Bimthang to Gao",
+        description:
+            "From Bimthang, the trail descends through lush rhododendron and pine forests, passing meadows and small villages along the way. The scenery is striking as you gradually leave the high mountains behind and re-enter greener valleys. Eventually, you reach Gao, a beautiful and quite village where you will stay overnight.",
+        stats: {
+            duration: "6-7 hrs",
+            altitude: "1,960m",
+        },
+    },
+    {
+        day: "Day 13",
+        title: "Trek to Tilche and Drive to Bandipur",
+        description:
+            "After breakfast, you will trek down to Tilche village where you take a jeep to Besisahar and then you change the bus which follows through the Pritihivi Highway to Bandipur, a typical Newari village situated at the hilltop. The drive is beautiful but scenic, with opportunities to reflect on your journey. Upon arrival, you check into your hotel and visit the Bandipur village.",
+        stats: {
+            duration: "1 hr trek, 5 hrs drive",
+        },
+    },
+    {
+        day: "Day 14",
+        title: "Drive to Kathmandu",
+        description:
+            "Early morning after having your breakfast. You will take a bus to Kathmandu which will drive through the Prithivi Highway aling the Marshyandi and Trisuli river. Upon arrival, you check into your hotel and leisure time for rest or shopping souvenirs.",
+        stats: {
+            duration: "5-6 hrs drive",
+        },
+    },
+    {
+        day: "Day 15",
+        title: "Departure from Kathmandu",
+        description:
+            "As your adventure concludes, transfer to the airport depending upon your flight schedule for international departure.",
+        stats: {},
+    },
+];
+
+const highlights = [
+    {
+        title: "Mount Manaslu",
+        description:
+            "Experience the grandeur of Mount Manaslu (8,163m), the eighth-highest mountain in the world.",
+    },
+    {
+        title: "Larke La Pass",
+        description:
+            "Challenge yourself crossing the dramatic Larke La Pass (5,160m) for unparalleled mountain views.",
+    },
+    {
+        title: "Off-the-Beaten-Path",
+        description:
+            "Enjoy remote trails with fewer trekkers compared to Everest & Annapurna regions, offering solitude and exclusivity.",
+    },
+    {
+        title: "Rich Buddhist Culture",
+        description:
+            "Immerse in authentic Tibetan Buddhist culture through ancient monasteries, mani walls, and fluttering prayer flags mainly in Samagaun and Samdo.",
+    },
+    {
+        title: "Diverse Landscapes",
+        description:
+            "Witness a dramatic transition from subtropical forests to alpine meadows, glaciers, and high passes.",
+    },
+    {
+        title: "Mountain Panoramas",
+        description:
+            "Stunning panoramic views including Manaslu, Ganesh Himal, Himlung Himal, Cheo Himal, and Annapurna ranges.",
+    },
+];
+
+const overview = `The Manaslu Circuit Trek is one of Nepal’s most spectacular and culturally rich trekking routes, taking you around Mount Manaslu (8,163m), the eighth-highest mountain in the world. Often nicknamed the "Spirit Mountain" by locals, this region offers a quieter and less-commercialized alternative to the more crowded Annapurna and Everest treks. The trail showcases a dramatic evolution of landscapes, transitioning from the steamy, subtropical terraced fields of the Budhi Gandaki valley to the stark, windswept alpine terrain near the Tibetan border.
+
+Culturally, the region is incredibly authentic; trekkers pass through villages like Samagaun and Samdo, where ancient Tibetan Buddhist traditions and monasteries remain virtually untouched by modernity. The journey’s crowning challenge is the crossing of the Larkya La Pass (5,106m), a physical feat that rewards you with panoramic views of Himlung Himal, Cheo Himal, and Annapurna II. Designated as a Restricted Area requiring special permits, the Manaslu Circuit retains a sense of exclusivity and raw wilderness perfect for solitude seekers.`;
+---
+
+<Layout
+    title="Manaslu Circuit Trek"
+    description="A pristine journey around the world's 8th highest peak, offering secluded trails, rich Tibetan culture, and the challenging Larke La Pass."
+>
+    <TripItineraryPage
+        title="Manaslu Circuit Trek"
+        subtitle="Spirit of the Mountains"
+        heroImage="/images/Trekking/DSCN7142.jpg"
+        overview={overview}
+        highlights={highlights}
+        itinerary={itinerary}
+        tripStats={{
+            duration: "15 Days",
+            maxAltitude: "5,160m",
+            difficulty: "Challenging",
+            groupSize: "2-12 People",
+        }}
+        client:visible
+    />
+</Layout>

@@ -1,0 +1,199 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TripItineraryPage from "../../components/TripItineraryPage";
+
+const itinerary = [
+    {
+        day: "Day 1",
+        title: "Arrival and transfer to hotel",
+        description:
+            "Depending upon your arrival timing at Tribhuvan International airport our representative will receive and drive you to your hotel. In the evening, briefing about the trip and get to know your team (guide and supporting members).",
+        stats: {},
+    },
+    {
+        day: "Day 2",
+        title: "Visit Kathmandu Valley",
+        description:
+            "Today after breakfast we’ll be touring around the Kathmandu valley. The Swyambunath Stupa, Pashupatinath temple and Boudhanath Stupa are the major sight-seeing areas around the Kathmandu valley. These all are listed in a world heritage site. The Durbar square shows us the regal life of ancient periods. Patan Durbar Square is one the medieval City which is considered as the living Museum, Pashupatinath temple is one of the most sacred Hindu pilgrimages. Boudhanath stupa is the biggest Buddhist Stupa which is a well known pilgrimage for Buddhists all over the world. Later on, after the sight-seeing we will discuss our trip preparations.",
+        stats: {},
+    },
+    {
+        day: "Day 3",
+        title: "Drive to Pokhara",
+        description:
+            "Early in the morning we will drive to Pokhara which will take approximately 7 hours covering 200 kms of distance. On the way we will drive through the banks of Trisuli and Maryshyandi river and leisurely in the evening.",
+        stats: {
+            duration: "7 hours",
+            distance: "200 km",
+        },
+    },
+    {
+        day: "Day 4",
+        title: "Fly to Jomsom and drive to Kagbeni via Lupra Village",
+        description:
+            "Early in the morning, we will fly to Jomsom which takes approx. 20 minutes allowing us to have breathtaking close views of Annapurna and Dhaulagiri range and others. Upon landing at the airport, we will meet with our crew members and head out for Kagbeni via visiting Lupra village (only Bonpo village in Mustang). On reaching Kagbeni Village, we will complete our paperwork at the police check post before entering this long forbidden region of Nepal.",
+        stats: {
+            duration: "20 min flight, drive to Kagbeni",
+        },
+    },
+    {
+        day: "Day 5",
+        title: "Drive Kagbeni to Ghami via hike to Chungsi Cave",
+        description:
+            "After having breakfast, you will have a drive to Samar village about 27 kms which will take approx 1.5 hours and then start the half day hike till chungsi cave. Chungsi cave is a popular pilgrimage of Mustang for both Hindus and Buddhists. It is believed that the great Buddhist master Guru Ringpoche meditated in this cave in around the 8th century. You will get back to jeep and continue drive till Ghami village about 19 kms which takes about 1 hour.",
+        stats: {
+            activity: "Drive & Hike",
+            duration: "1.5 hr drive, half day hike, 1 hr drive",
+        },
+    },
+    {
+        day: "Day 6",
+        title: "Ghami to Dhakmar hike and explore caves",
+        description:
+            "Today, you will have a half day hike till Dhakmar, a beautiful village beneath red cliffs. In the afternoon you will explore the village and caves nearby which are absolutely amazing.",
+        stats: {
+            activity: "Hiking",
+            duration: "Half day hike",
+        },
+    },
+    {
+        day: "Day 7",
+        title: "Hike to Ghar Gompa, Horse ride to Lomanthang",
+        description:
+            "Early morning after breakfast, you will start the uphill hike from Dhakmar till the pass of Muila 4200m then descend down to the monastery of Ghar Gompa (oldest monastery in mustang which dates back to 8th century). It will take about 4 hours to reach the monastery. Once you arrive, visit monastery and have your lunch at monastery. Then after the lunch, 2.5 hours’ horse ride to reach the Kingdom of Lomanthang.",
+        stats: {
+            duration: "4 hrs hike, 2.5 hrs horse ride",
+            altitude: "4,200m (Pass)",
+        },
+    },
+    {
+        day: "Day 8",
+        title: "Explore Lomanthang & Surroundings",
+        description:
+            "Lomanthang is an ancient kingdom known for its unique culture, traditions and stunning mountain scenery around. Ancient monasteries, palace, chortens, mani wall, prayers flags, canyons and beautiful landscapes attract the attention of visitors. Explore the village of Niphu, Gharphu and Jhong cave. On the way back 1.5 hours hike to the ruins of an ancient palace from where you will have breaktaking view over city of Lomanthang.",
+        stats: {
+            activity: "Sightseeing & Hiking",
+        },
+    },
+    {
+        day: "Day 9",
+        title: "Visit Lomanthang Monasteries & Caves",
+        description:
+            "Explore the fascinating city of Lo Manthang. Today we will visit the 3 major ancient monasteries of lomanthang, Champa Lakhang (God House), Thugchen Gompa and Chyodi Gompa. Other attraction is the king’s palace an imposing building in the center of the city and is occupied by the current King and Queen. In the afternoon, hike to Koncholing which is famous for its amazingly beautiful murals. It is a sacred cave for unique cultural and spiritual experience.",
+        stats: {
+            activity: "Cultural Tour",
+        },
+    },
+    {
+        day: "Day 10",
+        title: "Drive to Jomsom via Tsarang Village",
+        description:
+            "Slowly drive down 19 kms to the Tsarang a typical Tibetan village where you visit the beautiful monastery of Tsarang which has lots of ancient Buddhist scripts written by gold. Continue the drive to Jomson which is about 61 kms and takes approx. 4 hours. Late afternoon, short walk around the Jomsom.",
+        stats: {
+            duration: "Approx. 4 hours drive",
+            distance: "80 km total",
+        },
+    },
+    {
+        day: "Day 11",
+        title: "Fly back to Pokhara",
+        description:
+            "Early morning, fly back to pokhara. In the afternoon, visit lakeside and boating in the Phewa lake.You will conclude your day with assisting the Aarati Ceremony at lakeside.",
+        stats: {
+            activity: "Flight & Leisure",
+        },
+    },
+    {
+        day: "Day 12",
+        title: "Visit Pokhara",
+        description:
+            "Early morning 30 min drive to Sarangkot for surise over Annapurna range. Return for breakfast and the visit Mountain Museum. Then you will participate in momo class chez Dolma and then have yummy momos prepared by yourself. Leisure in the late afternoon.",
+        stats: {
+            activity: "Sightseeing & Cooking Class",
+        },
+    },
+    {
+        day: "Day 13",
+        title: "Fly to Kathmandu",
+        description:
+            "Depending upon your flight timing, you will leave to airport. Once you arrive at Kathamndu, visit Kathmandu Durbar Square which dates back to 15th century and houses lots of temples and beautiful courtyards. On your way back to hotel, you will pass through the Ason Market which is historic and bustling market square right in the heart of Kathmandu.",
+        stats: {
+            activity: "Flight & Sightseeing",
+        },
+    },
+    {
+        day: "Day 14",
+        title: "Patan visit and Tea Tasting",
+        description:
+            "Explore the historic royal square of Patan with stuning Newari architecture which includes palaces, courtyards and hundreds of temples and monasteries. It is a city with the blend of both Hinduism and Buddhism. Tea Tasting session in the afternoon where you will taste different kinds of Nepalese tea (green tea, black tea, white tea and oolong tea). Leisure in the late afternoon.",
+        stats: {
+            activity: "Sightseeing & Tea Tasting",
+        },
+    },
+    {
+        day: "Day 15",
+        title: "Departure",
+        description:
+            "Depending on your flight time you will be transferred to the airport. The airport checks in is 3 hours prior to the departure time and the hotel checkout time is 12 PM. In case our flight is late evening please let us know if you require half day use of the hotel.",
+        stats: {},
+    },
+];
+
+const highlights = [
+    {
+        title: "The Last Forbidden Kingdom",
+        description:
+            "Explore the walled city of Lo-Manthang and its ancient royal palace, a place forbidden to foreigners until 1992.",
+    },
+    {
+        title: "Trans-Himalayan Landscapes",
+        description:
+            "Witness unique high-altitude desert scenery with barren cliffs, deep canyons, and dramatic rock formations.",
+    },
+    {
+        title: "Tibetan Buddhist Culture",
+        description:
+            "Visit centuries-old monasteries, chortens, mani walls, and prayer flags that reflect deep spiritual traditions.",
+    },
+    {
+        title: "Lo-Manthang Lifestyle",
+        description:
+            "Meet the local Loba people, experience their traditions, and witness vibrant horse culture festivals.",
+    },
+    {
+        title: "Ancient Caves",
+        description:
+            "Explore mysterious sky caves and sacred sites like Chungsi Cave and Koncholing with ancient murals.",
+    },
+    {
+        title: "Sacred Monasteries",
+        description:
+            "Visit significant monasteries including Ghar Gompa (8th century) and Tsarang's gold-scripted library.",
+    },
+];
+
+const overview = `Mustang, a remote region in northern Nepal, is renowned for its unique culture, stunning landscapes, and ancient monasteries. This high-altitude desert region offers a glimpse into a bygone era, with its well-preserved Tibetan Buddhist traditions and breathtaking scenery. The region is home to the famous Mustang Valley, a UNESCO World Heritage Site known for its ancient rock paintings and mud-brick villages. Mustang is characterized by its arid, high-altitude landscapes, including deep gorges, barren hills, and towering peaks.
+
+Journey into the “Last Forbidden Kingdom” and explore the walled city of Lo-Manthang. The trek offers a unique blend of adventure and spirituality, characterized by trans-Himalayan desert landscapes, rich Tibetan Buddhist culture, and panoramic views of the Nilgiri, Annapurna, and Dhaulagiri ranges. It is a restricted trekking region, ensuring fewer trekkers and preserving its authenticity and exclusivity.`;
+---
+
+<Layout
+    title="Upper Mustang Trek"
+    description="Journey to the Last Forbidden Kingdom. Explore ancient walled cities, sky caves, and the unique Tibetan culture of Lo-Manthang."
+>
+    <TripItineraryPage
+        title="Upper Mustang Trek"
+        subtitle="The Last Forbidden Kingdom"
+        heroImage="/images/Trekking/DSC09904.JPG"
+        overview={overview}
+        highlights={highlights}
+        itinerary={itinerary}
+        tripStats={{
+            duration: "15 Days",
+            maxAltitude: "4,200m",
+            difficulty: "Moderate to Strenuous",
+            groupSize: "2-12 People",
+        }}
+        client:visible
+    />
+</Layout>

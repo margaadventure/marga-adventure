@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen }) => {
             <LogoIcon className="w-11 h-11" />
           </div>
           <span className={`font-bold tracking-tighter text-2xl transition-colors duration-500 ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-            Marga <span className="font-light text-brand">Adventure</span>
+            Marga <span className={`font-light ${scrolled ? 'text-brand' : 'text-white/90'}`}>Adventure</span>
           </span>
         </a>
 

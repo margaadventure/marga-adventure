@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../components/ExpeditionSpecialLayout";
+
+const features = [
+    {
+        title: "Citizen Science & Conservation",
+        description:
+            "What makes Nepal truly unique is the integration of citizen science. Unlike standard safaris, many expeditions allow travelers to assist local biologists in tracking camera trap data and identifying pugmarks. This journey offers a rare blend of Himalayan biodiversity, centuries-old Tibetan Buddhist culture, and direct participation in vital conservation efforts.",
+    },
+];
+
+const highlights = [
+    {
+        title: "Ghost of the Mountains",
+        description:
+            "Search for the elusive Snow Leopard in its prime winter habitat when they descend to lower elevations.",
+    },
+    {
+        title: "Citizen Science",
+        description:
+            "Assist local biologists in tracking camera trap data, identifying pugmarks, and contributing to vital conservation efforts.",
+    },
+    {
+        title: "Blue Sheep Tracking",
+        description:
+            "Observe large herds of Bharal (Blue Sheep), the primary prey of the snow leopard, in their natural rugged domain.",
+    },
+    {
+        title: "Winter Wilderness",
+        description:
+            "Experience the raw beauty of the Himalayas in winter (Dec-Feb), with fewer tourists and pristine snow-covered landscapes.",
+    },
+    {
+        title: "Cultural Immersion",
+        description:
+            "Witness centuries-old Tibetan Buddhist culture in remote mountain villages like Manang and Upper Mustang.",
+    },
+    {
+        title: "Endangered Species",
+        description: "Rare species of wildlife in their natural habitat.",
+    },
+];
+
+const overview = `A snow leopard expedition in Nepal is a premier high-altitude adventure into the "Ghost of the Mountains'" rugged domain. Centered in remote regions like Manang, Upper Mustang, and Dolpo, these winter treks (December–February) follow the elusive predator as it descends to lower elevations in pursuit of blue sheep.`;
+
+const images = [
+    "/images/Trekking/DSCN7142.jpg", // Placeholder 1 (Manaslu/Snowy)
+    "/images/Wildlife/abhijit-sinha-obc49be0-co-unsplash.jpg", // Placeholder 2 (Wildlife)
+];
+---
+
+<Layout
+    title="Snow Leopard Expedition"
+    description="Join a premier high-altitude adventure to track the elusive Snow Leopard. Contribute to citizen science and conservation in the Himalayas."
+>
+    <ExpeditionSpecialLayout
+        title="Snow Leopard Expedition"
+        overview={overview}
+        images={images}
+        highlights={highlights}
+        features={features}
+        tripStats={{
+            destination: "Manang, Nepal",
+            difficulty: "Moderate",
+            groupSize: "2-8 People",
+            season: "Dec - Feb",
+        }}
+        client:visible
+    />
+</Layout>
