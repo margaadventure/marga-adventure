@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../components/ExpeditionSpecialLayout";
+
+const features = [
+    {
+        title: "Community-Based Conservation",
+        description:
+            "This expedition directly supports the 'Forest Guardians' initiative. Many of our trackers are former hunters who have turned into conservationists, using their unparalleled knowledge of the forest to protect the endangered Red Panda. Your visit contributes to the livelihoods of these local communities, ensuring the long-term survival of the species.",
+    },
+];
+
+const highlights = [
+    {
+        title: "Himalayan Red Panda",
+        description:
+            "Track the Himalayan Red Panda, now recognized as a genetically distinct species, in its natural bamboo forest habitat.",
+    },
+    {
+        title: "Forest Guardians",
+        description:
+            "Be led by 'Forest Guardians'—former hunters turned conservationists who offer unmatched tracking skills and local knowledge.",
+    },
+    {
+        title: "Bamboo & Rhododendrons",
+        description:
+            "Trek through enchanting, mist-shrouded temperate forests filled with dense bamboo groves and ancient rhododendrons.",
+    },
+    {
+        title: "Eastern Himalayas",
+        description:
+            "Explore the deep, less-traveled forests of Ilam, Taplejung, and Langtang National Park, home to diverse biodiversity.",
+    },
+    {
+        title: "Exclusive Encounter",
+        description:
+            "A rare opportunity to witness one of the world's most elusive and adorable mammals in the wild.",
+    },
+    {
+        title: "Citizen Science",
+        description:
+            "Participate in habitat monitoring and learn about the unique ecology of the temperate Himalayan forests.",
+    },
+];
+
+const overview = `A red panda expedition in Nepal is a deep dive into the enchanting, mist-shrouded temperate forests of the Eastern Himalayas (Ilam and Taplejung) and Langtang National Park. Unlike typical safaris, this journey involves quiet, patient tracking through dense bamboo groves and ancient rhododendrons at altitudes of 2,200m to 4,000m. Its uniqueness lies in the Community-Based Conservation model. Many treks are led by "Forest Guardians"—former hunters turned conservationists who offer unparalleled tracking skills. Nepal is also the best place to witness the Himalayan Red Panda, now recognized as a genetically distinct species, making this a truly exclusive wildlife encounter.`;
+
+const images = [
+    "/images/Wildlife/abhijit-sinha-bAt2ZzaOCXo-unsplash.jpg", // Placeholder
+    "/images/Wildlife/getty-images-FmsP_fMI5Ms-unsplash.jpg", // Placeholder
+];
+---
+
+<Layout
+    title="Red Panda Expedition"
+    description="Join a deep dive into the Eastern Himalayas to track the elusive Red Panda. Led by Forest Guardians, this journey supports community-based conservation."
+>
+    <ExpeditionSpecialLayout
+        title="Red Panda Expedition"
+        overview={overview}
+        images={images}
+        highlights={highlights}
+        features={features}
+        tripStats={{
+            destination: "Eastern Nepal",
+            difficulty: "Moderate",
+            groupSize: "2-8 People",
+            season: "Mar-May / Oct-Nov",
+        }}
+        client:visible
+    />
+</Layout>

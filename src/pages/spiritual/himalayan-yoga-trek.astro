@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../components/ExpeditionSpecialLayout";
+
+const features = [
+    {
+        title: "Altitude-Yoga Synergy",
+        description:
+            "What makes this journey unique is the scientifically utilized deep breathing techniques of yoga to aid acclimatization. This 'altitude-yoga' synergy turns the trek into a moving meditation, allowing for a deeper connection with both the mountains and oneself.",
+    },
+];
+
+const highlights = [
+    {
+        title: "Skyline Asanas",
+        description:
+            "Practice guided asanas and meditation against the backdrop of the world’s most dramatic skyline and 8,000-meter peaks.",
+    },
+    {
+        title: "Moving Meditation",
+        description:
+            "Experience trekking as a spiritual practice, with every step and breath synchronized in the 'Abode of the Divine'.",
+    },
+    {
+        title: "Acclimatization",
+        description:
+            "Utilize Pranayama (breathwork) techniques to naturally aid your body's adaptation to high altitudes.",
+    },
+    {
+        title: "Inner Stillness",
+        description:
+            "Find a level of silence and inner peace in remote monasteries and high-altitude lakes that is rarely achievable in a city.",
+    },
+    {
+        title: "Ancient Traditions",
+        description:
+            "Connect with centuries-old spiritual traditions in the sacred spaces of the Annapurna or Everest regions.",
+    },
+    {
+        title: "Holistic Wellness",
+        description:
+            "A transformative fusion of physical trekking challenges and the spiritual serenity of yoga practice.",
+    },
+];
+
+const overview = `A Himalayan yoga trek in Nepal is a transformative fusion of physical challenge and spiritual serenity, set against the world's most dramatic skyline. Traveling through the Annapurna or Everest regions, participants begin and end each day with guided asanas, pranayama (breathwork), and meditation in the shadow of 8,000-meter peaks. What makes this journey unique is the "altitude-yoga" synergy. The deep breathing techniques of yoga are scientifically utilized to aid acclimatization, turning the trek into a moving meditation. Practicing in the "Abode of the Divine," you connect with ancient traditions in remote monasteries and high-altitude lakes, finding a level of inner stillness rarely achievable in a city studio.`;
+
+const images = [
+    "/images/Spirituality Retreat/Nepal-RBR_094_07_50-R62_9154.jpg", // Placeholder - Yoga/Spiritual
+    "/images/Spirituality Retreat/buddha-face.jpg", // Placeholder
+];
+---
+
+<Layout
+    title="Himalayan Yoga Trek"
+    description="A transformative fusion of trekking and yoga. Practice asanas and meditation in the shadow of 8,000-meter peaks for physical and spiritual wellness."
+>
+    <ExpeditionSpecialLayout
+        title="Himalayan Yoga Trek"
+        overview={overview}
+        images={images}
+        highlights={highlights}
+        features={features}
+        tripStats={{
+            destination: "Annapurna / Everest",
+            difficulty: "Moderate",
+            groupSize: "4-10 People",
+            season: "Spring / Autumn",
+        }}
+        client:visible
+    />
+</Layout>

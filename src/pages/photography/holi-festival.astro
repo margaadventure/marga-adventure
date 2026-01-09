@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../components/ExpeditionSpecialLayout";
+
+const features = [
+    {
+        title: "Visual Storytelling",
+        description:
+            "What sets Nepal apart is the architectural framing—the juxtaposition of colorful chaos against medieval Newari carvings. Unique traditions like the raising of the Chir and the specific two-day celebration (Hilly vs. Terai) provide diverse, high-contrast storytelling opportunities found nowhere else.",
+    },
+];
+
+const highlights = [
+    {
+        title: "Cinematic Spring",
+        description:
+            "Experience a sensory explosion and a front-row seat to the world’s most cinematic celebration of spring.",
+    },
+    {
+        title: "Historic Backdrops",
+        description:
+            "Capture the raw energy of Fagu Purnima in the historic squares of Kathmandu, Patan, and Bhaktapur.",
+    },
+    {
+        title: "Colors of Faith",
+        description:
+            "Watch ancient brick temples become vibrant backdrops for clouds of vermillion and turquoise powder.",
+    },
+    {
+        title: "Two-Day Celebration",
+        description:
+            "Document the unique split celebration between the Hilly regions and the Terai plains, offering varied photo opportunities.",
+    },
+    {
+        title: "Newari Culture",
+        description:
+            "Photograph the juxtaposition of joyful festival chaos against the timeless serenity of medieval Newari woodcarvings.",
+    },
+    {
+        title: "The Chir",
+        description:
+            "Witness the ceremonial raising of the Chir, a unique tradition marking the beginning of the Holi festivities.",
+    },
+];
+
+const overview = `A Holi festival photography trip in Nepal is a sensory explosion, offering a front-row seat to the world’s most cinematic celebration of spring. In the historic squares of Kathmandu, Patan, and Bhaktapur, photographers capture the raw energy of "Fagu Purnima" as ancient brick temples become backdrops for vibrant clouds of vermillion and turquoise. What sets Nepal apart is the architectural framing—the juxtaposition of colorful chaos against medieval Newari carvings. Unique traditions like the raising of the Chir (ceremonial pole) and the specific two-day celebration (Hilly vs. Terai) provide diverse, high-contrast storytelling opportunities found nowhere else.`;
+
+const images = [
+    "/images/Capture/Nepal-RBR_060_15_52-EV0A0678.jpg", // Placeholder - Needs colorful festival image
+    "/images/Capture/Nepal-RBR_097_13_37-R62_0431.jpg", // Placeholder
+];
+---
+
+<Layout
+    title="Holi Festival Photography Trip"
+    description="Capture the vibrant energy of Holi in Nepal. A photography tour focusing on the cinematic colors of Fagu Purnima against historic Newari backdrops."
+>
+    <ExpeditionSpecialLayout
+        title="Holi Festival"
+        overview={overview}
+        images={images}
+        highlights={highlights}
+        features={features}
+        tripStats={{
+            destination: "Kathmandu Valley",
+            difficulty: "Easy",
+            groupSize: "4-10 People",
+            season: "March (Spring)",
+        }}
+        client:visible
+    />
+</Layout>
