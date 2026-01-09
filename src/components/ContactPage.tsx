@@ -1,7 +1,37 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactPage: React.FC = () => {
+   const [isSubmitting, setIsSubmitting] = useState(false);
+   const [isSuccess, setIsSuccess] = useState(false);
+   const [message, setMessage] = useState('');
+
+   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setIsSubmitting(true);
+      setMessage('');
+
+      const formData = new FormData(e.currentTarget);
+
+      try {
+         const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+         });
+
+         const data = await response.json();
+
+         if (data.success) {
+            setIsSuccess(true);
+         } else {
+            setMessage(data.message || "Something went wrong. Please try again.");
+         }
+      } catch (error) {
+         setMessage("An error occurred. Please try again later.");
+      } finally {
+         setIsSubmitting(false);
+      }
+   };
+
    return (
       <div className="bg-white">
          {/* Hero Section */}
@@ -75,36 +105,64 @@ const ContactPage: React.FC = () => {
 
             {/* Form Side */}
             <div className="bg-gray-50 border border-gray-100 p-12 rounded-none shadow-2xl shadow-gray-200/50">
-               <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
-                  <input type="hidden" name="access_key" value="a2f684a6-449b-4aba-9c0a-fcb41244f207" />
-                  <input type="hidden" name="subject" value="New Contact Form Submission - Marga Adventure" />
-                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
-                  <div>
-                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
-                     <input type="text" name="name" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Your Name" />
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                     <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone Number *</label>
-                        <input type="tel" name="phone" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="987654321" />
+               {isSuccess ? (
+                  <div className="text-center py-20 animate-fade-in-up">
+                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
+                        <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
                      </div>
+                     <h3 className="text-3xl font-bold text-gray-900 mb-6">Message Sent!</h3>
+                     <p className="text-gray-600 mb-8 text-lg">
+                        Thank you for reaching out to Marga Adventure.
+                        <br />We will review your message and get back to you shortly.
+                     </p>
+                     <button
+                        onClick={() => setIsSuccess(false)}
+                        className="inline-block bg-brand text-white px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-brand-dark transition-all"
+                     >
+                        Send Another Message
+                     </button>
+                  </div>
+               ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                     <input type="hidden" name="access_key" value="a2f684a6-449b-4aba-9c0a-fcb41244f207" />
+                     <input type="hidden" name="subject" value="New Contact Form Submission - Marga Adventure" />
+                     <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+                     {/* hCaptcha removed: Requires Site Key for AJAX. Using botcheck honeypot instead. */}
+
                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email Address *</label>
-                        <input type="email" name="email" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="email@example.com" />
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
+                        <input type="text" name="name" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Your Name" />
                      </div>
-                  </div>
 
-                  <div>
-                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Message *</label>
-                     <textarea name="message" required rows={6} className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Tell us about your dream journey..."></textarea>
-                  </div>
+                     <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                           <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone Number *</label>
+                           <input type="tel" name="phone" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="987654321" />
+                        </div>
+                        <div>
+                           <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email Address *</label>
+                           <input type="email" name="email" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="email@example.com" />
+                        </div>
+                     </div>
 
-                  <button type="submit" className="w-full bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] py-5 rounded-none hover:bg-brand-dark transition-all shadow-xl hover:shadow-brand/20 hover:-translate-y-1">
-                     Send Message
-                  </button>
-               </form>
+                     <div>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Message *</label>
+                        <textarea name="message" required rows={6} className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Tell us about your dream journey..."></textarea>
+                     </div>
+
+                     {message && <p className="text-red-500 text-sm text-center">{message}</p>}
+
+                     <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] py-5 rounded-none hover:bg-brand-dark transition-all shadow-xl hover:shadow-brand/20 hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed"
+                     >
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                     </button>
+                  </form>
+               )}
 
                <div className="mt-10 flex justify-center gap-10 border-t border-gray-200 pt-10">
                   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand transition-colors">
