@@ -18,6 +18,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
             if (e.key === 'Escape' && isOpen) onClose();
         };
         window.addEventListener('keydown', handleEsc);
+
+        // Dynamically load Web3Forms script when modal opens to ensure hCaptcha renders
+        if (isOpen) {
+            const script = document.createElement('script');
+            script.src = "https://web3forms.com/client/script.js";
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+
+            return () => {
+                window.removeEventListener('keydown', handleEsc);
+                document.body.removeChild(script);
+            }
+        }
+
         return () => window.removeEventListener('keydown', handleEsc);
     }, [isOpen, onClose]);
 
@@ -133,7 +148,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                                 <input type="hidden" name="access_key" value="33ad888f-94c9-434b-8f55-54b98c72d921" />
                                 <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || 'Marga Adventure'}`} />
                                 <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-                                {/* hCaptcha removed: Requires Site Key for AJAX. Using botcheck honeypot instead. */}
+                                {/* Web3Forms hCaptcha Widget Container moved to bottom */}
 
                                 <div>
                                     <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
@@ -188,7 +203,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                                 </div>
 
-                                {message && <p className="text-red-500 text-xs text-center">{message}</p>}
+                                <div className="my-4">
+                                    {/* hCaptcha handled by Web3Forms */}
+                                </div>
+
+                                {message && <p className={`text-xs text-center ${message.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>{message}</p>}
+
+                                <div className="h-captcha mb-4" data-captcha="true"></div>
 
                                 <button
                                     type="submit"
