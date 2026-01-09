@@ -75,26 +75,30 @@ const ContactPage: React.FC = () => {
 
             {/* Form Side */}
             <div className="bg-gray-50 border border-gray-100 p-12 rounded-none shadow-2xl shadow-gray-200/50">
-               <form className="space-y-6">
+               <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+                  <input type="hidden" name="access_key" value="a2f684a6-449b-4aba-9c0a-fcb41244f207" />
+                  <input type="hidden" name="subject" value="New Contact Form Submission - Marga Adventure" />
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                   <div>
                      <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
-                     <input type="text" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Your Name" />
+                     <input type="text" name="name" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Your Name" />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                      <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone Number *</label>
-                        <input type="tel" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="987654321" />
+                        <input type="tel" name="phone" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="987654321" />
                      </div>
                      <div>
                         <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email Address *</label>
-                        <input type="email" className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="email@example.com" />
+                        <input type="email" name="email" required className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="email@example.com" />
                      </div>
                   </div>
 
                   <div>
                      <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Message *</label>
-                     <textarea rows={6} className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Tell us about your dream journey..."></textarea>
+                     <textarea name="message" required rows={6} className="w-full bg-white border border-gray-200 p-4 rounded-none focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all font-light" placeholder="Tell us about your dream journey..."></textarea>
                   </div>
 
                   <button type="submit" className="w-full bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] py-5 rounded-none hover:bg-brand-dark transition-all shadow-xl hover:shadow-brand/20 hover:-translate-y-1">

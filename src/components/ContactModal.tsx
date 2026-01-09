@@ -46,26 +46,30 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                         {tripTitle && <p className="text-gray-500 text-sm mt-2">for {tripTitle}</p>}
                     </div>
 
-                    <form className="space-y-5">
+                    <form action="https://api.web3forms.com/submit" method="POST" className="space-y-5">
+                        <input type="hidden" name="access_key" value="33ad888f-94c9-434b-8f55-54b98c72d921" />
+                        <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || 'Marga Adventure'}`} />
+                        <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                         <div>
                             <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
-                            <input type="text" className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder="Your Name" />
+                            <input type="text" name="name" required className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder="Your Name" />
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone *</label>
-                                <input type="tel" className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder="+123..." />
+                                <input type="tel" name="phone" required className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder="+123..." />
                             </div>
                             <div>
                                 <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email *</label>
-                                <input type="email" className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder="email@..." />
+                                <input type="email" name="email" required className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder="email@..." />
                             </div>
                         </div>
 
                         <div>
                             <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Message *</label>
-                            <textarea rows={4} className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder={`I'm interested in ${tripTitle || 'a trip'}...`}></textarea>
+                            <textarea name="message" required rows={4} className="w-full bg-gray-50 border border-gray-200 p-3 rounded-none focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand/20 transition-all font-light text-sm" placeholder={`I'm interested in ${tripTitle || 'a trip'}...`}></textarea>
                         </div>
 
                         <button type="submit" className="w-full bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] py-4 rounded-none hover:bg-brand-dark transition-all shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 mt-2">

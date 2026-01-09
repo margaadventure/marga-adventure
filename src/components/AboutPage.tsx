@@ -5,8 +5,8 @@ import PageHero from './PageHero';
 const TEAM = [
    { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
    { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: '/images/deepak-profile.webp', note: 'Tech Strategy & Innovation' },
-
-
+   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
+   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
 ];
 
 const AboutPage: React.FC = () => {
@@ -87,7 +87,7 @@ const AboutPage: React.FC = () => {
                            decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-90 transition-opacity duration-300 flex flex-col justify-end p-8">
-                           <p className="text-white font-bold text-xl xl:text-2xl mb-1 whitespace-nowrap">{member.name}</p>
+                           <p className="text-white font-bold text-xl xl:text-2xl mb-1 leading-tight">{member.name}</p>
                            <p className="text-brand font-bold text-xs uppercase tracking-widest mb-4">{member.role}</p>
                            <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-300">
                               <p className="text-white/60 text-xs">{member.note}</p>
@@ -101,28 +101,28 @@ const AboutPage: React.FC = () => {
 
          <section className="py-24 px-6">
             <div className="max-w-5xl mx-auto text-center">
-               <h3 className="text-3xl font-bold mb-16">The Philosophy of Marga</h3>
+               <h3 className="text-3xl font-bold mb-16">The Pillars of Your Marga</h3>
                <div className="grid md:grid-cols-3 gap-12">
                   <div>
                      <div className="w-16 h-16 rounded-none bg-brand/10 flex items-center justify-center text-brand text-2xl mb-6 mx-auto">
                         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
                      </div>
-                     <h4 className="font-bold text-lg mb-4">Sustainability First</h4>
-                     <p className="text-gray-500 text-sm font-light">We leave footprints, not scars. Our operations are plastic-free and carbon-conscious.</p>
+                     <h4 className="font-bold text-lg mb-4">The Conscious Path</h4>
+                     <p className="text-gray-500 text-sm font-light">We tread lightly on the sacred earth. Our journeys are designed to leave footprints of respect, not scars, honoring the Himalayas.</p>
                   </div>
                   <div>
                      <div className="w-16 h-16 rounded-none bg-brand/10 flex items-center justify-center text-brand text-2xl mb-6 mx-auto">
-                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.2-2.848.578-4.182m-5.452 7.747c-2.07-.63-4.228-1.02-6.44-1.127m0 2.253A11.967 11.967 0 0021 12c0-3.033-.996-5.811-2.697-8.086"></path></svg>
                      </div>
-                     <h4 className="font-bold text-lg mb-4">Community Rooted</h4>
-                     <p className="text-gray-500 text-sm font-light">We hire locally, buy locally, and invest in the villages we pass through.</p>
+                     <h4 className="font-bold text-lg mb-4">The Shared Path</h4>
+                     <p className="text-gray-500 text-sm font-light">We are one sangha. We empower local hands and hearts, ensuring that every step of your journey uplifts the villages we call home.</p>
                   </div>
                   <div>
                      <div className="w-16 h-16 rounded-none bg-brand/10 flex items-center justify-center text-brand text-2xl mb-6 mx-auto">
-                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                      </div>
-                     <h4 className="font-bold text-lg mb-4">Uncompromised Safety</h4>
-                     <p className="text-gray-500 text-sm font-light">Expert guides, satellite comms, and rigorous training ensure your peace of mind.</p>
+                     <h4 className="font-bold text-lg mb-4">The Guided Path</h4>
+                     <p className="text-gray-500 text-sm font-light">Your safety is our vow. Led by local experts who know every stone and storm, we clear the way so you can focus on the inner journey.</p>
                   </div>
                </div>
             </div>
