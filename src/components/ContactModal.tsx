@@ -11,7 +11,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
     const [isSuccess, setIsSuccess] = useState(false);
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState<Record<string, string>>({});
-    const [captchaVerified, setCaptchaVerified] = useState(false);
+    const [formKey, setFormKey] = useState(0);
 
     // Close on Escape key
     useEffect(() => {
@@ -32,21 +32,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                 document.body.appendChild(script);
             }
         } else {
-            // Reset captcha when modal closes
-            setCaptchaVerified(false);
+            // Reset form key when modal closes to ensure fresh captcha on reopen
+            setFormKey(prev => prev + 1);
+            setIsSuccess(false);
+            setMessage('');
+            setErrors({});
         }
 
-        // Listen for captcha verification from Web3Forms
-        const handleCaptchaSuccess = () => {
-            setCaptchaVerified(true);
-        };
-
-        window.addEventListener('web3forms-captcha-success', handleCaptchaSuccess);
-
-        return () => {
-            window.removeEventListener('keydown', handleEsc);
-            window.removeEventListener('web3forms-captcha-success', handleCaptchaSuccess);
-        };
+        return () => window.removeEventListener('keydown', handleEsc);
     }, [isOpen, onClose]);
 
     const validateForm = (formData: FormData) => {
@@ -70,17 +63,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
         setMessage('');
         setErrors({});
 
-        // Check captcha first
-        if (!captchaVerified) {
-            setMessage('Please complete the captcha verification before submitting.');
-            return;
-        }
-
         const formData = new FormData(e.currentTarget);
         const validationErrors = validateForm(formData);
 
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
+            return;
+        }
+
+        // Check if hCaptcha response exists
+        const captchaResponse = formData.get('h-captcha-response');
+        if (!captchaResponse || captchaResponse === '') {
+            setMessage('Please complete the captcha verification before submitting.');
             return;
         }
 
@@ -96,7 +90,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
 
             if (data.success) {
                 setIsSuccess(true);
-                setCaptchaVerified(false); // Reset for next use
+                e.currentTarget.reset(); // Reset form fields
             } else {
                 setMessage(data.message || "Something went wrong. Please try again.");
             }
@@ -164,7 +158,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                                 {tripTitle && <p className="text-gray-500 text-sm mt-2">for {tripTitle}</p>}
                             </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                            <form key={formKey} onSubmit={handleSubmit} className="space-y-5" noValidate>
                                 <input type="hidden" name="access_key" value="33ad888f-94c9-434b-8f55-54b98c72d921" />
                                 <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || 'Marga Adventure'}`} />
                                 <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
@@ -229,7 +223,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
 
                                 {message && <p className={`text-xs text-center ${message.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>{message}</p>}
 
-                                <div className="h-captcha mb-4" data-captcha="true"></div>
+                                <div key={formKey} className="h-captcha mb-4" data-captcha="true"></div>
 
                                 <button
                                     type="submit"

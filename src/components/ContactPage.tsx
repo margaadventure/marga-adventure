@@ -5,7 +5,7 @@ const ContactPage: React.FC = () => {
    const [isSuccess, setIsSuccess] = useState(false);
    const [message, setMessage] = useState('');
    const [errors, setErrors] = useState<Record<string, string>>({});
-   const [captchaVerified, setCaptchaVerified] = useState(false);
+   const [formKey, setFormKey] = useState(0);
 
    React.useEffect(() => {
       const scriptId = 'web3forms-script';
@@ -17,18 +17,30 @@ const ContactPage: React.FC = () => {
          script.defer = true;
          document.body.appendChild(script);
       }
-
-      // Listen for captcha verification from Web3Forms
-      const handleCaptchaSuccess = () => {
-         setCaptchaVerified(true);
-      };
-
-      window.addEventListener('web3forms-captcha-success', handleCaptchaSuccess);
-
-      return () => {
-         window.removeEventListener('web3forms-captcha-success', handleCaptchaSuccess);
-      };
    }, []);
+
+   // Reinitialize Web3Forms script when formKey changes (form reset)
+   React.useEffect(() => {
+      if (formKey > 0) {
+         // Remove and re-add the script to force reinitialization
+         const scriptId = 'web3forms-script';
+         const existingScript = document.getElementById(scriptId);
+         if (existingScript) {
+            existingScript.remove();
+         }
+
+         // Wait a bit for old widgets to cleanup, then reload script
+         setTimeout(() => {
+            const script = document.createElement('script');
+            script.id = scriptId;
+            script.src = "https://web3forms.com/client/script.js";
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+         }, 100);
+      }
+   }, [formKey]);
+
 
    const validateForm = (formData: FormData) => {
       const newErrors: Record<string, string> = {};
@@ -51,17 +63,18 @@ const ContactPage: React.FC = () => {
       setMessage('');
       setErrors({});
 
-      // Check captcha first
-      if (!captchaVerified) {
-         setMessage('Please complete the captcha verification before submitting.');
-         return;
-      }
-
       const formData = new FormData(e.currentTarget);
       const validationErrors = validateForm(formData);
 
       if (Object.keys(validationErrors).length > 0) {
          setErrors(validationErrors);
+         return;
+      }
+
+      // Check if hCaptcha response exists
+      const captchaResponse = formData.get('h-captcha-response');
+      if (!captchaResponse || captchaResponse === '') {
+         setMessage('Please complete the captcha verification before submitting.');
          return;
       }
 
@@ -77,7 +90,7 @@ const ContactPage: React.FC = () => {
 
          if (data.success) {
             setIsSuccess(true);
-            setCaptchaVerified(false); // Reset for next submission
+            e.currentTarget.reset(); // Reset form fields
          } else {
             setMessage(data.message || "Something went wrong. Please try again.");
          }
@@ -86,6 +99,13 @@ const ContactPage: React.FC = () => {
       } finally {
          setIsSubmitting(false);
       }
+   };
+
+   const handleSendAnother = () => {
+      setIsSuccess(false);
+      setFormKey(prev => prev + 1); // Force form remount to reload captcha
+      setMessage('');
+      setErrors({});
    };
 
    const handleInput = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -181,14 +201,14 @@ const ContactPage: React.FC = () => {
                         <br />We will review your message and get back to you shortly.
                      </p>
                      <button
-                        onClick={() => setIsSuccess(false)}
+                        onClick={handleSendAnother}
                         className="inline-block bg-brand text-white px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-brand-dark transition-all"
                      >
                         Send Another Message
                      </button>
                   </div>
                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                  <form key={formKey} onSubmit={handleSubmit} className="space-y-6" noValidate>
                      <input type="hidden" name="access_key" value="a2f684a6-449b-4aba-9c0a-fcb41244f207" />
                      <input type="hidden" name="subject" value="New Contact Form Submission - Marga Adventure" />
                      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
@@ -253,7 +273,7 @@ const ContactPage: React.FC = () => {
 
                      {message && <p className={`text-sm text-center font-bold ${message.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>{message}</p>}
 
-                     <div className="h-captcha mb-6" data-captcha="true"></div>
+                     <div key={formKey} className="h-captcha mb-6" data-captcha="true"></div>
 
                      <button
                         type="submit"
