@@ -5,6 +5,7 @@ const ContactPage: React.FC = () => {
    const [isSuccess, setIsSuccess] = useState(false);
    const [message, setMessage] = useState('');
    const [errors, setErrors] = useState<Record<string, string>>({});
+   const [captchaVerified, setCaptchaVerified] = useState(false);
 
    React.useEffect(() => {
       const scriptId = 'web3forms-script';
@@ -16,6 +17,17 @@ const ContactPage: React.FC = () => {
          script.defer = true;
          document.body.appendChild(script);
       }
+
+      // Listen for captcha verification from Web3Forms
+      const handleCaptchaSuccess = () => {
+         setCaptchaVerified(true);
+      };
+
+      window.addEventListener('web3forms-captcha-success', handleCaptchaSuccess);
+
+      return () => {
+         window.removeEventListener('web3forms-captcha-success', handleCaptchaSuccess);
+      };
    }, []);
 
    const validateForm = (formData: FormData) => {
@@ -39,6 +51,12 @@ const ContactPage: React.FC = () => {
       setMessage('');
       setErrors({});
 
+      // Check captcha first
+      if (!captchaVerified) {
+         setMessage('Please complete the captcha verification before submitting.');
+         return;
+      }
+
       const formData = new FormData(e.currentTarget);
       const validationErrors = validateForm(formData);
 
@@ -59,6 +77,7 @@ const ContactPage: React.FC = () => {
 
          if (data.success) {
             setIsSuccess(true);
+            setCaptchaVerified(false); // Reset for next submission
          } else {
             setMessage(data.message || "Something went wrong. Please try again.");
          }

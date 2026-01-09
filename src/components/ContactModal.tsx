@@ -11,6 +11,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
     const [isSuccess, setIsSuccess] = useState(false);
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [captchaVerified, setCaptchaVerified] = useState(false);
 
     // Close on Escape key
     useEffect(() => {
@@ -30,9 +31,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                 script.defer = true;
                 document.body.appendChild(script);
             }
+        } else {
+            // Reset captcha when modal closes
+            setCaptchaVerified(false);
         }
 
-        return () => window.removeEventListener('keydown', handleEsc);
+        // Listen for captcha verification from Web3Forms
+        const handleCaptchaSuccess = () => {
+            setCaptchaVerified(true);
+        };
+
+        window.addEventListener('web3forms-captcha-success', handleCaptchaSuccess);
+
+        return () => {
+            window.removeEventListener('keydown', handleEsc);
+            window.removeEventListener('web3forms-captcha-success', handleCaptchaSuccess);
+        };
     }, [isOpen, onClose]);
 
     const validateForm = (formData: FormData) => {
@@ -56,6 +70,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
         setMessage('');
         setErrors({});
 
+        // Check captcha first
+        if (!captchaVerified) {
+            setMessage('Please complete the captcha verification before submitting.');
+            return;
+        }
+
         const formData = new FormData(e.currentTarget);
         const validationErrors = validateForm(formData);
 
@@ -76,6 +96,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
 
             if (data.success) {
                 setIsSuccess(true);
+                setCaptchaVerified(false); // Reset for next use
             } else {
                 setMessage(data.message || "Something went wrong. Please try again.");
             }
