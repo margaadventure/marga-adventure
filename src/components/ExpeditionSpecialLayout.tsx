@@ -15,6 +15,7 @@ interface ExpeditionSpecialLayoutProps {
         season?: string;
     };
     features: { title: string; description: string }[];
+    itinerary?: { day: string; title: string; description: string }[];
 }
 
 const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
@@ -23,7 +24,8 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
     images,
     highlights,
     tripStats,
-    features
+    features,
+    itinerary
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -163,6 +165,28 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                         ))}
                     </div>
                 </div>
+
+                {/* Itinerary Section */}
+                {itinerary && itinerary.length > 0 && (
+                    <div className="mb-32">
+                        <p className="text-center text-brand font-bold uppercase tracking-[0.3em] font-sans text-xs mb-4">The Journey</p>
+                        <h2 className="text-center text-4xl font-bold uppercase tracking-widest mb-20 relative">
+                            <span className="relative z-10 bg-white px-12 text-brand">Detailed Itinerary</span>
+                            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent -z-0"></div>
+                        </h2>
+
+                        <div className="max-w-4xl mx-auto border-l-2 border-brand/20 pl-8 md:pl-12 space-y-16">
+                            {itinerary.map((item, idx) => (
+                                <div key={idx} className="relative">
+                                    <div className="absolute -left-[45px] md:-left-[61px] top-0 w-8 h-8 rounded-full bg-brand border-4 border-white shadow-lg flex items-center justify-center z-10"></div>
+                                    <span className="text-brand font-bold uppercase tracking-widest text-xs mb-2 block">{item.day}</span>
+                                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-gray-900 mb-6">{item.title}</h3>
+                                    <p className="text-lg text-gray-600 leading-relaxed font-light">{item.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 {/* CTA */}
                 <div className="text-center">

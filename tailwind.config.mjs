@@ -4,7 +4,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                sans: ['"Montserrat"', 'sans-serif'],
+                heading: ['"Plus Jakarta Sans"', 'sans-serif'],
                 serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
             },
             colors: {

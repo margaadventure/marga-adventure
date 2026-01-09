@@ -39,7 +39,7 @@ const ActivityPage: React.FC<ActivityPageProps> = ({ title, subtitle, descriptio
                   {typeof highlight === 'string' ? (
                     <span className="text-gray-900 font-semibold self-center">{highlight}</span>
                   ) : (
-                    <a href={highlight.link} className="text-gray-900 font-semibold self-center hover:text-brand underline decoration-brand decoration-2 underline-offset-4">{highlight.text}</a>
+                    <a href={highlight.link} className="text-gray-900 font-semibold self-center hover:text-brand transition-colors">{highlight.text}</a>
                   )}
                 </div>
               ))}

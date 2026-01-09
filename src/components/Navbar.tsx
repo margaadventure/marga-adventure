@@ -25,14 +25,14 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen }) => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 will-change-transform transform-gpu ${scrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-100' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 will-change-transform transform-gpu ${scrolled ? 'bg-gray-50/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-200' : 'bg-transparent py-8'}`}>
       <div className="w-full max-w-[1920px] mx-auto px-8 md:px-20 flex justify-between items-center">
         <a href="/" className="flex items-center gap-4 group cursor-pointer">
           <div className={`transition-all duration-500 group-hover:rotate-12 ${scrolled ? 'text-brand' : 'text-white'}`}>
             <LogoIcon className="w-11 h-11" />
           </div>
           <span className={`font-bold tracking-tighter text-2xl transition-colors duration-500 ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-            Marga <span className={`font-light ${scrolled ? 'text-brand' : 'text-white/90'}`}>Adventure</span>
+            Marga <span className="font-light text-brand">Adventure</span>
           </span>
         </a>
 

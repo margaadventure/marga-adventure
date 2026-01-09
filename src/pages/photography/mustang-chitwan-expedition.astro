@@ -1,0 +1,183 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ActivityPage from "../../components/ActivityPage";
+import TripItineraryPage from "../../components/TripItineraryPage";
+
+const overview = `This 14-day photography expedition takes you from the jungles of Chitwan to the forbidden kingdom of Upper Mustang. The itinerary is anchored by the vibrant Tiji Festival in Lomanthang, offering a rare chance to document ancient Tibetan rituals. You will capture the architectural diversity of Kathmandu, the wildlife of the Terai, and the stark, high-altitude desert landscapes of the Trans-Himalaya. It is a journey of extreme contrasts, designed to build a diverse and powerful photographic portfolio.`;
+
+const highlights = [
+    {
+        title: "Tiji Festival Masks",
+        description:
+            'Freeze the dramatic motion of monks in brocade costumes performing the "Demon Chasing" dances in Lomanthang.',
+    },
+    {
+        title: "Upper Mustang Landscapes",
+        description:
+            "Capture the surreal red cliffs of Ghami and the moon-like terrain of the Tibetan plateau.",
+    },
+    {
+        title: "Lomanthang Walled City",
+        description:
+            "Photograph the medieval walled capital, its narrow alleys, and the daily life of the Lopa people.",
+    },
+    {
+        title: "Chitwan Wildlife",
+        description:
+            "Shoot one-horned rhinos and spotted deer in the soft, misty morning light of the jungle.",
+    },
+    {
+        title: "Aerial Mountain Views",
+        description:
+            "Capture the Dhaulagiri and Annapurna ranges from above during the dramatic Jomsom-Pokhara flight.",
+    },
+    {
+        title: "Boudhanath Kora",
+        description:
+            "Document the devotion of pilgrims circumambulating the massive white dome of the stupa.",
+    },
+    {
+        title: "Market Colors",
+        description:
+            "Close-up macro shots of vibrant produce and the chaotic trade energy at Kathmandu’s vegetable markets.",
+    },
+];
+
+const itinerary = [
+    {
+        day: "Day 1",
+        title: "Arrival and transfer to hotel",
+        description:
+            "Upon arrival, transfer to your hotel and prepare your gear for the days ahead. If time permits, take a twilight walk around the tourist hub or near your hotel. Focus on capturing the ambient city lights, street signage, and the initial sensory details of Kathmandu. Use a fast prime lens to capture the mood of the bustling streets without flash, setting the tone for your visual journey.",
+    },
+    {
+        day: "Day 2",
+        title: "Visit Patan, Swayambhunath Stupa, and Pashupatinath temple",
+        description:
+            "Start at Patan Durbar Square to photograph the intricate stone carvings and golden temples; look for framing opportunities through ancient pillars. Move to Swayambhunath for a panoramic sweep of the Kathmandu Valley and environmental portraits of the resident monkeys. Conclude at Pashupatinath, capturing the raw, spiritual atmosphere of the cremation ghats and the Sadhus. Use a telephoto lens here to maintain a respectful distance while capturing intimate details.",
+    },
+    {
+        day: "Day 3",
+        title: "Boudhanath Stupa and Bhaktapur Durbar Square",
+        description:
+            "Begin at Boudhanath Stupa, focusing on the symmetry of the eyes and the motion of pilgrims spinning prayer wheels. In the afternoon, explore Bhaktapur’s medieval squares. Focus on the texture of the brick roads, the 55-Window Palace, and the potters at work in Pottery Square. The warm tones of the brick architecture during the golden hour provide excellent contrast against the deep blue sky.",
+    },
+    {
+        day: "Day 4",
+        title: "Drive to Chitwan",
+        description:
+            "The drive takes you from the hills to the flat Terai plains, offering a dramatic shift in landscape photography. Capture the winding Trishuli River and the changing vegetation. As you approach Chitwan, the light becomes softer and hazier. Photograph the Tharu villages with their traditional mud houses. Use the golden hour to capture silhouetted trees against the flat horizon, distinct from the mountain visuals.",
+    },
+    {
+        day: "Day 5",
+        title: "Chitwan, Jungle Safari",
+        description:
+            "Utilize your longest lens for the jungle safari. The goal is to capture the one-horned rhino, deer, and potentially a tiger in their natural habitat. Pay attention to the play of light through the Sal forest canopy and the mist over the river in the morning. Bird photography is excellent here; look for colorful kingfishers and peacocks. The texture of the elephant grass provides a great foreground.",
+    },
+    {
+        day: "Day 6",
+        title: "Drive to Pokhara",
+        description:
+            "This drive offers scenic transitions. Stop at vantage points to photograph the terraced fields and suspension bridges. As you arrive in Pokhara, head to the lakeside. The reflection of Machhapuchhre (Fishtail) on Phewa Lake is the priority shot. Use a tripod for long exposures of the water at sunset to create a glass-like effect, contrasting with the sharp, snowy peaks in the distance.",
+    },
+    {
+        day: "Day 7",
+        title: "Drive to Jomsom",
+        description:
+            "This is a long, rugged journey offering raw adventure photography. Capture the dramatic transition from the lush greenery of the lower Annapurna circuit to the arid, wind-swept landscapes of the Kali Gandaki Gorge. Photograph the massive waterfalls along the way and the rugged road itself to document the journey's difficulty. The light in the gorge can be harsh; use a polarizer to manage glare and enhance sky contrast.",
+    },
+    {
+        day: "Day 8",
+        title: "Drive Jomsom to Ghami",
+        description:
+            "Enter the stark, high-altitude desert of Upper Mustang. The landscape turns to shades of ochre, red, and brown. Photograph the massive red cliffs of Ghami, which are legendary in local folklore. The contrast of the green oasis of Ghami village against the barren desert backdrop is striking. Focus on the longest Mani wall in Mustang, using leading lines to draw the viewer’s eye toward the mountains.",
+    },
+    {
+        day: "Day 9",
+        title: "Drive Ghami to Lomanthang",
+        description:
+            'The drive to the walled capital of Lomanthang is visually spectacular. Stop at the Tsarang Stupa and monastery for architectural shots against the stark landscape. Upon approaching Lomanthang, capture the first view of the walled city from the ridge. The "plain of aspiration" offers a sense of scale. Photograph the city gate and the labyrinthine alleys, focusing on the interplay of light and shadow in the narrow streets.',
+    },
+    {
+        day: "Day 10",
+        title: "Tiji Festival",
+        description:
+            'This is the visual climax of the trip. Position yourself early in the main square of Lomanthang. Focus on the monks performing the "Tsa Chham" (masked dances) in vibrant brocade costumes. The backdrop of the ancient palace adds historical depth. Use a fast shutter speed to freeze the swirling movements and a wide aperture to isolate the dancers from the crowd. Capture the intensity and devotion on the faces of the locals.',
+    },
+    {
+        day: "Day 11",
+        title: "Visit Lomanthang and Koncholing",
+        description:
+            "Explore the mysteries of the sky caves at Koncholing. The erosion patterns in the cliffs make for abstract landscape photography. Inside the caves (if accessible) or monasteries, use a high ISO to capture the ancient, fading murals without flash. Return to Lomanthang to document the daily life of the Lopa people, focusing on their traditional dress and the unique texture of their weather-beaten faces.",
+    },
+    {
+        day: "Day 12",
+        title: "Drive back to Jomsom",
+        description:
+            "Retrace your path through the desert, but with a different lighting perspective. Stop at Chhuksang to photograph the riverside caves and the unique rock formations that look like organ pipes. The return journey allows you to capture landscapes you might have missed or that look different in the afternoon light. Focus on the vast emptiness of the Mustang terrain and the winding Kali Gandaki riverbed.",
+    },
+    {
+        day: "Day 13",
+        title: "Flight Jomsom to Pokhara and Pokhara to Kathmandu",
+        description:
+            "The early morning flight provides one of the best aerial photography opportunities in the world. Secure a window seat (left side Jomsom-Pokhara, right side Pokhara-Kathmandu) to shoot the Annapurna and Dhaulagiri ranges from above. The contrast between the dark valleys and bright snow peaks is immense. Back in Kathmandu, use the free afternoon for street photography or reviewing your portfolio.",
+    },
+    {
+        day: "Day 14",
+        title: "Visit Vegetable and fruits market and afternoon leisure",
+        description:
+            "Visit the wholesale Kalimati or Ason market early in the morning. This is a macro and color photography paradise. Focus on the vibrant piles of vegetables, fruits, and spices. Capture the frenetic energy of the traders and porters. The lighting is often mixed, so adjust your white balance accordingly. It offers a gritty, authentic end to your visual story of Nepal, contrasting with the high-altitude serenity of Mustang.",
+    },
+];
+
+const images = [
+    "/images/Trekking/DSCN7544.jpg", // Placeholder for Mustang/Festival
+    "/images/Spirituality Retreat/healing-bowl.jpg", // Placeholder for Detail
+];
+
+const packingList = [
+    {
+        category: "Camera Gear",
+        items: [
+            "DSLR or Mirrorless Body (Backup body recommended)",
+            "Wide angle lens (16-35mm) for landscapes",
+            "Mid-range zoom (24-70mm) for street/general",
+            "Telephoto lens (70-200mm or longer) for wildlife & portraits",
+            "Fast prime lens (35mm or 50mm f/1.8) for low light",
+            "Tripod for landscapes and long exposures",
+            "Plenty of memory cards and spare batteries",
+            "Polarizing filter and ND filters",
+            "Cleaning kit (dust is an issue in Mustang)",
+        ],
+    },
+];
+---
+
+<Layout
+    title="Mustang & Chitwan Photography Expedition"
+    description="A 14-day photography journey contrasting the jungles of Chitwan with the high-altitude desert of Upper Mustang, anchored by the Tiji Festival."
+>
+    <TripItineraryPage
+        title="Mustang & Chitwan Photography Expedition"
+        heroImage={images[0]}
+        overview={overview}
+        highlights={highlights}
+        itinerary={itinerary}
+        packingList={packingList}
+        showElevationGraph={false}
+        Focusing
+        on
+        photography,
+        not
+        just
+        altitude
+        tripStats={{
+            duration: "14 Days",
+            maxAltitude: "3,840m", // Lomanthang
+            difficulty: "Moderate",
+            groupSize: "2-10 People",
+            maxAltitudeLabel: "Max Altitude",
+        }}
+        client:load
+    />
+</Layout>

@@ -34,10 +34,10 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
       </p>
       <a
         href={`/${id}`}
-        className="flex items-center gap-8 group w-fit transition-all bg-white hover:bg-brand text-gray-900 hover:text-white px-10 py-5 rounded-full border border-gray-100 shadow-sm hover:shadow-brand/20"
+        className="flex items-center gap-8 group w-fit transition-all bg-brand hover:bg-brand-dark text-white px-10 py-5 rounded-full shadow-lg hover:shadow-brand/40 hover:-translate-y-1"
       >
         <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Explore Path</span>
-        <div className="w-10 h-px bg-gray-400 group-hover:w-16 group-hover:bg-white transition-all duration-500"></div>
+        <div className="w-10 h-px bg-white/50 group-hover:w-16 group-hover:bg-white transition-all duration-500"></div>
       </a>
     </div>
   );

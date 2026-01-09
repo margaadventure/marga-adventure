@@ -19,29 +19,27 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
                 <img
                     src={heroImageSrc || "/images/hero-bg.jpg"}
-                    className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80"
+                    className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Everest and Chorten"
                     fetchPriority="high"
                     decoding="async"
                 />
-                <div className="absolute inset-0 bg-black/40"></div>
-
-                <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl">
+                <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl drop-shadow-[0_4px_3px_rgba(0,0,0,0.9)]">
 
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-10 animate-fade-in-up text-white/90">
                         THE PATH<br />
-                        <span className="font-light italic text-white/60 tracking-widest uppercase text-2xl md:text-4xl lg:text-5xl block mt-6">IS INFINITE</span>
+                        <span className="font-light italic text-white/80 tracking-widest uppercase text-2xl md:text-4xl lg:text-5xl block mt-6">IS INFINITE</span>
                     </h1>
                     <div className="flex items-center gap-6 animate-fade-in-delayed">
-                        <p className="text-white/80 tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold">
+                        <p className="text-white tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold">
                             Nepal — 27°42′ N, 85°19′ E
                         </p>
                     </div>
                 </div>
 
-                <a href="/contact" className="absolute bottom-24 flex flex-col items-center gap-4 text-white/40 group cursor-pointer transition-all hover:text-white">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Follow the Marga</span>
-                    <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent group-hover:h-24 transition-all duration-700"></div>
+                <a href="/contact" className="absolute bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity">Follow the Marga</span>
+                    <div className="w-px h-16 bg-gradient-to-b from-white to-transparent group-hover:h-24 transition-all duration-700 shadow-sm"></div>
                 </a>
             </section>
 

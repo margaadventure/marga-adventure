@@ -63,7 +63,7 @@ export const JOURNEY_CATEGORIES = [
     alignment: 'left' as const
   },
   {
-    id: 'birdwatching',
+    id: 'wildlife',
     title: 'Wild Secrets',
     description: 'Wander where the jungle breathes in time with nature. Track the majestic tiger through golden grasslands and watch the armored rhino emerge from the morning mist. This is a journey into the heart of the wild, where every rustle reveals a new, untamed story.',
     images: [
