@@ -106,3 +106,27 @@ export const TESTIMONIALS = [
 export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) => (
   <img src="/logo.png" alt="Marga Adventure" className={className} />
 );
+
+export const NEPAL_NAV_ITEMS = [
+  { name: 'Nepal', href: '/nepal' },
+  { name: 'Wildlife', href: '/wildlife' },
+  { name: 'Trekking', href: '/trekking' },
+  { name: 'Photography', href: '/photography' },
+  { name: 'Spiritual Retreat', href: '/spiritual' },
+];
+
+export const BHUTAN_NAV_ITEMS = [
+  { name: 'Kingdom of Bhutan', href: '/bhutan' }
+];
+
+export const TIBET_NAV_ITEMS = [
+  { name: 'Roof of the World', href: '/tibet' }
+];
+
+export const MAIN_NAV_ITEMS = [
+  { name: 'Home', href: '/' },
+  { name: 'Community', href: '/community' },
+  { name: 'About Us', href: '/about' },
+  { name: 'The Journal', href: '/blog' },
+  { name: 'Contact', href: '/contact' },
+];

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { LogoIcon } from '../constants';
+import { LogoIcon, NEPAL_NAV_ITEMS, BHUTAN_NAV_ITEMS, TIBET_NAV_ITEMS, MAIN_NAV_ITEMS } from '../constants';
 
 const Footer: React.FC = () => {
     return (
@@ -62,14 +62,8 @@ const Footer: React.FC = () => {
                     {/* Nepal Links Column */}
                     <div className="lg:col-span-3 space-y-6 pt-4">
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-10">Nepal Collection</p>
-                        {[
-                            { label: 'Nepal', href: '/nepal' },
-                            { label: 'Wildlife', href: '/wildlife' },
-                            { label: 'Trekking', href: '/trekking' },
-                            { label: 'Spiritual Retreats', href: '/spiritual' },
-                            { label: 'Photography Tours', href: '/photography' }
-                        ].map(link => (
-                            <a key={link.label} href={link.href} className="block text-sm font-semibold text-gray-600 hover:text-brand transition-colors tracking-tight text-left">{link.label}</a>
+                        {NEPAL_NAV_ITEMS.map(link => (
+                            <a key={link.name} href={link.href} className="block text-sm font-semibold text-gray-600 hover:text-brand transition-colors tracking-tight text-left">{link.name}</a>
                         ))}
                     </div>
 
@@ -77,13 +71,11 @@ const Footer: React.FC = () => {
                     <div className="lg:col-span-3 lg:col-start-10 space-y-6 pt-4">
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-10">Marga World</p>
                         {[
-                            { label: 'Kingdom of Bhutan', href: '/bhutan' },
-                            { label: 'Roof of the World', href: '/tibet' },
-                            { label: 'Community', href: '/community' },
-                            { label: 'About Us', href: '/about' },
-                            { label: 'Contact', href: '/contact' }
+                            ...BHUTAN_NAV_ITEMS,
+                            ...TIBET_NAV_ITEMS,
+                            ...MAIN_NAV_ITEMS.filter(item => item.href !== '/' && item.href !== '/blog')
                         ].map(link => (
-                            <a key={link.label} href={link.href} className="block text-sm font-semibold text-gray-600 hover:text-brand transition-colors tracking-tight text-left">{link.label}</a>
+                            <a key={link.name} href={link.href} className="block text-sm font-semibold text-gray-600 hover:text-brand transition-colors tracking-tight text-left">{link.name}</a>
                         ))}
                     </div>
                 </div>

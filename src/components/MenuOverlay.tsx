@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LogoIcon } from '../constants';
+import { LogoIcon, NEPAL_NAV_ITEMS, BHUTAN_NAV_ITEMS, TIBET_NAV_ITEMS } from '../constants';
 
 import img1 from '../assets/images/menu-carousal/1000000991.jpg';
 import img2 from '../assets/images/menu-carousal/Mustang .jpg';
@@ -32,20 +32,9 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
 
   if (!isOpen) return null;
 
-  const nepalItems = [
-    { name: 'Wildlife', href: '/wildlife' },
-    { name: 'Trekking', href: '/trekking' },
-    { name: 'Photography', href: '/photography' },
-    { name: 'Spiritual Retreat', href: '/spiritual' },
-  ];
-
-  const bhutanItems = [
-    { name: 'Kingdom of Bhutan', href: '/bhutan' }
-  ];
-
-  const tibetItems = [
-    { name: 'Roof of the World', href: '/tibet' }
-  ];
+  const nepalItems = NEPAL_NAV_ITEMS.filter(item => item.href !== '/nepal');
+  const bhutanItems = BHUTAN_NAV_ITEMS;
+  const tibetItems = TIBET_NAV_ITEMS;
 
   return (
     <div className="fixed inset-0 z-[100] bg-gray-50 text-gray-900 overflow-hidden flex flex-col">
