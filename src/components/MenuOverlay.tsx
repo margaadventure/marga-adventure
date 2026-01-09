@@ -310,6 +310,8 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
                     }
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     alt="Region Highlight"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </a>

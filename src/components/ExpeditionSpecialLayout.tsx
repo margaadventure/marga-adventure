@@ -86,6 +86,8 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                                     src={img}
                                     alt={`Expedition ${idx + 1}`}
                                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500"></div>
                             </div>

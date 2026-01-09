@@ -8,7 +8,7 @@ const ACTIVITIES = [
     title: 'Sacred Steps in the Himalayas',
     subtitle: 'Trekking and Culture',
     description: 'Walk the ancient ridges where the mountains embrace the sky and stone paths tell stories of a thousand years. Blend the thrill of the ascent with the deep peace of temple chants.',
-    image: '/images/Trekking/DSCN7275.jpg',
+    image: '/images/Trekking/DSCN7275.webp',
     icon: <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
   },
   {
@@ -16,7 +16,7 @@ const ACTIVITIES = [
     title: 'Awaken in the Himalayas',
     subtitle: 'Spiritual Retreat',
     description: 'Nepal is a sanctuary where the spirit finds its home. From the sacred birth of peace in Lumbini to the meditative silence of high-altitude monasteries, every breath here feels like a prayer.',
-    image: '/images/Spirituality Retreat/buddha-face.jpg',
+    image: '/images/Spirituality Retreat/buddha-face.webp',
     icon: <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
   },
   {
@@ -24,7 +24,7 @@ const ACTIVITIES = [
     title: 'Wildlife Encounters',
     subtitle: 'Wildlife & Nature',
     description: 'Venture into the untamed heart of Nepal, where dense jungles and grassy plains teem with exotic life. Spot Bengal Tigers, Rhinos, and over 850 avian species in their natural habitat.',
-    image: '/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.jpg',
+    image: '/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.webp',
     icon: <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
   },
   {
@@ -32,7 +32,7 @@ const ACTIVITIES = [
     title: 'Chasing Light in the Himalayas',
     subtitle: 'Photography Trip',
     description: 'Nepal is a living masterpiece painted in light and shadow. Frame the golden dawn igniting the himalayan peaks and the ancient, mist-shrouded temples where time stands still.',
-    image: '/images/Capture/Nepal-RBR_060_15_52-EV0A0678.jpg',
+    image: '/images/Capture/Nepal-RBR_060_15_52-EV0A0678.webp',
     icon: <svg className="w-8 h-8 text-brand" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
   }
 ];

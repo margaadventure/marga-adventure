@@ -144,23 +144,21 @@ const packingList = [
     title="Chitwan & Bardia Wildlife Expedition"
     description="The ultimate wildlife expedition across Nepal’s Terai lowlands. Track Rhinos in Chitwan, Tigers in Bardia, and explore Lumbini."
 >
-    <div class="pt-20">
-        <TripItineraryPage
-            title="Chitwan & Bardia Wildlife Expedition"
-            heroImage={images[0]}
-            overview={overview}
-            highlights={highlights}
-            itinerary={itinerary}
-            packingList={packingList}
-            showElevationGraph={false}
-            tripStats={{
-                duration: "10 Days",
-                maxAltitude: "150m", // Lowlands
-                difficulty: "Easy",
-                groupSize: "2-8 People",
-                maxAltitudeLabel: "Avg Elevation",
-            }}
-            client:load
-        />
-    </div>
+    <TripItineraryPage
+        title="Chitwan & Bardia Wildlife Expedition"
+        heroImage={images[0]}
+        overview={overview}
+        highlights={highlights}
+        itinerary={itinerary}
+        packingList={packingList}
+        showElevationGraph={false}
+        tripStats={{
+            duration: "10 Days",
+            maxAltitude: "150m", // Lowlands
+            difficulty: "Easy",
+            groupSize: "2-8 People",
+            maxAltitudeLabel: "Avg Elevation",
+        }}
+        client:load
+    />
 </Layout>

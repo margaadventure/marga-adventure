@@ -13,26 +13,26 @@ export const EVEREST_ELEVATION_DATA: ElevationPoint[] = [
 
 export const MAP_LOCATION_IMAGES: Record<string, string> = {
   // Popular Mountains & Destinations
-  everest: 'https://images.unsplash.com/photo-1582231243171-86f784e8f192?auto=format&fit=crop&q=80&w=400',
-  annapurna: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=400',
-  manaslu: 'https://images.unsplash.com/photo-1544120962-d958223652c4?auto=format&fit=crop&q=80&w=400',
-  kanchenjunga: 'https://images.unsplash.com/photo-15814321243171-86f784e8f192?auto=format&fit=crop&q=80&w=400',
-  langtang: 'https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&q=80&w=400',
-  mustang: 'https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?auto=format&fit=crop&q=80&w=400',
+  everest: '/images/Trekking/DSCN7275.webp',
+  annapurna: '/images/Trekking/DSC09904.webp',
+  manaslu: '/images/Trekking/PA120680.webp',
+  kanchenjunga: '/images/Trekking/DSCN2541.webp',
+  langtang: '/images/Trekking/DSCN7142.webp',
+  mustang: '/images/Trekking/IMG_4796.webp',
 
-  pokhara: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80&w=400',
-  lumbini: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=400',
-  chitwan: 'https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?auto=format&fit=crop&q=80&w=400',
-  ktm: 'https://images.unsplash.com/photo-1544120962-d958223652c4?auto=format&fit=crop&q=80&w=400',
+  pokhara: '/images/Capture/Nepal-RBR_097_13_50-R62_0755.webp',
+  lumbini: '/images/Spirituality Retreat/buddha-face.webp',
+  chitwan: '/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.webp',
+  ktm: '/images/Spirituality Retreat/statue-of-man.webp',
 
   // Graph destinations
-  'lukla': 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&q=80&w=400',
-  'namche bazaar': 'https://images.unsplash.com/photo-1585802298628-97a760c44169?auto=format&fit=crop&q=80&w=400',
-  'tengboche': 'https://images.unsplash.com/photo-1623492701902-47dc207df5b5?auto=format&fit=crop&q=80&w=400',
-  'dingboche': 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&q=80&w=400',
-  'lobuche': 'https://images.unsplash.com/photo-1610996884666-41484cb63943?auto=format&fit=crop&q=80&w=400',
-  'gorak shep': 'https://images.unsplash.com/photo-1596541223263-8d07011d8717?auto=format&fit=crop&q=80&w=400',
-  'base camp': 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&q=80&w=400',
+  'lukla': '/images/Trekking/DSC09904.webp',
+  'namche bazaar': '/images/Trekking/DSCN7275.webp',
+  'tengboche': '/images/Spirituality Retreat/room-with-asent.webp',
+  'dingboche': '/images/Trekking/DSCN7142.webp',
+  'lobuche': '/images/Trekking/PA120680.webp',
+  'gorak shep': '/images/Trekking/DSCN2541.webp',
+  'base camp': '/images/Trekking/DSCN7275.webp',
 };
 
 export const JOURNEY_CATEGORIES = [

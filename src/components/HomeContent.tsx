@@ -20,7 +20,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             {/* 1. Hero Section */}
             <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
                 <img
-                    src={heroImageSrc || "/images/hero-bg.jpg"}
+                    src={heroImageSrc || "/images/hero-bg.webp"}
                     className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Everest and Chorten"
                     fetchPriority="high"

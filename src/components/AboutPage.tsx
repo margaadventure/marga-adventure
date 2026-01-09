@@ -5,7 +5,6 @@ import PageHero from './PageHero';
 const TEAM = [
    { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
    { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: '/images/deepak-profile.webp', note: 'Tech Strategy & Innovation' },
-   { name: 'Yoga Instructor', role: 'Chief Information Officer', img: '/images/deepak-profile.webp', note: 'Tech Strategy & Innovation' },
 
 
 ];
