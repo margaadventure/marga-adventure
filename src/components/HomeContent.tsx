@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import ContactModal from './ContactModal';
 import { LogoIcon, JOURNEY_CATEGORIES, TESTIMONIALS } from '../constants';
 import JourneyBlock from './JourneyBlock';
 import ElevationGraph from './ElevationGraph';
@@ -8,6 +9,7 @@ interface HomeContentProps {
 }
 
 const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
+    const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
     const nextTestimonial = () => setCurrentTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
@@ -37,11 +39,17 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                     </div>
                 </div>
 
-                <a href="/contact" className="absolute bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
+                <button onClick={() => setIsContactModalOpen(true)} className="absolute bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
                     <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity">Follow the Marga</span>
                     <div className="w-px h-16 bg-gradient-to-b from-white to-transparent group-hover:h-24 transition-all duration-700 shadow-sm"></div>
-                </a>
+                </button>
             </section>
+
+            <ContactModal
+                isOpen={isContactModalOpen}
+                onClose={() => setIsContactModalOpen(false)}
+                tripTitle="General Enquiry"
+            />
 
             {/* 2. Tagline Section */}
             <section className="relative py-24 px-6 bg-gray-50 flex flex-col items-center text-center overflow-hidden">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContactModal from './ContactModal';
 
 interface ExpeditionSpecialLayoutProps {
@@ -28,6 +28,16 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
     itinerary
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+    // Close on Escape key
+    useEffect(() => {
+        const handleEsc = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setSelectedImage(null);
+        };
+        window.addEventListener('keydown', handleEsc);
+        return () => window.removeEventListener('keydown', handleEsc);
+    }, []);
 
     // Default icon style
     const IconCircle = ({ children }: { children: React.ReactNode }) => (
@@ -64,10 +74,14 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                     {/* Two Images Side by Side - Before Description - Enhanced UI */}
                     <div className="grid md:grid-cols-2 gap-12 mb-20 max-w-6xl mx-auto relative">
                         {/* Decorative connecting line */}
-                        <div className="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent -z-10"></div>
+
 
                         {images.map((img, idx) => (
-                            <div key={idx} className="aspect-[4/3] rounded-lg overflow-hidden border-[8px] border-white/5 shadow-2xl relative group transform transition-all duration-700 hover:scale-[1.02] hover:border-white/10">
+                            <div
+                                key={idx}
+                                onClick={() => setSelectedImage(img)}
+                                className="aspect-[4/3] rounded-lg overflow-hidden border-[8px] border-white/5 shadow-2xl relative group transform transition-all duration-700 hover:scale-[1.02] hover:border-white/10 cursor-zoom-in"
+                            >
                                 <img
                                     src={img}
                                     alt={`Expedition ${idx + 1}`}
@@ -209,6 +223,33 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                 onClose={() => setIsModalOpen(false)}
                 tripTitle={title}
             />
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 cursor-zoom-out animate-in fade-in duration-300"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <div className="relative max-w-7xl max-h-screen w-full h-full flex items-center justify-center">
+                        <img
+                            src={selectedImage}
+                            alt="Full Screen View"
+                            className="max-w-full max-h-full object-contain rounded-md shadow-2xl"
+                        />
+                        <button
+                            className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedImage(null);
+                            }}
+                        >
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            )}
 
         </div>
     );
