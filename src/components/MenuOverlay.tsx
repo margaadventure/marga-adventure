@@ -28,15 +28,15 @@ const SCROLL_IMAGES = [
 
 export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
   const [activeSub, setActiveSub] = useState<string | null>(null);
-  const [activeNestedSub, setActiveNestedSub] = useState<string | null>(null);
+  const [activeNestedSub, setActiveNestedSub] = useState<string | null>('nepal');
 
   if (!isOpen) return null;
 
   const nepalItems = [
     { name: 'Wildlife', href: '/wildlife' },
+    { name: 'Trekking', href: '/trekking' },
     { name: 'Photography', href: '/photography' },
     { name: 'Spiritual Retreat', href: '/spiritual' },
-    { name: 'Trekking', href: '/trekking' }
   ];
 
   const bhutanItems = [
@@ -50,24 +50,17 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
   return (
     <div className="fixed inset-0 z-[100] bg-gray-50 text-gray-900 overflow-hidden flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-center px-8 py-8 relative z-20 bg-gray-50/90 backdrop-blur-sm md:bg-transparent">
-        {/* Logo and Name */}
-        <a href="/" onClick={onClose} className="flex items-center gap-4 group cursor-pointer">
-          <div className="text-brand">
-            <LogoIcon className="w-10 h-10" />
-          </div>
-          <span className="font-bold tracking-tighter text-xl text-gray-900 font-sans">
-            Marga <span className="font-light text-brand">Adventure</span>
-          </span>
-        </a>
-
+      {/* Header (Close Button Only - Desktop) */}
+      <div className="hidden md:flex justify-end items-center pr-8 py-8 relative z-20 bg-transparent pointer-events-none">
         <button
           onClick={onClose}
-          className="group flex items-center gap-4 text-xs tracking-widest uppercase font-bold text-gray-500 hover:text-brand transition-colors font-sans"
+          className="group flex items-center gap-4 pointer-events-auto"
+          aria-label="Close Menu"
         >
-          Close
-          <div className="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all text-gray-900">
-            ✕
+          <div className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all text-gray-900 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </div>
         </button>
       </div>
@@ -76,8 +69,34 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
       <div className="flex-1 flex flex-col md:flex-row relative z-10 overflow-hidden">
 
         {/* Column 1: Main Menu Items */}
-        <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start pl-12 pr-8 md:pl-24 md:pr-12 lg:pl-32 lg:pr-16 gap-10 bg-gray-50 overflow-y-auto h-full py-12 md:py-20 no-scrollbar transition-all duration-500 border-r border-gray-200 z-20 relative font-sans`}>
-          <a href="/" onClick={onClose} className="group text-xl md:text-3xl font-bold text-gray-900 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+        <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start pl-16 pr-8 md:pl-32 lg:pl-40 gap-10 bg-gray-50 overflow-y-auto h-full pt-4 pb-6 md:py-10 no-scrollbar transition-all duration-500 border-r border-gray-200 z-20 relative font-sans`}>
+
+          {/* Logo & Mobile Close Button */}
+          <div className="mb-6 flex justify-between items-center w-full">
+            <a href="/" onClick={onClose} className="flex items-center gap-4 group cursor-pointer w-fit">
+              <div className="text-brand">
+                <LogoIcon className="w-10 h-10 md:w-12 md:h-12" />
+              </div>
+              <span className="font-bold tracking-tighter text-xl md:text-2xl text-gray-900 font-sans">
+                Marga <span className="font-light text-brand">Adventure</span>
+              </span>
+            </a>
+
+            {/* Mobile Close Button */}
+            <button
+              onClick={onClose}
+              className="md:hidden group flex items-center justify-center"
+              aria-label="Close Menu"
+            >
+              <div className="w-10 h-10 border border-gray-200 rounded-full flex items-center justify-center group-hover:bg-brand group-hover:text-white group-hover:border-brand transition-all text-gray-900 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+            </button>
+          </div>
+
+          <a href="/" onClick={onClose} className="group text-lg md:text-2xl font-bold text-gray-700 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             Home
           </a>
 
@@ -86,7 +105,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
               <button
                 type="button"
                 onClick={() => setActiveSub(activeSub === 'destination' ? null : 'destination')}
-                className={`text-xl md:text-3xl font-bold transition-colors text-left outline-none tracking-tight ${activeSub === 'destination' ? 'text-brand' : 'text-gray-900 hover:text-brand'}`}
+                className={`text-lg md:text-2xl font-bold transition-colors text-left outline-none tracking-tight ${activeSub === 'destination' ? 'text-brand' : 'text-gray-700 hover:text-brand'}`}
               >
                 Destinations
               </button>
@@ -98,7 +117,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
                 }}
                 className="pl-4 outline-none relative z-30"
               >
-                <span className={`text-3xl transition-transform duration-300 block ${activeSub === 'destination' ? 'rotate-90 text-brand' : 'text-gray-400'}`}>›</span>
+                <span className={`text-2xl transition-transform duration-300 block ${activeSub === 'destination' ? 'rotate-90 text-brand' : 'text-gray-400'}`}>›</span>
               </button>
             </div>
 
@@ -169,16 +188,16 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
             )}
           </div>
 
-          <a href="/community" onClick={onClose} className="group text-xl md:text-3xl font-bold text-gray-900 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href="/community" onClick={onClose} className="group text-lg md:text-2xl font-bold text-gray-700 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             Community
           </a>
-          <a href="/about" onClick={onClose} className="group text-xl md:text-3xl font-bold text-gray-900 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href="/about" onClick={onClose} className="group text-lg md:text-2xl font-bold text-gray-700 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             About Us
           </a>
-          <a href="/blog" onClick={onClose} className="group text-xl md:text-3xl font-bold text-gray-900 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href="/blog" onClick={onClose} className="group text-lg md:text-2xl font-bold text-gray-700 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             The Journal
           </a>
-          <a href="/contact" onClick={onClose} className="group text-xl md:text-3xl font-bold text-gray-900 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href="/contact" onClick={onClose} className="group text-lg md:text-2xl font-bold text-gray-700 hover:text-brand transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             Contact
           </a>
         </nav>
@@ -274,12 +293,23 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
             /* Feature Image Stack */
             <>
               {/* Image Container */}
-              <div className="relative w-full max-w-sm aspect-[3/4] animate-in zoom-in-95 duration-700">
-                {/* Decorative Backdrop */}
-                <div className="absolute inset-0 bg-brand-light/30 -rotate-6 scale-105 rounded-none z-0 transform origin-bottom-right transition-transform duration-700 group-hover:-rotate-12"></div>
+              <a
+                href={
+                  activeNestedSub === 'bhutan' ? "/bhutan" :
+                    activeNestedSub === 'tibet' ? "/tibet" :
+                      "/nepal"
+                }
+                onClick={onClose}
+                className="relative w-full max-w-sm aspect-[3/4] animate-in zoom-in-95 duration-700 block group"
+              >
+                {/* Decorative Backdrop 1 (Furthest) */}
+                <div className="absolute inset-0 bg-brand/10 -rotate-6 scale-105 rounded-none z-0 transform origin-bottom-right transition-transform duration-700 group-hover:-rotate-12"></div>
+
+                {/* Decorative Backdrop 2 (Closer) */}
+                <div className="absolute inset-0 bg-brand-light/20 -rotate-3 scale-105 rounded-none z-0 transform origin-bottom-right transition-transform duration-700 delay-75 group-hover:-rotate-6"></div>
 
                 {/* Front Main Photo */}
-                <div className="absolute inset-0 shadow-2xl overflow-hidden group cursor-pointer transition-all duration-500 rounded-none z-10 bg-gray-200">
+                <div className="absolute inset-0 shadow-2xl overflow-hidden cursor-pointer transition-all duration-500 rounded-none z-10 bg-gray-200 ring-1 ring-white/20">
                   {/* Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 opacity-60 transition-opacity duration-500 group-hover:opacity-40"></div>
                   <img
@@ -293,14 +323,14 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
                     alt="Region Highlight"
                   />
                 </div>
-              </div>
+              </a>
             </>
           ) : (
             /* Default Scroll Images */
             <>
               <div className="flex flex-col animate-vertical-scroll w-full transition-all duration-700">
                 {[...SCROLL_IMAGES, ...SCROLL_IMAGES].map((src, idx) => (
-                  <div key={idx} className="relative w-full h-[50vh] shrink-0 mb-6">
+                  <div key={idx} className="relative w-full h-[50vh] shrink-0 mb-0">
                     <img
                       src={src}
                       alt="Marga Experience"
