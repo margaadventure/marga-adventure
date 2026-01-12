@@ -1,18 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ActivityPage from "../components/ActivityPage";
+import wildlife1 from "../assets/images/Wildlife/rhino-wildlife_1.jpg";
+import wildlife2 from "../assets/images/Wildlife/tiger-wildlife_2.jpg";
+import wildlife3 from "../assets/images/Wildlife/monkey-wildlife_3.jpg";
+import bg from "../assets/images/Wildlife/wildlife background.jpg";
 ---
 
 <Layout
     title="Wildlife"
     description="Encounter the wild side of Nepal. Home to Bengal Tigers, One-Horned Rhinos, and elusive Snow Leopards, our wildlife tours bring you face-to-face with nature's majesty."
-    image="/images/Wildlife/abhijit-sinha-obc49be0-co-unsplash.jpg"
+    image={wildlife1.src}
 >
     <ActivityPage
         title="Wildlife Encounters"
         subtitle="Wildlife & Nature"
-        description="Venture into the untamed heart of Nepal, where dense jungles and grassy plains teem with exotic life. Beyond the high peaks lies a world of roaring Bengal Tigers, grazing One-Horned Rhinos, and playful herds of wild elephants. Our wildlife experiences take you deep into protected national parks, offering a chance to witness nature’s drama unfold in its purest form. From canoe rides on crocodile-infested rivers to silent jungle walks, discover a biodiversity hotspot that rivals any in Asia."
-        heroImage="/images/Wildlife/abhijit-sinha-obc49be0-co-unsplash.jpg"
+        description="Venture into the untamed heart of Nepal, where dense jungles and grassy plains teem with exotic life. Beyond the high peaks lies a world of roaring Bengal Tigers, grazing One-Horned Rhinos, and playful herds of wild elephants. Our wildlife experiences take you deep into protected national parks, offering a chance to witness nature's drama unfold in its purest form. From canoe rides on crocodile-infested rivers to silent jungle walks, discover a biodiversity hotspot that rivals any in Asia."
+        heroImage={bg.src}
         highlights={[
             { text: "Snow Leopard Tracking", link: "/wildlife/snow-leopard" },
             { text: "Red Panda Tracking", link: "/wildlife/red-panda" },
@@ -22,11 +26,7 @@ import ActivityPage from "../components/ActivityPage";
                 link: "/wildlife/chitwan-bardia-expedition",
             },
         ]}
-        galleryImages={[
-            "/images/Wildlife/92570968_1379412265583631_8140677813087764480_n.webp",
-            "/images/Wildlife/abhijit-sinha-obc49be0-co-unsplash.webp",
-            "/images/Wildlife/getty-images-qqI0q5UCQEY-unsplash.webp",
-        ]}
+        galleryImages={[wildlife1.src, wildlife2.src, wildlife3.src]}
         client:visible
     />
 </Layout>

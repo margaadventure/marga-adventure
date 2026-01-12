@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TripItineraryPage from "../../components/TripItineraryPage";
+import langtangImg from "../../assets/images/Nepal section/Nepla_Trekking/langtang/DSC00006.jpg";
 
 const itinerary = [
     {
@@ -164,7 +165,7 @@ The region is culturally distinct, inhabited primarily by the Tamang people whos
     <TripItineraryPage
         title="Langtang Valley Trek"
         subtitle="Valley of Glaciers"
-        heroImage="/images/Trekking/DSCN7275.jpg"
+        heroImage={langtangImg.src}
         overview={overview}
         highlights={highlights}
         itinerary={itinerary}
@@ -172,7 +173,7 @@ The region is culturally distinct, inhabited primarily by the Tamang people whos
             duration: "12 Days",
             maxAltitude: "4,773m",
             difficulty: "Moderate",
-            groupSize: "2-12 People",
+            groupSize: "2-12",
         }}
         client:visible
     />

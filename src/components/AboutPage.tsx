@@ -1,12 +1,15 @@
 
 import React from 'react';
 import PageHero from './PageHero';
+import buddhimanImg from "../assets/images/buddhiman-tamang.webp";
+import deepakImg from "../assets/images/deepak-profile.webp";
+import trekkingBg from "../assets/images/Trekking/background.jpg";
 
 const TEAM = [
-   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
-   { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: '/images/deepak-profile.webp', note: 'Tech Strategy & Innovation' },
-   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
-   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: '/images/buddhiman-tamang.webp', note: 'Master in Psychology & Adventure Tourism' },
+   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
+   { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: deepakImg.src, note: 'Tech Strategy & Innovation' },
+   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
+   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
 ];
 
 const AboutPage: React.FC = () => {
@@ -15,7 +18,7 @@ const AboutPage: React.FC = () => {
          <PageHero
             title="Marga Adventure"
             subtitle="A journey within."
-            image="/images/Trekking/DSCN7142.webp"
+            image={trekkingBg.src}
             parallax={true}
          />
 
@@ -36,7 +39,7 @@ const AboutPage: React.FC = () => {
                   <div className="w-full md:w-1/3 shrink-0">
                      <div className="relative rounded-none overflow-hidden shadow-2xl">
                         <img
-                           src="/images/buddhiman-tamang.webp"
+                           src={buddhimanImg.src}
                            alt="Buddhiman Tamang"
                            className="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700"
                            loading="lazy"

@@ -44,7 +44,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
         duration: "12 Days",
         maxAltitude: "4,773m",
         difficulty: "Moderate",
-        groupSize: "2-12 People"
+        groupSize: "2-12"
     },
     price = "On Request",
     packingList,

@@ -47,7 +47,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
       <div className="relative w-full h-full rounded-none overflow-hidden shadow-xl">
         <div className="absolute inset-0 bg-gray-900">
           {images.map((img, idx) => (
-            <div key={idx} className={`absolute inset-0 transition-all duration-[2000ms] cubic-bezier(0.23, 1, 0.32, 1) ${idx === currentIndex ? 'opacity-100 scale-105 blur-0' : 'opacity-0 scale-110 blur-sm'}`}>
+            <div key={idx} className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${idx === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-100 z-0'}`}>
               <a href={`/${id}`} className="block w-full h-full cursor-pointer">
                 <img
                   src={img}

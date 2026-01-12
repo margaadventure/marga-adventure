@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TripItineraryPage from "../../components/TripItineraryPage";
+import manasluImg from "../../assets/images/Trekking/manewall-trekking_3.jpg";
 
 const itinerary = [
     {
@@ -191,15 +192,15 @@ Culturally, the region is incredibly authentic; trekkers pass through villages l
     <TripItineraryPage
         title="Manaslu Circuit Trek"
         subtitle="Spirit of the Mountains"
-        heroImage="/images/Trekking/DSCN7142.jpg"
+        heroImage={manasluImg.src}
         overview={overview}
         highlights={highlights}
         itinerary={itinerary}
         tripStats={{
             duration: "15 Days",
             maxAltitude: "5,160m",
-            difficulty: "Challenging",
-            groupSize: "2-12 People",
+            difficulty: "Hard",
+            groupSize: "2-12",
         }}
         client:visible
     />

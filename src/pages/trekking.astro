@@ -1,29 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ActivityPage from "../components/ActivityPage";
+import trekking1 from "../assets/images/Trekking/congde-tekking_1.jpg";
+import trekking2 from "../assets/images/Trekking/Thamserku-trekiking_2.jpg";
+import trekking3 from "../assets/images/Trekking/manewall-trekking_3.jpg";
+import bg from "../assets/images/Trekking/background.jpg";
 ---
 
 <Layout
     title="Trekking"
     description="Walk the ridges of the Himalayas. Our trekking packages take you deep into the heart of the mountains, combining physical challenge with cultural immersion."
-    image="/images/Trekking/DSCN7275.jpg"
+    image={trekking1.src}
 >
     <ActivityPage
         title="Sacred Steps in the Himalayas"
         subtitle="Trekking & Culture"
         description="Walk the ancient ridges where the mountains embrace the sky and stone paths tell stories of a thousand years. Here, the journey is measured not in miles, but in the warmth of shared smiles and the steam of tea by a village hearth. Blend the thrill of the ascent with the deep peace of temple chants. In Nepal, every step draws you closer to the clouds, and every encounter brings you closer to home."
-        heroImage="/images/Trekking/PA120680.webp"
+        heroImage={bg.src}
         highlights={[
             { text: "Manaslu Circuit", link: "/trekking/manaslu-circuit" },
             { text: "Langtang Valley", link: "/trekking/langtang-valley" },
             { text: "Upper Mustang", link: "/trekking/upper-mustang" },
             { text: "Mohare Danda", link: "/trekking/mohare-danda" },
         ]}
-        galleryImages={[
-            "/images/Trekking/DSC09904.webp",
-            "/images/Trekking/DSCN7142.webp",
-            "/images/Trekking/IMG_4796.webp",
-        ]}
+        galleryImages={[trekking1.src, trekking2.src, trekking3.src]}
         client:visible
     />
 </Layout>

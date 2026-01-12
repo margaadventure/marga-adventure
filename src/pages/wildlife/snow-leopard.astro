@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ExpeditionSpecialLayout from "../../components/ExpeditionSpecialLayout";
+import leopard1 from "../../assets/images/Wildlife/snow-leopard-1.png";
+import leopard2 from "../../assets/images/Wildlife/snow-leopard-2.png";
 
 const features = [
     {
@@ -44,10 +46,7 @@ const highlights = [
 
 const overview = `A snow leopard expedition in Nepal is a premier high-altitude adventure into the "Ghost of the Mountains'" rugged domain. Centered in remote regions like Manang, Upper Mustang, and Dolpo, these winter treks (December–February) follow the elusive predator as it descends to lower elevations in pursuit of blue sheep.`;
 
-const images = [
-    "/images/Trekking/DSCN7142.jpg", // Placeholder 1 (Manaslu/Snowy)
-    "/images/Wildlife/abhijit-sinha-obc49be0-co-unsplash.jpg", // Placeholder 2 (Wildlife)
-];
+const images = [leopard1.src, leopard2.src];
 ---
 
 <Layout
@@ -63,7 +62,7 @@ const images = [
         tripStats={{
             destination: "Manang, Nepal",
             difficulty: "Moderate",
-            groupSize: "2-8 People",
+            groupSize: "2-8 ",
             season: "Dec - Feb",
         }}
         client:visible

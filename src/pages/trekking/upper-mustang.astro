@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import TripItineraryPage from "../../components/TripItineraryPage";
+import mustangImg from "../../assets/images/Nepal section/Nepla_Trekking/mustang/mustang-1.jpg";
 
 const itinerary = [
     {
@@ -184,7 +185,7 @@ Journey into the “Last Forbidden Kingdom” and explore the walled city of Lo-
     <TripItineraryPage
         title="Upper Mustang Trek"
         subtitle="The Last Forbidden Kingdom"
-        heroImage="/images/Trekking/DSC09904.JPG"
+        heroImage={mustangImg.src}
         overview={overview}
         highlights={highlights}
         itinerary={itinerary}
@@ -192,7 +193,7 @@ Journey into the “Last Forbidden Kingdom” and explore the walled city of Lo-
             duration: "15 Days",
             maxAltitude: "4,200m",
             difficulty: "Moderate to Strenuous",
-            groupSize: "2-12 People",
+            groupSize: "2-12",
         }}
         client:visible
     />

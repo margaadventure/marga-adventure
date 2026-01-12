@@ -1,5 +1,30 @@
 import type { ElevationPoint } from './types';
 
+// Carousel Images
+import spiritual1 from './assets/images/Spirituality Retreat/yoga-spiritual_1.jpeg';
+import spiritual2 from './assets/images/Spirituality Retreat/meditation-spiritual_2.png';
+import spiritual3 from './assets/images/Spirituality Retreat/plant-spiritual_3.jpg';
+import spiritual4 from './assets/images/Spirituality Retreat/healing bowl-spiritual_4.png';
+import spiritual5 from './assets/images/Spirituality Retreat/sunlight-spiritual_5.jpg';
+
+import photo1 from './assets/images/Photography/Sadhu-photography_1.jpg';
+import photo2 from './assets/images/Photography/potrait-photography_2.jpg';
+import photo3 from './assets/images/Photography/machhapuchare-photography_3.jpg';
+import photo4 from './assets/images/Photography/potratit-photography_4.jpg';
+import photo5 from './assets/images/Photography/light-photography_5.jpg';
+
+import wildlife1 from './assets/images/Wildlife/rhino-wildlife_1.jpg';
+import wildlife2 from './assets/images/Wildlife/tiger-wildlife_2.jpg';
+import wildlife3 from './assets/images/Wildlife/monkey-wildlife_3.jpg';
+import wildlife4 from './assets/images/Wildlife/peacock-wildlife_4.jpg';
+import wildlife5 from './assets/images/Wildlife/deer-wildlife_5.jpg';
+
+import trekking1 from './assets/images/Trekking/congde-tekking_1.jpg';
+import trekking2 from './assets/images/Trekking/Thamserku-trekiking_2.jpg';
+import trekking3 from './assets/images/Trekking/manewall-trekking_3.jpg';
+import trekking4 from './assets/images/Trekking/ABC-trekking_4.jpg';
+import trekking5 from './assets/images/Trekking/nepalihouse-trekking_5.jpg';
+
 // Everest Base Camp Trek elevation profile data (14-day summit timeline)
 export const EVEREST_ELEVATION_DATA: ElevationPoint[] = [
   { day: 'Day 1', elevation: 2860, location: 'Lukla', coord: [78, 32] },
@@ -41,11 +66,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Awakening Inner Compass',
     description: 'Spirituality is the profound journey of connecting with your true self and the universe. It transcends religious dogmas, focusing instead on personal growth, mindfulness, and the pursuit of inner peace. Nepal is a profound sanctuary where the peaks of the Himalayas meet ancient wisdom.',
     images: [
-      '/images/Spirituality Retreat/buddha-face.webp',
-      '/images/Spirituality Retreat/healing-bowl.webp',
-      '/images/Spirituality Retreat/buddha-with-flower.webp',
-      '/images/Spirituality Retreat/statue-of-man.webp',
-      '/images/Spirituality Retreat/room-with-asent.webp'
+      spiritual1.src,
+      spiritual2.src,
+      spiritual3.src,
+      spiritual4.src,
+      spiritual5.src
     ],
     alignment: 'right' as const
   },
@@ -54,11 +79,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Capture The Soul',
     description: 'Chase the light where earth meets heaven. From whispering prayer flags to the silence of snow-crowned giants, Nepal invites you to frame its eternal beauty. Wander through timeless villages and vibrant festivals, capturing stories etched in stone and spirit.',
     images: [
-      '/images/Capture/Nepal-RBR_097_13_50-R62_0755.webp',
-      '/images/Capture/Nepal-RBR_060_15_52-EV0A0678.webp',
-      '/images/Capture/Nepal-RBR_094_09_46-R62_5603-Avec accentuation-Bruit.webp',
-      '/images/Capture/92570968_1379412265583631_8140677813087764480_n.webp',
-      '/images/Capture/Nepal-RBR_060_16_15-EV0A0692.webp'
+      photo1.src,
+      photo2.src,
+      photo3.src,
+      photo4.src,
+      photo5.src
     ],
     alignment: 'left' as const
   },
@@ -67,11 +92,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Wild Secrets',
     description: 'Wander where the jungle breathes in time with nature. Track the majestic tiger through golden grasslands and watch the armored rhino emerge from the morning mist. This is a journey into the heart of the wild, where every rustle reveals a new, untamed story.',
     images: [
-      '/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.webp',
-      '/images/Wildlife/getty-images-FmsP_fMI5Ms-unsplash.webp',
-      '/images/Wildlife/getty-images-qqI0q5UCQEY-unsplash.webp',
-      '/images/Wildlife/abhijit-sinha-obc49be0-co-unsplash.webp',
-      '/images/Wildlife/abhijit-sinha-bAt2ZzaOCXo-unsplash.webp'
+      wildlife1.src,
+      wildlife2.src,
+      wildlife3.src,
+      wildlife4.src,
+      wildlife5.src
     ],
     alignment: 'right' as const
   },
@@ -80,11 +105,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Trails of Timeless Spirit',
     description: 'Traverse ancient trails where the majesty of the Himalayas meets deep-rooted traditions. In Nepal, trekking is more than a hike; it is a journey through sacred landscapes. You will encounter colorful prayer flags, mani walls, and remote monasteries.',
     images: [
-      '/images/Trekking/DSC09904.webp',
-      '/images/Trekking/DSCN7142.webp',
-      '/images/Trekking/DSCN7275.webp',
-      '/images/Trekking/PA120680.webp',
-      '/images/Trekking/DSCN2541.webp'
+      trekking1.src,
+      trekking2.src,
+      trekking3.src,
+      trekking4.src,
+      trekking5.src
     ],
     alignment: 'left' as const
   }

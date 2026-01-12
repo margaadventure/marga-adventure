@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ExpeditionSpecialLayout from "../../components/ExpeditionSpecialLayout";
+import redPanda1 from "../../assets/images/Wildlife/3_red_panda.png";
+import redPanda2 from "../../assets/images/Wildlife/red_panda_walking.png";
 
 const features = [
     {
@@ -45,10 +47,7 @@ const highlights = [
 
 const overview = `A red panda expedition in Nepal is a deep dive into the enchanting, mist-shrouded temperate forests of the Eastern Himalayas (Ilam and Taplejung) and Langtang National Park. Unlike typical safaris, this journey involves quiet, patient tracking through dense bamboo groves and ancient rhododendrons at altitudes of 2,200m to 4,000m. Its uniqueness lies in the Community-Based Conservation model. Many treks are led by "Forest Guardians"—former hunters turned conservationists who offer unparalleled tracking skills. Nepal is also the best place to witness the Himalayan Red Panda, now recognized as a genetically distinct species, making this a truly exclusive wildlife encounter.`;
 
-const images = [
-    "/images/Wildlife/abhijit-sinha-bAt2ZzaOCXo-unsplash.jpg", // Placeholder
-    "/images/Wildlife/getty-images-FmsP_fMI5Ms-unsplash.jpg", // Placeholder
-];
+const images = [redPanda1.src, redPanda2.src];
 ---
 
 <Layout
@@ -64,7 +63,7 @@ const images = [
         tripStats={{
             destination: "Eastern Nepal",
             difficulty: "Moderate",
-            groupSize: "2-8 People",
+            groupSize: "2-8",
             season: "Mar-May / Oct-Nov",
         }}
         client:visible
