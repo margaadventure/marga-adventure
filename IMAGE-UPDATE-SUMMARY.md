@@ -27,7 +27,7 @@ Updated to use specific images from `src/assets/images/Nepal section/` where ava
 - **Upper Mustang**: Uses `Nepla_Trekking/mustang/mustang-1.jpg` (renamed).
 - **Red Panda**: Uses `Wildlife/3_red_panda.png` and `Wildlife/red_panda_walking.png`.
 - **Snow Leopard**: Uses `Wildlife/snow-leopard-1.png` and `Wildlife/snow-leopard-2.png`.
-- **Birdwatching**: Uses `Nepal_Wildlife/background.jpg` (hero), `Wildlife/peacock-wildlife_4.jpg`, and Nepal_Wildlife images.
+- **Birdwatching**: Uses `Wildlife/bird-watching-bg.jpg` (hero), `Nepal_Wildlife/bird-3.jpg`, and Nepal_Wildlife images.
 - **Manaslu & Mohare**: Updated to use imported trekking assets (`manewall`, `ABC`).
 - **Nepal Main Page**: Updated `NepalPage.tsx` to use imported assets for all cards and hero.
 

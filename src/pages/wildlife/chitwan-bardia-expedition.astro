@@ -2,10 +2,14 @@
 import Layout from "../../layouts/Layout.astro";
 import ActivityPage from "../../components/ActivityPage";
 import TripItineraryPage from "../../components/TripItineraryPage";
+import rhino from "../../assets/images/Wildlife/rhino-wildlife_1.jpg";
+import peacock from "../../assets/images/Wildlife/peacock-wildlife_4.jpg";
 
 const overview = `Experience the ultimate wildlife expedition across Nepal’s Terai lowlands, journeying from the accessible jungles of Chitwan to the remote wilderness of Bardia. This adventure offers intimate encounters with endangered One-horned Rhinos and elusive Royal Bengal Tigers in their natural habitats. Between safaris, explore the spiritual birthplace of Lord Buddha in Lumbini. Combining jeep drives, river floats, and jungle walks, this itinerary promises a comprehensive immersion into Nepal's diverse ecosystems and rich cultural heritage.`;
 
 const highlights = [
+    // ... (start of highlights)
+
     {
         title: "Chitwan’s Rhino Sanctuary",
         description:
@@ -101,10 +105,7 @@ const itinerary = [
     },
 ];
 
-const images = [
-    "/images/Wildlife/rhino-wildlife_1.jpg",
-    "/images/Wildlife/tiger-wildlife_2.jpg",
-];
+const images = [rhino.src, peacock.src];
 
 const packingList = [
     {
