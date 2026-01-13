@@ -20,7 +20,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             {/* 1. Hero Section */}
             <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
                 <img
-                    src={heroImageSrc || "/images/hero-bg.webp"}
+                    src={heroImageSrc || "/images/hero/hero-bg.webp"}
                     className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Everest and Chorten"
                     fetchPriority="high"
@@ -39,7 +39,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                     </div>
                 </div>
 
-                <button onClick={() => setIsContactModalOpen(true)} className="absolute bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
+                <button onClick={() => setIsContactModalOpen(true)} className="absolute bottom-12 md:bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
                     <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity">Follow the Marga</span>
                     <div className="w-px h-16 bg-gradient-to-b from-white to-transparent group-hover:h-24 transition-all duration-700 shadow-sm"></div>
                 </button>
@@ -52,18 +52,18 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             />
 
             {/* 2. Tagline Section */}
-            <section className="relative py-24 px-6 bg-gray-50 flex flex-col items-center text-center overflow-hidden">
+            <section className="relative py-12 md:py-24 px-6 bg-gray-50 flex flex-col items-center text-center overflow-hidden">
                 {/* Decorative SVG Prayer Flags */}
                 {/* Decorative SVG Prayer Flags */}
 
-                <div className="mb-12 inline-flex items-center justify-center p-8 bg-gray-50 rounded-full shadow-inner border border-gray-100">
-                    <LogoIcon className="w-32 h-32 text-brand" />
+                <div className="mb-8 md:mb-12 inline-flex items-center justify-center p-8 bg-gray-50 rounded-full shadow-inner border border-gray-100">
+                    <LogoIcon className="w-20 h-20 md:w-32 md:h-32 text-brand" />
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 text-gray-900 tracking-tight max-w-5xl leading-tight">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12 text-gray-900 tracking-tight max-w-5xl leading-tight">
                     Find your way <span className="italic font-light text-brand">home</span> to yourself.
                 </h2>
-                <div className="w-24 h-0.5 bg-brand/30 mb-12"></div>
-                <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-3xl font-light mb-16 px-4">
+                <div className="w-16 md:w-24 h-0.5 bg-brand/30 mb-8 md:mb-12"></div>
+                <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-3xl font-light mb-10 md:mb-16 px-4">
 
                     Marga Adventure is an adventure company in Nepal where we craft unforgetable Treks, Cultural Immersions, Spiritual Retreats, Photography and Wildlife trips that connects you to the heart of Himalayas and yourself. We believe that travel is not just about reaching a destination; it is about who you become along the way. At Marga Adventure, we don’t just guide your steps; we guide your experience.
 
@@ -78,7 +78,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             </section>
 
             {/* 3. Nepal Map Photo Section (Replaced Interactive Map) */}
-            <section className="py-24 px-6 md:px-12 lg:px-24 bg-gray-50 border-y border-gray-100">
+            <section className="py-12 md:py-24 px-6 md:px-12 lg:px-24 bg-gray-50 border-y border-gray-100">
                 <div className="w-full max-w-[1920px] mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
                         <div className="lg:col-span-4">
@@ -98,7 +98,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                         <div className="lg:col-span-8 w-full">
                             <div className="relative rounded-none overflow-hidden shadow-2xl group border border-white/50 bg-white p-6 md:p-8">
                                 <img
-                                    src="/images/nepal-map.webp"
+                                    src="/images/maps/nepal-map.webp"
                                     alt="Detailed Map of Nepal"
                                     className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
                                     loading="lazy"
@@ -126,17 +126,14 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             </div>
 
             {/* 5. Testimonial Section */}
-            <section className="py-24 px-6 bg-gray-50 relative overflow-hidden">
+            <section className="py-12 md:py-24 px-6 bg-gray-50 relative overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-gray-200 to-transparent"></div>
                 <div className="max-w-4xl mx-auto text-center relative z-10">
                     <div className="mb-12 text-brand/20 text-7xl font-serif italic select-none">“</div>
-                    <h4 className="text-3xl md:text-5xl font-bold text-gray-900 leading-[1.2] mb-16 italic tracking-tight font-serif px-4">
+                    <h4 className="text-lg md:text-2xl font-medium text-gray-900 leading-relaxed mb-12 italic tracking-tight font-serif px-4">
                         {TESTIMONIALS[currentTestimonial].text}
                     </h4>
                     <div className="flex flex-col items-center gap-6 mb-16">
-                        <div className="w-14 h-14 bg-white rounded-2xl border border-gray-100 shadow-sm flex items-center justify-center text-brand font-bold text-lg overflow-hidden transition-transform hover:rotate-3">
-                            <LogoIcon className="w-10 h-10" />
-                        </div>
                         <div>
                             <p className="font-bold text-gray-900 text-lg tracking-tight">{TESTIMONIALS[currentTestimonial].author}</p>
                             <p className="text-[10px] text-brand font-bold uppercase tracking-[0.4em] mt-1">{TESTIMONIALS[currentTestimonial].role}</p>
@@ -166,7 +163,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             {/* 6. Elevation Dynamics Section - Removed */}
 
             {/* 7. Enquiry Banner */}
-            <section className="px-6 md:px-12 lg:px-24 py-24 bg-gray-50">
+            <section className="px-6 md:px-12 lg:px-24 py-12 md:py-24 bg-gray-50">
                 <div className="max-w-7xl mx-auto bg-white rounded-none overflow-hidden grid lg:grid-cols-2 shadow-2xl border border-gray-100">
                     <div className="p-8 md:p-12 border-r border-gray-50 flex flex-col justify-center bg-white">
                         <div className="flex items-center gap-6 mb-12">

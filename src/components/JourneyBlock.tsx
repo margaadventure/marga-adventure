@@ -26,15 +26,15 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
   }, [nextImage]);
 
   const textContent = (
-    <div className={`flex flex-col justify-center px-12 lg:px-28 py-28 ${alignment === 'left' ? 'order-1 md:order-2' : 'order-1'}`}>
-      <div className="w-16 h-px bg-brand/30 mb-12"></div>
-      <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-10 text-gray-900 tracking-tighter leading-[0.9]">{title}</h3>
-      <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light mb-16 max-w-xl italic">
+    <div className={`flex flex-col justify-center px-6 md:px-12 lg:px-28 py-12 md:py-28 ${alignment === 'left' ? 'order-1 md:order-2' : 'order-1'}`}>
+      <div className="w-16 h-px bg-brand/30 mb-8 md:mb-12"></div>
+      <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-10 text-gray-900 tracking-tighter leading-[0.9]">{title}</h3>
+      <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light mb-8 md:mb-16 max-w-xl italic">
         {description}
       </p>
       <a
         href={`/${id}`}
-        className="flex items-center gap-8 group w-fit transition-all bg-brand hover:bg-brand-dark text-white px-10 py-5 rounded-full shadow-lg hover:shadow-brand/40 hover:-translate-y-1"
+        className="flex items-center gap-8 group w-fit transition-all bg-brand hover:bg-brand-dark text-white px-8 py-4 md:px-10 md:py-5 rounded-full shadow-lg hover:shadow-brand/40 hover:-translate-y-1"
       >
         <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Explore Path</span>
         <div className="w-10 h-px bg-white/50 group-hover:w-16 group-hover:bg-white transition-all duration-500"></div>
@@ -43,7 +43,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
   );
 
   const imageContent = (
-    <div className={`h-[500px] md:h-[70vh] lg:h-[80vh] min-h-[500px] w-full p-4 md:p-8 ${alignment === 'left' ? 'order-2 md:order-1' : 'order-2'}`}>
+    <div className={`h-[400px] md:h-[70vh] lg:h-[80vh] min-h-[400px] w-full p-4 md:p-8 ${alignment === 'left' ? 'order-2 md:order-1' : 'order-2'}`}>
       <div className="relative w-full h-full rounded-none overflow-hidden shadow-xl">
         <div className="absolute inset-0 bg-gray-900">
           {images.map((img, idx) => (

@@ -43,7 +43,7 @@ const NepalMap: React.FC<{ showDetails?: boolean }> = ({ showDetails }) => {
     >
       <div className="relative w-full h-full">
         <img
-          src="/images/nepal-map-v2.webp"
+          src="/images/maps/nepal-map-v2.webp"
           alt="Map of Nepal"
           className="w-full h-full object-contain"
         />

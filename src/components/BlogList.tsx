@@ -7,7 +7,7 @@ const BLOG_POSTS = [
         category: 'Founders Journal',
         title: 'Why We Left the Guidebook Behind',
         excerpt: 'It started with a realization at 5,000 meters: the summit is not the point. Discover the psychology that birthed Marga Adventure.',
-        image: '/images/buddhiman-tamang.webp',
+        image: '/images/team/buddhiman-tamang.webp',
         readTime: '4 min read',
         date: 'Dec 31, 2025'
     },
@@ -16,7 +16,7 @@ const BLOG_POSTS = [
         category: 'Philosophy',
         title: 'The Rebellion of Silence',
         excerpt: 'In a world screaming for attention, sitting in stillness is the most radical act you can commit. Here is why we prioritize silence over sightseeing.',
-        image: '/images/Spirituality Retreat/buddha-face.jpg',
+        image: '/images/activities/spiritual/buddha-face.jpg',
         readTime: '6 min read',
         date: 'Dec 31, 2025'
     },
@@ -38,7 +38,7 @@ const BlogList: React.FC = () => {
             <PageHero
                 title="The Journal"
                 subtitle="Stories of path, purpose, and people."
-                image="/images/Spirituality Retreat/buddha-with-flower.webp"
+                image="/images/activities/spiritual/buddha-with-flower.webp"
                 parallax={true}
             />
 

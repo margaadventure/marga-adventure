@@ -9,12 +9,13 @@ interface ActivityPageProps {
   heroImage: string;
   highlights: (string | { text: string; link: string })[];
   galleryImages: string[];
+  overlayOpacity?: string;
 }
 
-const ActivityPage: React.FC<ActivityPageProps> = ({ title, subtitle, description, heroImage, highlights, galleryImages }) => {
+const ActivityPage: React.FC<ActivityPageProps> = ({ title, subtitle, description, heroImage, highlights, galleryImages, overlayOpacity }) => {
   return (
     <div className="bg-white">
-      <PageHero title={title} subtitle={subtitle} image={heroImage} />
+      <PageHero title={title} subtitle={subtitle} image={heroImage} overlayOpacity={overlayOpacity} />
 
       <section className="py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-start">

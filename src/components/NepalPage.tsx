@@ -1,11 +1,11 @@
 
 import React from 'react';
 import PageHero from './PageHero';
-import trekking1 from "../assets/images/Trekking/congde-tekking_1.jpg";
-import spiritual1 from "../assets/images/Spirituality Retreat/yoga-spiritual_1.jpeg";
-import wildlife1 from "../assets/images/Wildlife/rhino-wildlife_1.jpg";
-import photo1 from "../assets/images/Photography/Sadhu-photography_1.jpg";
-import bg from "../assets/images/Trekking/background.jpg";
+import trekking1 from "../assets/images/activities/trekking/congde-tekking_1.jpg";
+import spiritual1 from "../assets/images/activities/spiritual/yoga-spiritual_1.jpeg";
+import wildlife1 from "../assets/images/activities/wildlife/rhino.jpg";
+import photo1 from "../assets/images/activities/photography/Sadhu-photography_1.jpg";
+import bg from "../assets/images/country/nepal-hero.jpg";
 
 const ACTIVITIES = [
   {
@@ -50,6 +50,7 @@ const NepalPage: React.FC = () => {
         subtitle="Where the earth touches the sky."
         image={bg.src}
         parallax={true}
+        overlayOpacity="bg-black/20"
       />
 
       <section className="py-24 px-6 md:px-12 lg:px-24">

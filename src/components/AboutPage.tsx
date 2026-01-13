@@ -1,9 +1,9 @@
 
 import React from 'react';
 import PageHero from './PageHero';
-import buddhimanImg from "../assets/images/buddhiman-tamang.webp";
-import deepakImg from "../assets/images/deepak-profile.webp";
-import trekkingBg from "../assets/images/Trekking/background.jpg";
+import buddhimanImg from "../assets/images/team/buddhiman-tamang.webp";
+import deepakImg from "../assets/images/team/deepak-profile.webp";
+import trekkingBg from "../assets/images/activities/trekking/background.jpg";
 
 const TEAM = [
    { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },

@@ -1,29 +1,29 @@
 import type { ElevationPoint } from './types';
 
 // Carousel Images
-import spiritual1 from './assets/images/Spirituality Retreat/yoga-spiritual_1.jpeg';
-import spiritual2 from './assets/images/Spirituality Retreat/meditation-spiritual_2.png';
-import spiritual3 from './assets/images/Spirituality Retreat/plant-spiritual_3.jpg';
-import spiritual4 from './assets/images/Spirituality Retreat/healing bowl-spiritual_4.png';
-import spiritual5 from './assets/images/Spirituality Retreat/sunlight-spiritual_5.jpg';
+import spiritual1 from './assets/images/activities/spiritual/plant-spiritual_3.jpg';
+import spiritual2 from './assets/images/activities/spiritual/sunlight-spiritual_5.jpg';
+import spiritual3 from './assets/images/activities/spiritual/yoga-spiritual_1.jpeg';
+import spiritual4 from './assets/images/activities/spiritual/healing-bowl_spritual_4.jpg';
+import spiritual5 from './assets/images/activities/spiritual/meditation-spiritual_2.png';
 
-import photo1 from './assets/images/Photography/Sadhu-photography_1.jpg';
-import photo2 from './assets/images/Photography/potrait-photography_2.jpg';
-import photo3 from './assets/images/Photography/machhapuchare-photography_3.jpg';
-import photo4 from './assets/images/Photography/potratit-photography_4.jpg';
-import photo5 from './assets/images/Photography/light-photography_5.jpg';
+import photo1 from './assets/images/activities/photography/Sadhu-photography_1.jpg';
+import photo2 from './assets/images/activities/photography/potrait-photography_2.jpg';
+import photo3 from './assets/images/activities/photography/machhapuchare-photography_3.jpg';
+import photo4 from './assets/images/activities/photography/tiger-photography_4.jpg';
+import photo5 from './assets/images/activities/photography/tshechu-photography_5.jpg';
 
-import wildlife1 from './assets/images/Wildlife/rhino-wildlife_1.jpg';
-import wildlife2 from './assets/images/Wildlife/tiger-wildlife_2.jpg';
-import wildlife3 from './assets/images/Wildlife/monkey-wildlife_3.jpg';
-import wildlife4 from './assets/images/Wildlife/peacock-wildlife_4.jpg';
-import wildlife5 from './assets/images/Wildlife/deer-wildlife_5.jpg';
+import wildlife1 from './assets/images/activities/wildlife/rhino-wildlife_1.jpg';
+import wildlife2 from './assets/images/activities/wildlife/tiger.jpg';
+import wildlife3 from './assets/images/activities/wildlife/monkey.jpg';
+import wildlife4 from './assets/images/activities/wildlife/eagle-wildlife_4.jpg';
+import wildlife5 from './assets/images/activities/wildlife/deer-wildlife_5.jpg';
 
-import trekking1 from './assets/images/Trekking/congde-tekking_1.jpg';
-import trekking2 from './assets/images/Trekking/Thamserku-trekiking_2.jpg';
-import trekking3 from './assets/images/Trekking/manewall-trekking_3.jpg';
-import trekking4 from './assets/images/Trekking/ABC-trekking_4.jpg';
-import trekking5 from './assets/images/Trekking/nepalihouse-trekking_5.jpg';
+import trekking1 from './assets/images/activities/trekking/congde-tekking_1.jpg';
+import trekking2 from './assets/images/activities/trekking/Thamserku-trekiking_2.jpg';
+import trekking3 from './assets/images/activities/trekking/manewall-trekking_3.jpg';
+import trekking4 from './assets/images/activities/trekking/ABC-trekking_4.jpg';
+import trekking5 from './assets/images/activities/trekking/nepalihouse-trekking_5.jpg';
 
 // Everest Base Camp Trek elevation profile data (14-day summit timeline)
 export const EVEREST_ELEVATION_DATA: ElevationPoint[] = [
@@ -38,26 +38,26 @@ export const EVEREST_ELEVATION_DATA: ElevationPoint[] = [
 
 export const MAP_LOCATION_IMAGES: Record<string, string> = {
   // Popular Mountains & Destinations
-  everest: '/images/Trekking/DSCN7275.webp',
-  annapurna: '/images/Trekking/DSC09904.webp',
-  manaslu: '/images/Trekking/PA120680.webp',
-  kanchenjunga: '/images/Trekking/DSCN2541.webp',
-  langtang: '/images/Trekking/DSCN7142.webp',
-  mustang: '/images/Trekking/IMG_4796.webp',
+  everest: '/images/activities/trekking/DSCN7275.webp',
+  annapurna: '/images/activities/trekking/DSC09904.webp',
+  manaslu: '/images/activities/trekking/PA120680.webp',
+  kanchenjunga: '/images/activities/trekking/DSCN2541.webp',
+  langtang: '/images/activities/trekking/DSCN7142.webp',
+  mustang: '/images/activities/trekking/IMG_4796.webp',
 
-  pokhara: '/images/Capture/Nepal-RBR_097_13_50-R62_0755.webp',
-  lumbini: '/images/Spirituality Retreat/buddha-face.webp',
-  chitwan: '/images/Wildlife/Nepal-RBR_067_08_47-IMGL2917.webp',
-  ktm: '/images/Spirituality Retreat/statue-of-man.webp',
+  pokhara: '/images/activities/photography/gallery/Nepal-RBR_097_13_50-R62_0755.webp',
+  lumbini: '/images/activities/spiritual/buddha-face.webp',
+  chitwan: '/images/activities/wildlife/Nepal-RBR_067_08_47-IMGL2917.webp',
+  ktm: '/images/activities/spiritual/statue-of-man.webp',
 
   // Graph destinations
-  'lukla': '/images/Trekking/DSC09904.webp',
-  'namche bazaar': '/images/Trekking/DSCN7275.webp',
-  'tengboche': '/images/Spirituality Retreat/room-with-asent.webp',
-  'dingboche': '/images/Trekking/DSCN7142.webp',
-  'lobuche': '/images/Trekking/PA120680.webp',
-  'gorak shep': '/images/Trekking/DSCN2541.webp',
-  'base camp': '/images/Trekking/DSCN7275.webp',
+  'lukla': '/images/activities/trekking/DSC09904.webp',
+  'namche bazaar': '/images/activities/trekking/DSCN7275.webp',
+  'tengboche': '/images/activities/spiritual/room-with-asent.webp',
+  'dingboche': '/images/activities/trekking/DSCN7142.webp',
+  'lobuche': '/images/activities/trekking/PA120680.webp',
+  'gorak shep': '/images/activities/trekking/DSCN2541.webp',
+  'base camp': '/images/activities/trekking/DSCN7275.webp',
 };
 
 export const JOURNEY_CATEGORIES = [
@@ -117,15 +117,16 @@ export const JOURNEY_CATEGORIES = [
 
 export const TESTIMONIALS = [
   {
-    text: '"The infinity path of Marga isn\'t just a logo; it\'s the philosophy they live by. Every step felt like part of a timeless journey."',
-    author: 'Elena R.',
-    role: 'Wellness Guide, Switzerland'
+    text: '“Having traveled for over 30 years and worked with many guides, I can confidently say Buddhiman is the best. He is organized, punctual, knowledgeable about Nepal, and a reassuring guide with genuine values. Flexible, attentive, discreet, and responsive, Boudhiman ensures the most wonderful adventures. Trust his agency to make your Nepalese dreams a reality.”',
+    author: 'Pierre-Etienne Vincent',
+    role: 'France, Publisher and Editor-in-Chief Le Temps d’un Voyage'
   },
   {
-    text: '"Finding Marga in the heart of Kathmandu was the beginning of my transformation. Their Baneshwor team handles every detail with spiritual care."',
-    author: 'Marcus J.',
-    role: 'Explorer, Australia'
-  }
+    text: '“Buddhimnan is an exceptional, long-time acquaintance. He is serious, professional, attentive, and speaks perfect French, simplifying communication during our Nepal trips. Cultured and passionate, he cheerfully and kindly shares his country\'s beauty. His extensive skills allow him to guide us on both mountain treks and sightseeing tours. I highly recommend him; he will make you love Nepal and ensure an unforgettable trip.”',
+    author: 'Nelly Guigue',
+    role: 'France'
+  },
+
 ];
 
 export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) => (

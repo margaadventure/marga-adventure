@@ -7,7 +7,13 @@ interface PageHeroProps {
   image: string;
 }
 
-const PageHero: React.FC<PageHeroProps & { parallax?: boolean }> = ({ title, subtitle, image, parallax = false }) => {
+const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: string }> = ({
+  title,
+  subtitle,
+  image,
+  parallax = false,
+  overlayOpacity = "bg-black/40"
+}) => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900 group">
       <div className="absolute inset-0 overflow-hidden">
@@ -31,7 +37,7 @@ const PageHero: React.FC<PageHeroProps & { parallax?: boolean }> = ({ title, sub
           />
         )}
       </div>
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className={`absolute inset-0 ${overlayOpacity}`}></div>
 
       <div className="relative z-10 text-center flex flex-col items-center px-6 max-w-5xl pt-20">
         <div className="w-px h-16 bg-white/40 mb-8 animate-fade-in"></div>

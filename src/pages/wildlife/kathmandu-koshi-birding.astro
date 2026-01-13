@@ -2,6 +2,9 @@
 import Layout from "../../layouts/Layout.astro";
 import ActivityPage from "../../components/ActivityPage";
 import TripItineraryPage from "../../components/TripItineraryPage";
+import eagle from "../../assets/images/activities/wildlife/eagle-birdwatching .jpg";
+import peacock from "../../assets/images/activities/wildlife/peacock.jpg";
+import deer from "../../assets/images/activities/wildlife/deer.jpg";
 
 const overview = `This itinerary combines the best of Nepal’s hills and wetlands, taking you from the cloud forests of Kathmandu to the bird-rich marshes of Koshi Tappu. It is designed for serious birders and nature enthusiasts, focusing on diverse habitats that host over 500 species. Key targets include Nepal’s endemic Spiny Babbler in the hills and the endangered Bengal Florican in the lowlands. The trip offers a perfect blend of hiking, boating, and jeep safaris to maximize sighting opportunities.`;
 
@@ -101,10 +104,7 @@ const itinerary = [
     },
 ];
 
-const images = [
-    "/images/Wildlife/peacock-wildlife_4.jpg",
-    "/images/Wildlife/deer-wildlife_5.jpg",
-];
+const images = [peacock.src, deer.src];
 
 const features = [];
 ---
@@ -124,7 +124,7 @@ const features = [];
     -->
     <TripItineraryPage
         title="Kathmandu & Koshi Tappu Birding"
-        heroImage={images[0]}
+        heroImage={eagle.src}
         overview={overview}
         highlights={highlights}
         itinerary={itinerary}

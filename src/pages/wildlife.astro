@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ActivityPage from "../components/ActivityPage";
-import wildlife1 from "../assets/images/Wildlife/rhino-wildlife_1.jpg";
-import peacock from "../assets/images/Wildlife/peacock-wildlife_4.jpg";
-import wildlife3 from "../assets/images/Wildlife/monkey-wildlife_3.jpg";
-import bg from "../assets/images/Wildlife/wildlife background.jpg";
+import wildlife1 from "../assets/images/activities/wildlife/deer-wildlife.jpg";
+import peacock from "../assets/images/activities/wildlife/jungle-wildlife.jpg";
+import wildlife3 from "../assets/images/activities/wildlife/monkey.jpg";
+import bg from "../assets/images/activities/wildlife/wildlife-hero.jpg";
 ---
 
 <Layout
@@ -17,10 +17,11 @@ import bg from "../assets/images/Wildlife/wildlife background.jpg";
         subtitle="Wildlife & Nature"
         description="Venture into the untamed heart of Nepal, where dense jungles and grassy plains teem with exotic life. Beyond the high peaks lies a world of roaring Bengal Tigers, grazing One-Horned Rhinos, and playful herds of wild elephants. Our wildlife experiences take you deep into protected national parks, offering a chance to witness nature's drama unfold in its purest form. From canoe rides on crocodile-infested rivers to silent jungle walks, discover a biodiversity hotspot that rivals any in Asia."
         heroImage={bg.src}
+        overlayOpacity="bg-black/20"
         highlights={[
             { text: "Snow Leopard Tracking", link: "/wildlife/snow-leopard" },
             { text: "Red Panda Tracking", link: "/wildlife/red-panda" },
-            { text: "Birdwatching", link: "/wildlife/birdwatching" },
+            { text: "Birdwatching", link: "/wildlife/kathmandu-koshi-birding" },
             {
                 text: "Chitwan & Bardia Expedition",
                 link: "/wildlife/chitwan-bardia-expedition",
