@@ -4,6 +4,10 @@ import ContactModal from './ContactModal';
 import { LogoIcon, JOURNEY_CATEGORIES, TESTIMONIALS } from '../constants';
 import JourneyBlock from './JourneyBlock';
 import ElevationGraph from './ElevationGraph';
+
+import heroBg from '../assets/images/hero/hero-bg.webp';
+import nepalMap from '../assets/images/maps/nepal-map.webp';
+
 interface HomeContentProps {
     heroImageSrc?: string;
 }
@@ -20,7 +24,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             {/* 1. Hero Section */}
             <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
                 <img
-                    src={heroImageSrc || "/images/hero/hero-bg.webp"}
+                    src={heroImageSrc || heroBg.src}
                     className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Everest and Chorten"
                     fetchPriority="high"
@@ -98,7 +102,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                         <div className="lg:col-span-8 w-full">
                             <div className="relative rounded-none overflow-hidden shadow-2xl group border border-white/50 bg-white p-6 md:p-8">
                                 <img
-                                    src="/images/maps/nepal-map.webp"
+                                    src={nepalMap.src}
                                     alt="Detailed Map of Nepal"
                                     className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
                                     loading="lazy"

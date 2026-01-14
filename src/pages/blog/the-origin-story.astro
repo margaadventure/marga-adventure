@@ -1,11 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/PageHero";
+import buddhimanImg from "../../assets/images/team/buddhiman-tamang.webp";
 
 const article = {
     title: "Why We Left the Guidebook Behind",
     subtitle: "The Origin Story",
-    heroImage: "/images/team/buddhiman-tamang.webp",
+    heroImage: buddhimanImg.src,
     date: "December 31, 2025",
     author: "Buddhiman Tamang",
     readTime: "4 min read",
@@ -35,7 +36,7 @@ const article = {
                         class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden"
                     >
                         <img
-                            src="/images/team/buddhiman-tamang.webp"
+                            src={buddhimanImg.src}
                             alt="Buddhiman"
                             class="w-full h-full object-cover"
                         />

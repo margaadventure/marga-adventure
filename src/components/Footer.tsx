@@ -2,6 +2,11 @@
 import React from 'react';
 import { LogoIcon, NEPAL_NAV_ITEMS, BHUTAN_NAV_ITEMS, TIBET_NAV_ITEMS, MAIN_NAV_ITEMS } from '../constants';
 
+// Import logos
+import ntbLogo from '../assets/images/logos/Nepal-Tourism-Board_Logo-full.jpg';
+import taanLogo from '../assets/images/logos/taan-logo.jpg';
+import nmaLogo from '../assets/images/logos/NMA-Logo-removebg-preview.png';
+
 const Footer: React.FC = () => {
     return (
         <footer className="bg-white pt-32 pb-16 px-6 md:px-12 lg:px-24 border-t border-gray-100">
@@ -41,17 +46,17 @@ const Footer: React.FC = () => {
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-6">Associations</p>
                             <div className="grid grid-cols-3 gap-6 items-center">
                                 <img
-                                    src="/images/logos/Nepal-Tourism-Board_Logo-full.jpg"
+                                    src={ntbLogo.src}
                                     alt="Nepal Tourism Board"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
                                 <img
-                                    src="/images/logos/taan-logo.jpg"
+                                    src={taanLogo.src}
                                     alt="TAAN"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
                                 <img
-                                    src="/images/logos/NMA-Logo-removebg-preview.png"
+                                    src={nmaLogo.src}
                                     alt="NMA"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
@@ -83,6 +88,7 @@ const Footer: React.FC = () => {
                 <div className="pt-16 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-10">
                     <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">© 2026 Marga Adventure</p>
                     <div className="flex gap-12 text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">
+                        <a href="/sitemap" className="hover:text-brand transition-colors">Sitemap</a>
                         <a href="#" className="hover:text-brand transition-colors">Privacy</a>
                         <a href="#" className="hover:text-brand transition-colors">Terms</a>
                         <a href="#" className="hover:text-brand transition-colors">Cookies</a>

@@ -2,13 +2,19 @@
 import React from 'react';
 import PageHero from './PageHero';
 
+// Import images
+import schoolGroupImg from '../assets/images/Community/school-group.webp';
+import donationEventImg from '../assets/images/Community/donation-event.webp';
+import libraryBalloonsImg from '../assets/images/Community/library-balloons.webp';
+import playgroundFunImg from '../assets/images/Community/playground-fun.webp';
+
 const CommunityPage: React.FC = () => {
   return (
     <div className="bg-white">
       <PageHero
         title="Our Community"
         subtitle="We believe that tourism should leave a footprint of kindness, not just boots in the snow."
-        image="/images/Community/school-group.webp"
+        image={schoolGroupImg.src}
       />
 
       <section className="py-24 px-6 md:px-12 lg:px-24">
@@ -36,7 +42,7 @@ const CommunityPage: React.FC = () => {
             <div className="absolute inset-0 bg-brand rounded-none rotate-3 opacity-20 group-hover:rotate-6 transition-transform duration-500"></div>
             <div className="relative h-[600px] rounded-none overflow-hidden shadow-2xl bg-gray-100">
               <img
-                src="/images/Community/donation-event.webp"
+                src={donationEventImg.src}
                 alt="Community Donation Event"
                 className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700"
                 loading="lazy"
@@ -59,7 +65,7 @@ const CommunityPage: React.FC = () => {
             {/* Card 1 */}
             <div className="group rounded-none bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
               <div className="h-64 overflow-hidden">
-                <img src="/images/Community/library-balloons.webp" alt="Library Project" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
+                <img src={libraryBalloonsImg.src} alt="Library Project" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
               </div>
               <div className="p-8 text-left">
 
@@ -72,7 +78,7 @@ const CommunityPage: React.FC = () => {
             {/* Card 2 */}
             <div className="group rounded-none bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
               <div className="h-64 overflow-hidden">
-                <img src="/images/Community/playground-fun.webp" alt="Playground Fun" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
+                <img src={playgroundFunImg.src} alt="Playground Fun" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
               </div>
               <div className="p-8 text-left">
 
@@ -85,7 +91,7 @@ const CommunityPage: React.FC = () => {
             {/* Card 3 */}
             <div className="group rounded-none bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden hover:bg-white/10 transition-all duration-500 hover:-translate-y-2">
               <div className="h-64 overflow-hidden">
-                <img src="/images/Community/school-group.webp" alt="Babuko Asha Project" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
+                <img src={schoolGroupImg.src} alt="Babuko Asha Project" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
               </div>
               <div className="p-8 text-left">
 

@@ -1,13 +1,17 @@
 import React from 'react';
 import PageHero from './PageHero';
 
+// Import images
+import schoolGroupImg from '../assets/images/Community/school-group.webp';
+import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
+
 const BLOG_POSTS = [
     {
         slug: 'the-origin-story',
         category: 'Founders Journal',
         title: 'Why We Left the Guidebook Behind',
         excerpt: 'It started with a realization at 5,000 meters: the summit is not the point. Discover the psychology that birthed Marga Adventure.',
-        image: '/images/team/buddhiman-tamang.webp',
+        image: buddhimanTamangImg.src,
         readTime: '4 min read',
         date: 'Dec 31, 2025'
     },
@@ -25,7 +29,7 @@ const BLOG_POSTS = [
         category: 'Community',
         title: 'Tourism that Heals',
         excerpt: 'How your journey puts roofs over heads and books in hands. A look into our "Sharing Warmth" initiative in the remote villages of Nepal.',
-        image: '/images/Community/school-group.webp',
+        image: schoolGroupImg.src,
         readTime: '3 min read',
         date: 'Dec 31, 2025',
         authorImage: '/logo.png'
