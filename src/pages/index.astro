@@ -6,28 +6,54 @@ import heroBg from "../assets/images/hero/hero-bg.jpg";
 import nepalMap from "../assets/images/maps/nepal-map.webp";
 import { JOURNEY_CATEGORIES } from "../constants";
 
-const optimizedHero = await getImage({
+const heroSm = await getImage({
 	src: heroBg,
 	format: "webp",
-	width: 2560,
+	width: 640,
+	quality: 75,
 });
-
-const optimizedNepalMap = await getImage({
-	src: nepalMap,
+const heroLg = await getImage({
+	src: heroBg,
 	format: "webp",
 	width: 1920,
+	quality: 75,
 });
+const heroSrcSet = `${heroSm.src} 640w, ${heroLg.src} 1920w`;
+
+const mapSm = await getImage({
+	src: nepalMap,
+	format: "webp",
+	width: 800,
+	quality: 75,
+});
+const mapLg = await getImage({
+	src: nepalMap,
+	format: "webp",
+	width: 1600,
+	quality: 75,
+});
+const nepalMapSrcSet = `${mapSm.src} 800w, ${mapLg.src} 1600w`;
 
 const optimizedJourneyCategories = await Promise.all(
 	JOURNEY_CATEGORIES.map(async (cat) => {
 		const optimizedImages = await Promise.all(
 			cat.images.map(async (img: any) => {
-				const optimized = await getImage({
+				const sm = await getImage({
+					src: img,
+					format: "webp",
+					width: 600,
+					quality: 75,
+				});
+				const lg = await getImage({
 					src: img,
 					format: "webp",
 					width: 1200,
+					quality: 75,
 				});
-				return optimized.src;
+				return {
+					src: lg.src,
+					srcSet: `${sm.src} 600w, ${lg.src} 1200w`,
+				};
 			}),
 		);
 		return { ...cat, images: optimizedImages };
@@ -41,8 +67,10 @@ const optimizedJourneyCategories = await Promise.all(
 >
 	<HomeContent
 		client:load
-		heroImageSrc={optimizedHero.src}
-		nepalMapSrc={optimizedNepalMap.src}
+		heroImageSrc={heroLg.src}
+		heroImageSrcSet={heroSrcSet}
+		nepalMapSrc={mapLg.src}
+		nepalMapSrcSet={nepalMapSrcSet}
 		journeyCategories={optimizedJourneyCategories}
 	/>
 </Layout>

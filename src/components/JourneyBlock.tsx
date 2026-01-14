@@ -1,11 +1,16 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 
+interface JourneyImage {
+  src: string;
+  srcSet: string;
+}
+
 interface JourneyBlockProps {
   id: string; // Add ID
   title: string;
   description: string;
-  images: string[];
+  images: JourneyImage[];
   alignment: 'left' | 'right';
 }
 
@@ -50,7 +55,9 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
             <div key={idx} className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${idx === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-100 z-0'}`}>
               <a href={`/${id}`} className="block w-full h-full cursor-pointer">
                 <img
-                  src={img}
+                  src={img.src}
+                  srcSet={img.srcSet}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   alt={`${title} ${idx}`}
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -91,8 +98,11 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-1 rounded-full transition-all duration-700 ${idx === currentIndex ? 'w-16 bg-white' : 'w-6 bg-white/20 hover:bg-white/40'}`}
-              />
+                className="h-12 min-w-[48px] flex items-center justify-center cursor-pointer"
+                aria-label={`Go to image ${idx + 1}`}
+              >
+                <div className={`h-1 rounded-full transition-all duration-700 ${idx === currentIndex ? 'w-16 bg-white' : 'w-6 bg-white/20 group-hover:bg-white/40'}`} />
+              </button>
             ))}
           </div>
         </div>

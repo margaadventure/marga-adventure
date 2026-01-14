@@ -44,7 +44,8 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
         <div className="flex items-center gap-10">
           <button
             onClick={onMenuOpen}
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-4 group p-3 mx-1"
+            aria-label="Open main menu"
           >
             <span className={`text-[10px] font-bold uppercase tracking-[0.5em] transition-all duration-500 hidden md:block ${isOpaque ? 'text-gray-400 group-hover:text-brand' : 'text-white/60 group-hover:text-white'}`}>NAVIGATION</span>
             <div className="flex flex-col gap-1.5 p-2 transition-all">

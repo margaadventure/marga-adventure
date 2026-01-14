@@ -5,23 +5,46 @@ import { LogoIcon, TESTIMONIALS } from '../constants';
 import JourneyBlock from './JourneyBlock';
 import heroBg from '../assets/images/hero/hero-bg.webp';
 
+interface JourneyImage {
+    src: string;
+    srcSet: string;
+}
+
 interface JourneyCategory {
     id: string;
     title: string;
     description: string;
-    images: string[];
+    images: JourneyImage[];
     alignment: 'left' | 'right';
 }
 
 interface HomeContentProps {
     heroImageSrc?: string;
+    heroImageSrcSet?: string;
     nepalMapSrc?: string;
+    nepalMapSrcSet?: string;
     journeyCategories?: JourneyCategory[];
 }
 
-const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, nepalMapSrc, journeyCategories = [] }) => {
+const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet, nepalMapSrc, nepalMapSrcSet, journeyCategories = [] }) => {
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const [loadMap, setLoadMap] = useState(false);
+    const mapRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                setLoadMap(true);
+                observer.disconnect();
+            }
+        }, { rootMargin: '200px' });
+
+        if (mapRef.current) {
+            observer.observe(mapRef.current);
+        }
+        return () => observer.disconnect();
+    }, []);
 
     const nextTestimonial = () => setCurrentTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
     const prevTestimonial = () => setCurrentTestimonial((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
@@ -32,6 +55,8 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, nepalMapSrc, jo
             <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
                 <img
                     src={heroImageSrc || heroBg.src}
+                    srcSet={heroImageSrcSet}
+                    sizes="100vw"
                     className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Everest and Chorten"
                     width="2560"
@@ -117,6 +142,8 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, nepalMapSrc, jo
                                 {nepalMapSrc && (
                                     <img
                                         src={nepalMapSrc}
+                                        srcSet={nepalMapSrcSet}
+                                        sizes="(max-width: 1024px) 100vw, 66vw"
                                         alt="Detailed Map of Nepal"
                                         width="1920"
                                         height="1080"
@@ -203,13 +230,20 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, nepalMapSrc, jo
                         </h3>
 
 
-                        <div className="w-full h-64 rounded-none overflow-hidden shadow-lg mb-10 border border-gray-100 relative group">
-                            <iframe
-                                className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                                src="https://maps.google.com/maps?q=27.686333,85.335167&z=15&output=embed"
-                                title="Marga Adventure Location"
-                            >
-                            </iframe>
+                        <div className="w-full h-64 rounded-none overflow-hidden shadow-lg mb-10 border border-gray-100 relative group" ref={mapRef}>
+                            {loadMap ? (
+                                <iframe
+                                    className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                                    src="https://maps.google.com/maps?q=27.686333,85.335167&z=15&output=embed"
+                                    title="Marga Adventure Location"
+                                    loading="lazy"
+                                >
+                                </iframe>
+                            ) : (
+                                <div className="w-full h-full bg-gray-50 flex items-center justify-center">
+                                    <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
+                                </div>
+                            )}
                             <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
                         </div>
 

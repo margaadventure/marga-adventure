@@ -7,6 +7,22 @@ const ContactPage: React.FC = () => {
    const [message, setMessage] = useState('');
    const [errors, setErrors] = useState<Record<string, string>>({});
    const [formKey, setFormKey] = useState(0);
+   const [loadMap, setLoadMap] = useState(false);
+   const mapRef = React.useRef<HTMLDivElement>(null);
+
+   React.useEffect(() => {
+      const observer = new IntersectionObserver((entries) => {
+         if (entries[0].isIntersecting) {
+            setLoadMap(true);
+            observer.disconnect();
+         }
+      }, { rootMargin: '200px' });
+
+      if (mapRef.current) {
+         observer.observe(mapRef.current);
+      }
+      return () => observer.disconnect();
+   }, []);
 
    React.useEffect(() => {
       const scriptId = 'web3forms-script';
@@ -176,13 +192,20 @@ const ContactPage: React.FC = () => {
                </div>
 
                {/* Google Map */}
-               <div className="mt-16 w-full h-80 bg-gray-100 rounded-none overflow-hidden relative shadow-lg group border border-gray-200">
-                  <iframe
-                     className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                     src="https://maps.google.com/maps?q=27.686333,85.335167&z=15&output=embed"
-                     title="Marga Adventure Location"
-                  >
-                  </iframe>
+               <div className="mt-16 w-full h-80 bg-gray-100 rounded-none overflow-hidden relative shadow-lg group border border-gray-200" ref={mapRef}>
+                  {loadMap ? (
+                     <iframe
+                        className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                        src="https://maps.google.com/maps?q=27.686333,85.335167&z=15&output=embed"
+                        title="Marga Adventure Location"
+                        loading="lazy"
+                     >
+                     </iframe>
+                  ) : (
+                     <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
+                     </div>
+                  )}
                   <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
                </div>
             </div>
