@@ -6,7 +6,7 @@ export default {
             fontFamily: {
                 sans: ['"Montserrat"', 'sans-serif'],
                 heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-                serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+                serif: ['"Playfair Display Variable"', 'serif'],
             },
             colors: {
                 brand: {

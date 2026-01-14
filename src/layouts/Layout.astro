@@ -9,6 +9,7 @@ const {
     description = "Journey Inward, Explore Outward with Marga Adventure. Specialized in high-end trekking, spiritual retreats, and cultural tours in Nepal, Bhutan, and Tibet.",
     image = "/images/hero/hero-bg.jpg",
     type = "website",
+    headerVariant = "transparent",
 } = Astro.props;
 
 const canonicalURL = new URL(
@@ -46,7 +47,7 @@ const canonicalURL = new URL(
         <meta property="twitter:image" content={new URL(image, Astro.url)} />
     </head>
     <body class="bg-white text-gray-900 font-sans">
-        <Header client:load />
+        <Header client:load forceOpaque={headerVariant === "opaque"} />
         <ImageModal client:load />
         <slot />
         <a

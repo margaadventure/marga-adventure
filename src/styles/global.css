@@ -5,7 +5,15 @@
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
-    src: url('/fonts/Montserrat-Variable.woff2') format('woff2-variations');
+    src: url('/fonts/montserrat-variable.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/Montserrat-Variable-Italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -13,7 +21,15 @@
     font-style: normal;
     font-weight: 400 900;
     font-display: swap;
-    src: url('/fonts/PlayfairDisplay-Variable.woff2') format('woff2-variations');
+    src: url('/fonts/PlayfairDisplay-Variable.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Playfair Display Variable';
+    font-style: italic;
+    font-weight: 400 900;
+    font-display: swap;
+    src: url('/fonts/PlayfairDisplay-Variable-Italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -21,7 +37,15 @@
     font-style: normal;
     font-weight: 200 800;
     font-display: swap;
-    src: url('/fonts/PlusJakartaSans-Variable.woff2') format('woff2-variations');
+    src: url('/fonts/PlusJakartaSans-Variable.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: italic;
+    font-weight: 200 800;
+    font-display: swap;
+    src: url('/fonts/PlusJakartaSans-Variable-Italic.woff2') format('woff2');
 }
 
 @theme {
@@ -94,7 +118,20 @@
         scrollbar-color: var(--color-brand) #f3f4f6;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        font-family: var(--font-sans);
         @apply bg-white text-gray-900;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: var(--font-serif);
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-heading);
     }
 
     button,

@@ -3,12 +3,16 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import { MenuOverlay } from './MenuOverlay';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+    forceOpaque?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ forceOpaque = false }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <>
-            <Navbar onMenuOpen={() => setIsMenuOpen(true)} />
+            <Navbar onMenuOpen={() => setIsMenuOpen(true)} forceOpaque={forceOpaque} />
             <MenuOverlay isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
         </>
     );
