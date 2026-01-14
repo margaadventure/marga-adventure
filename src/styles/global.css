@@ -16,21 +16,7 @@
     src: url('/fonts/Montserrat-Variable-Italic.woff2') format('woff2');
 }
 
-@font-face {
-    font-family: 'Playfair Display Variable';
-    font-style: normal;
-    font-weight: 400 900;
-    font-display: swap;
-    src: url('/fonts/PlayfairDisplay-Variable.woff2') format('woff2');
-}
 
-@font-face {
-    font-family: 'Playfair Display Variable';
-    font-style: italic;
-    font-weight: 400 900;
-    font-display: swap;
-    src: url('/fonts/PlayfairDisplay-Variable-Italic.woff2') format('woff2');
-}
 
 @font-face {
     font-family: 'Plus Jakarta Sans';
@@ -51,7 +37,7 @@
 @theme {
     --font-heading: "Plus Jakarta Sans", sans-serif;
     --font-sans: "Montserrat", sans-serif;
-    --font-serif: "Playfair Display Variable", serif;
+    --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 
     --color-brand-light: #5a9dc9;
     --color-brand: #1E73BE;
@@ -124,10 +110,7 @@
 
     h1,
     h2,
-    h3 {
-        font-family: var(--font-serif);
-    }
-
+    h3,
     h4,
     h5,
     h6 {

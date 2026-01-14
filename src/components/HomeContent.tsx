@@ -32,12 +32,12 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                 />
                 <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl drop-shadow-[0_4px_3px_rgba(0,0,0,0.9)]">
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-10 animate-fade-in-up text-white/90">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight leading-[0.9] mb-10 animate-fade-in-up text-white/90">
                         THE PATH<br />
-                        <span className="font-light italic text-white/80 tracking-widest uppercase text-2xl md:text-4xl lg:text-5xl block mt-6">IS INFINITE</span>
+                        <span className="font-sans font-normal italic text-white/80 tracking-widest uppercase text-2xl md:text-4xl lg:text-5xl block mt-6">IS INFINITE</span>
                     </h1>
                     <div className="flex items-center gap-6 animate-fade-in-delayed">
-                        <p className="text-white tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold">
+                        <p className="text-white tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold font-sans">
                             Nepal — 27°42′ N, 85°19′ E
                         </p>
                     </div>
@@ -130,34 +130,35 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
             </div>
 
             {/* 5. Testimonial Section */}
-            <section className="py-12 md:py-24 px-6 bg-gray-50 relative overflow-hidden">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-gray-200 to-transparent"></div>
+            <section className="py-6 md:py-12 px-6 bg-gray-50 relative overflow-hidden">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-10 bg-gradient-to-b from-gray-200 to-transparent"></div>
                 <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <div className="mb-12 text-brand/20 text-7xl font-serif italic select-none">“</div>
-                    <h4 className="text-lg md:text-2xl font-medium text-gray-900 leading-relaxed mb-12 italic tracking-tight font-serif px-4">
-                        {TESTIMONIALS[currentTestimonial].text}
-                    </h4>
-                    <div className="flex flex-col items-center gap-6 mb-16">
-                        <div>
-                            <p className="font-bold text-gray-900 text-lg tracking-tight">{TESTIMONIALS[currentTestimonial].author}</p>
-                            <p className="text-[10px] text-brand font-bold uppercase tracking-[0.4em] mt-1">{TESTIMONIALS[currentTestimonial].role}</p>
-                        </div>
+                    <div className="mb-2 text-brand/20 text-4xl font-serif italic select-none">“</div>
+                    <div className="min-h-[160px] flex items-center justify-center mb-8">
+                        <h4 className="text-xl md:text-3xl font-medium text-gray-900 leading-snug italic tracking-tight font-sans px-4 transition-all duration-500">
+                            {TESTIMONIALS[currentTestimonial].text}
+                        </h4>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 mb-10">
+                        <p className="font-bold text-gray-900 text-lg tracking-tight">{TESTIMONIALS[currentTestimonial].author}</p>
+                        <p className="text-[10px] text-brand font-bold uppercase tracking-[0.4em]">{TESTIMONIALS[currentTestimonial].role}</p>
                     </div>
 
-                    <div className="flex items-center justify-center gap-12">
-                        <button onClick={prevTestimonial} className="w-14 h-14 border border-gray-100 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg">
+                    <div className="flex items-center justify-center gap-6 md:gap-12">
+                        <button onClick={prevTestimonial} className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg text-gray-400">
                             ←
                         </button>
-                        <div className="flex gap-4">
+                        <div className="flex gap-3">
                             {TESTIMONIALS.map((_, i) => (
                                 <button
                                     key={i}
                                     onClick={() => setCurrentTestimonial(i)}
-                                    className={`h-1.5 rounded-full transition-all duration-700 ${i === currentTestimonial ? 'bg-brand w-12' : 'bg-gray-200 w-4 hover:bg-gray-300'}`}
+                                    className={`h-1.5 rounded-full transition-all duration-500 ${i === currentTestimonial ? 'bg-brand w-8' : 'bg-gray-200 w-2 hover:bg-gray-300'}`}
+                                    aria-label={`Go to testimonial ${i + 1}`}
                                 />
                             ))}
                         </div>
-                        <button onClick={nextTestimonial} className="w-14 h-14 border border-gray-100 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg">
+                        <button onClick={nextTestimonial} className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg text-gray-400">
                             →
                         </button>
                     </div>

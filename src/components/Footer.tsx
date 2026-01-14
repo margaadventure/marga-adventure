@@ -9,9 +9,9 @@ import nmaLogo from '../assets/images/logos/NMA-Logo-removebg-preview.png';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-white pt-32 pb-16 px-6 md:px-12 lg:px-24 border-t border-gray-100">
+        <footer className="bg-white pt-12 pb-16 px-6 md:px-12 lg:px-24 border-t border-gray-100">
             <div className="max-w-7xl mx-auto">
-                <div className="grid md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-20 mb-32">
+                <div className="grid md:grid-cols-4 lg:grid-cols-12 gap-12 lg:gap-20 mb-16">
                     {/* Brand Column */}
                     <div className="lg:col-span-5 space-y-12">
                         <a href="/" className="flex items-center gap-4 group cursor-pointer w-fit">
