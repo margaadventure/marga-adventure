@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ContactModal from './ContactModal';
 import { LogoIcon, JOURNEY_CATEGORIES, TESTIMONIALS } from '../constants';
 import JourneyBlock from './JourneyBlock';
-import ElevationGraph from './ElevationGraph';
+
 
 import heroBg from '../assets/images/hero/hero-bg.webp';
 import nepalMap from '../assets/images/maps/nepal-map.webp';
@@ -44,7 +44,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                 </div>
 
                 <button onClick={() => setIsContactModalOpen(true)} className="absolute bottom-12 md:bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity">Follow the Marga</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity font-sans">Follow the Marga</span>
                     <div className="w-px h-16 bg-gradient-to-b from-white to-transparent group-hover:h-24 transition-all duration-700 shadow-sm"></div>
                 </button>
             </section>
@@ -86,7 +86,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                 <div className="w-full max-w-[1920px] mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
                         <div className="lg:col-span-4">
-                            <span className="text-brand font-bold text-xs tracking-[0.5em] uppercase block mb-8">Marga Atlas</span>
+                            <span className="text-brand font-bold text-xs tracking-[0.5em] uppercase block mb-8 font-sans">Marga Atlas</span>
                             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">Mapping the <span className="italic font-light text-brand">Eternal</span></h3>
                             <p className="text-gray-500 text-lg leading-relaxed font-light mb-10">
                                 Explore the sacred geography of Nepal. From the high passes of the Himalayas to the lush green conservation zones of the Terai. This sacred land thrives as a vibrant fusion, where ancient Hindu rituals and profound Buddhist traditions weave together in daily life. We chart paths that lead beyond the physical.

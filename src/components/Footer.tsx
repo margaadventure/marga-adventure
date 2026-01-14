@@ -16,14 +16,14 @@ const Footer: React.FC = () => {
                     <div className="lg:col-span-5 space-y-12">
                         <a href="/" className="flex items-center gap-4 group cursor-pointer w-fit">
                             <LogoIcon className="w-14 h-14 text-brand group-hover:rotate-12 transition-transform duration-500" />
-                            <h4 className="text-2xl font-bold tracking-tighter text-gray-900">Marga <span className="font-light text-brand">Adventure</span></h4>
+                            <h4 className="text-2xl font-bold tracking-tighter text-gray-900 font-sans">Marga <span className="font-light text-brand">Adventure</span></h4>
                         </a>
                         <div>
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-4">Sanctuary HQ</p>
                             <p className="text-sm text-gray-600 font-light leading-relaxed">Baneshwor, Kathmandu, Nepal</p>
                         </div>
                         <div>
-                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-6">Social Marga</p>
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-6 font-sans">Social Marga</p>
                             <div className="flex gap-4">
                                 <a href="https://www.facebook.com/profile.php?id=61585603559230" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center text-gray-400 hover:text-brand transition-colors">
                                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
 
                     {/* Other Links Column */}
                     <div className="lg:col-span-3 lg:col-start-10 space-y-6 pt-4">
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-10">Marga World</p>
+                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-10 font-sans">Marga World</p>
                         {[
                             ...BHUTAN_NAV_ITEMS,
                             ...TIBET_NAV_ITEMS,

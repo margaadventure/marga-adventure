@@ -36,7 +36,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
           <div className={`transition-all duration-500 group-hover:rotate-12 ${isOpaque ? 'text-brand' : 'text-white'}`}>
             <LogoIcon className="w-11 h-11" />
           </div>
-          <span className={`font-bold tracking-tighter text-2xl transition-colors duration-500 ${isOpaque ? 'text-gray-900' : 'text-white'}`}>
+          <span className={`font-bold tracking-tighter text-2xl transition-colors duration-500 font-sans ${isOpaque ? 'text-gray-900' : 'text-white'}`}>
             Marga <span className="font-light text-brand">Adventure</span>
           </span>
         </a>
