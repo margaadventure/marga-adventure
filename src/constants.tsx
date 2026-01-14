@@ -130,7 +130,7 @@ export const TESTIMONIALS = [
 ];
 
 export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <img src="/logo.png" alt="Marga Adventure" className={className} />
+  <img src="/logo.png" alt="Marga Adventure" className={className} width="140" height="140" loading="lazy" decoding="async" />
 );
 
 export const NEPAL_NAV_ITEMS = [
