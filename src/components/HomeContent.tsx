@@ -1,18 +1,25 @@
 
 import React, { useState } from 'react';
 import ContactModal from './ContactModal';
-import { LogoIcon, JOURNEY_CATEGORIES, TESTIMONIALS } from '../constants';
+import { LogoIcon, TESTIMONIALS } from '../constants';
 import JourneyBlock from './JourneyBlock';
-
-
 import heroBg from '../assets/images/hero/hero-bg.webp';
-import nepalMap from '../assets/images/maps/nepal-map.webp';
+
+interface JourneyCategory {
+    id: string;
+    title: string;
+    description: string;
+    images: string[];
+    alignment: 'left' | 'right';
+}
 
 interface HomeContentProps {
     heroImageSrc?: string;
+    nepalMapSrc?: string;
+    journeyCategories?: JourneyCategory[];
 }
 
-const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
+const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, nepalMapSrc, journeyCategories = [] }) => {
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -27,6 +34,8 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                     src={heroImageSrc || heroBg.src}
                     className="absolute inset-0 w-full h-full object-cover scale-105 animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Everest and Chorten"
+                    width="2560"
+                    height="1440"
                     fetchPriority="high"
                     decoding="async"
                 />
@@ -43,7 +52,11 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                     </div>
                 </div>
 
-                <button onClick={() => setIsContactModalOpen(true)} className="absolute bottom-12 md:bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md">
+                <button
+                    onClick={() => setIsContactModalOpen(true)}
+                    className="absolute bottom-12 md:bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md p-4"
+                    aria-label="Follow the Marga - Open Contact Modal"
+                >
                     <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity font-sans">Follow the Marga</span>
                     <div className="w-px h-16 bg-gradient-to-b from-white to-transparent group-hover:h-24 transition-all duration-700 shadow-sm"></div>
                 </button>
@@ -101,13 +114,17 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                         </div>
                         <div className="lg:col-span-8 w-full">
                             <div className="relative rounded-none overflow-hidden shadow-2xl group border border-white/50 bg-white p-6 md:p-8">
-                                <img
-                                    src={nepalMap.src}
-                                    alt="Detailed Map of Nepal"
-                                    className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
-                                    loading="lazy"
-                                    decoding="async"
-                                />
+                                {nepalMapSrc && (
+                                    <img
+                                        src={nepalMapSrc}
+                                        alt="Detailed Map of Nepal"
+                                        width="1920"
+                                        height="1080"
+                                        className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
+                                )}
                                 <div className="absolute inset-0 bg-brand/5 mix-blend-overlay pointer-events-none"></div>
                             </div>
                         </div>
@@ -117,7 +134,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
 
             {/* 4. Journey Blocks */}
             <div className="bg-white">
-                {JOURNEY_CATEGORIES.map((cat) => (
+                {journeyCategories.map((cat) => (
                     <JourneyBlock
                         key={cat.id}
                         id={cat.id}
@@ -145,7 +162,11 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                     </div>
 
                     <div className="flex items-center justify-center gap-6 md:gap-12">
-                        <button onClick={prevTestimonial} className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg text-gray-400">
+                        <button
+                            onClick={prevTestimonial}
+                            className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg text-gray-400"
+                            aria-label="Previous Testimonial"
+                        >
                             ←
                         </button>
                         <div className="flex gap-3">
@@ -158,14 +179,16 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc }) => {
                                 />
                             ))}
                         </div>
-                        <button onClick={nextTestimonial} className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg text-gray-400">
+                        <button
+                            onClick={nextTestimonial}
+                            className="w-12 h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg text-gray-400"
+                            aria-label="Next Testimonial"
+                        >
                             →
                         </button>
                     </div>
                 </div>
             </section>
-
-            {/* 6. Elevation Dynamics Section - Removed */}
 
             {/* 7. Enquiry Banner */}
             <section className="px-6 md:px-12 lg:px-24 py-12 md:py-24 bg-gray-50">

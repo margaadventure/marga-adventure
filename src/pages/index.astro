@@ -3,17 +3,46 @@ import Layout from "../layouts/Layout.astro";
 import HomeContent from "../components/HomeContent";
 import { getImage } from "astro:assets";
 import heroBg from "../assets/images/hero/hero-bg.jpg";
+import nepalMap from "../assets/images/maps/nepal-map.webp";
+import { JOURNEY_CATEGORIES } from "../constants";
 
 const optimizedHero = await getImage({
 	src: heroBg,
 	format: "webp",
 	width: 2560,
 });
+
+const optimizedNepalMap = await getImage({
+	src: nepalMap,
+	format: "webp",
+	width: 1920,
+});
+
+const optimizedJourneyCategories = await Promise.all(
+	JOURNEY_CATEGORIES.map(async (cat) => {
+		const optimizedImages = await Promise.all(
+			cat.images.map(async (img: any) => {
+				const optimized = await getImage({
+					src: img,
+					format: "webp",
+					width: 1200,
+				});
+				return optimized.src;
+			}),
+		);
+		return { ...cat, images: optimizedImages };
+	}),
+);
 ---
 
 <Layout
 	title="Home"
 	description="Welcome to Marga Adventure. An exclusive gateway to the Himalayas, offering premium trekking, spiritual retreats, and cultural experiences in Nepal, Bhutan, and Tibet."
 >
-	<HomeContent client:load heroImageSrc={optimizedHero.src} />
+	<HomeContent
+		client:load
+		heroImageSrc={optimizedHero.src}
+		nepalMapSrc={optimizedNepalMap.src}
+		journeyCategories={optimizedJourneyCategories}
+	/>
 </Layout>

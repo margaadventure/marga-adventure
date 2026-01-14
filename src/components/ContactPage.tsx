@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import contactHeroBg from '../assets/images/country/contact.jpg';
 
 const ContactPage: React.FC = () => {
    const [isSubmitting, setIsSubmitting] = useState(false);
@@ -120,7 +121,7 @@ const ContactPage: React.FC = () => {
          {/* Hero Section */}
          <div className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
             <img
-               src="/images/activities/trekking/PA120680.webp"
+               src={contactHeroBg.src}
                alt="Contact Marga Adventure"
                className="absolute inset-0 w-full h-full object-cover opacity-80"
                fetchPriority="high"

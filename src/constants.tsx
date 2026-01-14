@@ -66,11 +66,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Awakening Inner Compass',
     description: 'Spirituality is the profound journey of connecting with your true self and the universe. It transcends religious dogmas, focusing instead on personal growth, mindfulness, and the pursuit of inner peace. Nepal is a profound sanctuary where the peaks of the Himalayas meet ancient wisdom.',
     images: [
-      spiritual1.src,
-      spiritual2.src,
-      spiritual3.src,
-      spiritual4.src,
-      spiritual5.src
+      spiritual1,
+      spiritual2,
+      spiritual3,
+      spiritual4,
+      spiritual5
     ],
     alignment: 'right' as const
   },
@@ -79,11 +79,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Capture The Soul',
     description: 'Chase the light where earth meets heaven. From whispering prayer flags to the silence of snow-crowned giants, Nepal invites you to frame its eternal beauty. Wander through timeless villages and vibrant festivals, capturing stories etched in stone and spirit.',
     images: [
-      photo1.src,
-      photo2.src,
-      photo3.src,
-      photo4.src,
-      photo5.src
+      photo1,
+      photo2,
+      photo3,
+      photo4,
+      photo5
     ],
     alignment: 'left' as const
   },
@@ -92,11 +92,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Wild Secrets',
     description: 'Wander where the jungle breathes in time with nature. Track the majestic tiger through golden grasslands and watch the armored rhino emerge from the morning mist. This is a journey into the heart of the wild, where every rustle reveals a new, untamed story.',
     images: [
-      wildlife1.src,
-      wildlife2.src,
-      wildlife3.src,
-      wildlife4.src,
-      wildlife5.src
+      wildlife1,
+      wildlife2,
+      wildlife3,
+      wildlife4,
+      wildlife5
     ],
     alignment: 'right' as const
   },
@@ -105,11 +105,11 @@ export const JOURNEY_CATEGORIES = [
     title: 'Trails of Timeless Spirit',
     description: 'Traverse ancient trails where the majesty of the Himalayas meets deep-rooted traditions. In Nepal, trekking is more than a hike; it is a journey through sacred landscapes. You will encounter colorful prayer flags, mani walls, and remote monasteries.',
     images: [
-      trekking1.src,
-      trekking2.src,
-      trekking3.src,
-      trekking4.src,
-      trekking5.src
+      trekking1,
+      trekking2,
+      trekking3,
+      trekking4,
+      trekking5
     ],
     alignment: 'left' as const
   }
