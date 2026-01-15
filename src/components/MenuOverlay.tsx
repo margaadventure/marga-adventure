@@ -9,6 +9,10 @@ import img5 from '../assets/images/ui/menu/bisket-menu_7.jpg';
 import img6 from '../assets/images/ui/menu/lomanthang-menu_8.jpg';
 import img7 from '../assets/images/ui/menu/navadurgajatra-menu_6.jpg';
 
+import nepalImg from '../assets/images/country/nepal.jpg';
+import bhutanImg from '../assets/images/country/bhutan.jpg';
+import tibetImg from '../assets/images/country/Tibet.JPG';
+
 interface MenuOverlayProps {
   isOpen: boolean;
   onClose: () => void;
@@ -301,10 +305,10 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 opacity-60 transition-opacity duration-500 group-hover:opacity-40"></div>
                   <img
                     src={
-                      activeNestedSub === 'nepal' ? "/src/assets/images/country/nepal.jpg" :
-                        activeNestedSub === 'bhutan' ? "/src/assets/images/country/bhutan.jpg" :
-                          activeNestedSub === 'tibet' ? "/src/assets/images/country/tibet.jpg" :
-                            "/src/assets/images/country/nepal.jpg" // default
+                      activeNestedSub === 'nepal' ? nepalImg.src :
+                        activeNestedSub === 'bhutan' ? bhutanImg.src :
+                          activeNestedSub === 'tibet' ? tibetImg.src :
+                            nepalImg.src // default
                     }
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     alt="Region Highlight"

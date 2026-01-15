@@ -19,13 +19,19 @@ This project is built with a modern, performance-first stack:
 -   **Immersive Design:** A visual-first approach with high-resolution imagery, subtle parallax effects, and smooth transitions.
 -   **Interactive Components:**
     -   Custom Nepal Map with hover interactions.
-    -   Dynamic Elevation Graphs for trekking itineraries.
     -   "Marga Menu" - A full-screen, visually rich navigation overlay.
--   **Responsive Layout:** Fully optimized for Mobile, Tablet, and Desktop experiences.
+    -   Responsive Image Lightbox for viewing high-res gallery items.
+    -   Web3Forms integration for reliable contact form submissions.
+-   **Responsive Layout:** Fully optimized for Mobile, Tablet, and Desktop experiences with strict overflow handling.
 -   **Performance Optimized:**
-    -   Automatic image optimization via Astro's Image API.
-    -   Partial Hydration (Islands Architecture) to keep the main thread free.
--   **Content Focused:** Dedicated sections for "The Journal" (Blog) and detailed Destination Guides.
+    -   **Lazy Loading:** Heavy assets like Google Maps are lazy-loaded via IntersectionObserver.
+    -   **Image Delivery:** Automatic WebP conversion, `srcSet` generation, and responsive sizing using Astro's Image API.
+    -   **Zero-Overhead:** Static HTML generation by default ensures near-instant page loads.
+-   **Accessibility First:**
+    -   Touch targets optimized for mobile users (>48px).
+    -   Full ARIA label support for screen readers.
+    -   Keyboard navigability across all interactive elements.
+-   **Content Focused:** Dedicated sections for "The Journal" (Blog) and detailed Destination Guides with rich storytelling.
 
 ## 🛠️ Installation & Setup
 
@@ -76,10 +82,5 @@ The design of Marga Adventure is inspired by the intersection of **Nature and Di
 -   **Typography:** Elegant serif headings paired with clean sans-serif body text for readability and sophistication.
 -   **Motion:** Slow, deliberate animations that mimic the flow of wind and clouds.
 
-## 🤝 Contribution
-
-We welcome contributions! Please feel free to submit a Pull Request.
-
----
 
 **© 2026 Marga Adventure.** *Find your way home to yourself.*
