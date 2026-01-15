@@ -10,12 +10,39 @@ const {
     image = "/images/hero/hero-bg.jpg",
     type = "website",
     headerVariant = "transparent",
+    keywords = "trekking nepal, spiritual retreats, bhutan tours, tibet travel, marga adventure, luxury trekking, cultural tours",
+    robots = "index, follow",
+    schema = null,
 } = Astro.props;
 
 const canonicalURL = new URL(
     Astro.url.pathname,
     Astro.site || "https://margaadventure.com",
 );
+
+const socialImageURL = new URL(image, Astro.url);
+
+// Default JSON-LD
+const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Marga Adventure",
+    url: "https://margaadventure.com",
+    logo: "https://margaadventure.com/logo.png",
+    description:
+        "Specialized in high-end trekking, spiritual retreats, and cultural tours in Nepal, Bhutan, and Tibet.",
+    sameAs: [
+        "https://www.facebook.com/margaadventure",
+        "https://www.instagram.com/margaadventure",
+    ],
+    contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+9779841008984",
+        contactType: "customer service",
+        areaServed: ["NP", "BT", "CN-XZ"],
+        availableLanguage: "English",
+    },
+};
 ---
 
 <!doctype html>
@@ -25,11 +52,14 @@ const canonicalURL = new URL(
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
         <!-- Primary Meta Tags -->
         <title>{title} | Marga Adventure</title>
         <meta name="title" content={`${title} | Marga Adventure`} />
         <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+        <meta name="robots" content={robots} />
         <link rel="canonical" href={canonicalURL} />
 
         <!-- Open Graph / Facebook -->
@@ -37,16 +67,31 @@ const canonicalURL = new URL(
         <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={`${title} | Marga Adventure`} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL(image, Astro.url)} />
+        <meta property="og:image" content={socialImageURL} />
+        <meta property="og:site_name" content="Marga Adventure" />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={canonicalURL} />
         <meta property="twitter:title" content={`${title} | Marga Adventure`} />
         <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={new URL(image, Astro.url)} />
-    </head>
-    <body class="bg-white text-gray-900 font-sans overflow-x-hidden">
+        <meta property="twitter:image" content={socialImageURL} />
+        <meta property="twitter:site" content="@margaadventure" />
+
+        <!-- JSON-LD Schemas -->
+        <script
+            type="application/ld+json"
+            set:html={JSON.stringify(organizationSchema)}
+        />
+        {
+            schema && (
+                <script
+                    type="application/ld+json"
+                    set:html={JSON.stringify(schema)}
+                />
+            )
+        }
+    </head><body class="bg-white text-gray-900 font-sans overflow-x-hidden">
         <a
             href="#main-content"
             class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[200] bg-brand text-white px-4 py-2 rounded-md"
