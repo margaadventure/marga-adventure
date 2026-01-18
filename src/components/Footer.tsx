@@ -89,9 +89,6 @@ const Footer: React.FC = () => {
                     <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">© 2026 Marga Adventure</p>
                     <div className="flex gap-12 text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">
                         <a href="/sitemap" className="hover:text-brand transition-colors">Sitemap</a>
-                        <a href="#" className="hover:text-brand transition-colors">Privacy</a>
-                        <a href="#" className="hover:text-brand transition-colors">Terms</a>
-                        <a href="#" className="hover:text-brand transition-colors">Cookies</a>
                     </div>
                 </div>
             </div>

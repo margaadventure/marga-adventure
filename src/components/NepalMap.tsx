@@ -142,14 +142,14 @@ const NepalMap: React.FC<{ showDetails?: boolean }> = ({ showDetails }) => {
       )}
 
       {/* Floating Info Legend */}
-      <div className="absolute bottom-8 left-10 flex gap-4">
-        <div className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-sm flex items-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-brand"></div>
-          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-[0.4em]">Mountaineering</p>
+      <div className="absolute bottom-4 left-4 md:bottom-8 md:left-10 flex gap-2 md:gap-4 flex-wrap">
+        <div className="bg-white/80 backdrop-blur-md px-3 py-2 md:px-6 md:py-3 rounded-full border border-white/20 shadow-sm flex items-center gap-2 md:gap-3">
+          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand"></div>
+          <p className="text-[8px] md:text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.4em]">Mountaineering</p>
         </div>
-        <div className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-sm flex items-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-accent"></div>
-          <p className="text-[9px] font-bold text-gray-500 uppercase tracking-[0.4em]">Cultural HQ</p>
+        <div className="bg-white/80 backdrop-blur-md px-3 py-2 md:px-6 md:py-3 rounded-full border border-white/20 shadow-sm flex items-center gap-2 md:gap-3">
+          <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent"></div>
+          <p className="text-[8px] md:text-[9px] font-bold text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.4em]">Cultural HQ</p>
         </div>
       </div>
     </div>

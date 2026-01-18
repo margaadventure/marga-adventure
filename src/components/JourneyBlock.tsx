@@ -69,39 +69,39 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
           ))}
         </div>
 
-        <div className="absolute top-12 right-12 z-20 flex gap-4">
+        <div className="absolute top-4 right-4 md:top-12 md:right-12 z-20 flex gap-2 md:gap-4">
           <button
             onClick={prevImage}
-            className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-brand transition-all hover:scale-110"
+            className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-brand transition-all hover:scale-110"
             aria-label="Previous image"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
           </button>
           <button
             onClick={nextImage}
-            className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-brand transition-all hover:scale-110"
+            className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-brand transition-all hover:scale-110"
             aria-label="Next image"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
           </button>
         </div>
 
-        <div className="absolute bottom-12 left-12 z-20 flex flex-col gap-6 w-full pr-24">
+        <div className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-20 flex flex-col gap-4 md:gap-6 w-full pr-12 md:pr-24">
           <div className="flex items-center gap-4">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-6 py-3 rounded-2xl text-[10px] font-bold text-white uppercase tracking-[0.3em] shadow-2xl">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 md:px-6 md:py-3 rounded-2xl text-[8px] md:text-[10px] font-bold text-white uppercase tracking-[0.3em] shadow-2xl">
               Series — 0{currentIndex + 1}
             </div>
             <div className="h-px flex-1 bg-white/20"></div>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-2.5 md:gap-3">
             {images.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className="h-12 min-w-[48px] flex items-center justify-center cursor-pointer"
+                className="h-10 md:h-12 min-w-[32px] md:min-w-[48px] flex items-center justify-center cursor-pointer"
                 aria-label={`Go to image ${idx + 1}`}
               >
-                <div className={`h-1 rounded-full transition-all duration-700 ${idx === currentIndex ? 'w-16 bg-white' : 'w-6 bg-white/20 group-hover:bg-white/40'}`} />
+                <div className={`h-0.5 md:h-1 rounded-full transition-all duration-700 ${idx === currentIndex ? 'w-10 md:w-16 bg-white' : 'w-4 md:w-6 bg-white/20 group-hover:bg-white/40'}`} />
               </button>
             ))}
           </div>

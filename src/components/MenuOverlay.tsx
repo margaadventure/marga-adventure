@@ -341,7 +341,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
       </div>
 
       {/* Footer */}
-      <div className="px-12 py-8 flex justify-start items-center gap-8 border-t border-gray-200 relative z-20 bg-gray-50 shrink-0">
+      <div className="px-6 md:px-12 py-8 flex justify-start items-center gap-8 border-t border-gray-200 relative z-20 bg-gray-50 shrink-0">
         <div className="flex gap-6">
           <a href="https://www.facebook.com/profile.php?id=61585603559230" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand transition-colors">
             <span className="sr-only">Facebook</span>

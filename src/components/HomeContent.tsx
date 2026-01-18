@@ -30,7 +30,16 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [loadMap, setLoadMap] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const mapRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     React.useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -64,7 +73,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     fetchPriority="high"
                     decoding="async"
                 />
-                <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl drop-shadow-[0_4px_3px_rgba(0,0,0,0.9)]">
+                <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl drop-shadow-[0_4px_3px_rgba(0,0,0,0.9)] -translate-y-16 md:translate-y-0">
 
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight leading-[0.9] mb-10 animate-fade-in-up text-white/90">
                         THE PATH<br />
@@ -79,11 +88,52 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
 
                 <button
                     onClick={() => setIsContactModalOpen(true)}
-                    className="absolute bottom-12 md:bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md p-4"
+                    className="absolute bottom-20 md:bottom-24 flex flex-col items-center gap-4 text-white group cursor-pointer transition-all hover:text-white drop-shadow-md p-4"
                     aria-label="Follow the Marga - Open Contact Modal"
                 >
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-80 group-hover:opacity-100 transition-opacity font-sans">Follow the Marga</span>
-                    <div className="w-px h-16 bg-gradient-to-b from-white to-transparent group-hover:h-24 transition-all duration-700 shadow-sm"></div>
+                    <span className={`text-[10px] font-bold uppercase tracking-[0.4em] transition-opacity font-sans ${isScrolled ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`}>Follow the Marga</span>
+                    <div className={`relative w-12 transition-all duration-700 ease-in-out ${isScrolled ? 'h-24' : 'h-16 group-hover:h-24'}`}>
+                        <svg className="w-full h-full absolute top-0 left-0 overflow-visible" viewBox="0 0 40 100" preserveAspectRatio="none" fill="none">
+                            {/* Left Path */}
+                            <path
+                                d="M 8 0 C 32 35, -12 65, 8 100"
+                                stroke="url(#gradient-path-1)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                vectorEffect="non-scaling-stroke"
+                                className={`transition-opacity ${isScrolled ? 'opacity-100' : 'opacity-90 group-hover:opacity-100'}`}
+                            />
+                            {/* Right Path */}
+                            <path
+                                d="M 32 0 C 56 35, 12 65, 32 100"
+                                stroke="url(#gradient-path-2)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                vectorEffect="non-scaling-stroke"
+                                className={`transition-opacity ${isScrolled ? 'opacity-100' : 'opacity-90 group-hover:opacity-100'}`}
+                            />
+                            {/* Middle Dotted Line */}
+                            <path
+                                d="M 20 0 C 44 35, 0 65, 20 100"
+                                stroke="white"
+                                strokeWidth="1.5"
+                                strokeDasharray="3 6"
+                                strokeLinecap="round"
+                                vectorEffect="non-scaling-stroke"
+                                className={`transition-opacity ${isScrolled ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}
+                            />
+                            <defs>
+                                <linearGradient id="gradient-path-1" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stopColor="white" stopOpacity="1" />
+                                    <stop offset="100%" stopColor="white" stopOpacity="0" />
+                                </linearGradient>
+                                <linearGradient id="gradient-path-2" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stopColor="white" stopOpacity="1" />
+                                    <stop offset="100%" stopColor="white" stopOpacity="0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
                 </button>
             </section>
 
@@ -255,7 +305,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </a>
                     </div>
 
-                    <div className="p-8 md:p-12 flex flex-col justify-center text-gray-900 bg-gray-50/80 backdrop-blur-sm">
+                    <div className="p-6 md:p-12 flex flex-col justify-center text-gray-900 bg-gray-50/80 backdrop-blur-sm">
                         <div className="bg-white p-10 rounded-none shadow-sm border border-gray-100 mb-10 transform hover:scale-[1.02] transition-transform">
                             <p className="text-gray-600 text-lg mb-6 leading-relaxed font-light italic border-l-4 border-brand/20 pl-6">
                                 "The right path doesn't just lead to a summit, it leads you back to yourself."
@@ -276,16 +326,16 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                 </div>
                                 <div className="min-w-0">
                                     <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1 truncate">Direct Line</p>
-                                    <p className="text-lg font-bold whitespace-nowrap">+977 9841008984</p>
+                                    <p className="text-base md:text-lg font-bold whitespace-nowrap">+977 9841008984</p>
                                 </div>
                             </a>
-                            <a href="mailto:margaadventure@gmail.com" className="flex items-center gap-6 group cursor-pointer flex-1 min-w-0">
-                                <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-xl group-hover:bg-brand group-hover:text-white transition-all shadow-sm shrink-0">
+                            <a href="mailto:margaadventure@gmail.com" className="flex items-center gap-4 md:gap-6 group cursor-pointer flex-1 min-w-0">
+                                <div className="w-10 h-10 md:w-14 md:h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-lg md:text-xl group-hover:bg-brand group-hover:text-white transition-all shadow-sm shrink-0">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                                 </div>
                                 <div className="min-w-0">
                                     <p className="text-[9px] text-gray-400 uppercase font-bold tracking-widest mb-1 truncate">Email</p>
-                                    <p className="text-lg font-bold tracking-tight truncate">margaadventure@gmail.com</p>
+                                    <p className="text-sm md:text-lg font-bold tracking-tight truncate">margaadventure@gmail.com</p>
                                 </div>
                             </a>
                         </div>
