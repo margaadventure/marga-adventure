@@ -1,0 +1,5 @@
+# Netlify Headers - Caching Disabled (Active Development)
+
+# Disable caching for all files to ensure immediate updates
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
