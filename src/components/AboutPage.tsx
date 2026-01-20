@@ -29,7 +29,7 @@ const AboutPage: React.FC = () => {
                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Finding Your Path in the <span className="italic font-light text-brand">Himalayas</span></h2>
                <div className="text-gray-500 text-lg leading-relaxed font-light space-y-6">
                   <p>In Sanskrit and Nepali, the word "Marga" means "The Path" or "The Way."</p>
-                  <p>At Marga Adventure, we believe that travel is more than just moving from one place to another; it is about finding the right path-one that leads to discovery, connection, and peace of mind. We are a company built on a foundation of decades of experience.</p>
+                  <p>At Marga Adventure, we believe that travel is more than just moving from one place to another; it is about finding the right path—one that leads to discovery, connection, and peace of mind. With decades of experience working with thousands of clients, we can definitely help you with your own discovery. </p>
                </div>
             </div>
 
@@ -61,11 +61,23 @@ const AboutPage: React.FC = () => {
                            What sets Buddhiman apart is his dual academic background. He holds a <strong>Master’s degree in Adventure Tourism</strong> as well as a <strong>Master’s degree in Psychology</strong>. This unique educational foundation allows him to curate experiences that are not only operationally seamless but also deeply attentive to group dynamics and the psychological well-being of his guests.
                         </p>
                         <p className="border-l-4 border-brand pl-6 italic text-gray-600">
-                           In 2025, Buddhiman channeled his nearly two decades of experience into founding his own company Marga Adventure with vision to offer travel experiences that go beyond sightseeing and trekking - blending professional safety standards with a deep understanding of the transformative power of travel.
+                           In 2025, Buddhiman channeled his nearly two decades of experience into founding his own company Marga Adventure with vision to offer travel experiences that go beyond sightseeing and trekking - blending professional safety standards with a deep understanding of the transformative power of travel. Ultimately, Buddhiman’s mission is to ensure that every client returns home not just with photos, but with a renewed perspective on the world and their place within it.
                         </p>
                      </div>
                   </div>
                </div>
+            </div>
+
+            {/* Community Engagement Section */}
+            <div className="max-w-4xl mx-auto my-24 text-center">
+               <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Our Impact</span>
+               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Community Engagement</h2>
+               <p className="text-gray-500 text-lg leading-relaxed font-light max-w-2xl mx-auto mb-8">
+                  At Marga adventure, we believe that tourism should leave a footprint of kindness, not just boots in the snow. Nepal is not just a destination to us; it is our home. We are dedicated to ensuring that the beauty of the Himalayas and culture is preserved for future generations and that the communities who host us benefit directly from your visit.
+               </p>
+               <a href="#" className="inline-block text-brand font-bold uppercase tracking-widest border-b border-brand pb-1 hover:text-brand-dark transition-colors">
+                  Learn about Brave Hearts
+               </a>
             </div>
          </section>
 

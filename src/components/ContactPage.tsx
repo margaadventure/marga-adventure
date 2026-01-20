@@ -139,13 +139,11 @@ const ContactPage: React.FC = () => {
             <img
                src={contactHeroBg.src}
                alt="Contact Marga Adventure"
-               className="absolute inset-0 w-full h-full object-cover opacity-80"
+               className="absolute inset-0 w-full h-full object-cover"
                fetchPriority="high"
                decoding="async"
             />
-            <div className="absolute inset-0 bg-black/40"></div>
             <div className="relative z-10 text-center text-white px-6">
-               <span className="text-brand font-bold text-xs uppercase tracking-[0.5em] mb-6 block">Contact Us</span>
                <h1 className="text-5xl md:text-7xl font-bold tracking-tight">Get In <span className="italic font-serif text-brand">Touch</span></h1>
             </div>
          </div>
@@ -174,8 +172,7 @@ const ContactPage: React.FC = () => {
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                      </div>
                      <div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">Emergency (24/7)</h3>
-                        <p className="text-brand font-bold text-xl">+977-9841008984</p>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">Contact</h3>
                         <p className="text-gray-500 text-sm">margaadventure@gmail.com</p>
                      </div>
                   </div>
@@ -185,7 +182,7 @@ const ContactPage: React.FC = () => {
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                      </div>
                      <div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">WhatsApp / Viber</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">WhatsApp</h3>
                         <p className="text-gray-600 font-light">+977 9841008984</p>
                      </div>
                   </div>
@@ -196,7 +193,7 @@ const ContactPage: React.FC = () => {
                   {loadMap ? (
                      <iframe
                         className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                        src="https://maps.google.com/maps?q=27.686333,85.335167&z=15&output=embed"
+                        src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
                         title="Marga Adventure Location"
                         loading="lazy"
                      >

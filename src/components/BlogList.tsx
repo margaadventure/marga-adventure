@@ -4,6 +4,7 @@ import PageHero from './PageHero';
 // Import images
 import schoolGroupImg from '../assets/images/Community/school-group.webp';
 import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
+import journalBg from '../assets/images/activities/journal_background.png';
 
 const BLOG_POSTS = [
     {
@@ -42,7 +43,7 @@ const BlogList: React.FC = () => {
             <PageHero
                 title="The Journal"
                 subtitle="Stories of path, purpose, and people."
-                image="/images/activities/spiritual/buddha-with-flower.webp"
+                image={journalBg.src}
                 parallax={true}
             />
 

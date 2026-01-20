@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import TripItineraryPage from "../../components/TripItineraryPage";
 
+import bgImage from "../../assets/images/activities/spiritual/The Path to inner peace .jpeg";
+
 const itinerary = [
     {
         day: "Day 1",
@@ -25,7 +27,7 @@ const itinerary = [
         day: "Day 4",
         title: "Mountain Energy and Inner Peace",
         description:
-            "Rise early for a drive to Sarangkot for a sunrise yoga session facing the Annapurna range. As the sun hits Machhapuchhre (Fishtail) mountain, you will perform sun salutations in the crisp mountain air. Afterward, hike silently up to the World Peace Pagoda. This white stupa offers panoramic views and a profound sense of serenity. Spend the afternoon journaling or resting in the resort’s garden.",
+            "Rise early for a drive to Sarangkot for a mignificant sunrise over Annapurna range then back to hotel for yoga session. Afterward, hike silently up to the World Peace Pagoda. This white stupa offers panoramic views and a profound sense of serenity. Spend the afternoon journaling or resting in the resort’s garden.",
     },
     {
         day: "Day 5",
@@ -80,13 +82,13 @@ const overview = `This transformative wellness journey in Nepal blends ancient H
 
 <Layout
     title="The Path to Inner Peace | Marga Adventure"
-    image="/images/activities/spiritual/healing bowl-spiritual_4.png"
+    image={bgImage.src}
     keywords="Path to Inner Peace, wellness journey Nepal, sound healing Nepal, ayurveda retreat Pokhara, spiritual wellness Nepal"
 >
     <TripItineraryPage
         title="The Path to Inner Peace"
         subtitle="Wellness Journey"
-        heroImage="/images/activities/spiritual/healing bowl-spiritual_4.png"
+        heroImage={bgImage.src}
         overview={overview}
         highlights={highlights}
         itinerary={itinerary}

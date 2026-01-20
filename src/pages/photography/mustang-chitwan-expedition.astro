@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import ActivityPage from "../../components/ActivityPage";
 import TripItineraryPage from "../../components/TripItineraryPage";
 
+import mustangImg from "../../assets/images/activities/photography/mustang deserts.jpg";
+
 const overview = `This 14-day photography expedition takes you from the jungles of Chitwan to the forbidden kingdom of Upper Mustang. The itinerary is anchored by the vibrant Tiji Festival in Lomanthang, offering a rare chance to document ancient Tibetan rituals. You will capture the architectural diversity of Kathmandu, the wildlife of the Terai, and the stark, high-altitude desert landscapes of the Trans-Himalaya. It is a journey of extreme contrasts, designed to build a diverse and powerful photographic portfolio.`;
 
 const highlights = [
@@ -130,10 +132,7 @@ const itinerary = [
     },
 ];
 
-const images = [
-    "/images/activities/trekking/ABC-trekking_4.JPG",
-    "/images/activities/spiritual/healing bowl-spiritual_4.png",
-];
+const images = [mustangImg.src];
 
 const packingList = [
     {
@@ -159,7 +158,7 @@ const packingList = [
     keywords="Mustang Chitwan Photography, Tiji Festival photography, Nepal wildlife photography, Upper Mustang trek, landscape photography Nepal"
 >
     <TripItineraryPage
-        title="Mustang & Chitwan Photography Expedition"
+        title="Tiji Festival Mustang Adventure"
         heroImage={images[0]}
         overview={overview}
         highlights={highlights}

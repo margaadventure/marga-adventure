@@ -63,8 +63,8 @@ export const MAP_LOCATION_IMAGES: Record<string, string> = {
 export const JOURNEY_CATEGORIES = [
   {
     id: 'spiritual',
-    title: 'Awakening Inner Compass',
-    description: 'Spirituality is the profound journey of connecting with your true self and the universe. It transcends religious dogmas, focusing instead on personal growth, mindfulness, and the pursuit of inner peace. Nepal is a profound sanctuary where the peaks of the Himalayas meet ancient wisdom.',
+    title: 'Awakening Your Inner Compass',
+    description: 'Spirituality is the quiet conversation between your true self and the universe. It is a profound stillness that transcends religious dogmas. Nepal is a sanctuary where the peaks of the Himalayas meet ancient wisdom. Marga carves the route to self through these monumental experiences.',
     images: [
       spiritual1,
       spiritual2,
@@ -76,8 +76,8 @@ export const JOURNEY_CATEGORIES = [
   },
   {
     id: 'photography',
-    title: 'Capture The Soul',
-    description: 'Chase the light where earth meets heaven. From whispering prayer flags to the silence of snow-crowned giants, Nepal invites you to frame its eternal beauty. Wander through timeless villages and vibrant festivals, capturing stories etched in stone and spirit.',
+    title: 'Capture The Soul Of Himalayas',
+    description: 'Chase the shifting light  where earth meets heaven. From the fluttering dance of prayer flags to the ringing silence of the snow-crowned giants, We invite you to frame stories etched in stone and spirit.',
     images: [
       photo1,
       photo2,
@@ -90,7 +90,7 @@ export const JOURNEY_CATEGORIES = [
   {
     id: 'wildlife',
     title: 'Wild Secrets',
-    description: 'Wander where the jungle breathes in time with nature. Track the majestic tiger through golden grasslands and watch the armored rhino emerge from the morning mist. This is a journey into the heart of the wild, where every rustle reveals a new, untamed story.',
+    description: 'Wander where the jungle breathes. Feel the vibration of the tiger’s prowl in golden grassland and watch the armored rhino emerge from the silver morning mist. This is a true Marga(path) into the heart of the wild. Every rustle reveals a new, untamed story.',
     images: [
       wildlife1,
       wildlife2,
@@ -103,7 +103,7 @@ export const JOURNEY_CATEGORIES = [
   {
     id: 'trekking',
     title: 'Trails of Timeless Spirit',
-    description: 'Traverse ancient trails where the majesty of the Himalayas meets deep-rooted traditions. In Nepal, trekking is more than a hike; it is a journey through sacred landscapes. You will encounter colorful prayer flags, mani walls, and remote monasteries.',
+    description: 'Traverse ancient trails where the majesty of the Himalayas meets deep-rooted traditions.Trekking here is a physical prayer. Marga would walk along with you in every encounter with vivid mani walls and the soft hum of remote monasteries',
     images: [
       trekking1,
       trekking2,
@@ -125,6 +125,11 @@ export const TESTIMONIALS = [
     text: '“Buddhimnan is an exceptional, long-time acquaintance. He is serious, professional, attentive, and speaks perfect French, simplifying communication during our Nepal trips. Cultured and passionate, he cheerfully and kindly shares his country\'s beauty. His extensive skills allow him to guide us on both mountain treks and sightseeing tours. I highly recommend him; he will make you love Nepal and ensure an unforgettable trip.”',
     author: 'Nelly Guigue',
     role: 'France'
+  },
+  {
+    text: '“Since 2014, Buddhiman Tamang has provided exceptional trekking experiences to me and my groups in Nepal. A warm, competent, and multilingual tour leader (French and English), he expertly tailors trips to client wishes. Highly recommended for his efficiency and positive spirit, Buddhiman ensures every journey through Nepal’s stunning regions is professional and truly unforgettable.”',
+    author: 'Yvonne Decrey',
+    role: 'Switzerland'
   },
 
 ];

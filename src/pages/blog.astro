@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlogList from "../components/BlogList";
+import journalBg from "../assets/images/activities/journal_background.png";
 ---
 
 <Layout
     title="The Journal"
     description="Read stories of adventure, philosophy, and connection from Marga Adventure. Deep dives into the culture of Nepal, Bhutan, and Tibet."
-    image="/images/activities/spiritual/plant-spiritual_3.jpg"
+    image={journalBg.src}
     keywords="Marga Adventure blog, Nepal travel stories, spiritual travel journal, Himalaya culture, adventure philosophy, sustainable tourism blog"
 >
     <BlogList client:load />

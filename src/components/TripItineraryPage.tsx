@@ -187,31 +187,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                     )}
 
                     {/* Packing/Gear List Section */}
-                    {packingList && (
-                        <section>
-                            <div className="inline-flex items-center gap-3 text-brand font-bold text-xs uppercase tracking-[0.3em] mb-4">
-                                <span className="w-12 h-[1px] bg-brand"></span>
-                                <span>Essentials</span>
-                            </div>
-                            <h3 className="text-4xl font-bold text-gray-900 mb-12">Recommended <span className="text-brand italic font-serif">Gear</span></h3>
 
-                            <div className="grid md:grid-cols-2 gap-12">
-                                {packingList.map((category, idx) => (
-                                    <div key={idx} className="bg-gray-50 p-8 border border-gray-100">
-                                        <h4 className="font-bold text-lg mb-6 uppercase tracking-wider text-gray-900 border-b border-gray-200 pb-2">{category.category}</h4>
-                                        <ul className="space-y-3">
-                                            {category.items.map((item, i) => (
-                                                <li key={i} className="flex items-start gap-3 text-gray-600 font-light">
-                                                    <svg className="w-5 h-5 text-brand shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
 
                     {/* Itinerary */}
                     <section id="itinerary" className="scroll-mt-32">

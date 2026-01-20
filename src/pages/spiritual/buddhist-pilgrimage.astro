@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import TripItineraryPage from "../../components/TripItineraryPage";
 
+import bgImage from "../../assets/images/activities/spiritual/Buddhist Pilgrimage_Background.jpg";
+
 const itinerary = [
     {
         day: "Day 1",
@@ -37,7 +39,7 @@ const itinerary = [
         day: "Day 6",
         title: "Swayambhu and the Primordial Light",
         description:
-            'Wake up early to observe the morning puja (prayer ceremony) with the monks at Namobuddha. After breakfast, drive back to Kathmandu to visit Swayambhunath (the Monkey Temple), perched on a hill overlooking the valley. It represents the "self-arisen" wisdom of the Buddha. Explore the complex of shrines and enjoy the sunset over the city. A farewell dinner will be arranged at a traditional restaurant, celebrating the spiritual insights gained.',
+            'Wake up early to observe the morning puja (prayer ceremony) with the monks at Namobuddha. After breakfast, drive back to Kathmandu to visit Swayambhunath, perched on a hill overlooking the valley. It represents the "self-arisen" wisdom of the Buddha. Explore the complex of shrines and enjoy the sunset over the city. A farewell dinner will be arranged at a traditional restaurant, celebrating the spiritual insights gained.',
     },
     {
         day: "Day 7",
@@ -80,13 +82,13 @@ const overview = `This journey traces the sacred path of Buddhism in Nepal, blen
 
 <Layout
     title="A Buddhist Pilgrimage | Marga Adventure"
-    image="/images/activities/spiritual/meditation-spiritual_2.png"
+    image={bgImage.src}
     keywords="Buddhist Pilgrimage Nepal, Lumbini travel, Boudhanath Stupa, meditation retreat Nepal, spiritual journey Nepal"
 >
     <TripItineraryPage
         title="A Buddhist Pilgrimage"
         subtitle="Path of Enlightenment"
-        heroImage="/images/activities/spiritual/meditation-spiritual_2.png"
+        heroImage={bgImage.src}
         overview={overview}
         highlights={highlights}
         itinerary={itinerary}

@@ -81,7 +81,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     </h1>
                     <div className="flex items-center gap-6 animate-fade-in-delayed">
                         <p className="text-white tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold font-sans">
-                            Nepal — 27°42′ N, 85°19′ E
+                            Nepal — 28° 39′ N, 84°12′ E
                         </p>
                     </div>
                 </div>
@@ -92,48 +92,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     aria-label="Follow the Marga - Open Contact Modal"
                 >
                     <span className={`text-[10px] font-bold uppercase tracking-[0.4em] transition-opacity font-sans ${isScrolled ? 'opacity-100' : 'opacity-80 group-hover:opacity-100'}`}>Follow the Marga</span>
-                    <div className={`relative w-12 transition-all duration-700 ease-in-out ${isScrolled ? 'h-24' : 'h-16 group-hover:h-24'}`}>
-                        <svg className="w-full h-full absolute top-0 left-0 overflow-visible" viewBox="0 0 40 100" preserveAspectRatio="none" fill="none">
-                            {/* Left Path */}
-                            <path
-                                d="M 8 0 C 32 35, -12 65, 8 100"
-                                stroke="url(#gradient-path-1)"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                vectorEffect="non-scaling-stroke"
-                                className={`transition-opacity ${isScrolled ? 'opacity-100' : 'opacity-90 group-hover:opacity-100'}`}
-                            />
-                            {/* Right Path */}
-                            <path
-                                d="M 32 0 C 56 35, 12 65, 32 100"
-                                stroke="url(#gradient-path-2)"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                vectorEffect="non-scaling-stroke"
-                                className={`transition-opacity ${isScrolled ? 'opacity-100' : 'opacity-90 group-hover:opacity-100'}`}
-                            />
-                            {/* Middle Dotted Line */}
-                            <path
-                                d="M 20 0 C 44 35, 0 65, 20 100"
-                                stroke="white"
-                                strokeWidth="1.5"
-                                strokeDasharray="3 6"
-                                strokeLinecap="round"
-                                vectorEffect="non-scaling-stroke"
-                                className={`transition-opacity ${isScrolled ? 'opacity-60' : 'opacity-40 group-hover:opacity-60'}`}
-                            />
-                            <defs>
-                                <linearGradient id="gradient-path-1" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="white" stopOpacity="1" />
-                                    <stop offset="100%" stopColor="white" stopOpacity="0" />
-                                </linearGradient>
-                                <linearGradient id="gradient-path-2" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="white" stopOpacity="1" />
-                                    <stop offset="100%" stopColor="white" stopOpacity="0" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </div>
+                    <div className={`relative w-[1px] bg-white/50 transition-all duration-700 ease-in-out ${isScrolled ? 'h-24 opacity-100' : 'h-16 opacity-60 group-hover:h-24 group-hover:opacity-100'}`}></div>
                 </button>
             </section>
 
@@ -152,13 +111,11 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     <LogoIcon className="w-20 h-20 md:w-32 md:h-32 text-brand" />
                 </div>
                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-12 text-gray-900 tracking-tight max-w-5xl leading-tight">
-                    Find your way <span className="italic font-light text-brand">home</span> to yourself.
+                    Find your way<span className="italic font-light text-brand"> home </span>to yourself
                 </h2>
                 <div className="w-16 md:w-24 h-0.5 bg-brand/30 mb-8 md:mb-12"></div>
                 <p className="text-gray-500 text-lg md:text-xl leading-relaxed max-w-3xl font-light mb-10 md:mb-16 px-4">
-
-                    Marga Adventure is an adventure company in Nepal where we craft unforgetable Treks, Cultural Immersions, Spiritual Retreats, Photography and Wildlife trips that connects you to the heart of Himalayas and yourself. We believe that travel is not just about reaching a destination; it is about who you become along the way. At Marga Adventure, we don’t just guide your steps; we guide your experience.
-
+                    Marga Adventure is not only an adventure company, it is a sanctuary for souls in the heart of the Himalayas. We craft unforgettable Treks,Cultural Immersions, Spiritual Retreats and Wildlife Encounters that bridge the gap between the world around you and the world within. We believe that travel is not just about reaching a destination; it is about who you become along the way. At Marga Adventure, we don’t just guide your steps; we guide your experience.
                 </p>
                 <a
                     href="/contact"
@@ -177,8 +134,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                             <span className="text-brand font-bold text-xs tracking-[0.5em] uppercase block mb-8 font-sans">Marga Atlas</span>
                             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">Mapping the <span className="italic font-light text-brand">Eternal</span></h3>
                             <p className="text-gray-500 text-lg leading-relaxed font-light mb-10">
-                                Explore the sacred geography of Nepal. From the high passes of the Himalayas to the lush green conservation zones of the Terai. This sacred land thrives as a vibrant fusion, where ancient Hindu rituals and profound Buddhist traditions weave together in daily life. We chart paths that lead beyond the physical.
-                            </p>
+                                Explore the sacred geography of Nepal. From the bone-chilling winds of high Himalayan passes to the velvet humidity of the Terai jungles, this land is a living fusion of spirit and earth.Here, crimson Hindu rituals and golden Buddhist traditions weave together in the fabric of daily life. We don’t just guide your steps, we chart paths that lead beyond the physical. </p>
                             <a
                                 href="/nepal"
                                 className="flex items-center gap-4 group cursor-pointer w-fit"
@@ -284,7 +240,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                             {loadMap ? (
                                 <iframe
                                     className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                                    src="https://maps.google.com/maps?q=27.686333,85.335167&z=15&output=embed"
+                                    src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
                                     title="Marga Adventure Location"
                                     loading="lazy"
                                 >
@@ -308,7 +264,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     <div className="p-6 md:p-12 flex flex-col justify-center text-gray-900 bg-gray-50/80 backdrop-blur-sm">
                         <div className="bg-white p-10 rounded-none shadow-sm border border-gray-100 mb-10 transform hover:scale-[1.02] transition-transform">
                             <p className="text-gray-600 text-lg mb-6 leading-relaxed font-light italic border-l-4 border-brand/20 pl-6">
-                                "The right path doesn't just lead to a summit, it leads you back to yourself."
+                                "The right path doesn't just lead to a summit, it leads you back to yourself. "
                             </p>
                             <div className="flex items-center gap-4 pl-6">
                                 <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-xs">B</div>
