@@ -10,7 +10,7 @@ const {
     image = "/images/hero/hero-bg.jpg",
     type = "website",
     headerVariant = "transparent",
-    keywords = "trekking nepal, spiritual retreats, bhutan tours, tibet travel, marga adventure, luxury trekking, cultural tours",
+    keywords = "trekking nepal, spiritual retreats, bhutan tours, tibet travel, marga adventure, luxury trekking, cultural tours, trekking népal, voyage spirituel, circuit bhoutan, voyage tibet, randonnée himalaya, agence voyage népal, guide francophone népal",
     robots = "index, follow",
     schema = null,
 } = Astro.props;
@@ -39,8 +39,8 @@ const organizationSchema = {
         "@type": "ContactPoint",
         telephone: "+9779841008984",
         contactType: "customer service",
-        areaServed: ["NP", "BT", "CN-XZ"],
-        availableLanguage: "English",
+        areaServed: ["NP", "BT", "CN-XZ", "FR", "BE", "CH"],
+        availableLanguage: ["English", "French"],
     },
 };
 ---
@@ -69,6 +69,8 @@ const organizationSchema = {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={socialImageURL} />
         <meta property="og:site_name" content="Marga Adventure" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:locale:alternate" content="fr_FR" />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
