@@ -129,9 +129,24 @@ export const TESTIMONIALS = [
 
 ];
 
-export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) => (
-  <img src="/logo.png" alt="Marga Adventure" className={className} width="140" height="140" loading="lazy" decoding="async" />
-);
+import logoImage from './assets/logo.png';
+
+export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) => {
+  const logoSrc = typeof logoImage === 'string' ? logoImage : logoImage.src;
+  return (
+    <img
+      src={logoSrc}
+      alt="Marga Adventure"
+      className={className}
+      width="140"
+      height="140"
+      loading="eager"
+      decoding="sync"
+      // @ts-ignore
+      fetchPriority="high"
+    />
+  );
+};
 
 export const NEPAL_NAV_ITEMS = [
   { name: 'Nepal', href: '/nepal' },

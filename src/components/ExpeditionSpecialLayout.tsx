@@ -67,7 +67,7 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                     <p className="text-blue-200 tracking-[0.3em] uppercase text-sm font-bold mb-6 animate-fade-in-up">Marga Expedition</p>
 
                     {/* Title */}
-                    <h1 className="text-6xl md:text-8xl font-serif font-bold uppercase tracking-widest mb-16 animate-fade-in-up drop-shadow-xl">
+                    <h1 className="text-4xl md:text-6xl lg:text-8xl font-serif font-bold uppercase tracking-widest mb-16 animate-fade-in-up drop-shadow-xl break-words">
                         {title}
                     </h1>
 
@@ -154,7 +154,7 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                 <div className="mb-32">
                     {features.map((feature, idx) => (
                         <div key={idx} className="bg-gradient-to-r from-gray-50 to-white border-l-8 border-brand p-10 md:p-16 shadow-xl rounded-r-2xl transform hover:-translate-y-1 transition-transform duration-300">
-                            <h2 className="text-4xl font-serif font-bold text-brand mb-8">{feature.title}</h2>
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand mb-8">{feature.title}</h2>
                             <p className="text-xl text-gray-600 leading-relaxed font-light">{feature.description}</p>
                         </div>
                     ))}
@@ -163,8 +163,8 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                 {/* Highlights Grid */}
                 <div className="mb-32">
                     <p className="text-center text-brand font-bold uppercase tracking-[0.3em] font-sans text-xs mb-4">Discover</p>
-                    <h2 className="text-center text-4xl font-bold uppercase tracking-widest mb-20 relative">
-                        <span className="relative z-10 bg-white px-12 text-brand">Expedition Highlights</span>
+                    <h2 className="text-center text-2xl md:text-4xl font-bold uppercase tracking-widest mb-20 relative px-4 md:px-0">
+                        <span className="relative z-10 bg-white px-2 md:px-12 text-brand">Expedition Highlights</span>
                         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent -z-0"></div>
                     </h2>
 
@@ -186,8 +186,8 @@ const ExpeditionSpecialLayout: React.FC<ExpeditionSpecialLayoutProps> = ({
                 {itinerary && itinerary.length > 0 && (
                     <div className="mb-32">
                         <p className="text-center text-brand font-bold uppercase tracking-[0.3em] font-sans text-xs mb-4">The Journey</p>
-                        <h2 className="text-center text-4xl font-bold uppercase tracking-widest mb-20 relative">
-                            <span className="relative z-10 bg-white px-12 text-brand">Detailed Itinerary</span>
+                        <h2 className="text-center text-2xl md:text-4xl font-bold uppercase tracking-widest mb-20 relative px-4 md:px-0">
+                            <span className="relative z-10 bg-white px-2 md:px-12 text-brand">Detailed Itinerary</span>
                             <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-300 to-transparent -z-0"></div>
                         </h2>
 
