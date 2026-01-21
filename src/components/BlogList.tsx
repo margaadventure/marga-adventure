@@ -4,8 +4,8 @@ import PageHero from './PageHero';
 // Import images
 import schoolGroupImg from '../assets/images/Community/school-group.webp';
 import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
-import journalBg from '../assets/images/activities/journal_background.png';
-import silenceImg from '../assets/images/silence.jpg';
+import journalBg from '../assets/images/activities/journal_background.webp';
+import silenceImg from '../assets/images/silence.webp';
 
 const BLOG_POSTS = [
     {
@@ -24,7 +24,7 @@ const BLOG_POSTS = [
         excerpt: 'In a world screaming for attention, sitting in stillness is the most radical act you can commit. Here is why we prioritize silence over sightseeing.',
         image: silenceImg.src,
         readTime: '6 min read',
-        date: 'Jan 20, 2025'
+        date: 'Jan 15, 2026'
     },
     {
         slug: 'beyond-tourism',
@@ -33,8 +33,8 @@ const BLOG_POSTS = [
         excerpt: 'How your journey puts roofs over heads and books in hands. A look into our "Sharing Warmth" initiative in the remote villages of Nepal.',
         image: schoolGroupImg.src,
         readTime: '3 min read',
-        date: 'Jan 15, 2025',
-        authorImage: '/logo.png'
+        date: 'Jan 10, 2026',
+        authorImage: '/logo.webp'
     }
 ];
 

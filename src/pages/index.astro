@@ -10,13 +10,13 @@ const heroSm = await getImage({
 	src: heroBg,
 	format: "webp",
 	width: 640,
-	quality: 75,
+	quality: 60,
 });
 const heroLg = await getImage({
 	src: heroBg,
 	format: "webp",
 	width: 1920,
-	quality: 75,
+	quality: 60,
 });
 const heroSrcSet = `${heroSm.src} 640w, ${heroLg.src} 1920w`;
 
@@ -24,13 +24,13 @@ const mapSm = await getImage({
 	src: nepalMap,
 	format: "webp",
 	width: 800,
-	quality: 75,
+	quality: 60,
 });
 const mapLg = await getImage({
 	src: nepalMap,
 	format: "webp",
 	width: 1600,
-	quality: 75,
+	quality: 60,
 });
 const nepalMapSrcSet = `${mapSm.src} 800w, ${mapLg.src} 1600w`;
 
@@ -42,13 +42,13 @@ const optimizedJourneyCategories = await Promise.all(
 					src: img,
 					format: "webp",
 					width: 600,
-					quality: 75,
+					quality: 60,
 				});
 				const lg = await getImage({
 					src: img,
 					format: "webp",
 					width: 1200,
-					quality: 75,
+					quality: 60,
 				});
 				return {
 					src: lg.src,

@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { LogoIcon, NEPAL_NAV_ITEMS, BHUTAN_NAV_ITEMS, TIBET_NAV_ITEMS } from '../constants';
 
-import img1 from '../assets/images/ui/menu/flower.jpg';
-import img2 from '../assets/images/ui/menu/rhino-menu_2.jpg';
-import img3 from '../assets/images/ui/menu/tsechu-menu_3.jpg';
-import img4 from '../assets/images/ui/menu/village-menu_4.jpg';
-import img5 from '../assets/images/ui/menu/bisket-menu_7.jpg';
-import img6 from '../assets/images/ui/menu/lomanthang-menu_8.jpg';
-import img7 from '../assets/images/ui/menu/navadurgajatra-menu_6.jpg';
+import img1 from '../assets/images/ui/menu/Flower.webp';
+import img2 from '../assets/images/ui/menu/rhino-menu_2.webp';
+import img3 from '../assets/images/ui/menu/tsechu-menu_3.webp';
+import img4 from '../assets/images/ui/menu/village-menu_4.webp';
+import img5 from '../assets/images/ui/menu/bisket-menu_7.webp';
+import img6 from '../assets/images/ui/menu/lomanthang-menu_8.webp';
+import img7 from '../assets/images/ui/menu/navadurgajatra-menu_6.webp';
 
-import nepalImg from '../assets/images/country/nepal.jpg';
-import bhutanImg from '../assets/images/country/bhutan.jpg';
-import tibetImg from '../assets/images/country/Tibet.JPG';
+import nepalImg from '../assets/images/country/nepal.webp';
+import bhutanImg from '../assets/images/country/bhutan.webp';
+import tibetImg from '../assets/images/country/Tibet.webp';
 
 // ... imports ...
 export interface MenuImages {
@@ -102,7 +102,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
         <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start pl-16 pr-8 md:pl-32 lg:pl-40 gap-8 bg-brand overflow-y-auto h-full pt-4 pb-6 md:pt-6 md:pb-10 no-scrollbar transition-all duration-500 border-r border-white/10 z-20 relative font-sans`}>
 
           {/* Logo & Mobile Close Button */}
-          <div className="mb-6 flex justify-between items-center w-full">
+          <div className="mb-32 md:mb-6 flex justify-between items-center w-full">
             <a href="/" onClick={onClose} className="flex items-center gap-4 group cursor-pointer w-fit">
               <div className="text-white">
                 <LogoIcon className="w-10 h-10 md:w-12 md:h-12 brightness-0 invert" />

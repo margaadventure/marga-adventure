@@ -1,29 +1,29 @@
 import type { ElevationPoint } from './types';
 
 // Carousel Images
-import spiritual1 from './assets/images/activities/spiritual/plant-spiritual_3.jpg';
-import spiritual2 from './assets/images/activities/spiritual/sunlight-spiritual_5.jpg';
-import spiritual3 from './assets/images/activities/spiritual/yoga-spiritual_1.jpeg';
-import spiritual4 from './assets/images/activities/spiritual/healing-bowl_spritual_4.jpg';
-import spiritual5 from './assets/images/activities/spiritual/meditation-spiritual_2.png';
+import spiritual1 from './assets/images/activities/spiritual/plant-spiritual_3.webp';
+import spiritual2 from './assets/images/activities/spiritual/sunlight-spiritual_5.webp';
+import spiritual3 from './assets/images/activities/spiritual/yoga-spiritual_1.webp';
+import spiritual4 from './assets/images/activities/spiritual/healing-bowl_spritual_4.webp';
+import spiritual5 from './assets/images/activities/spiritual/meditation-spiritual_2.webp';
 
-import photo1 from './assets/images/activities/photography/Sadhu-photography_1.jpg';
-import photo2 from './assets/images/activities/photography/potrait-photography_2.jpg';
-import photo3 from './assets/images/activities/photography/machhapuchare-photography_3.jpg';
-import photo4 from './assets/images/activities/photography/tiger-photography_4.jpg';
-import photo5 from './assets/images/activities/photography/tshechu-photography_5.jpg';
+import photo1 from './assets/images/activities/photography/Sadhu-photography_1.webp';
+import photo2 from './assets/images/activities/photography/potrait-photography_2.webp';
+import photo3 from './assets/images/activities/photography/machhapuchare-photography_3.webp';
+import photo4 from './assets/images/activities/photography/tiger-photography_4.webp';
+import photo5 from './assets/images/activities/photography/tshechu-photography_5.webp';
 
-import wildlife1 from './assets/images/activities/wildlife/rhino-wildlife_1.jpg';
-import wildlife2 from './assets/images/activities/wildlife/tiger.jpg';
-import wildlife3 from './assets/images/activities/wildlife/monkey.jpg';
-import wildlife4 from './assets/images/activities/wildlife/eagle-wildlife_4.jpg';
-import wildlife5 from './assets/images/activities/wildlife/deer-wildlife_5.jpg';
+import wildlife1 from './assets/images/activities/wildlife/rhino-wildlife_1.webp';
+import wildlife2 from './assets/images/activities/wildlife/tiger.webp';
+import wildlife3 from './assets/images/activities/wildlife/monkey.webp';
+import wildlife4 from './assets/images/activities/wildlife/eagle-wildlife_4.webp';
+import wildlife5 from './assets/images/activities/wildlife/deer-wildlife_5.webp';
 
-import trekking1 from './assets/images/activities/trekking/congde-tekking_1.jpg';
-import trekking2 from './assets/images/activities/trekking/Thamserku-trekiking_2.jpg';
-import trekking3 from './assets/images/activities/trekking/manewall-trekking_3.jpg';
-import trekking4 from './assets/images/activities/trekking/ABC-trekking_4.jpg';
-import trekking5 from './assets/images/activities/trekking/nepalihouse-trekking_5.jpg';
+import trekking1 from './assets/images/activities/trekking/congde-tekking_1.webp';
+import trekking2 from './assets/images/activities/trekking/Thamserku-trekiking_2.webp';
+import trekking3 from './assets/images/activities/trekking/manewall-trekking_3.webp';
+import trekking4 from './assets/images/activities/trekking/ABC-trekking_4.webp';
+import trekking5 from './assets/images/activities/trekking/nepalihouse-trekking_5.webp';
 
 // Everest Base Camp Trek elevation profile data (14-day summit timeline)
 export const EVEREST_ELEVATION_DATA: ElevationPoint[] = [
@@ -134,7 +134,7 @@ export const TESTIMONIALS = [
 
 ];
 
-import logoImage from './assets/logo.png';
+import logoImage from './assets/logo.webp';
 
 export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) => {
   const logoSrc = typeof logoImage === 'string' ? logoImage : logoImage.src;

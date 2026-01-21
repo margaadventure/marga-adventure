@@ -7,7 +7,15 @@ import ntbLogo from '../assets/images/logos/Nepal-Tourism-Board_Logo-full.webp';
 import taanLogo from '../assets/images/logos/taan-logo.webp';
 import nmaLogo from '../assets/images/logos/NMA-Logo-removebg-preview.webp';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    footerImages?: {
+        ntb: string;
+        taan: string;
+        nma: string;
+    };
+}
+
+const Footer: React.FC<FooterProps> = ({ footerImages }) => {
     return (
         <footer className="bg-white pt-12 pb-16 px-6 md:px-12 lg:px-24 border-t border-gray-100">
             <div className="max-w-7xl mx-auto">
@@ -46,19 +54,25 @@ const Footer: React.FC = () => {
                             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.4em] mb-6">Associations</p>
                             <div className="grid grid-cols-3 gap-6 items-center">
                                 <img
-                                    src={ntbLogo.src}
+                                    src={footerImages?.ntb || ntbLogo.src}
                                     alt="Nepal Tourism Board Official Partner Logo"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 <img
-                                    src={taanLogo.src}
+                                    src={footerImages?.taan || taanLogo.src}
                                     alt="Trekking Agencies' Association of Nepal (TAAN) Member Logo"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                                 <img
-                                    src={nmaLogo.src}
+                                    src={footerImages?.nma || nmaLogo.src}
                                     alt="Nepal Mountaineering Association (NMA) Member Logo"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                         </div>

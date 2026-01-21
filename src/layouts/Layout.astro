@@ -1,13 +1,13 @@
 ---
 import "../styles/global.css";
 import Header from "../components/HeaderWrapper.astro";
-import Footer from "../components/Footer";
+import Footer from "../components/FooterWrapper.astro";
 import ImageModal from "../components/ImageModal";
 
 const {
     title,
     description = "Journey Inward, Explore Outward with Marga Adventure. Specialized in high-end trekking, spiritual retreats, and cultural tours in Nepal, Bhutan, and Tibet.",
-    image = "/images/hero/hero-bg.jpg",
+    image = "/images/hero/hero-bg.webp",
     type = "website",
     headerVariant = "transparent",
     keywords = "trekking nepal, spiritual retreats, bhutan tours, tibet travel, marga adventure, luxury trekking, cultural tours, trekking népal, voyage spirituel, circuit bhoutan, voyage tibet, randonnée himalaya, agence voyage népal, guide francophone népal",
@@ -28,7 +28,7 @@ const organizationSchema = {
     "@type": "Organization",
     name: "Marga Adventure",
     url: "https://margaadventure.com",
-    logo: "https://margaadventure.com/logo.png",
+    logo: "https://margaadventure.com/logo.webp",
     description:
         "Specialized in high-end trekking, spiritual retreats, and cultural tours in Nepal, Bhutan, and Tibet.",
     sameAs: [
@@ -51,6 +51,9 @@ const organizationSchema = {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="icon" type="image/webp" href="/favicon.webp" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <link rel="sitemap" href="/sitemap-index.xml" />
 

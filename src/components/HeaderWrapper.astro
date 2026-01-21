@@ -4,17 +4,17 @@ import type { MenuImages } from "./MenuOverlay";
 import { getImage } from "astro:assets";
 
 // Import images
-import img1 from "../assets/images/ui/menu/flower.jpg";
-import img2 from "../assets/images/ui/menu/rhino-menu_2.jpg";
-import img3 from "../assets/images/ui/menu/tsechu-menu_3.jpg";
-import img4 from "../assets/images/ui/menu/village-menu_4.jpg";
-import img5 from "../assets/images/ui/menu/bisket-menu_7.jpg";
-import img6 from "../assets/images/ui/menu/lomanthang-menu_8.jpg";
-import img7 from "../assets/images/ui/menu/navadurgajatra-menu_6.jpg";
+import img1 from "../assets/images/ui/menu/Flower.webp";
+import img2 from "../assets/images/ui/menu/rhino-menu_2.webp";
+import img3 from "../assets/images/ui/menu/tsechu-menu_3.webp";
+import img4 from "../assets/images/ui/menu/village-menu_4.webp";
+import img5 from "../assets/images/ui/menu/bisket-menu_7.webp";
+import img6 from "../assets/images/ui/menu/lomanthang-menu_8.webp";
+import img7 from "../assets/images/ui/menu/navadurgajatra-menu_6.webp";
 
-import nepalImg from "../assets/images/country/nepal.jpg";
-import bhutanImg from "../assets/images/country/bhutan.jpg";
-import tibetImg from "../assets/images/country/Tibet.JPG";
+import nepalImg from "../assets/images/country/nepal.webp";
+import bhutanImg from "../assets/images/country/bhutan.webp";
+import tibetImg from "../assets/images/country/Tibet.webp";
 
 const optimizeData = {
     scroll: [img1, img2, img3, img4, img5, img6, img7],
@@ -33,20 +33,20 @@ const scrollImages = await Promise.all(
             src: img,
             format: "webp",
             width: 800,
-            quality: 80,
+            quality: 60,
         });
         return optimized.src;
     }),
 );
 
 const nepalSrc = (
-    await getImage({ src: nepalImg, format: "webp", width: 1200, quality: 80 })
+    await getImage({ src: nepalImg, format: "webp", width: 800, quality: 60 })
 ).src;
 const bhutanSrc = (
-    await getImage({ src: bhutanImg, format: "webp", width: 1200, quality: 80 })
+    await getImage({ src: bhutanImg, format: "webp", width: 800, quality: 60 })
 ).src;
 const tibetSrc = (
-    await getImage({ src: tibetImg, format: "webp", width: 1200, quality: 80 })
+    await getImage({ src: tibetImg, format: "webp", width: 800, quality: 60 })
 ).src;
 
 const menuImages: MenuImages = {
