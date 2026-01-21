@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/PageHero";
 import buddhimanImg from "../../assets/images/team/buddhiman-tamang.webp";
+import buddhimanBlogImg from "../../assets/images/team/buddhiman-blog.webp";
 
 const article = {
     title: "Why We Left the Guidebook Behind",
@@ -130,7 +131,7 @@ const article = {
                     class="my-16 relative rounded-3xl overflow-hidden h-[400px]"
                 >
                     <img
-                        src="/images/activities/trekking/PA120680.webp"
+                        src={buddhimanBlogImg.src}
                         alt="Himalayan landscape"
                         class="w-full h-full object-cover"
                         loading="lazy"
