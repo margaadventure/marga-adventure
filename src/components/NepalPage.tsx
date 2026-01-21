@@ -68,24 +68,24 @@ const NepalPage: React.FC = () => {
             <a
               href={`/${activity.id}`}
               key={activity.id}
-              className="group relative h-[500px] rounded-none overflow-hidden cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(30,115,190,0.3)] transition-all duration-500 hover:-translate-y-2"
+              className="group relative h-[500px] rounded-none overflow-hidden cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(30,115,190,0.3)] transition-all duration-500 md:hover:-translate-y-2"
             >
               <img
                 src={activity.image}
                 alt={`${activity.title} - Marga Adventure Activity in Nepal`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity pointer-events-none"></div>
 
-              <div className="absolute bottom-0 left-0 w-full p-10 md:p-14 text-white">
-                <div className="mb-4 w-14 h-14 rounded-none bg-white/20 backdrop-blur-md flex items-center justify-center text-3xl">
+              <div className="absolute bottom-0 left-0 w-full p-6 md:p-12 text-white z-20 pointer-events-none">
+                <div className="mb-4 md:mb-8 w-12 h-12 md:w-14 md:h-14 rounded-none bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl md:text-3xl">
                   {activity.icon}
                 </div>
-                <p className="text-xs font-bold uppercase tracking-[0.3em] mb-2 text-brand-light">{activity.subtitle}</p>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">{activity.title}</h3>
-                <p className="text-white/70 font-light max-w-sm mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+                <p className="text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] mb-2 md:mb-4 text-brand-light">{activity.subtitle}</p>
+                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 leading-tight">{activity.title}</h3>
+                <p className="text-white/80 font-light max-w-xs mb-6 md:mb-8 text-sm md:text-base opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 md:translate-y-4 md:group-hover:translate-y-0 line-clamp-3 md:line-clamp-4">
                   {activity.description}
                 </p>
                 <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.4em] group-hover:text-brand-light transition-colors">

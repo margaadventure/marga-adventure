@@ -40,7 +40,7 @@ const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: 
       </div>
       <div className={`absolute inset-0 ${overlayOpacity}`}></div>
 
-      <div className="relative z-10 text-center flex flex-col items-center px-6 max-w-5xl pt-20">
+      <div className="relative z-10 text-center flex flex-col items-center px-6 max-w-5xl pb-16">
         <div className="w-px h-16 bg-white/40 mb-8 animate-fade-in"></div>
         <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter text-white/90 mb-6 animate-fade-in-up drop-shadow-sm">
           {title}

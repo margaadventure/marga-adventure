@@ -46,7 +46,7 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
                     <img src={heroImage} alt={`${title} Expedition - Marga Adventure`} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
                 </div>
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-40">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
                     <div className="max-w-7xl mx-auto w-full">
                         <div className="animate-fade-in-up">
                             <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/90 font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-6 backdrop-blur-sm">

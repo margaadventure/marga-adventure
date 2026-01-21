@@ -43,14 +43,18 @@ const AboutPage: React.FC = () => {
                         <img
                            src={buddhimanTrekImg.src}
                            alt="Buddhiman Tamang - Founder and CEO of Marga Adventure"
-                           className="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                           className="w-full aspect-[3/4] object-cover md:grayscale md:hover:grayscale-0 transition-all duration-700"
                            loading="lazy"
                            decoding="async"
                         />
-                        <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                        <div className="hidden md:block absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
                            <p className="text-white font-bold text-xl">Buddhiman Tamang</p>
                            <p className="text-brand text-xs uppercase tracking-widest mt-1">Founder & CEO</p>
                         </div>
+                     </div>
+                     <div className="md:hidden mt-4">
+                        <p className="text-gray-900 font-bold text-xl">Buddhiman Tamang</p>
+                        <p className="text-brand text-xs uppercase tracking-widest mt-1">Founder & CEO</p>
                      </div>
                   </div>
                   <div className="flex-1">

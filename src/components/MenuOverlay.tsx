@@ -63,7 +63,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
         <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start pl-16 pr-8 md:pl-32 lg:pl-40 gap-8 bg-brand overflow-y-auto h-full pt-4 pb-6 md:pt-6 md:pb-10 no-scrollbar transition-all duration-500 border-r border-white/10 z-20 relative font-sans`}>
 
           {/* Logo & Mobile Close Button */}
-          <div className="mb-32 md:mb-6 flex justify-between items-center w-full">
+          <div className="mb-6 flex justify-between items-center w-full">
             <a href="/" onClick={onClose} className="flex items-center gap-4 group cursor-pointer w-fit">
               <div className="text-white">
                 <LogoIcon className="w-10 h-10 md:w-12 md:h-12 brightness-0 invert" />

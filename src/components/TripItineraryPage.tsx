@@ -71,7 +71,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
                     {/* Subtle texture overlay if desired, but gradient is cleaner */}
                 </div>
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-40">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
                     <div className="max-w-7xl mx-auto w-full">
                         <div className="animate-fade-in-up">
                             <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/90 font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-6 backdrop-blur-sm">
@@ -201,35 +201,48 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
 
                         <div className="relative border-l border-gray-200 ml-6 md:ml-8 pl-8 md:pl-12 space-y-8">
                             {itinerary.map((day, index) => (
-                                <div key={index} className="relative group">
-                                    {/* Timeline Dot with Pulse Effect */}
-                                    <div className={`absolute -left-[41px] md:-left-[57px] top-8 flex items-center justify-center transition-all duration-500 z-10 ${activeDay === index ? 'translate-y-11' : ''}`}>
-                                        <div className={`w-4 h-4 rounded-full border-2 border-white ring-1 ring-gray-200 transition-all duration-300 ${activeDay === index ? 'bg-brand scale-125 ring-brand/50 shadow-[0_0_0_4px_rgba(30,115,190,0.15)]' : 'bg-gray-100 group-hover:bg-brand/50 group-hover:ring-brand/30'}`}></div>
+                                <div key={index} className="relative z-0 mb-6 last:mb-0">
+                                    {/* Timeline Dot */}
+                                    <div className={`absolute -left-[41px] md:-left-[57px] top-8 flex items-center justify-center transition-all duration-300 z-0 pointer-events-none ${activeDay === index ? 'translate-y-8' : ''}`}>
+                                        <div className={`w-4 h-4 rounded-full border-2 border-white ring-1 ring-gray-200 transition-all duration-300 ${activeDay === index ? 'bg-brand scale-125 ring-brand/50 shadow-[0_0_0_4px_rgba(30,115,190,0.15)]' : 'bg-gray-100 lg:group-hover:bg-brand/50 lg:group-hover:ring-brand/30'}`}></div>
                                         {activeDay === index && <div className="absolute w-8 h-8 rounded-full bg-brand/10 animate-ping"></div>}
                                     </div>
 
                                     {/* Card Container */}
-                                    <div className={`relative transition-all duration-500 rounded-lg overflow-hidden ${activeDay === index ? 'bg-white shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] border-l-4 border-l-brand my-6 scale-[1.02]' : 'bg-transparent border-b border-gray-100 hover:bg-gray-50/80'}`}>
-                                        <button
+                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border border-transparent ${activeDay === index ? 'bg-white shadow-xl border-l-[4px] border-l-brand my-4 md:my-6 md:scale-[1.02]' : 'bg-transparent border-b-gray-100'}`}>
+                                        <div
+                                            role="button"
+                                            tabIndex={0}
                                             onClick={() => setActiveDay(activeDay === index ? null : index)}
-                                            className={`w-full flex flex-col md:flex-row md:items-start justify-between p-6 md:p-8 md:pb-6 text-left gap-6 group/btn transition-all duration-300 ${activeDay === index ? 'pb-2' : ''}`}
+                                            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveDay(activeDay === index ? null : index)}
+                                            className="w-full relative z-40 block cursor-pointer text-left focus:outline-none touch-manipulation tap-highlight-transparent active:bg-gray-50 transition-colors select-none"
+                                            style={{ WebkitTapHighlightColor: 'transparent' }}
                                         >
-                                            <div className="flex gap-6 md:gap-8 flex-1">
-                                                <div className={`flex flex-col items-center justify-start shrink-0 transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-300 group-hover/btn:text-brand/60'}`}>
-                                                    <span className={`text-3xl md:text-5xl font-serif italic font-bold leading-none -mt-1 ${activeDay === index ? 'text-brand drop-shadow-sm' : ''}`}>{index + 1}</span>
+                                            <div className="flex flex-row items-start gap-5 p-5 md:p-8 pointer-events-none">
+                                                {/* Number */}
+                                                <div className={`shrink-0 w-10 md:w-auto flex flex-col items-center justify-start transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-300'}`}>
+                                                    <span className={`text-xl md:text-5xl font-serif italic font-bold leading-none ${activeDay === index ? 'text-brand drop-shadow-sm' : ''}`}>{index + 1}</span>
                                                 </div>
-                                                <div className="flex-1 pt-1">
-                                                    <h3 className={`text-xl md:text-2xl font-bold transition-all duration-300 leading-tight mb-2 ${activeDay === index ? 'text-gray-900 translate-x-1' : 'text-gray-700 group-hover/btn:text-gray-900 group-hover/btn:translate-x-1'}`}>{day.title}</h3>
-                                                    <div className="flex items-center gap-2">
-                                                        <span className={`w-6 h-[1px] transition-all duration-300 ${activeDay === index ? 'bg-brand w-12' : 'bg-gray-300 group-hover/btn:bg-brand/50'}`}></span>
-                                                        <span className={`text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-400 group-hover/btn:text-brand/60'}`}>{day.day}</span>
+
+                                                {/* Title & Info */}
+                                                <div className="flex-1 min-w-0 -mt-1">
+                                                    <h3 className={`text-lg md:text-2xl font-bold transition-all duration-300 leading-tight mb-2 pr-2 ${activeDay === index ? 'text-gray-900' : 'text-gray-700'}`}>
+                                                        {day.title}
+                                                    </h3>
+                                                    <div className="flex items-center gap-3">
+                                                        <span className={`hidden md:block w-6 h-[1px] transition-all duration-300 ${activeDay === index ? 'bg-brand w-12' : 'bg-gray-300'}`}></span>
+                                                        <span className={`text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-400'}`}>
+                                                            {day.day}
+                                                        </span>
                                                     </div>
                                                 </div>
+
+                                                {/* Arrow Icon */}
+                                                <div className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border transition-all duration-300 shrink-0 mt-0.5 ${activeDay === index ? 'rotate-180 bg-brand border-brand text-white shadow-lg' : 'border-gray-100 text-gray-300 bg-white'}`}>
+                                                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                                </div>
                                             </div>
-                                            <div className={`hidden md:flex w-10 h-10 items-center justify-center rounded-full border transition-all duration-300 shrink-0 mt-1 ${activeDay === index ? 'rotate-180 bg-brand border-brand text-white shadow-lg shadow-brand/30' : 'border-gray-100 text-gray-300 group-hover/btn:border-brand/30 group-hover/btn:text-brand bg-white'}`}>
-                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-                                            </div>
-                                        </button>
+                                        </div>
 
                                         <div className={`grid transition-all duration-500 ease-in-out ${activeDay === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                                             <div className="overflow-hidden">
