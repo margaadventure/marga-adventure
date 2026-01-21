@@ -2,10 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import DestinationPage from "../components/DestinationPage";
 import { getImage } from "astro:assets";
-import tibetBg from "../assets/images/destinations/tibet/tibet-hero.jpg";
-import mountKailash from "../assets/images/destinations/tibet/mount-kailash.jpg";
-import tibetYak from "../assets/images/destinations/tibet/yak.jpg";
-import tibetCulture from "../assets/images/destinations/tibet/culture.jpg";
+import tibetBg from "../assets/images/destinations/tibet/tibet-hero.webp";
+import mountKailash from "../assets/images/destinations/tibet/mount-kailash.webp";
+import tibetYak from "../assets/images/destinations/tibet/yak.webp";
+import tibetCulture from "../assets/images/destinations/tibet/culture.webp";
 
 const optimizedBg = await getImage({
     src: tibetBg,
@@ -31,7 +31,10 @@ const optimizedCulture = await getImage({
 
 <Layout
     title="Tibet"
-    description="Journey to Tibet, where ancient spirituality meets the clouds. Marvel at the crimson majesty of  Potala Palace in Lhasa, circle the sacred dust of Mount Kailash, and gaze upon the north face of Everest. With its turquoise lakes and high-altitude plateaus, Tibet offers a profound landscape steeped in mystery and deep Buddhist tradition."
+    description="Journey to Tibet, where ancient spirituality meets the clouds. Marvel at the crimson majesty of  Potala Palace in Lhasa, circle the sacred dust of Mount Kailash, and gaze upon the north face of Everest. With its turquoise lakes and high-altitude plateaus, Tibet offers a profound landscape steeped in mystery and deep Buddhist tradition.
+    
+    
+    "
     image={optimizedBg.src}
     keywords="Tibet travel, Tibet tours, Potala Palace, Mount Kailash, Everest Base Camp Tibet, Lhasa tours, spiritual travel Tibet, roof of the world"
 >

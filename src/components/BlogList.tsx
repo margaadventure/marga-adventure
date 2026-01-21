@@ -5,6 +5,7 @@ import PageHero from './PageHero';
 import schoolGroupImg from '../assets/images/Community/school-group.webp';
 import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
 import journalBg from '../assets/images/activities/journal_background.png';
+import silenceImg from '../assets/images/silence.jpg';
 
 const BLOG_POSTS = [
     {
@@ -21,9 +22,9 @@ const BLOG_POSTS = [
         category: 'Philosophy',
         title: 'The Rebellion of Silence',
         excerpt: 'In a world screaming for attention, sitting in stillness is the most radical act you can commit. Here is why we prioritize silence over sightseeing.',
-        image: '/images/activities/spiritual/buddha-face.jpg',
+        image: silenceImg.src,
         readTime: '6 min read',
-        date: 'Dec 31, 2025'
+        date: 'Jan 20, 2025'
     },
     {
         slug: 'beyond-tourism',
@@ -32,7 +33,7 @@ const BLOG_POSTS = [
         excerpt: 'How your journey puts roofs over heads and books in hands. A look into our "Sharing Warmth" initiative in the remote villages of Nepal.',
         image: schoolGroupImg.src,
         readTime: '3 min read',
-        date: 'Dec 31, 2025',
+        date: 'Jan 15, 2025',
         authorImage: '/logo.png'
     }
 ];
@@ -45,6 +46,7 @@ const BlogList: React.FC = () => {
                 subtitle="Stories of path, purpose, and people."
                 image={journalBg.src}
                 parallax={true}
+                className="pb-40"
             />
 
             <section className="py-24 px-6 md:px-12 lg:px-24">
@@ -59,7 +61,7 @@ const BlogList: React.FC = () => {
                                 <div className="relative overflow-hidden rounded-none h-[400px] w-full shadow-lg border border-gray-100">
                                     <img
                                         src={post.image}
-                                        alt={post.title}
+                                        alt={`${post.title} - Marga Adventure Blog`}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale"
                                         loading="lazy"
                                         decoding="async"

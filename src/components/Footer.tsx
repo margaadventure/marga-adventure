@@ -3,9 +3,9 @@ import React from 'react';
 import { LogoIcon, NEPAL_NAV_ITEMS, BHUTAN_NAV_ITEMS, TIBET_NAV_ITEMS, MAIN_NAV_ITEMS } from '../constants';
 
 // Import logos
-import ntbLogo from '../assets/images/logos/Nepal-Tourism-Board_Logo-full.jpg';
-import taanLogo from '../assets/images/logos/taan-logo.jpg';
-import nmaLogo from '../assets/images/logos/NMA-Logo-removebg-preview.png';
+import ntbLogo from '../assets/images/logos/Nepal-Tourism-Board_Logo-full.webp';
+import taanLogo from '../assets/images/logos/taan-logo.webp';
+import nmaLogo from '../assets/images/logos/NMA-Logo-removebg-preview.webp';
 
 const Footer: React.FC = () => {
     return (
@@ -47,17 +47,17 @@ const Footer: React.FC = () => {
                             <div className="grid grid-cols-3 gap-6 items-center">
                                 <img
                                     src={ntbLogo.src}
-                                    alt="Nepal Tourism Board"
+                                    alt="Nepal Tourism Board Official Partner Logo"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
                                 <img
                                     src={taanLogo.src}
-                                    alt="TAAN"
+                                    alt="Trekking Agencies' Association of Nepal (TAAN) Member Logo"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
                                 <img
                                     src={nmaLogo.src}
-                                    alt="NMA"
+                                    alt="Nepal Mountaineering Association (NMA) Member Logo"
                                     className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300"
                                 />
                             </div>

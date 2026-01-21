@@ -7,15 +7,16 @@ interface PageHeroProps {
   image: string;
 }
 
-const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: string }> = ({
+const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: string; className?: string }> = ({
   title,
   subtitle,
   image,
   parallax = false,
-  overlayOpacity = "bg-black/40"
+  overlayOpacity = "bg-black/40",
+  className = ""
 }) => {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900 group">
+    <section className={`relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-gray-900 group ${className}`}>
       <div className="absolute inset-0 overflow-hidden">
         {parallax ? (
           <div className="absolute inset-0 clip-path-inset">

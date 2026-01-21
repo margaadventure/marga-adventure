@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import contactHeroBg from '../assets/images/country/contact.jpg';
+import contactHeroBg from '../assets/images/country/contact.webp';
 
 const ContactPage: React.FC = () => {
    const [isSubmitting, setIsSubmitting] = useState(false);
@@ -138,7 +138,7 @@ const ContactPage: React.FC = () => {
          <div className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
             <img
                src={contactHeroBg.src}
-               alt="Contact Marga Adventure"
+               alt="Marga Adventure Contact Support and Headquarters in Kathmandu"
                className="absolute inset-0 w-full h-full object-cover"
                fetchPriority="high"
                decoding="async"
@@ -151,7 +151,7 @@ const ContactPage: React.FC = () => {
          <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20">
 
             {/* Info Side */}
-            <div>
+            <div className="min-w-0 order-2 lg:order-1">
                <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
                   Visit us at our headquater located in heart of Kathmandu, Nepal. Here, you can meet our travel experts and discuss your next adventure.
                </p>
@@ -169,7 +169,7 @@ const ContactPage: React.FC = () => {
 
                   <div className="flex gap-6 items-start group">
                      <div className="w-12 h-12 rounded-none bg-brand/5 flex items-center justify-center text-xl shrink-0 group-hover:bg-brand group-hover:text-white transition-colors">
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                      </div>
                      <div>
                         <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">Contact</h3>
@@ -189,26 +189,28 @@ const ContactPage: React.FC = () => {
                </div>
 
                {/* Google Map */}
-               <div className="mt-16 w-full h-80 bg-gray-100 rounded-none overflow-hidden relative shadow-lg group border border-gray-200" ref={mapRef}>
-                  {loadMap ? (
-                     <iframe
-                        className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                        src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
-                        title="Marga Adventure Location"
-                        loading="lazy"
-                     >
-                     </iframe>
-                  ) : (
-                     <div className="w-full h-full flex items-center justify-center">
-                        <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
-                     </div>
-                  )}
-                  <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
+               <div className="mt-16 w-full max-w-full h-80 bg-gray-100 rounded-none overflow-hidden relative shadow-lg group border border-gray-200" ref={mapRef}>
+                  <div className="relative w-full h-full">
+                     {loadMap ? (
+                        <iframe
+                           className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                           src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
+                           title="Marga Adventure Location"
+                           loading="lazy"
+                        >
+                        </iframe>
+                     ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                           <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
+                        </div>
+                     )}
+                     <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
+                  </div>
                </div>
             </div>
 
             {/* Form Side */}
-            <div className="bg-gray-50 border border-gray-100 p-12 rounded-none shadow-2xl shadow-gray-200/50">
+            <div className="bg-gray-50 border border-gray-100 p-12 rounded-none shadow-2xl shadow-gray-200/50 min-w-0 order-1 lg:order-2">
                {isSuccess ? (
                   <div className="text-center py-20 animate-fade-in-up">
                      <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">

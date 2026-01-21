@@ -67,7 +67,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     srcSet={heroImageSrcSet}
                     sizes="100vw"
                     className="absolute inset-0 w-full h-full object-cover scale-105 motion-safe:animate-slow-zoom opacity-80 pointer-events-none select-none"
-                    alt="Everest and Chorten"
+                    alt="Mount Everest and Buddhist Chorten Landscape in Nepal"
                     width="2560"
                     height="1440"
                     fetchPriority="high"
@@ -145,20 +145,22 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </div>
                         <div className="lg:col-span-8 w-full">
                             <div className="relative rounded-none overflow-hidden shadow-2xl group border border-white/50 bg-white p-6 md:p-8">
-                                {nepalMapSrc && (
-                                    <img
-                                        src={nepalMapSrc}
-                                        srcSet={nepalMapSrcSet}
-                                        sizes="(max-width: 1024px) 100vw, 66vw"
-                                        alt="Detailed Map of Nepal"
-                                        width="1920"
-                                        height="1080"
-                                        className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                )}
-                                <div className="absolute inset-0 bg-brand/5 mix-blend-overlay pointer-events-none"></div>
+                                <div className="relative w-full h-full overflow-hidden">
+                                    {nepalMapSrc && (
+                                        <img
+                                            src={nepalMapSrc}
+                                            srcSet={nepalMapSrcSet}
+                                            sizes="(max-width: 1024px) 100vw, 66vw"
+                                            alt="Interactive Map of Nepal Trekking Regions by Marga Adventure"
+                                            width="1920"
+                                            height="1080"
+                                            className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    )}
+                                    <div className="absolute inset-0 bg-brand/5 mix-blend-overlay pointer-events-none"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -226,7 +228,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
             {/* 7. Enquiry Banner */}
             <section className="px-6 md:px-12 lg:px-24 py-12 md:py-24 bg-gray-50">
                 <div className="max-w-7xl mx-auto bg-white rounded-none overflow-hidden grid lg:grid-cols-2 shadow-2xl border border-gray-100">
-                    <div className="p-8 md:p-12 border-r border-gray-50 flex flex-col justify-center bg-white">
+                    <div className="p-8 md:p-12 border-r border-gray-50 flex flex-col justify-center bg-white min-w-0">
                         <div className="flex items-center gap-6 mb-12">
                             <span className="text-[10px] font-bold text-brand uppercase tracking-[0.5em]">Global HQ</span>
                             <div className="flex-1 h-px bg-gray-100"></div>
@@ -236,21 +238,23 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </h3>
 
 
-                        <div className="w-full h-64 rounded-none overflow-hidden shadow-lg mb-10 border border-gray-100 relative group" ref={mapRef}>
-                            {loadMap ? (
-                                <iframe
-                                    className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                                    src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
-                                    title="Marga Adventure Location"
-                                    loading="lazy"
-                                >
-                                </iframe>
-                            ) : (
-                                <div className="w-full h-full bg-gray-50 flex items-center justify-center">
-                                    <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
-                                </div>
-                            )}
-                            <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
+                        <div className="w-full max-w-full h-64 rounded-none overflow-hidden shadow-lg mb-10 border border-gray-100 relative group" ref={mapRef}>
+                            <div className="relative w-full h-full">
+                                {loadMap ? (
+                                    <iframe
+                                        className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                                        src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
+                                        title="Marga Adventure Location"
+                                        loading="lazy"
+                                    >
+                                    </iframe>
+                                ) : (
+                                    <div className="w-full h-full bg-gray-50 flex items-center justify-center">
+                                        <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
+                                    </div>
+                                )}
+                                <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
+                            </div>
                         </div>
 
                         <a
@@ -261,7 +265,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </a>
                     </div>
 
-                    <div className="p-6 md:p-12 flex flex-col justify-center text-gray-900 bg-gray-50/80 backdrop-blur-sm">
+                    <div className="p-6 md:p-12 flex flex-col justify-center text-gray-900 bg-gray-50/80 backdrop-blur-sm min-w-0">
                         <div className="bg-white p-10 rounded-none shadow-sm border border-gray-100 mb-10 transform hover:scale-[1.02] transition-transform">
                             <p className="text-gray-600 text-lg mb-6 leading-relaxed font-light italic border-l-4 border-brand/20 pl-6">
                                 "The right path doesn't just lead to a summit, it leads you back to yourself. "

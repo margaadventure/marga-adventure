@@ -1,15 +1,17 @@
-
 import React from 'react';
 import PageHero from './PageHero';
 import buddhimanImg from "../assets/images/team/buddhiman-tamang.webp";
 import deepakImg from "../assets/images/team/deepak-profile.webp";
-import trekkingBg from "../assets/images/activities/trekking/background.jpg";
+import laxmiImg from "../assets/images/team/Laxmi.webp";
+import binodImg from "../assets/images/team/Binod KC_.webp";
+import buddhimanTrekImg from "../assets/images/team/Buddhiman-trek.webp";
+import trekkingBg from "../assets/images/activities/trekking/background.webp";
 
 const TEAM = [
    { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
+   { name: 'Laxmi Pradhan', role: 'Operation Head', img: laxmiImg.src },
+   { name: 'Binod KC', role: 'Athlete & Travel Expert', img: binodImg.src, note: 'Grand Raid des Pyrenees' },
    { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: deepakImg.src, note: 'Tech Strategy & Innovation' },
-   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
-   { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
 ];
 
 const AboutPage: React.FC = () => {
@@ -39,8 +41,8 @@ const AboutPage: React.FC = () => {
                   <div className="w-full md:w-1/3 shrink-0">
                      <div className="relative rounded-none overflow-hidden shadow-2xl">
                         <img
-                           src={buddhimanImg.src}
-                           alt="Buddhiman Tamang"
+                           src={buddhimanTrekImg.src}
+                           alt="Buddhiman Tamang - Founder and CEO of Marga Adventure"
                            className="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700"
                            loading="lazy"
                            decoding="async"
@@ -68,17 +70,6 @@ const AboutPage: React.FC = () => {
                </div>
             </div>
 
-            {/* Community Engagement Section */}
-            <div className="max-w-4xl mx-auto my-24 text-center">
-               <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Our Impact</span>
-               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Community Engagement</h2>
-               <p className="text-gray-500 text-lg leading-relaxed font-light max-w-2xl mx-auto mb-8">
-                  At Marga adventure, we believe that tourism should leave a footprint of kindness, not just boots in the snow. Nepal is not just a destination to us; it is our home. We are dedicated to ensuring that the beauty of the Himalayas and culture is preserved for future generations and that the communities who host us benefit directly from your visit.
-               </p>
-               <a href="#" className="inline-block text-brand font-bold uppercase tracking-widest border-b border-brand pb-1 hover:text-brand-dark transition-colors">
-                  Learn about Brave Hearts
-               </a>
-            </div>
          </section>
 
          <section className="py-24 bg-gray-50 px-6 border-y border-gray-100">
@@ -96,15 +87,15 @@ const AboutPage: React.FC = () => {
                      <div key={i} className="group relative overflow-hidden rounded-none h-[500px] shadow-xl">
                         <img
                            src={member.img}
-                           alt={member.name}
-                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                           alt={`${member.name} - ${member.role} at Marga Adventure`}
+                           className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110 md:grayscale md:group-hover:grayscale-0"
                            loading="lazy"
                            decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-90 transition-opacity duration-300 flex flex-col justify-end p-8">
                            <p className="text-white font-bold text-xl xl:text-2xl mb-1 leading-tight">{member.name}</p>
                            <p className="text-brand font-bold text-xs uppercase tracking-widest mb-4">{member.role}</p>
-                           <div className="h-0 group-hover:h-8 overflow-hidden transition-all duration-300">
+                           <div className="h-8 md:h-0 md:group-hover:h-8 overflow-hidden transition-all duration-300">
                               <p className="text-white/60 text-xs">{member.note}</p>
                            </div>
                         </div>

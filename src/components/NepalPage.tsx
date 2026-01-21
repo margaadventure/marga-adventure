@@ -1,11 +1,11 @@
 
 import React from 'react';
 import PageHero from './PageHero';
-import trekking1 from "../assets/images/activities/trekking/congde-tekking_1.jpg";
-import spiritual1 from "../assets/images/activities/spiritual/yoga-spiritual_1.jpeg";
-import wildlife1 from "../assets/images/activities/wildlife/rhino.jpg";
-import photo1 from "../assets/images/activities/photography/Sadhu-photography_1.jpg";
-import bg from "../assets/images/country/nepal-hero.jpg";
+import trekking1 from "../assets/images/activities/trekking/congde-tekking_1.webp";
+import spiritual1 from "../assets/images/activities/spiritual/yoga-spiritual_1.webp";
+import wildlife1 from "../assets/images/activities/wildlife/rhino.webp";
+import photo1 from "../assets/images/activities/photography/Sadhu-photography_1.webp";
+import bg from "../assets/images/country/nepal-hero.webp";
 
 const ACTIVITIES = [
   {
@@ -72,7 +72,7 @@ const NepalPage: React.FC = () => {
             >
               <img
                 src={activity.image}
-                alt={activity.title}
+                alt={`${activity.title} - Marga Adventure Activity in Nepal`}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
                 decoding="async"

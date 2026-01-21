@@ -49,7 +49,7 @@ const DestinationPage: React.FC<DestinationPageProps> = ({
                 <div className="absolute inset-0 bg-brand/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
                 <img
                   src={feature.image}
-                  alt={feature.title}
+                  alt={`${feature.title} - Highlight - Marga Adventure`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
