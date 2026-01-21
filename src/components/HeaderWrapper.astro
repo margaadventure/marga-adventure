@@ -1,0 +1,68 @@
+---
+import Header from "./Header";
+import type { MenuImages } from "./MenuOverlay";
+import { getImage } from "astro:assets";
+
+// Import images
+import img1 from "../assets/images/ui/menu/flower.jpg";
+import img2 from "../assets/images/ui/menu/rhino-menu_2.jpg";
+import img3 from "../assets/images/ui/menu/tsechu-menu_3.jpg";
+import img4 from "../assets/images/ui/menu/village-menu_4.jpg";
+import img5 from "../assets/images/ui/menu/bisket-menu_7.jpg";
+import img6 from "../assets/images/ui/menu/lomanthang-menu_8.jpg";
+import img7 from "../assets/images/ui/menu/navadurgajatra-menu_6.jpg";
+
+import nepalImg from "../assets/images/country/nepal.jpg";
+import bhutanImg from "../assets/images/country/bhutan.jpg";
+import tibetImg from "../assets/images/country/Tibet.JPG";
+
+const optimizeData = {
+    scroll: [img1, img2, img3, img4, img5, img6, img7],
+    destinations: {
+        nepal: nepalImg,
+        bhutan: bhutanImg,
+        tibet: tibetImg,
+    },
+};
+
+// Helper to optimize
+// Using slightly larger width for retina displays, but compressed webp
+const scrollImages = await Promise.all(
+    optimizeData.scroll.map(async (img) => {
+        const optimized = await getImage({
+            src: img,
+            format: "webp",
+            width: 800,
+            quality: 80,
+        });
+        return optimized.src;
+    }),
+);
+
+const nepalSrc = (
+    await getImage({ src: nepalImg, format: "webp", width: 1200, quality: 80 })
+).src;
+const bhutanSrc = (
+    await getImage({ src: bhutanImg, format: "webp", width: 1200, quality: 80 })
+).src;
+const tibetSrc = (
+    await getImage({ src: tibetImg, format: "webp", width: 1200, quality: 80 })
+).src;
+
+const menuImages: MenuImages = {
+    scrollImages,
+    destinations: {
+        nepal: nepalSrc,
+        bhutan: bhutanSrc,
+        tibet: tibetSrc,
+    },
+};
+
+interface Props {
+    forceOpaque?: boolean;
+}
+
+const { forceOpaque } = Astro.props;
+---
+
+<Header client:load forceOpaque={forceOpaque} menuImages={menuImages} />

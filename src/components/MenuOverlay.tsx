@@ -13,12 +13,23 @@ import nepalImg from '../assets/images/country/nepal.jpg';
 import bhutanImg from '../assets/images/country/bhutan.jpg';
 import tibetImg from '../assets/images/country/Tibet.JPG';
 
+// ... imports ...
+export interface MenuImages {
+  scrollImages: string[];
+  destinations: {
+    nepal: string;
+    bhutan: string;
+    tibet: string;
+  };
+}
+
 interface MenuOverlayProps {
   isOpen: boolean;
   onClose: () => void;
+  menuImages?: MenuImages;
 }
 
-const SCROLL_IMAGES = [
+const DEFAULT_SCROLL_IMAGES = [
   img1.src,
   img2.src,
   img3.src,
@@ -28,11 +39,39 @@ const SCROLL_IMAGES = [
   img7.src,
 ];
 
-export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
+export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuImages }) => {
   const [activeSub, setActiveSub] = useState<string | null>(null);
   const [activeNestedSub, setActiveNestedSub] = useState<string | null>('nepal');
 
+  // Use optimized images if provided, otherwise fallback to default imported images
+  const scrollImages = menuImages?.scrollImages || DEFAULT_SCROLL_IMAGES;
+  const nepalImageSrc = menuImages?.destinations.nepal || nepalImg.src;
+  const bhutanImageSrc = menuImages?.destinations.bhutan || bhutanImg.src;
+  const tibetImageSrc = menuImages?.destinations.tibet || tibetImg.src;
+
   if (!isOpen) return null;
+  // ... existing code ...
+
+  // ... inside render ...
+  // Update the destination image source logic:
+  /*
+  <img
+      src={
+          activeNestedSub === 'nepal' ? nepalImageSrc :
+          activeNestedSub === 'bhutan' ? bhutanImageSrc :
+          activeNestedSub === 'tibet' ? tibetImageSrc :
+          nepalImageSrc // default
+      }
+      // ...
+  />
+  */
+
+  // Update scroll images loop:
+  /*
+  {[...scrollImages, ...scrollImages].map((src, idx) => (
+  // ...
+  */
+
 
   const nepalItems = NEPAL_NAV_ITEMS.filter(item => item.href !== '/nepal');
   const bhutanItems = BHUTAN_NAV_ITEMS;
@@ -304,10 +343,10 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 opacity-60 transition-opacity duration-500 group-hover:opacity-40"></div>
                   <img
                     src={
-                      activeNestedSub === 'nepal' ? nepalImg.src :
-                        activeNestedSub === 'bhutan' ? bhutanImg.src :
-                          activeNestedSub === 'tibet' ? tibetImg.src :
-                            nepalImg.src // default
+                      activeNestedSub === 'nepal' ? nepalImageSrc :
+                        activeNestedSub === 'bhutan' ? bhutanImageSrc :
+                          activeNestedSub === 'tibet' ? tibetImageSrc :
+                            nepalImageSrc // default
                     }
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     alt="Region Highlight"
@@ -321,7 +360,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
             /* Default Scroll Images */
             <>
               <div className="flex flex-col animate-vertical-scroll w-full transition-all duration-700">
-                {[...SCROLL_IMAGES, ...SCROLL_IMAGES].map((src, idx) => (
+                {[...scrollImages, ...scrollImages].map((src, idx) => (
                   <div key={idx} className="relative w-full h-[50vh] shrink-0 mb-0">
                     <img
                       src={src}
