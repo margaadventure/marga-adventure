@@ -11,20 +11,31 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
+    let timeoutId: number;
+    let rafId: number;
+
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
+      // Cancel pending updates
+      if (timeoutId) clearTimeout(timeoutId);
+      if (rafId) cancelAnimationFrame(rafId);
+
+      // Batch state updates with debounce
+      timeoutId = window.setTimeout(() => {
+        rafId = requestAnimationFrame(() => {
           setScrolled(window.scrollY > 80);
-          ticking = false;
         });
-        ticking = true;
-      }
+      }, 50); // 50ms debounce
     };
-    // Initialize scroll state in case we load scrolled down
+
+    // Initialize scroll state
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const isOpaque = scrolled || forceOpaque;

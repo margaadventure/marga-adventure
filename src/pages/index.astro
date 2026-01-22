@@ -6,19 +6,24 @@ import heroBg from "../assets/images/hero/hero-bg.webp";
 import nepalMap from "../assets/images/maps/nepal-map.webp";
 import { JOURNEY_CATEGORIES } from "../constants";
 
-const heroSm = await getImage({
-	src: heroBg,
-	format: "webp",
-	width: 640,
-	quality: 60,
-});
-const heroLg = await getImage({
-	src: heroBg,
-	format: "webp",
-	width: 1920,
-	quality: 60,
-});
-const heroSrcSet = `${heroSm.src} 640w, ${heroLg.src} 1920w`;
+const heroWidths = [640, 750, 828, 1080, 1280, 1600, 1920, 2560];
+const heroOptimized = await Promise.all(
+	heroWidths.map((w) =>
+		getImage({
+			src: heroBg,
+			format: "webp",
+			width: w,
+			quality: 75,
+		}),
+	),
+);
+
+const heroSrcSet = heroOptimized
+	.map((img) => `${img.src} ${img.attributes.width}w`)
+	.join(", ");
+const heroLg =
+	heroOptimized.find((img) => img.attributes.width === 1920) ||
+	heroOptimized[heroOptimized.length - 1];
 
 const mapSm = await getImage({
 	src: nepalMap,
@@ -68,7 +73,7 @@ const optimizedJourneyCategories = await Promise.all(
 	image={heroLg.src}
 >
 	<HomeContent
-		client:load
+		client:idle
 		heroImageSrc={heroLg.src}
 		heroImageSrcSet={heroSrcSet}
 		nepalMapSrc={mapLg.src}

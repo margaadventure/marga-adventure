@@ -10,7 +10,7 @@ import trekkingBg from "../assets/images/activities/trekking/background.webp";
 const TEAM = [
    { name: 'Buddhiman Tamang', role: 'Founder & CEO', img: buddhimanImg.src, note: 'Master in Psychology & Adventure Tourism' },
    { name: 'Laxmi Pradhan', role: 'Operation Head', img: laxmiImg.src },
-   { name: 'Binod KC', role: 'Athlete & Travel Expert', img: binodImg.src, note: 'Grand Raid des Pyrenees' },
+   { name: 'Binod KC', role: 'Athlete & Travel Expert in Nepal', img: binodImg.src, note: <>Grand Raid des Pyrenees<br />Everest Marathon</> },
    { name: 'Deepak Mahato Tharu', role: 'Chief Information Officer', img: deepakImg.src, note: 'Tech Strategy & Innovation' },
 ];
 
@@ -58,10 +58,10 @@ const AboutPage: React.FC = () => {
                      </div>
                   </div>
                   <div className="flex-1">
-                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Walking the Path for <span className="text-brand italic font-light">18 Years</span>.</h2>
+                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">Walking the Path for <span className="text-brand italic font-light">16 Years</span>.</h2>
                      <div className="space-y-6 text-gray-500 text-lg leading-relaxed font-light">
                         <p>
-                           His journey began in 2006, working at the grassroots level as a trekking guide before rising to become a senior tour leader. Over the course of 18 years, Buddhiman has navigated the varied terrains of Nepal, mastering the logistics of high-altitude trekking and the nuances of cross-cultural hospitality.
+                           His journey began in 2008, working at the grassroots level as a assistant trekking guide before rising to become a senior tour leader. Over the course of 16 years, Buddhiman has navigated the varied terrains of Nepal, mastering the logistics of high-altitude trekking and the nuances of cross-cultural hospitality.
                         </p>
                         <p>
                            What sets Buddhiman apart is his dual academic background. He holds a <strong>Master’s degree in Adventure Tourism</strong> as well as a <strong>Master’s degree in Psychology</strong>. This unique educational foundation allows him to curate experiences that are not only operationally seamless but also deeply attentive to group dynamics and the psychological well-being of his guests.
@@ -78,12 +78,12 @@ const AboutPage: React.FC = () => {
 
          <section className="py-24 bg-gray-50 px-6 border-y border-gray-100">
             <div className="max-w-7xl mx-auto">
-               <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+               <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
                   <div>
                      <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-2 block">Our People</span>
                      <h2 className="text-4xl font-bold text-gray-900">Meet the Team</h2>
                   </div>
-                  <p className="text-gray-500 max-w-md text-right font-light">The experts, guides, and visionaries dedicated to your safe and transformative journey.</p>
+                  <p className="text-gray-500 max-w-md md:text-right font-light">The experts, guides, and visionaries dedicated to your safe and transformative journey.</p>
                </div>
 
                <div className="grid md:grid-cols-2 2xl:grid-cols-4 gap-8">

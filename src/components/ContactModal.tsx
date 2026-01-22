@@ -20,17 +20,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
         };
         window.addEventListener('keydown', handleEsc);
 
-        // Dynamically load Web3Forms script when modal opens to ensure hCaptcha renders
+        // Dynamically load Web3Forms script when modal opens
         if (isOpen) {
-            const scriptId = 'web3forms-script';
-            if (!document.getElementById(scriptId)) {
-                const script = document.createElement('script');
-                script.id = scriptId;
-                script.src = "https://web3forms.com/client/script.js";
-                script.async = true;
-                script.defer = true;
-                document.body.appendChild(script);
-            }
+            // Yield to main thread before script injection to allow modal animation
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    const scriptId = 'web3forms-script';
+                    if (!document.getElementById(scriptId)) {
+                        const script = document.createElement('script');
+                        script.id = scriptId;
+                        script.src = "https://web3forms.com/client/script.js";
+                        script.async = true;
+                        script.defer = true;
+                        document.body.appendChild(script);
+                    }
+                });
+            });
         } else {
             // Reset form key when modal closes to ensure fresh captcha on reopen
             setFormKey(prev => prev + 1);

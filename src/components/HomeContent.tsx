@@ -34,11 +34,20 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
     const mapRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
+        let timeoutId: number;
+
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = window.setTimeout(() => {
+                setIsScrolled(window.scrollY > 50);
+            }, 50); // 50ms debounce
         };
+
         window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (timeoutId) clearTimeout(timeoutId);
+        };
     }, []);
 
     React.useEffect(() => {
@@ -66,11 +75,12 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     src={heroImageSrc || heroBg.src}
                     srcSet={heroImageSrcSet}
                     sizes="100vw"
-                    className="absolute inset-0 w-full h-full object-cover scale-105 motion-safe:animate-slow-zoom opacity-80 pointer-events-none select-none"
+                    className="absolute inset-0 w-full h-full object-cover scale-105 md:motion-safe:animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Mount Everest and Buddhist Chorten Landscape in Nepal"
                     width="2560"
                     height="1440"
                     fetchPriority="high"
+                    loading="eager"
                     decoding="async"
                 />
                 <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl drop-shadow-[0_4px_3px_rgba(0,0,0,0.9)] -translate-y-16 md:translate-y-0">

@@ -104,7 +104,7 @@ const organizationSchema = {
             Skip to main content
         </a>
         <Header forceOpaque={headerVariant === "opaque"} />
-        <ImageModal client:load />
+        <ImageModal client:only="react" />
         <main id="main-content">
             <slot />
         </main>
@@ -134,64 +134,61 @@ const organizationSchema = {
         <Footer />
 
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const attachListeners = () => {
-                    const images = document.querySelectorAll("img");
-                    images.forEach((img) => {
-                        // Skip if already attached or specific interactive images like icons
-                        if (img.classList.contains("lightbox-enabled")) return;
-                        if (img.closest("button") || img.closest("a")) return;
+            // Lightweight image lightbox using event delegation (single listener)
+            // This replaces the heavy MutationObserver approach that was causing 8-15s INP overhead
+            document.addEventListener(
+                "click",
+                (e) => {
+                    const target = e.target;
+                    if (!target || !(target instanceof HTMLElement)) return;
 
-                        img.classList.add(
-                            "cursor-pointer",
-                            "lightbox-enabled",
-                            "hover:opacity-90",
-                            "transition-opacity",
+                    // Check if clicked element is an image
+                    const img =
+                        target.tagName === "IMG"
+                            ? (target as HTMLImageElement)
+                            : null;
+
+                    // Skip if no image, or if image is inside a link/button, or has no-lightbox attribute
+                    if (
+                        !img ||
+                        img.closest("button, a") ||
+                        img.hasAttribute("data-no-lightbox")
+                    ) {
+                        return;
+                    }
+
+                    // Prevent default and open modal
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    window.dispatchEvent(
+                        new CustomEvent("open-image-modal", {
+                            detail: img.src,
+                        }),
+                    );
+                },
+                { passive: false },
+            ); // Non-passive only for preventDefault
+
+            // Optional: Add keyboard support via focus (much lighter than attaching to all images)
+            document.addEventListener("keydown", (e) => {
+                const activeEl = document.activeElement;
+                if (
+                    (e.key === "Enter" || e.key === " ") &&
+                    activeEl instanceof HTMLImageElement
+                ) {
+                    if (
+                        !activeEl.closest("button, a") &&
+                        !activeEl.hasAttribute("data-no-lightbox")
+                    ) {
+                        e.preventDefault();
+                        window.dispatchEvent(
+                            new CustomEvent("open-image-modal", {
+                                detail: activeEl.src,
+                            }),
                         );
-                        // Make keyboard accessible
-                        img.setAttribute("tabindex", "0");
-                        img.setAttribute("role", "button");
-                        img.setAttribute("aria-label", img.alt || "View image");
-
-                        const openModal = (src: string) => {
-                            const event = new CustomEvent("open-image-modal", {
-                                detail: src,
-                            });
-                            window.dispatchEvent(event);
-                        };
-
-                        img.addEventListener("click", (e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            openModal(img.src);
-                        });
-
-                        img.addEventListener("keydown", (e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                openModal(img.src);
-                            }
-                        });
-                    });
-                };
-
-                // Attach initially
-                attachListeners();
-
-                // Observer for dynamic content (React hydration, etc)
-                const observer = new MutationObserver((mutations) => {
-                    mutations.forEach((mutation) => {
-                        if (mutation.addedNodes.length) {
-                            attachListeners();
-                        }
-                    });
-                });
-
-                observer.observe(document.body, {
-                    childList: true,
-                    subtree: true,
-                });
+                    }
+                }
             });
         </script>
     </body>

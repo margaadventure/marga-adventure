@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INP Testing - Marg Adventure</title>
+    <script src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background: #f9fafb;
+        }
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        .good { color: #10b981; }
+        .needs-improvement { color: #f59e0b; }
+        .poor { color: #ef4444; }
+        .test-list {
+            list-style: none;
+            padding: 0;
+        }
+        .test-item {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: #f3f4f6;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .test-item:hover {
+            background: #e5e7eb;
+        }
+        .instructions {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 INP Performance Testing</h1>
+    
+    <div class="instructions">
+        <h3>📋 Testing Instructions</h3>
+        <ol>
+            <li><strong>Open Chrome DevTools</strong>: Press F12</li>
+            <li><strong>Go to Performance tab</strong></li>
+            <li><strong>Click Record</strong> (red circle)</li>
+            <li><strong>Perform interaction</strong> (click button below or on main site)</li>
+            <li><strong>Stop recording</strong></li>
+            <li><strong>Check "Interaction" section</strong> in timeline</li>
+        </ol>
+        <p><strong>Mobile Testing:</strong> Enable Device Toolbar (Ctrl+Shift+M) → Set to "iPhone 12 Pro" → Enable "4x slowdown" in Performance tab</p>
+    </div>
+
+    <div class="metric-card">
+        <h2>Interaction to Next Paint (INP)</h2>
+        <div class="metric-value" id="inp-value">Waiting...</div>
+        <p id="inp-rating">Click any interactive element on the page</p>
+        <small>Good: <200ms | Needs Improvement: 200-500ms | Poor: >500ms</small>
+    </div>
+
+    <div class="metric-card">
+        <h2>First Contentful Paint (FCP)</h2>
+        <div class="metric-value" id="fcp-value">Measuring...</div>
+        <p id="fcp-rating"></p>
+    </div>
+
+    <div class="metric-card">
+        <h2>Largest Contentful Paint (LCP)</h2>
+        <div class="metric-value" id="lcp-value">Measuring...</div>
+        <p id="lcp-rating"></p>
+    </div>
+
+    <div class="metric-card">
+        <h2>Cumulative Layout Shift (CLS)</h2>
+        <div class="metric-value" id="cls-value">Measuring...</div>
+        <p id="cls-rating"></p>
+    </div>
+
+    <div class="metric-card">
+        <h2>🧪 Quick Interaction Tests</h2>
+        <p>Click these to trigger INP measurements:</p>
+        <ul class="test-list">
+            <li class="test-item" id="test1">Test 1: Simple Button Click</li>
+            <li class="test-item" id="test2">Test 2: Image Modal Trigger</li>
+            <li class="test-item" id="test3">Test 3: Multiple Rapid Clicks</li>
+        </ul>
+        <button onclick="clearMetrics()">Reset Metrics</button>
+    </div>
+
+    <div class="metric-card">
+        <h2>📊 Main Site Test Checklist</h2>
+        <p><strong>Navigate to your site and test these interactions:</strong></p>
+        <ol>
+            <li>✅ Click menu button (Header) → Target: <100ms</li>
+            <li>✅ Click any image → Target: <150ms</li>
+            <li>✅ Click carousel navigation → Target: <100ms</li>
+            <li>✅ Click testimonial arrows → Target: <100ms</li>
+            <li>✅ Open contact modal → Target: <200ms</li>
+            <li>✅ Scroll rapidly → Target: <50ms lag</li>
+        </ol>
+    </div>
+
+    <script>
+        // Track INP
+        webVitals.onINP((metric) => {
+            console.log('INP:', metric);
+            const value = metric.value;
+            const rating = metric.rating;
+            
+            document.getElementById('inp-value').textContent = `${value.toFixed(0)}ms`;
+            document.getElementById('inp-value').className = 'metric-value ' + rating;
+            document.getElementById('inp-rating').textContent = `Rating: ${rating.toUpperCase()}`;
+        }, { reportAllChanges: true });
+
+        // Track FCP
+        webVitals.onFCP((metric) => {
+            console.log('FCP:', metric);
+            const value = metric.value;
+            const rating = metric.rating;
+            
+            document.getElementById('fcp-value').textContent = `${value.toFixed(0)}ms`;
+            document.getElementById('fcp-value').className = 'metric-value ' + rating;
+            document.getElementById('fcp-rating').textContent = `Rating: ${rating.toUpperCase()}`;
+        });
+
+        // Track LCP
+        webVitals.onLCP((metric) => {
+            console.log('LCP:', metric);
+            const value = metric.value;
+            const rating = metric.rating;
+            
+            document.getElementById('lcp-value').textContent = `${value.toFixed(0)}ms`;
+            document.getElementById('lcp-value').className = 'metric-value ' + rating;
+            document.getElementById('lcp-rating').textContent = `Rating: ${rating.toUpperCase()}`;
+        }, { reportAllChanges: true });
+
+        // Track CLS
+        webVitals.onCLS((metric) => {
+            console.log('CLS:', metric);
+            const value = metric.value;
+            const rating = metric.rating;
+            
+            document.getElementById('cls-value').textContent = value.toFixed(3);
+            document.getElementById('cls-value').className = 'metric-value ' + rating;
+            document.getElementById('cls-rating').textContent = `Rating: ${rating.toUpperCase()}`;
+        }, { reportAllChanges: true });
+
+        // Test interactions
+        let clickCount = 0;
+        
+        document.getElementById('test1').addEventListener('click', function() {
+            this.style.background = '#10b981';
+            this.style.color = 'white';
+            setTimeout(() => {
+                this.style.background = '';
+                this.style.color = '';
+            }, 200);
+            clickCount++;
+            console.log('Test 1 clicked:', clickCount, 'times');
+        });
+
+        document.getElementById('test2').addEventListener('click', function() {
+            // Simulate image modal
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:9999;display:flex;align-items:center;justify-content:center;';
+            modal.innerHTML = '<div style="background:white;padding:2rem;border-radius:8px;"><p>Modal Opened Successfully!</p><button onclick="this.closest(\'div\').remove()">Close</button></div>';
+            document.body.appendChild(modal);
+            setTimeout(() => modal.remove(), 2000);
+        });
+
+        document.getElementById('test3').addEventListener('click', function() {
+            // Rapid click test
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    this.style.background = i % 2 ? '#3b82f6' : '#f59e0b';
+                }, i * 50);
+            }
+            setTimeout(() => {
+                this.style.background = '';
+            }, 600);
+        });
+
+        function clearMetrics() {
+            document.getElementById('inp-value').textContent = 'Waiting...';
+            document.getElementById('inp-value').className = 'metric-value';
+            document.getElementById('inp-rating').textContent = 'Click any interactive element';
+            clickCount = 0;
+            console.clear();
+            console.log('Metrics cleared. Start testing!');
+        }
+
+        // Log all interactions
+        let interactionCount = 0;
+        ['click', 'keydown', 'pointerdown'].forEach(eventType => {
+            document.addEventListener(eventType, (e) => {
+                interactionCount++;
+                console.log(`Interaction #${interactionCount}: ${eventType} on`, e.target.tagName);
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>

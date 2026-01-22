@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 interface JourneyImage {
   src: string;
@@ -16,6 +16,8 @@ interface JourneyBlockProps {
 
 const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, images, alignment }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const nextImage = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -25,10 +27,26 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
+  // Track visibility to pause carousel when off-screen
   useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: '100px' } // Start slightly before visible
+    );
+
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Only auto-rotate when visible
+  useEffect(() => {
+    if (!isVisible) return;
+
     const timer = setInterval(nextImage, 3000);
     return () => clearInterval(timer);
-  }, [nextImage]);
+  }, [isVisible, nextImage]);
 
   const textContent = (
     <div className={`flex flex-col justify-center px-6 md:px-12 lg:px-28 py-12 md:py-28 ${alignment === 'left' ? 'order-1 md:order-2' : 'order-1'}`}>
@@ -111,7 +129,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
   );
 
   return (
-    <section className="grid md:grid-cols-2 items-stretch overflow-hidden">
+    <section ref={sectionRef} className="grid md:grid-cols-2 items-stretch overflow-hidden">
       {alignment === 'right' ? (
         <>
           {imageContent}
