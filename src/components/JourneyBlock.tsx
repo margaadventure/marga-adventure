@@ -49,7 +49,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
   }, [isVisible, nextImage]);
 
   const textContent = (
-    <div className={`flex flex-col justify-center px-6 md:px-12 lg:px-28 py-12 md:py-28 ${alignment === 'left' ? 'order-1 md:order-2' : 'order-1'}`}>
+    <div className={`flex flex-col justify-center px-6 md:px-12 lg:px-28 py-12 md:py-28 ${alignment === 'left' ? 'order-1 xl:order-2' : 'order-1'}`}>
       <div className="w-16 h-px bg-brand/30 mb-8 md:mb-12"></div>
       <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-10 text-gray-900 tracking-tighter leading-[0.9]">{title}</h3>
       <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light mb-8 md:mb-16 max-w-xl italic">
@@ -66,7 +66,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
   );
 
   const imageContent = (
-    <div className={`h-[400px] md:h-[70vh] lg:h-[80vh] min-h-[400px] w-full p-4 md:p-8 ${alignment === 'left' ? 'order-2 md:order-1' : 'order-2'}`}>
+    <div className={`h-[400px] md:h-[70vh] lg:h-[80vh] min-h-[400px] w-full p-4 md:p-8 ${alignment === 'left' ? 'order-2 xl:order-1' : 'order-2'}`}>
       <div className="relative w-full h-full rounded-none overflow-hidden shadow-xl">
         <div className="absolute inset-0 bg-gray-900">
           {images.map((img, idx) => (
@@ -75,7 +75,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
                 <img
                   src={img.src}
                   srcSet={img.srcSet}
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 480px) 100vw, (max-width: 640px) 100vw, (max-width: 767px) 100vw, (max-width: 1279px) 85vw, 50vw"
                   alt={`${title} - Journey Series Image ${idx + 1} - Marga Adventure`}
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -129,7 +129,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
   );
 
   return (
-    <section ref={sectionRef} className="grid md:grid-cols-2 items-stretch overflow-hidden">
+    <section ref={sectionRef} className="grid xl:grid-cols-2 items-stretch overflow-hidden">
       {alignment === 'right' ? (
         <>
           {imageContent}

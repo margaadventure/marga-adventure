@@ -22,6 +22,7 @@ const AboutPage: React.FC = () => {
             subtitle="A journey within."
             image={trekkingBg.src}
             parallax={true}
+            overlayOpacity="bg-black/0"
          />
 
          <section className="py-24 px-6 md:px-12 lg:px-24">
@@ -43,16 +44,16 @@ const AboutPage: React.FC = () => {
                         <img
                            src={buddhimanTrekImg.src}
                            alt="Buddhiman Tamang - Founder and CEO of Marga Adventure"
-                           className="w-full aspect-[3/4] object-cover md:grayscale md:hover:grayscale-0 transition-all duration-700"
+                           className="w-full aspect-[3/4] object-cover xl:grayscale xl:hover:grayscale-0 transition-all duration-700"
                            loading="lazy"
                            decoding="async"
                         />
-                        <div className="hidden md:block absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
+                        <div className="hidden xl:block absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent">
                            <p className="text-white font-bold text-xl">Buddhiman Tamang</p>
                            <p className="text-brand text-xs uppercase tracking-widest mt-1">Founder & CEO</p>
                         </div>
                      </div>
-                     <div className="md:hidden mt-4">
+                     <div className="xl:hidden mt-4">
                         <p className="text-gray-900 font-bold text-xl">Buddhiman Tamang</p>
                         <p className="text-brand text-xs uppercase tracking-widest mt-1">Founder & CEO</p>
                      </div>
@@ -92,11 +93,11 @@ const AboutPage: React.FC = () => {
                         <img
                            src={member.img}
                            alt={`${member.name} - ${member.role} at Marga Adventure`}
-                           className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110 md:grayscale md:group-hover:grayscale-0"
+                           className="w-full h-full object-cover transition-transform duration-700 xl:group-hover:scale-110 xl:grayscale xl:group-hover:grayscale-0"
                            loading="lazy"
                            decoding="async"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-90 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <div className="xl:absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent xl:opacity-90 opacity-0 transition-opacity duration-300 flex flex-col justify-end p-8">
                            <p className="text-white font-bold text-xl xl:text-2xl mb-1 leading-tight">{member.name}</p>
                            <p className="text-brand font-bold text-xs uppercase tracking-widest mb-4">{member.role}</p>
                            <div className="h-8 md:h-0 md:group-hover:h-8 overflow-hidden transition-all duration-300">

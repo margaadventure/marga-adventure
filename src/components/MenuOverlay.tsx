@@ -81,7 +81,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
     <div className="fixed inset-0 z-[100] bg-brand text-white overflow-hidden flex flex-col">
       {/* Header */}
       {/* Header (Close Button Only - Desktop) */}
-      <div className="hidden md:flex justify-end items-center pr-8 py-8 relative z-20 bg-transparent pointer-events-none">
+      <div className="hidden lg:flex justify-end items-center pr-8 py-8 relative z-20 bg-transparent pointer-events-none">
         <button
           onClick={onClose}
           className="group flex items-center gap-4 pointer-events-auto"
@@ -96,18 +96,18 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
       </div>
 
       {/* Main Nav Container */}
-      <div className="flex-1 flex flex-col md:flex-row relative z-10 overflow-hidden">
+      <div className="flex-1 flex flex-col xl:flex-row relative z-10 overflow-hidden">
 
         {/* Column 1: Main Menu Items */}
-        <nav className={`w-full ${activeSub === 'destination' ? 'md:w-[25%]' : 'md:w-[35%]'} flex flex-col justify-start pl-16 pr-8 md:pl-32 lg:pl-40 gap-8 bg-brand overflow-y-auto h-full pt-4 pb-6 md:pt-6 md:pb-10 no-scrollbar transition-all duration-500 border-r border-white/10 z-20 relative font-sans`}>
+        <nav className={`w-full ${activeSub === 'destination' ? 'xl:w-[25%]' : 'xl:w-[35%]'} flex flex-col justify-start pl-16 pr-8 md:pl-32 lg:pl-40 gap-8 bg-brand overflow-y-auto h-full pt-4 pb-6 md:pt-6 md:pb-10 no-scrollbar transition-all duration-500 border-r border-white/10 z-20 relative font-sans`}>
 
           {/* Logo & Mobile Close Button */}
-          <div className="mb-32 md:mb-6 flex justify-between items-center w-full">
-            <a href="/" onClick={onClose} className="flex items-center gap-4 group cursor-pointer w-fit">
+          <div className="mb-20 md:mb-28 lg:mb-6 flex justify-between items-center w-full">
+            <a href="/" onClick={onClose} className="flex items-center gap-3 md:gap-4 group cursor-pointer w-fit">
               <div className="text-white">
-                <LogoIcon className="w-10 h-10 md:w-12 md:h-12 brightness-0 invert" />
+                <LogoIcon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 brightness-0 invert" />
               </div>
-              <span className="font-bold tracking-tighter text-xl md:text-2xl text-white font-sans">
+              <span className="font-bold tracking-tighter text-lg md:text-xl lg:text-2xl text-white font-sans">
                 Marga <span className="font-light text-white">Adventure</span>
               </span>
             </a>
@@ -115,11 +115,11 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             {/* Mobile Close Button */}
             <button
               onClick={onClose}
-              className="md:hidden group flex items-center justify-center"
+              className="lg:hidden group flex items-center justify-center"
               aria-label="Close Menu"
             >
-              <div className="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-brand group-hover:border-white transition-all text-white shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <div className="w-8 h-8 md:w-10 md:h-10 border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-brand group-hover:border-white transition-all text-white shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 md:w-5 md:h-5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
@@ -153,7 +153,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
 
             {/* Mobile Accordion Only */}
             {activeSub === 'destination' && (
-              <div className="md:hidden ml-4 mt-6 flex flex-col gap-6 animate-in fade-in slide-in-from-left-4 duration-300 border-l mb-4 pl-6 border-white/20">
+              <div className="xl:hidden ml-4 mt-6 flex flex-col gap-6 animate-in fade-in slide-in-from-left-4 duration-300 border-l mb-4 pl-6 border-white/20">
                 <div className="flex flex-col gap-4">
 
                   {/* Nepal Mobile */}
@@ -233,7 +233,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
         </nav>
 
         {activeSub === 'destination' && (
-          <div className="hidden md:flex w-[20%] flex-col gap-8 bg-brand border-r border-white/10 py-20 px-12 animate-in fade-in slide-in-from-left-4 duration-500 z-10 transition-all">
+          <div className="hidden xl:flex w-[20%] flex-col gap-8 bg-brand border-r border-white/10 py-20 px-12 animate-in fade-in slide-in-from-left-4 duration-500 z-10 transition-all">
 
             {/* Nepal Group */}
             <div className="flex flex-col gap-3">
@@ -316,7 +316,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
         )}
 
         {/* Column 3: Visual / Images */}
-        <div className="hidden md:flex flex-1 relative items-center justify-center bg-brand h-full overflow-hidden p-20">
+        <div className="hidden xl:flex flex-1 relative items-center justify-center bg-brand h-full overflow-hidden p-20">
 
           {activeSub === 'destination' ? (
             /* Feature Image Stack */
@@ -379,23 +379,23 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
       </div>
 
       {/* Footer */}
-      <div className="px-6 md:px-12 py-8 flex justify-start items-center gap-8 border-t border-white/10 relative z-20 bg-brand shrink-0">
-        <div className="flex gap-6">
+      <div className="px-6 md:px-10 lg:px-12 py-6 md:py-8 flex justify-start items-center gap-6 md:gap-8 border-t border-white/10 relative z-20 bg-brand shrink-0">
+        <div className="flex gap-4 md:gap-6">
           <a href="https://www.facebook.com/profile.php?id=61585603559230" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
             <span className="sr-only">Facebook</span>
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
             </svg>
           </a>
           <a href="https://www.instagram.com/margaadventure/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-[#E1306C] transition-colors">
             <span className="sr-only">Instagram</span>
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468.99c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.821-.049.975-.045 1.504-.207 1.857-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.059-1.37.059-4.041v-.08c0-2.597-.01-2.917-.058-3.821-.045-.975-.207-1.504-.344-1.857a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
             </svg>
           </a>
           <a href="https://www.linkedin.com/in/margaadventure/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">
             <span className="sr-only">LinkedIn</span>
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
             </svg>
           </a>
