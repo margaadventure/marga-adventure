@@ -144,7 +144,7 @@ const ContactPage: React.FC = () => {
                decoding="async"
             />
             <div className="relative z-10 text-center text-white px-6 -translate-y-12">
-               <h1 className="text-5xl md:text-7xl font-bold tracking-tight">Get In <span className="italic font-serif text-brand">Touch</span></h1>
+               <h1 className="text-5xl md:text-7xl font-bold tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Get In <span className="italic font-serif text-brand drop-shadow-none">Touch</span></h1>
             </div>
          </div>
 

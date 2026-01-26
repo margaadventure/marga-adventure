@@ -52,10 +52,10 @@ const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: 
 
       <div className="relative z-10 text-center flex flex-col items-center px-6 max-w-5xl pb-16">
         <div className="w-px h-16 bg-white/40 mb-8 animate-fade-in"></div>
-        <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter text-white/90 mb-6 animate-fade-in-up drop-shadow-sm">
+        <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter text-white/90 mb-6 animate-fade-in-up drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
           {title}
         </h1>
-        <p className="text-white/80 text-lg md:text-2xl font-light italic tracking-wide max-w-2xl animate-fade-in-delayed">
+        <p className="text-white/80 text-lg md:text-2xl font-light italic tracking-wide max-w-2xl animate-fade-in-delayed drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
           {subtitle}
         </p>
       </div>

@@ -85,12 +85,12 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                 />
                 <div className="relative z-10 text-center text-white flex flex-col items-center px-6 max-w-6xl drop-shadow-[0_4px_3px_rgba(0,0,0,0.9)] -translate-y-16 md:translate-y-0">
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight leading-[0.9] mb-10 animate-fade-in-up text-white/90">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight leading-[0.9] mb-10 animate-fade-in-up text-white/90 drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                         THE PATH<br />
-                        <span className="font-sans font-normal italic text-white/80 tracking-widest uppercase text-2xl md:text-4xl lg:text-5xl block mt-6">IS INFINITE</span>
+                        <span className="font-sans font-normal italic text-white/80 tracking-widest uppercase text-2xl md:text-4xl lg:text-5xl block mt-6 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">IS INFINITE</span>
                     </h1>
                     <div className="flex items-center gap-6 animate-fade-in-delayed">
-                        <p className="text-white tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold font-sans">
+                        <p className="text-white tracking-[0.6em] text-[10px] md:text-xs uppercase font-bold font-sans drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                             Nepal — 28° 39′ N, 84°12′ E
                         </p>
                     </div>
@@ -124,7 +124,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     Find your way<span className="italic font-light text-brand"> home </span>to yourself
                 </h2>
                 <div className="w-12 md:w-16 lg:w-24 h-0.5 bg-brand/30 mb-6 md:mb-8 lg:mb-12"></div>
-                <p className="text-gray-500 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl font-light mb-8 md:mb-12 lg:mb-16 px-4">
+                <p className="text-gray-800 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl font-light mb-8 md:mb-12 lg:mb-16 px-4">
                     Marga Adventure is not only an adventure company, it is a sanctuary for souls in the heart of the Himalayas. We craft unforgettable Treks,Cultural Immersions, Spiritual Retreats and Wildlife Encounters that bridge the gap between the world around you and the world within. We believe that travel is not just about reaching a destination; it is about who you become along the way. At Marga Adventure, we don’t just guide your steps; we guide your experience.
                 </p>
                 <a
@@ -142,14 +142,14 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         <div className="xl:col-span-4 xl:sticky xl:top-24">
                             <span className="text-brand font-bold text-xs tracking-[0.5em] uppercase block mb-6 md:mb-8 font-sans">Marga Atlas</span>
                             <h3 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight">Mapping the <span className="italic font-light text-brand">Eternal</span></h3>
-                            <p className="text-gray-500 text-base md:text-lg leading-relaxed font-light mb-8 md:mb-10">
+                            <p className="text-gray-800 text-base md:text-lg leading-relaxed font-light mb-8 md:mb-10">
                                 Explore the sacred geography of Nepal. From the bone-chilling winds of high Himalayan passes to the velvet humidity of the Terai jungles, this land is a living fusion of spirit and earth.Here, crimson Hindu rituals and golden Buddhist traditions weave together in the fabric of daily life. We don't just guide your steps, we chart paths that lead beyond the physical. </p>
                             <a
                                 href="/nepal"
                                 className="flex items-center gap-4 group cursor-pointer w-fit"
                             >
                                 <div className="w-2 h-2 rounded-full bg-brand/20 group-hover:bg-brand transition-colors"></div>
-                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.3em] group-hover:text-brand transition-colors">View Destination Guides</span>
+                                <span className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.3em] group-hover:text-brand transition-colors">View Destination Guides</span>
                             </a>
                         </div>
                         <div className="xl:col-span-8 w-full">
@@ -276,14 +276,14 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
 
                     <div className="p-6 md:p-10 lg:p-12 flex flex-col justify-center text-gray-900 bg-gray-50/80 backdrop-blur-sm min-w-0">
                         <div className="bg-white p-6 md:p-8 lg:p-10 rounded-none shadow-sm border border-gray-100 mb-8 md:mb-10 transform hover:scale-[1.02] transition-transform">
-                            <p className="text-gray-600 text-base md:text-lg mb-4 md:mb-6 leading-relaxed font-light italic border-l-4 border-brand/20 pl-4 md:pl-6">
+                            <p className="text-gray-900 text-base md:text-lg mb-4 md:mb-6 leading-relaxed font-light italic border-l-4 border-brand/20 pl-4 md:pl-6">
                                 "The right path doesn't just lead to a summit, it leads you back to yourself. "
                             </p>
                             <div className="flex items-center gap-4 pl-4 md:pl-6">
                                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand/10 flex items-center justify-center text-brand font-bold text-xs">B</div>
                                 <div>
                                     <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-900">Buddhiman Tamang</span>
-                                    <span className="block text-[10px] uppercase tracking-wider text-gray-400 mt-1">Founder & CEO</span>
+                                    <span className="block text-[10px] uppercase tracking-wider text-gray-600 mt-1">Founder & CEO</span>
                                 </div>
                             </div>
                         </div>
@@ -294,7 +294,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                     <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                                 </div>
                                 <div className="min-w-0">
-                                    <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1 truncate">Direct Line</p>
+                                    <p className="text-[10px] text-gray-600 uppercase font-bold tracking-widest mb-1 truncate">Direct Line</p>
                                     <p className="text-base md:text-lg font-bold whitespace-nowrap">+977 9841008984</p>
                                 </div>
                             </a>
@@ -303,7 +303,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                     <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                                 </div>
                                 <div className="min-w-0">
-                                    <p className="text-[9px] text-gray-400 uppercase font-bold tracking-widest mb-1 truncate">Email</p>
+                                    <p className="text-[9px] text-gray-600 uppercase font-bold tracking-widest mb-1 truncate">Email</p>
                                     <p className="text-sm md:text-lg font-bold tracking-tight truncate">margaadventure@gmail.com</p>
                                 </div>
                             </a>

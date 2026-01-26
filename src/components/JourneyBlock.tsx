@@ -52,7 +52,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
     <div className={`flex flex-col justify-center px-6 md:px-12 lg:px-28 py-12 md:py-28 ${alignment === 'left' ? 'order-1 xl:order-2' : 'order-1'}`}>
       <div className="w-16 h-px bg-brand/30 mb-8 md:mb-12"></div>
       <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-10 text-gray-900 tracking-tighter leading-[0.9]">{title}</h3>
-      <p className="text-xl md:text-2xl text-gray-400 leading-relaxed font-light mb-8 md:mb-16 max-w-xl italic">
+      <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light mb-8 md:mb-16 max-w-xl italic">
         {description}
       </p>
       <a

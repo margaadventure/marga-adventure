@@ -21,7 +21,20 @@ export default {
                     DEFAULT: '#1E73BE',
                     dark: '#165a94',
                 },
-                accent: '#e67e22'
+                accent: '#e67e22',
+                // Custom darker gray scale for better text readability
+                gray: {
+                    50: '#f9fafb',   // unchanged
+                    100: '#f3f4f6',  // unchanged
+                    200: '#e5e7eb',  // unchanged
+                    300: '#9ca3af',  // darker border/placeholder
+                    400: '#4b5563',  // very dark gray for "muted" text
+                    500: '#1f2937',  // nearly black for body text (was 800)
+                    600: '#111827',  // nearly black (was 900)
+                    700: '#030712',  // black
+                    800: '#000000',  // pure black
+                    900: '#000000',  // pure black
+                },
             },
             animation: {
                 'vertical-scroll': 'vertical-scroll 45s linear infinite',

@@ -74,10 +74,10 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
                     <div className="max-w-7xl mx-auto w-full">
                         <div className="animate-fade-in-up">
-                            <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/90 font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-6 backdrop-blur-sm">
+                            <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/90 font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-6 backdrop-blur-sm drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                                 {subtitle || "The Himalayas Await"}
                             </span>
-                            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 leading-[0.9] tracking-tight">
+                            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 leading-[0.9] tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                                 {title}
                             </h1>
                         </div>
