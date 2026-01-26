@@ -154,7 +154,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </div>
                         <div className="xl:col-span-8 w-full">
                             <div className="relative rounded-none overflow-hidden shadow-2xl group border border-white/50 bg-white p-4 md:p-6 lg:p-8">
-                                <div className="relative w-full min-h-[300px] md:min-h-[400px] lg:min-h-[500px] overflow-hidden">
+                                <div className="relative w-full overflow-hidden">
                                     {nepalMapSrc && (
                                         <img
                                             src={nepalMapSrc}
@@ -163,7 +163,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                             alt="Interactive Map of Nepal Trekking Regions by Marga Adventure"
                                             width="1920"
                                             height="1080"
-                                            className="w-full h-full object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
+                                            className="w-full h-auto object-contain scale-100 group-hover:scale-105 transition-all duration-[2000ms]"
                                             loading="lazy"
                                             decoding="async"
                                         />
