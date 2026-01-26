@@ -97,12 +97,16 @@ const AboutPage: React.FC = () => {
                            loading="lazy"
                            decoding="async"
                         />
-                        <div className="xl:absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent xl:opacity-90 opacity-0 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <div className="absolute bottom-0 w-full xl:inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent xl:via-transparent xl:from-black/90 xl:opacity-90 transition-opacity duration-500 flex flex-col justify-end p-6 xl:p-8">
                            <p className="text-white font-bold text-xl xl:text-2xl mb-1 leading-tight">{member.name}</p>
-                           <p className="text-brand font-bold text-xs uppercase tracking-widest mb-4">{member.role}</p>
-                           <div className="h-8 md:h-0 md:group-hover:h-8 overflow-hidden transition-all duration-300">
-                              <p className="text-white/60 text-xs">{member.note}</p>
-                           </div>
+                           <p className="text-brand font-bold text-xs uppercase tracking-widest mb-2">{member.role}</p>
+                           {member.note && (
+                              <div className="grid grid-rows-[1fr] xl:grid-rows-[0fr] xl:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out">
+                                 <div className="overflow-hidden">
+                                    <p className="text-white/90 text-xs leading-relaxed mt-2">{member.note}</p>
+                                 </div>
+                              </div>
+                           )}
                         </div>
                      </div>
                   ))}

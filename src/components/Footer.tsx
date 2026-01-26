@@ -102,6 +102,7 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                 <div className="pt-10 md:pt-16 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10">
                     <p className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">© 2026 Marga Adventure</p>
                     <div className="flex gap-8 md:gap-12 text-[9px] font-bold text-gray-400 uppercase tracking-[0.6em]">
+                        <a href="/" className="hover:text-brand transition-colors">Back to Home</a>
                         <a href="/sitemap" className="hover:text-brand transition-colors">Sitemap</a>
                     </div>
                 </div>

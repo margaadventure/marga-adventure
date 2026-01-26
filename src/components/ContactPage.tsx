@@ -153,7 +153,7 @@ const ContactPage: React.FC = () => {
             {/* Info Side */}
             <div className="min-w-0 order-2 lg:order-1">
                <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
-                  Your journey, your rhythm. Let’s design a bespoke Nepalese escape that mirrors your personal style, turning your travel dreams into a perfectly tailored reality."</p>
+                  Your journey, your rhythm. Let’s design a bespoke Nepalese escape that mirrors your personal style, turning your travel dreams into a perfectly tailored reality.</p>
 
                <div className="space-y-12">
                   <div className="flex gap-6 items-start group">

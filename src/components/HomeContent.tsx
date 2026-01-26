@@ -235,19 +235,19 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
             </section>
 
             {/* 7. Enquiry Banner */}
-            <section className="px-6 md:px-10 lg:px-24 py-8 md:py-16 lg:py-24 bg-gray-50">
+            <section className="px-6 md:px-10 lg:px-24 py-6 md:py-16 lg:py-24 bg-gray-50">
                 <div className="max-w-7xl mx-auto bg-white rounded-none overflow-hidden grid xl:grid-cols-2 shadow-2xl border border-gray-100">
                     <div className="p-6 md:p-10 lg:p-12 border-r border-gray-50 flex flex-col justify-center bg-white min-w-0">
-                        <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-12">
+                        <div className="flex items-center gap-4 md:gap-6 mb-6 md:mb-12">
                             <span className="text-[10px] font-bold text-brand uppercase tracking-[0.5em]">Global HQ</span>
                             <div className="flex-1 h-px bg-gray-100"></div>
                         </div>
-                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-8 leading-[1] tracking-tight">
+                        <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-8 leading-[1] tracking-tight">
                             Visit our sanctuary in <span className="italic font-light text-[10px] font-bold text-brand tracking-[0.5em]">Baneshwor, Kathmandu</span>
                         </h3>
 
 
-                        <div className="w-full max-w-full h-48 md:h-64 rounded-none overflow-hidden shadow-lg mb-8 md:mb-10 border border-gray-100 relative group" ref={mapRef}>
+                        <div className="w-full max-w-full h-48 md:h-64 rounded-none overflow-hidden shadow-lg mb-4 md:mb-8 border border-gray-100 relative group" ref={mapRef}>
                             <div className="relative w-full h-full">
                                 {loadMap ? (
                                     <iframe
