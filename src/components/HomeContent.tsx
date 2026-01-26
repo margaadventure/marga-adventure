@@ -74,7 +74,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                 <img
                     src={heroImageSrc || heroBg.src}
                     srcSet={heroImageSrcSet}
-                    sizes="100vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
                     className="absolute inset-0 w-full h-full object-cover scale-105 md:motion-safe:animate-slow-zoom opacity-80 pointer-events-none select-none"
                     alt="Mount Everest and Buddhist Chorten Landscape in Nepal"
                     width="2560"
@@ -208,7 +208,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     <div className="flex items-center justify-center gap-4 md:gap-8 lg:gap-12">
                         <button
                             onClick={prevTestimonial}
-                            className="w-10 h-10 md:w-12 md:h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-base md:text-lg text-gray-400"
+                            className="w-12 h-12 md:w-14 md:h-14 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg md:text-xl text-gray-400"
                             aria-label="Previous Testimonial"
                         >
                             ←
@@ -218,14 +218,16 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                 <button
                                     key={i}
                                     onClick={() => setCurrentTestimonial(i)}
-                                    className={`h-1.5 rounded-full transition-all duration-500 ${i === currentTestimonial ? 'bg-brand w-8' : 'bg-gray-200 w-2 hover:bg-gray-300'}`}
+                                    className="w-8 h-8 flex items-center justify-center group"
                                     aria-label={`Go to testimonial ${i + 1}`}
-                                />
+                                >
+                                    <span className={`h-1.5 rounded-full transition-all duration-500 ${i === currentTestimonial ? 'bg-brand w-8' : 'bg-gray-200 w-2 hover:bg-gray-300'}`} />
+                                </button>
                             ))}
                         </div>
                         <button
                             onClick={nextTestimonial}
-                            className="w-10 h-10 md:w-12 md:h-12 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-base md:text-lg text-gray-400"
+                            className="w-12 h-12 md:w-14 md:h-14 border border-gray-200 rounded-full flex items-center justify-center hover:bg-brand hover:text-white hover:border-brand transition-all hover:scale-105 shadow-sm text-lg md:text-xl text-gray-400"
                             aria-label="Next Testimonial"
                         >
                             →

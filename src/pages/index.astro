@@ -6,14 +6,14 @@ import heroBg from "../assets/images/hero/hero-bg.webp";
 import nepalMap from "../assets/images/maps/nepal-map.webp";
 import { JOURNEY_CATEGORIES } from "../constants";
 
-const heroWidths = [640, 750, 828, 1080, 1280, 1600, 1920, 2560];
+const heroWidths = [320, 480, 640, 750, 828, 960, 1080, 1280, 1600, 1920, 2560];
 const heroOptimized = await Promise.all(
 	heroWidths.map((w) =>
 		getImage({
 			src: heroBg,
 			format: "webp",
 			width: w,
-			quality: 75,
+			quality: 70,
 		}),
 	),
 );
@@ -43,21 +43,30 @@ const optimizedJourneyCategories = await Promise.all(
 	JOURNEY_CATEGORIES.map(async (cat) => {
 		const optimizedImages = await Promise.all(
 			cat.images.map(async (img: any) => {
-				const sm = await getImage({
-					src: img,
-					format: "webp",
-					width: 600,
-					quality: 60,
-				});
-				const lg = await getImage({
-					src: img,
-					format: "webp",
-					width: 1200,
-					quality: 60,
-				});
+				const widths = [320, 480, 640, 800, 1200];
+				// Generate optimized images for all widths
+				const optimized = await Promise.all(
+					widths.map((w) =>
+						getImage({
+							src: img,
+							format: "webp",
+							width: w,
+							quality: 70,
+						}),
+					),
+				);
+
+				const srcSet = optimized
+					.map((opt) => `${opt.src} ${opt.attributes.width}w`)
+					.join(", ");
+
+				const lg =
+					optimized.find((o) => o.attributes.width === 1200) ||
+					optimized[optimized.length - 1];
+
 				return {
 					src: lg.src,
-					srcSet: `${sm.src} 600w, ${lg.src} 1200w`,
+					srcSet,
 				};
 			}),
 		);
