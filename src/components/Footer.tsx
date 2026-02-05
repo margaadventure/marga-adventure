@@ -16,6 +16,8 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ footerImages }) => {
+
+
     return (
         <footer className="bg-white pt-8 md:pt-12 pb-12 md:pb-16 px-6 md:px-10 lg:px-24 border-t border-gray-100">
             <div className="max-w-7xl mx-auto">
@@ -24,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                     <div className="sm:col-span-2 md:col-span-3 xl:col-span-5 space-y-8 md:space-y-10 lg:space-y-12">
                         <a href="/" className="flex items-center gap-3 md:gap-4 group cursor-pointer w-fit">
                             <LogoIcon className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-brand group-hover:rotate-12 transition-transform duration-500" />
-                            <h4 className="text-xl md:text-2xl font-bold tracking-tighter text-gray-900 font-sans">Marga <span className="font-light text-brand">Adventure</span></h4>
+                            <h4 className="text-xl md:text-2xl font-bold tracking-tighter text-gray-900 font-sans notranslate">Marga <span className="font-light text-brand">Adventure</span></h4>
                         </a>
                         <div>
                             <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-4">Sanctuary HQ</p>
@@ -33,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                         <div>
                             <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-4 md:mb-6 font-sans">Social Marga</p>
                             <div className="flex gap-3 md:gap-4">
-                                <a href="https://www.facebook.com/profile.php?id=61585603559230" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-gray-500 hover:text-brand transition-colors" aria-label="Visit our Facebook page">
+                                <a href="https://www.facebook.com/margaadventure" target="_blank" rel="noopener noreferrer" className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-gray-500 hover:text-brand transition-colors" aria-label="Visit our Facebook page">
                                     <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
                                     </svg>
@@ -99,11 +101,12 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                     </div>
                 </div>
 
-                <div className="pt-10 md:pt-16 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-10">
-                    <p className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.6em]">© 2026 Marga Adventure</p>
-                    <div className="flex gap-8 md:gap-12 text-[9px] font-bold text-gray-600 uppercase tracking-[0.6em]">
-                        <a href="/" className="hover:text-brand transition-colors">Back to Home</a>
-                        <a href="/sitemap" className="hover:text-brand transition-colors">Sitemap</a>
+                <div className="pt-10 md:pt-16 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
+                    <p className="text-[9px] font-bold text-gray-600 uppercase tracking-[0.6em] text-center md:text-left">© {new Date().getFullYear()} Marga Adventure</p>
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-12 text-[9px] font-bold text-gray-600 uppercase tracking-[0.6em] items-center px-4 md:px-0">
+                        <a href="/" className="hover:text-brand transition-colors whitespace-nowrap">Back to Home</a>
+                        <a href="/blog" className="hover:text-brand transition-colors whitespace-nowrap">Journal</a>
+                        <a href="/sitemap" className="hover:text-brand transition-colors whitespace-nowrap">Sitemap</a>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,7 @@ const BLOG_POSTS = [
         excerpt: 'How your journey puts roofs over heads and books in hands. A look into our "Sharing Warmth" initiative in the remote villages of Nepal.',
         image: schoolGroupImg.src,
         readTime: '3 min read',
-        date: 'Jan 10, 2026',
+        date: 'Jan 16, 2026',
         authorImage: '/logo.webp'
     }
 ];

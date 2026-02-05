@@ -207,7 +207,7 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
 
                             <div className="border-t border-gray-100 pt-6 text-center">
                                 <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">Have Questions?</p>
-                                <a href="tel:+9779841008984" className="text-brand font-bold text-lg hover:underline decoration-2 underline-offset-4">+977 9841008984</a>
+                                <a href="tel:+9779700050945" className="text-brand font-bold text-lg hover:underline decoration-2 underline-offset-4">+977 970-0050945</a>
                             </div>
                         </div>
 

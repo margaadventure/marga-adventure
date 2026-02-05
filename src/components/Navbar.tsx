@@ -38,6 +38,26 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
     };
   }, []);
 
+  const [nextLang, setNextLang] = useState('FR');
+
+  useEffect(() => {
+    // Initial check for language from cookies
+    const getCookie = (name: string) => {
+      const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      if (match) return match[2];
+      return null;
+    };
+    const currentLang = getCookie('googtrans')?.includes('/fr') ? 'fr' : 'en';
+    setNextLang(currentLang === 'fr' ? 'EN' : 'FR');
+
+    const handleLangChange = (e: CustomEvent) => {
+      setNextLang(e.detail === 'fr' ? 'EN' : 'FR');
+    };
+
+    window.addEventListener('language-changed', handleLangChange as EventListener);
+    return () => window.removeEventListener('language-changed', handleLangChange as EventListener);
+  }, []);
+
   const isOpaque = scrolled || forceOpaque;
 
   return (
@@ -47,18 +67,30 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
           <div className={`transition-all duration-500 group-hover:rotate-12 ${isOpaque ? 'text-brand' : 'text-white'}`}>
             <LogoIcon className="w-8 h-8 md:w-10 md:h-10 lg:w-11 lg:h-11" />
           </div>
-          <span className={`font-bold tracking-tighter text-xl md:text-2xl transition-colors duration-500 font-sans ${isOpaque ? 'text-gray-900' : 'text-white'}`}>
+          <span className={`font-bold tracking-tighter text-xl md:text-2xl transition-colors duration-500 font-sans ${isOpaque ? 'text-gray-900' : 'text-white'} notranslate`}>
             Marga <span className="font-light text-brand">Adventure</span>
           </span>
         </a>
 
         <div className="flex items-center gap-6 md:gap-10">
           <button
-            onClick={onMenuOpen}
-            className="flex items-center gap-3 md:gap-4 group p-2 md:p-3 mx-1"
+            onClick={() => window.dispatchEvent(new CustomEvent('trigger-translation-toggle'))}
+            className={`font-bold text-sm tracking-wider hover:text-brand transition-colors flex items-center gap-1 ${isOpaque ? 'text-gray-900' : 'text-white'}`}
+            aria-label="Toggle Language"
+          >
+            <span>{nextLang}</span>
+          </button>
+          <button
+            id="hamburger-menu-btn"
+            type="button"
+            onClick={() => {
+              onMenuOpen();
+              window.dispatchEvent(new CustomEvent('open-menu-overlay'));
+            }}
+            className="notranslate flex items-center gap-3 md:gap-4 group p-2 md:p-3 mx-1 cursor-pointer"
             aria-label="Open main menu"
           >
-            <span className={`text-[10px] font-bold uppercase tracking-[0.5em] transition-all duration-500 hidden lg:block ${isOpaque ? 'text-gray-400 group-hover:text-brand' : 'text-white/60 group-hover:text-white'}`}>NAVIGATION</span>
+            <span className={`text-[10px] font-bold uppercase tracking-[0.5em] transition-all duration-500 hidden lg:block notranslate ${isOpaque ? 'text-gray-400 group-hover:text-brand' : 'text-white/60 group-hover:text-white'}`}>NAVIGATION</span>
             <div className="flex flex-col gap-1.5 p-1.5 md:p-2 transition-all">
               <div className={`h-0.5 transition-all duration-300 ${isOpaque ? 'bg-brand w-6 md:w-8' : 'bg-white w-6 md:w-8'} group-hover:w-5 md:group-hover:w-6`}></div>
               <div className={`h-0.5 transition-all duration-300 ${isOpaque ? 'bg-brand w-5 md:w-6' : 'bg-white w-5 md:w-6'} group-hover:w-6 md:group-hover:w-8`}></div>

@@ -65,4 +65,4 @@ interface Props {
 const { forceOpaque } = Astro.props;
 ---
 
-<Header client:idle forceOpaque={forceOpaque} menuImages={menuImages} />
+<Header client:only="react" forceOpaque={forceOpaque} menuImages={menuImages} />

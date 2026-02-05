@@ -125,13 +125,13 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                 </h2>
                 <div className="w-12 md:w-16 lg:w-24 h-0.5 bg-brand/30 mb-6 md:mb-8 lg:mb-12"></div>
                 <p className="text-gray-800 text-base md:text-lg lg:text-xl leading-relaxed max-w-3xl font-light mb-8 md:mb-12 lg:mb-16 px-4">
-                    Marga Adventure is not only an adventure company, it is a sanctuary for souls in the heart of the Himalayas. We craft unforgettable Treks,Cultural Immersions, Spiritual Retreats and Wildlife Encounters that bridge the gap between the world around you and the world within. We believe that travel is not just about reaching a destination; it is about who you become along the way. At Marga Adventure, we don’t just guide your steps; we guide your experience.
+                    Marga Adventure is not only an adventure company, it is a sanctuary for souls in the heart of the Himalayas. We craft unforgettable Treks,Cultural Immersions, Spiritual Retreats and Wildlife Encounters that bridge the gap between the world around you and the world within. We believe that travel is not just about reaching a destination; it is about who you become along the way. At Marga Adventure, we don’t just guide your steps; we guide your experience.<br /> <strong className="text-brand">Follow the Marga to customize your journey.</strong>
                 </p>
                 <a
                     href="/contact"
                     className="group relative px-8 md:px-10 lg:px-12 py-4 md:py-5 bg-brand text-white font-bold text-[10px] uppercase tracking-[0.4em] rounded-full overflow-hidden transition-all hover:shadow-2xl hover:shadow-brand/40 hover:-translate-y-1 flex items-center gap-4 md:gap-6"
                 >
-                    <span className="relative z-10">Start Your Marga</span>
+                    <span className="relative z-10">Customize your Trip</span>
                     <span className="text-lg group-hover:translate-x-2 transition-transform">→</span>
                 </a>
             </section>
@@ -291,22 +291,22 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </div>
 
                         <div className="flex flex-col gap-4 md:gap-6">
-                            <a href="tel:+9779841008984" className="flex items-center gap-4 md:gap-6 group cursor-pointer flex-1 min-w-0">
+                            <a href="tel:+9779700050945" className="flex items-center gap-4 md:gap-6 group cursor-pointer flex-1 min-w-0">
                                 <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-lg md:text-xl group-hover:bg-brand group-hover:text-white transition-all shadow-sm shrink-0">
                                     <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                                 </div>
                                 <div className="min-w-0">
                                     <p className="text-[10px] text-gray-600 uppercase font-bold tracking-widest mb-1 truncate">Direct Line</p>
-                                    <p className="text-base md:text-lg font-bold whitespace-nowrap">+977 9841008984</p>
+                                    <p className="text-base md:text-lg font-bold whitespace-nowrap">+977 970-0050945</p>
                                 </div>
                             </a>
-                            <a href="mailto:margaadventure@gmail.com" className="flex items-center gap-4 md:gap-6 group cursor-pointer flex-1 min-w-0">
+                            <a href="mailto:info@margaadventure.com" className="flex items-center gap-4 md:gap-6 group cursor-pointer flex-1 min-w-0">
                                 <div className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-2xl bg-white border border-gray-100 flex items-center justify-center text-lg md:text-xl group-hover:bg-brand group-hover:text-white transition-all shadow-sm shrink-0">
                                     <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                                 </div>
                                 <div className="min-w-0">
                                     <p className="text-[9px] text-gray-600 uppercase font-bold tracking-widest mb-1 truncate">Email</p>
-                                    <p className="text-sm md:text-lg font-bold tracking-tight truncate">margaadventure@gmail.com</p>
+                                    <p className="text-sm md:text-lg font-bold tracking-tight truncate">info@margaadventure.com</p>
                                 </div>
                             </a>
                         </div>

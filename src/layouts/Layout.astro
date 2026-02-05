@@ -37,7 +37,7 @@ const organizationSchema = {
     ],
     contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+9779841008984",
+        telephone: "+9779700050945",
         contactType: "customer service",
         areaServed: ["NP", "BT", "CN-XZ", "FR", "BE", "CH"],
         availableLanguage: ["English", "French"],
@@ -109,7 +109,7 @@ const organizationSchema = {
             <slot />
         </main>
         <a
-            href="https://wa.me/9779841008984"
+            href="https://wa.me/9779700050945"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat with us on WhatsApp"
@@ -144,9 +144,7 @@ const organizationSchema = {
 
                     // Check if clicked element is an image
                     const img =
-                        target.tagName === "IMG"
-                            ? (target as HTMLImageElement)
-                            : null;
+                        target instanceof HTMLImageElement ? target : null;
 
                     // Skip if no image, or if image is inside a link/button, or has no-lightbox attribute
                     if (
@@ -190,6 +188,159 @@ const organizationSchema = {
                     }
                 }
             });
+
+            // Google Translate Integration
+            const getCookie = (name: string): string | null => {
+                const match = document.cookie.match(
+                    new RegExp("(^| )" + name + "=([^;]+)"),
+                );
+                if (match) return match[2];
+                return null;
+            };
+
+            const dispatchLanguageChange = (lang: string): void => {
+                window.dispatchEvent(
+                    new CustomEvent("language-changed", { detail: lang }),
+                );
+            };
+
+            // Helper to check current language
+            const getCurrentLang = () => {
+                const cookie = getCookie("googtrans");
+                if (cookie && cookie.includes("/fr")) {
+                    return "fr";
+                }
+                return "en";
+            };
+
+            // Check initial state on load - Dispatch immediately and on load to be safe
+            const initLang = getCurrentLang();
+            dispatchLanguageChange(initLang);
+            window.addEventListener("load", () => {
+                dispatchLanguageChange(getCurrentLang());
+            });
+
+            window.addEventListener("trigger-translation-toggle", () => {
+                const currentLang = getCurrentLang();
+                const targetLang = currentLang === "fr" ? "en" : "fr";
+
+                // Cookie-based toggling
+                // We use 'auto' as the source language for better reliability
+
+                if (targetLang === "en") {
+                    // Aggressively clear cookies to revert to English
+                    document.cookie =
+                        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    document.cookie =
+                        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
+                        window.location.hostname;
+                    document.cookie =
+                        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
+                        window.location.hostname;
+                } else {
+                    // Set cookie to force French translation (/auto/fr)
+                    document.cookie = "googtrans=/auto/fr; path=/;";
+                    document.cookie =
+                        "googtrans=/auto/fr; path=/; domain=" +
+                        window.location.hostname;
+                    document.cookie =
+                        "googtrans=/auto/fr; path=/; domain=." +
+                        window.location.hostname;
+                }
+
+                // Give the browser a moment to persist the cookie before reloading
+                setTimeout(() => {
+                    window.location.reload();
+                }, 100);
+            });
         </script>
+
+        <!-- Google Translate Widget (Hidden but active) -->
+        <div
+            id="google_translate_element"
+            style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; padding:0; margin:-1px;"
+        >
+        </div>
+
+        <!-- Google Translate - Deferred Loading to prevent breaking React -->
+        <script type="text/javascript" is:inline>
+            // Define the callback globally BEFORE loading the script
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    {
+                        pageLanguage: "en",
+                        includedLanguages: "en,fr",
+                        autoDisplay: false,
+                        layout: google.translate.TranslateElement.InlineLayout
+                            .SIMPLE,
+                    },
+                    "google_translate_element",
+                );
+                console.log("✅ Google Translate initialized");
+            }
+
+            // Defer loading Google Translate to prevent breaking React hydration
+            function loadGoogleTranslate() {
+                // Only load if not already loaded
+                if (window.google && window.google.translate) {
+                    console.log("Google Translate already loaded");
+                    return;
+                }
+
+                console.log("Loading Google Translate script...");
+                const script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src =
+                    "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                script.async = true;
+                document.body.appendChild(script);
+            }
+
+            // Wait for everything to be ready before loading Google Translate
+            // This ensures React has hydrated and event listeners are attached
+            if (document.readyState === "complete") {
+                // Page already loaded, wait a bit more for React
+                setTimeout(loadGoogleTranslate, 2000);
+            } else {
+                window.addEventListener("load", function () {
+                    // Wait 2 seconds after load for React to fully hydrate
+                    setTimeout(loadGoogleTranslate, 2000);
+                });
+            }
+        </script>
+
+        <style is:global>
+            /* Hide Google Translate Toolbar */
+            .goog-te-banner-frame.skiptranslate {
+                display: none !important;
+            }
+            body {
+                top: 0px !important;
+            }
+            /* Hide Google Translate Tooltips */
+            .goog-tooltip {
+                display: none !important;
+            }
+            .goog-te-gadget-icon {
+                display: none !important;
+            }
+            /* Hide Google Translate elements that might block clicks */
+            .goog-te-menu-frame,
+            .goog-te-menu2,
+            .goog-te-balloon-frame,
+            #goog-gt-tt,
+            .goog-te-spinner-pos,
+            .goog-te-ftab-float {
+                display: none !important;
+            }
+            iframe.goog-te-menu-frame,
+            iframe.goog-te-banner-frame {
+                display: none !important;
+            }
+            /* Google Translate sometimes adds font elements that interfere */
+            font[style*="background-color"] {
+                background-color: transparent !important;
+            }
+        </style>
     </body>
 </html>
