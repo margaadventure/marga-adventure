@@ -11,7 +11,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
   const [scrolled, setScrolled] = useState(false);
-  const { locale, t } = useTranslation();
+  const { locale, t, getBaseUrl } = useTranslation();
 
   useEffect(() => {
     let timeoutId: number;
@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 will-change-transform transform-gpu ${isOpaque ? 'bg-gray-50/90 backdrop-blur-md py-3 md:py-4 shadow-sm border-b border-gray-200' : 'bg-transparent py-6 md:py-8'}`}>
       <div className="w-full max-w-[1920px] mx-auto px-6 md:px-10 lg:px-20 flex justify-between items-center">
-        <a href={locale === 'fr' ? '/fr' : '/en'} className="flex items-center gap-3 md:gap-4 group cursor-pointer">
+        <a href={getBaseUrl() || '/'} className="flex items-center gap-3 md:gap-4 group cursor-pointer">
           <div className={`transition-all duration-500 group-hover:rotate-12 ${isOpaque ? 'text-brand' : 'text-white'}`}>
             <LogoIcon className="w-8 h-8 md:w-10 md:h-10 lg:w-11 lg:h-11" />
           </div>

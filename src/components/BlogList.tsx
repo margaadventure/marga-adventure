@@ -11,7 +11,7 @@ import journalBg from '../assets/images/activities/journal_background.webp';
 import silenceImg from '../assets/images/silence.webp';
 
 const BlogListContent: React.FC<any> = (props) => {
-    const { t, locale } = useTranslation();
+    const { t, locale, getBaseUrl } = useTranslation();
 
     const BLOG_POSTS = [
         {
@@ -66,7 +66,7 @@ const BlogListContent: React.FC<any> = (props) => {
                         {BLOG_POSTS.map((post, idx) => (
                             <a
                                 key={idx}
-                                href={`/${locale}/blog/${post.slug}`}
+                                href={`${getBaseUrl()}/blog/${post.slug}`}
                                 className="group flex flex-col gap-6 cursor-pointer"
                             >
                                 <div className="relative overflow-hidden rounded-none h-[400px] w-full shadow-lg border border-gray-100">

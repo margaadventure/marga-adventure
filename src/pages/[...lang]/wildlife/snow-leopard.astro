@@ -1,0 +1,38 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../../components/ExpeditionSpecialLayout";
+import leopard1 from "../../../assets/images/activities/wildlife/snow-leopard-1.webp";
+import leopard2 from "../../../assets/images/activities/wildlife/snow-leopard-2.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { lang, baseUrl, t, tripData, dict } = await useAstroI18n(Astro.url);
+// Fetch trip data from trips.json
+const trip = tripData("wildlife.snow-leopard");
+---
+<Layout
+    title={trip.title}
+    image={leopard1.src}
+    keywords="Snow Leopard expedition, Nepal snow leopard tracking, winter trekking Nepal, Manang wildlife, citizen science Nepal"
+>
+    <ExpeditionSpecialLayout
+        title={trip.title}
+        overview={trip.overview}
+        images={[leopard1.src, leopard2.src]}
+        highlights={trip.highlights}
+        features={trip.features}
+        tripStats={{
+            destination: "Manang, Nepal",
+            difficulty: t("trip.moderate"),
+            groupSize: "2-8",
+            season: "Dec - Feb",
+        }}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+    />
+</Layout>

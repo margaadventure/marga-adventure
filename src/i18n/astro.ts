@@ -29,6 +29,15 @@ export function getLangFromUrl(url: URL): Locale {
   return 'en';
 }
 
+/**
+ * Returns the base URL for the given locale.
+ * 'en' → ''
+ * 'fr' → '/fr'
+ */
+export function getBaseUrl(lang: Locale): string {
+  return lang === 'en' ? '' : '/fr';
+}
+
 // ─── Alternate URL helpers ─────────────────────────────────────────────────────
 /**
  * Given the current URL, return the alternate-language URL.
@@ -151,11 +160,12 @@ export async function useAstroI18n(url: URL, site?: string | URL) {
     return fallbackCurrent;
   };
   
+  const baseUrl = getBaseUrl(lang);
   const altLang: Locale = lang === 'en' ? 'fr' : 'en';
 
   const { enUrl, frUrl } = site
     ? getAlternateUrl(url, site)
     : { enUrl: url.pathname, frUrl: `/fr${url.pathname === '/' ? '' : url.pathname}` };
 
-  return { lang, t, tTrip, tripData, dict, trips, enDict, enTrips, altLang, enUrl, frUrl };
+  return { lang, baseUrl, t, tTrip, tripData, dict, trips, enDict, enTrips, altLang, enUrl, frUrl };
 }

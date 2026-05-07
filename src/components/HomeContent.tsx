@@ -37,7 +37,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
     const [loadMap, setLoadMap] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const mapRef = React.useRef<HTMLDivElement>(null);
-    const { t, locale } = useTranslation();
+    const { t, locale, getBaseUrl } = useTranslation();
 
     React.useEffect(() => {
         let timeoutId: number;
@@ -139,7 +139,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     <strong className="text-brand mt-2 inline-block">{t('home.taglineCta')}</strong>
                 </p>
                 <a
-                    href={`/${locale}/contact`}
+                    href={`${getBaseUrl()}/contact`}
                     className="group relative px-8 md:px-10 lg:px-12 py-4 md:py-5 bg-brand text-white font-bold text-[10px] uppercase tracking-[0.4em] rounded-full overflow-hidden transition-all hover:shadow-2xl hover:shadow-brand/40 hover:-translate-y-1 flex items-center gap-4 md:gap-6"
                 >
                     <span className="relative z-10">{t('home.customizeTrip')}</span>
@@ -163,7 +163,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                 {t('home.mappingBody')}
                             </p>
                             <a
-                                href={`/${locale}/nepal`}
+                                href={`${getBaseUrl()}/nepal`}
                                 className="flex items-center gap-4 group cursor-pointer w-fit"
                             >
                                 <div className="w-2 h-2 rounded-full bg-brand/20 group-hover:bg-brand transition-colors"></div>
@@ -289,7 +289,7 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                         </div>
 
                         <a
-                            href={`/${locale}/contact`}
+                            href={`${getBaseUrl()}/contact`}
                             className="w-fit flex items-center gap-6 md:gap-8 px-8 md:px-10 py-3 md:py-4 bg-brand text-white rounded-full text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-brand-dark transition-all shadow-xl hover:-translate-y-1"
                         >
                             {t('home.contactExperts')} <span>→</span>

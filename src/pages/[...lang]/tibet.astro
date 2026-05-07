@@ -1,0 +1,73 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import { I18nDestinationShell } from "../../components/I18nActivityShells";
+import { getImage } from "astro:assets";
+import tibetBg from "../../assets/images/destinations/tibet/tibet-hero.webp";
+import mountKailash from "../../assets/images/destinations/tibet/mount-kailash.webp";
+import tibetYak from "../../assets/images/destinations/tibet/yak.webp";
+import tibetCulture from "../../assets/images/destinations/tibet/culture.webp";
+import type { Locale } from "../../i18n/i18n";
+
+const optimizedBg = await getImage({
+    src: tibetBg,
+    format: "webp",
+    width: 2560,
+});
+const optimizedKailash = await getImage({
+    src: mountKailash,
+    format: "webp",
+    width: 800,
+});
+const optimizedYak = await getImage({
+    src: tibetYak,
+    format: "webp",
+    width: 800,
+});
+const optimizedCulture = await getImage({
+    src: tibetCulture,
+    format: "webp",
+    width: 800,
+});
+const { lang, baseUrl, t, dict, enDict } = await useAstroI18n(Astro.url);
+---
+<Layout
+    title={t("destinations.tibetContent.title")}
+    description={t("destinations.tibetContent.description")}
+    image={optimizedBg.src}
+    keywords={lang === 'en' ? "Tibet travel, Tibet tours, Potala Palace, Mount Kailash, Everest Base Camp Tibet, Lhasa tours, spiritual travel Tibet, roof of the world" : "Voyage Tibet, circuits Tibet, Palais du Potala, Mont Kailash, Camp de base de l'Everest Tibet, circuits Lhassa, voyage spirituel Tibet, toit du monde"}
+>
+    <I18nDestinationShell
+        country={t("destinations.tibetContent.title")}
+        heroImage={optimizedBg.src}
+        mainTitle={t("destinations.tibetContent.mainTitle")}
+        description={t("destinations.tibetContent.description")}
+        features={[
+            {
+                title: t("destinations.tibetContent.mountKailash"),
+                text: t("destinations.tibetContent.mountKailashText"),
+                image: optimizedKailash.src,
+            },
+            {
+                title: t("destinations.tibetContent.nomadicSpirit"),
+                text: t("destinations.tibetContent.nomadicSpiritText"),
+                image: optimizedYak.src,
+            },
+            {
+                title: t("destinations.tibetContent.deepDevotion"),
+                text: t("destinations.tibetContent.deepDevotionText"),
+                image: optimizedCulture.src,
+            },
+        ]}
+        activeMonths={["MAY", "JUN", "JUL", "AUG", "SEP", "OCT"]}
+        seasonNote={t("destinations.tibetContent.seasonNote")}
+        client:visible
+        initialLocale={lang}
+        initialDict={dict}
+        initialFallbackDict={enDict}
+    />
+</Layout>

@@ -42,7 +42,7 @@ const DEFAULT_SCROLL_IMAGES = [
 export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuImages }) => {
   const [activeSub, setActiveSub] = useState<string | null>(null);
   const [activeNestedSub, setActiveNestedSub] = useState<string | null>('nepal');
-  const { locale, toggleLocale, t } = useTranslation();
+  const { locale, toggleLocale, t, getBaseUrl } = useTranslation();
 
   // Use optimized images if provided, otherwise fallback to default imported images
   const scrollImages = menuImages?.scrollImages || DEFAULT_SCROLL_IMAGES;
@@ -83,7 +83,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
 
           {/* Logo & Mobile Close Button */}
           <div className="mb-20 md:mb-28 lg:mb-6 flex justify-between items-center w-full">
-            <a href={`/${locale}`} onClick={onClose} className="flex items-center gap-3 md:gap-4 group cursor-pointer w-fit">
+            <a href={getBaseUrl() || '/'} onClick={onClose} className="flex items-center gap-3 md:gap-4 group cursor-pointer w-fit">
               <div className="text-white">
                 <LogoIcon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 brightness-0 invert" />
               </div>
@@ -106,7 +106,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             </button>
           </div>
 
-          <a href={`/${locale}`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href={getBaseUrl() || '/'} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             {t('nav.home')}
           </a>
 
@@ -148,9 +148,9 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                     </button>
                     {activeNestedSub === 'nepal' && (
                       <div className="pl-4 flex flex-col gap-2 border-l border-white/20 animate-in fade-in slide-in-from-top-2 duration-300">
-                        <a href={`/${locale}/nepal`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t('nav.overview')}</a>
+                        <a href={`${getBaseUrl()}/nepal`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t('nav.overview')}</a>
                         {nepalItems.map(item => (
-                          <a key={item.href} href={`/${locale}${item.href === '/' ? '' : item.href}`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t(item.nameKey)}</a>
+                          <a key={item.href} href={`${getBaseUrl()}${item.href === '/' ? '' : item.href}`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t(item.nameKey)}</a>
                         ))}
                       </div>
                     )}
@@ -169,7 +169,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                     {activeNestedSub === 'bhutan' && (
                       <div className="pl-4 flex flex-col gap-2 border-l border-white/20 animate-in fade-in slide-in-from-top-2 duration-300">
                         {bhutanItems.map(item => (
-                          <a key={item.href} href={`/${locale}${item.href === '/' ? '' : item.href}`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t(item.nameKey)}</a>
+                          <a key={item.href} href={`${getBaseUrl()}${item.href === '/' ? '' : item.href}`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t(item.nameKey)}</a>
                         ))}
                       </div>
                     )}
@@ -188,7 +188,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                     {activeNestedSub === 'tibet' && (
                       <div className="pl-4 flex flex-col gap-2 border-l border-white/20 animate-in fade-in slide-in-from-top-2 duration-300">
                         {tibetItems.map(item => (
-                          <a key={item.href} href={`/${locale}${item.href === '/' ? '' : item.href}`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t(item.nameKey)}</a>
+                          <a key={item.href} href={`${getBaseUrl()}${item.href === '/' ? '' : item.href}`} onClick={onClose} className="text-white/70 hover:text-white py-1">{t(item.nameKey)}</a>
                         ))}
                       </div>
                     )}
@@ -198,16 +198,16 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             )}
           </div>
 
-          <a href={`/${locale}/community`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href={`${getBaseUrl()}/community`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             {t('nav.community')}
           </a>
-          <a href={`/${locale}/about`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href={`${getBaseUrl()}/about`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             {t('nav.about')}
           </a>
-          <a href={`/${locale}/blog`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href={`${getBaseUrl()}/blog`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             {t('nav.journal')}
           </a>
-          <a href={`/${locale}/contact`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a href={`${getBaseUrl()}/contact`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
             {t('nav.contact')}
           </a>
         </nav>
@@ -218,7 +218,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             {/* Nepal Group */}
             <div className="flex flex-col gap-3">
               <a
-                href={`/${locale}/nepal`}
+                href={`${getBaseUrl()}/nepal`}
                 onMouseEnter={() => setActiveNestedSub('nepal')}
                 onClick={onClose}
                 className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'nepal' ? 'text-white' : 'text-white/50 hover:text-white'}`}
@@ -230,7 +230,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                   {nepalItems.map(item => (
                     <a
                       key={item.href}
-                      href={`/${locale}${item.href === '/' ? '' : item.href}`}
+                      href={`${getBaseUrl()}${item.href === '/' ? '' : item.href}`}
                       onClick={onClose}
                       className="text-sm font-medium text-white/70 hover:text-white transition-colors"
                     >
@@ -244,7 +244,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             {/* Bhutan Group */}
             <div className="flex flex-col gap-3">
               <a
-                href={`/${locale}/bhutan`}
+                href={`${getBaseUrl()}/bhutan`}
                 onMouseEnter={() => setActiveNestedSub('bhutan')}
                 onClick={onClose}
                 className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'bhutan' ? 'text-white' : 'text-white/50 hover:text-white'}`}
@@ -256,7 +256,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                   {bhutanItems.map(item => (
                     <a
                       key={item.href}
-                      href={`/${locale}${item.href === '/' ? '' : item.href}`}
+                      href={`${getBaseUrl()}${item.href === '/' ? '' : item.href}`}
                       onClick={onClose}
                       className="text-sm font-medium text-white/70 hover:text-white transition-colors"
                     >
@@ -270,7 +270,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             {/* Tibet Group */}
             <div className="flex flex-col gap-3">
               <a
-                href={`/${locale}/tibet`}
+                href={`${getBaseUrl()}/tibet`}
                 onMouseEnter={() => setActiveNestedSub('tibet')}
                 onClick={onClose}
                 className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'tibet' ? 'text-white' : 'text-white/50 hover:text-white'}`}
@@ -282,7 +282,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                   {tibetItems.map(item => (
                     <a
                       key={item.href}
-                      href={`/${locale}${item.href === '/' ? '' : item.href}`}
+                      href={`${getBaseUrl()}${item.href === '/' ? '' : item.href}`}
                       onClick={onClose}
                       className="text-sm font-medium text-white/70 hover:text-white transition-colors"
                     >
@@ -304,9 +304,9 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
               {/* Image Container */}
               <a
                 href={
-                  activeNestedSub === 'bhutan' ? `/${locale}/bhutan` :
-                    activeNestedSub === 'tibet' ? `/${locale}/tibet` :
-                      `/${locale}/nepal`
+                  activeNestedSub === 'bhutan' ? `${getBaseUrl()}/bhutan` :
+                    activeNestedSub === 'tibet' ? `${getBaseUrl()}/tibet` :
+                      `${getBaseUrl()}/nepal`
                 }
                 onClick={onClose}
                 className="relative w-full max-w-sm aspect-3/4 animate-in zoom-in-95 duration-700 block group"

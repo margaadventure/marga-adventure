@@ -16,7 +16,7 @@ interface JourneyBlockProps {
 }
 
 const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, images, alignment }) => {
-  const { t, locale } = useTranslation();
+  const { t, locale, getBaseUrl } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -58,7 +58,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
         {description}
       </p>
       <a
-        href={`/${locale}/${id}`}
+        href={`${getBaseUrl()}/${id}`}
         className="flex items-center gap-8 group w-fit transition-all bg-brand hover:bg-brand-dark text-white px-8 py-4 md:px-10 md:py-5 rounded-full shadow-lg hover:shadow-brand/40 hover:-translate-y-1"
       >
         <span className="text-[10px] font-bold uppercase tracking-[0.4em]">{t('home.explorePath')}</span>
@@ -73,7 +73,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
         <div className="absolute inset-0 bg-gray-900">
           {images.map((img, idx) => (
             <div key={idx} className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${idx === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-100 z-0'}`}>
-              <a href={`/${locale}/${id}`} className="block w-full h-full cursor-pointer">
+              <a href={`${getBaseUrl()}/${id}`} className="block w-full h-full cursor-pointer">
                 <img
                   src={img.src}
                   srcSet={img.srcSet}

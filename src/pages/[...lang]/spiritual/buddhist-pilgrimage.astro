@@ -1,0 +1,40 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+
+import bgImage from "../../../assets/images/activities/spiritual/Buddhist Pilgrimage_Background.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { lang, baseUrl, tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const trip = tripData("spiritual.pilgrimageTrip") || {};
+---
+<Layout
+    title={`${trip.title || dict['spiritual.pilgrimage']} | Marga Adventure`}
+    image={bgImage.src}
+    keywords={lang === 'en' ? "Buddhist Pilgrimage Nepal, Lumbini travel, Boudhanath Stupa, meditation retreat Nepal, spiritual journey Nepal" : "Pèlerinage bouddhiste Népal, voyage Lumbini, Stupa de Bodnath, retraite méditation Népal, voyage spirituel Népal"}
+>
+    <TripItineraryPage
+        title={trip.title || dict['spiritual.pilgrimage'] || 'A Buddhist Pilgrimage'}
+        subtitle={trip.subtitle || dict['spiritual.innerPeace'] || 'Path of Enlightenment'}
+        heroImage={bgImage.src}
+        overview={trip.overview || ''}
+        highlights={trip.highlights || []}
+        itinerary={trip.itinerary || []}
+        tripStats={{
+            duration: trip.duration || dict['trip.duration'] || '7 Days',
+            maxAltitude: trip.maxAltitude || 'Culture / Spirit',
+            maxAltitudeLabel: trip.maxAltitudeLabel || dict['trip.maxAltitude'] || 'Trip Type',
+            difficulty: trip.difficulty || dict['trip.easy'] || 'Easy',
+            groupSize: trip.groupSize || '2-10',
+        }}
+        showElevationGraph={false}
+        client:visible
+     initialLocale={lang}
+     initialDict={dict}
+     initialFallbackDict={enDict} />
+</Layout>

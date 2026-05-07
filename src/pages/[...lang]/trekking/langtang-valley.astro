@@ -1,0 +1,36 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+import langtangImg from "../../../assets/images/destinations/nepal/trekking/langtang/DSC00006.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { lang, baseUrl, t, tripData: tripDataFn, dict } = await useAstroI18n(Astro.url);
+const td = tripDataFn("trekking.langtang-valley") as any;
+---
+<Layout
+    title={td.title}
+    image={langtangImg.src}
+    keywords="Langtang Valley Trek, Valley of Glaciers, Nepal trekking, Tamang heritage trek, Kyanjin Gompa, scenic Nepal treks"
+>
+    <TripItineraryPage
+        title={td.title}
+        subtitle={td.subtitle}
+        heroImage={langtangImg.src}
+        overview={td.overview}
+        highlights={td.highlights}
+        itinerary={td.itinerary}
+        tripStats={{
+            duration: td.duration,
+            maxAltitude: td.maxAltitude,
+            difficulty: td.difficulty,
+            groupSize: td.groupSize,
+        }}
+        client:load
+     initialLocale={lang}
+     initialDict={dict} />
+</Layout>

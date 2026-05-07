@@ -1,0 +1,38 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../../components/ExpeditionSpecialLayout";
+import redPanda1 from "../../../assets/images/activities/wildlife/red-panda-1.webp";
+import redPanda2 from "../../../assets/images/activities/wildlife/red-panda-walking.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { lang, baseUrl, t, tripData, dict } = await useAstroI18n(Astro.url);
+// Fetch trip data from trips.json
+const trip = tripData("wildlife.red-panda");
+---
+<Layout
+    title={trip.title}
+    image={redPanda1.src}
+    keywords="Red Panda Nepal, Red Panda tracking, wildlife conservation Nepal, Eastern Nepal trek, Himalayan wildlife"
+>
+    <ExpeditionSpecialLayout
+        title={trip.title}
+        overview={trip.overview}
+        images={[redPanda1.src, redPanda2.src]}
+        highlights={trip.highlights}
+        features={trip.features}
+        tripStats={{
+            destination: "Eastern Nepal",
+            difficulty: t("trip.moderate"),
+            groupSize: "2-8",
+            season: "Mar-May / Oct-Nov",
+        }}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+    />
+</Layout>

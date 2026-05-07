@@ -1,0 +1,18 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import I18nContactShell from "../../components/I18nContactShell";
+import type { Locale } from "../../i18n/i18n";
+const { lang, baseUrl, t } = await useAstroI18n(Astro.url);
+---
+<Layout
+    title={t("nav.contactMetaTitle")}
+    description={t("nav.contactMetaDesc")}
+    keywords="Contact Marga Adventure, book trek Nepal, travel inquiries Nepal, custom tour Nepal, luxury travel booking, adventure travel contact"
+>
+    <I18nContactShell client:visible  initialLocale={lang} />
+</Layout>

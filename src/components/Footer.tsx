@@ -17,7 +17,7 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ footerImages }) => {
-    const { t, locale } = useTranslation();
+    const { t, locale, getBaseUrl } = useTranslation();
     const year = new Date().getFullYear();
 
     return (
@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-12 gap-8 md:gap-10 xl:gap-20 mb-12 md:mb-16">
                     {/* Brand Column */}
                     <div className="sm:col-span-2 md:col-span-3 xl:col-span-5 space-y-8 md:space-y-10 lg:space-y-12">
-                        <a href={`/${locale}`} className="flex items-center gap-3 md:gap-4 group cursor-pointer w-fit">
+                        <a href={getBaseUrl() || '/'} className="flex items-center gap-3 md:gap-4 group cursor-pointer w-fit">
                             <LogoIcon className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-brand group-hover:rotate-12 transition-transform duration-500" />
                             <h4 className="text-xl md:text-2xl font-bold tracking-tighter text-gray-900 font-sans notranslate">Marga <span className="font-light text-brand">Adventure</span></h4>
                         </a>
@@ -86,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                     <div className="xl:col-span-3 space-y-4 md:space-y-6 pt-2 md:pt-4">
                         <p className="text-[10px] font-bold text-gray-600 uppercase tracking-[0.4em] mb-6 md:mb-10">{t('destinations.nepalCollection')}</p>
                         {NEPAL_NAV_ITEMS.map(link => (
-                            <a key={link.href} href={`/${locale}${link.href === '/' ? '' : link.href}`} className="block text-sm font-semibold text-gray-900 hover:text-brand transition-colors tracking-tight text-left">{t(link.nameKey)}</a>
+                            <a key={link.href} href={`${getBaseUrl()}${link.href === '/' ? '' : link.href}`} className="block text-sm font-semibold text-gray-900 hover:text-brand transition-colors tracking-tight text-left">{t(link.nameKey)}</a>
                         ))}
                     </div>
 
@@ -98,7 +98,7 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                             ...TIBET_NAV_ITEMS,
                             ...MAIN_NAV_ITEMS.filter(item => item.href !== '/' && item.href !== '/blog')
                         ].map(link => (
-                            <a key={link.href} href={`/${locale}${link.href === '/' ? '' : link.href}`} className="block text-sm font-semibold text-gray-900 hover:text-brand transition-colors tracking-tight text-left">{t(link.nameKey)}</a>
+                            <a key={link.href} href={`${getBaseUrl()}${link.href === '/' ? '' : link.href}`} className="block text-sm font-semibold text-gray-900 hover:text-brand transition-colors tracking-tight text-left">{t(link.nameKey)}</a>
                         ))}
                     </div>
                 </div>
@@ -108,9 +108,9 @@ const Footer: React.FC<FooterProps> = ({ footerImages }) => {
                         {t('footer.copyright', { year })} <span translate="no" className="notranslate">Marga Adventure</span>
                     </p>
                     <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-12 text-[9px] font-bold text-gray-600 uppercase tracking-[0.6em] items-center px-4 md:px-0">
-                        <a href={`/${locale}`} className="hover:text-brand transition-colors whitespace-nowrap">{t('footer.backToHome')}</a>
-                        <a href={`/${locale}/blog`} className="hover:text-brand transition-colors whitespace-nowrap">{t('footer.journal')}</a>
-                        <a href={`/${locale}/sitemap`} className="hover:text-brand transition-colors whitespace-nowrap">{t('footer.sitemap')}</a>
+                        <a href={getBaseUrl() || '/'} className="hover:text-brand transition-colors whitespace-nowrap">{t('footer.backToHome')}</a>
+                        <a href={`${getBaseUrl()}/blog`} className="hover:text-brand transition-colors whitespace-nowrap">{t('footer.journal')}</a>
+                        <a href={`${getBaseUrl()}/sitemap`} className="hover:text-brand transition-colors whitespace-nowrap">{t('footer.sitemap')}</a>
                     </div>
                 </div>
             </div>

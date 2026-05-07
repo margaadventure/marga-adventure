@@ -19,7 +19,7 @@ interface ActivityPageProps {
 }
 
 const ActivityPageContent: React.FC<ActivityPageProps> = ({ title, titleKey, subtitle, description, heroImage, highlights, galleryImages, overlayOpacity }) => {
-  const { t, locale } = useTranslation();
+  const { t, locale, getBaseUrl } = useTranslation();
 
   return (
     <div className="bg-white">
@@ -92,7 +92,7 @@ const ActivityPageContent: React.FC<ActivityPageProps> = ({ title, titleKey, sub
             <h3 className="text-4xl font-bold mb-6">{t('activity.readyToStart', { title: titleKey ? t(titleKey).toLowerCase() : title.toLowerCase() })}</h3>
             <p className="text-white/80 text-lg font-light">{t('activity.readyBody')}</p>
           </div>
-          <a href={`/${locale}/contact`} className="bg-white text-brand px-12 py-5 rounded-none text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-brand-light hover:text-white transition-all shadow-2xl shrink-0 flex items-center gap-6">
+          <a href={`${getBaseUrl()}/contact`} className="bg-white text-brand px-12 py-5 rounded-none text-[10px] font-bold uppercase tracking-[0.4em] hover:bg-brand-light hover:text-white transition-all shadow-2xl shrink-0 flex items-center gap-6">
             {t('activity.bookConsultation')} <span>→</span>
           </a>
         </div>

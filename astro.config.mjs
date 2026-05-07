@@ -6,6 +6,7 @@ import tunnel from 'astro-tunnel';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
   site: 'https://margaadventure.com',
   integrations: [
     react(),
@@ -28,7 +29,7 @@ export default defineConfig({
     defaultLocale: 'en',
     locales: ['en', 'fr'],
     routing: {
-      prefixDefaultLocale: true,
+      prefixDefaultLocale: false,
     },
   },
 

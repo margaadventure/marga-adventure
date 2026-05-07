@@ -24,7 +24,7 @@ const DestinationPageContent: React.FC<DestinationPageProps> = ({
   activeMonths = ['MAR', 'APR', 'MAY', 'SEP', 'OCT', 'NOV'],
   seasonNote = "Spring and Autumn offer the clearest views and most comfortable temperatures for cultural tours and trekking."
 }) => {
-    const { t, locale } = useTranslation();
+    const { t, locale, getBaseUrl } = useTranslation();
 
   return (
     <div className="bg-white">

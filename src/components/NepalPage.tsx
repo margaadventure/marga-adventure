@@ -11,7 +11,7 @@ import photo1 from "../assets/images/activities/photography/Sadhu-photography_1.
 import bg from "../assets/images/country/nepal-hero.webp";
 
 const NepalPageContent: React.FC<any> = (props) => {
-  const { t, locale } = useTranslation();
+  const { t, locale, getBaseUrl } = useTranslation();
 
   const ACTIVITIES = [
     {
@@ -74,7 +74,7 @@ const NepalPageContent: React.FC<any> = (props) => {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
           {ACTIVITIES.map((activity) => (
             <a
-              href={`/${locale}/${activity.id}`}
+              href={`${getBaseUrl()}/${activity.id}`}
               key={activity.id}
               className="group relative h-[500px] rounded-none overflow-hidden cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(30,115,190,0.3)] transition-all duration-500 md:hover:-translate-y-2"
             >

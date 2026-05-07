@@ -1,0 +1,19 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import I18nAboutShell from "../../components/I18nAboutShell";
+import type { Locale } from "../../i18n/i18n";
+const { lang, baseUrl, t, dict, enDict } = await useAstroI18n(Astro.url);
+---
+<Layout
+    title={t("nav.aboutMetaTitle")}
+    description={t("nav.aboutMetaDesc")}
+    image="/images/team/buddhiman-tamang.webp"
+    keywords="About Marga Adventure, adventure travel team, Nepal trekking agency, spiritual guides Nepal, Buddhiman Tamang, responsible tourism"
+>
+    <I18nAboutShell client:visible  initialLocale={lang} initialDict={dict} initialFallbackDict={enDict} />
+</Layout>

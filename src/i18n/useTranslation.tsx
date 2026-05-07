@@ -33,6 +33,7 @@ interface I18nContextValue {
   setLocale: (locale: Locale) => void;
   toggleLocale: () => void;
   t: (key: string, vars?: Record<string, string | number>) => string;
+  getBaseUrl: () => string;
   isLoading: boolean;
 }
 
@@ -117,9 +118,11 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
     [dict, fallbackDict]
   );
 
+  const getBaseUrl = useCallback(() => (locale === DEFAULT_LOCALE ? '' : `/${locale}`), [locale]);
+
   const value = useMemo<I18nContextValue>(
-    () => ({ locale, setLocale, toggleLocale, t: translate, isLoading }),
-    [locale, setLocale, toggleLocale, translate, isLoading]
+    () => ({ locale, setLocale, toggleLocale, t: translate, getBaseUrl, isLoading }),
+    [locale, setLocale, toggleLocale, translate, getBaseUrl, isLoading]
   );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;

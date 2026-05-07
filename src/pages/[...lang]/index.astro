@@ -1,0 +1,103 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import I18nHomeShell from "../../components/I18nHomeShell";
+import { getImage } from "astro:assets";
+import heroBg from "../../assets/images/hero/hero-bg.webp";
+import nepalMap from "../../assets/images/maps/nepal-map.webp";
+import { JOURNEY_CATEGORIES } from "../../constants";
+import type { Locale } from "../../i18n/i18n";
+
+const heroWidths = [320, 480, 640, 750, 828, 960, 1080, 1280, 1600, 1920, 2560];
+const heroOptimized = await Promise.all(
+	heroWidths.map((w) =>
+		getImage({
+			src: heroBg,
+			format: "webp",
+			width: w,
+			quality: 70,
+		}),
+	),
+);
+
+const heroSrcSet = heroOptimized
+	.map((img) => `${img.src} ${img.attributes.width}w`)
+	.join(", ");
+const heroLg =
+	heroOptimized.find((img) => img.attributes.width === 1920) ||
+	heroOptimized[heroOptimized.length - 1];
+
+const mapSm = await getImage({
+	src: nepalMap,
+	format: "webp",
+	width: 800,
+	quality: 60,
+});
+const mapLg = await getImage({
+	src: nepalMap,
+	format: "webp",
+	width: 1600,
+	quality: 60,
+});
+const nepalMapSrcSet = `${mapSm.src} 800w, ${mapLg.src} 1600w`;
+
+const optimizedJourneyCategories = await Promise.all(
+	JOURNEY_CATEGORIES.map(async (cat) => {
+		const optimizedImages = await Promise.all(
+			cat.images.map(async (img: any) => {
+				const widths = [320, 480, 640, 800, 1200];
+				// Generate optimized images for all widths
+				const optimized = await Promise.all(
+					widths.map((w) =>
+						getImage({
+							src: img,
+							format: "webp",
+							width: w,
+							quality: 70,
+						}),
+					),
+				);
+
+				const srcSet = optimized
+					.map((opt) => `${opt.src} ${opt.attributes.width}w`)
+					.join(", ");
+
+				const lg =
+					optimized.find((o) => o.attributes.width === 1200) ||
+					optimized[optimized.length - 1];
+
+				return {
+					src: lg.src,
+					srcSet,
+				};
+			}),
+		);
+		return { ...cat, images: optimizedImages };
+	}),
+);
+
+const { lang, baseUrl, t, dict, enDict } = await useAstroI18n(Astro.url);
+---
+
+<Layout
+	title={t("nav.home")}
+	description={t("home.metaDesc")}
+	keywords={lang === 'en' ? "Nepal trekking, Bhutan tours, Tibet travel, luxury adventure, spiritual retreats, Himalaya trekking, Marga Adventure" : "Trekking Népal, circuits Bhoutan, voyage Tibet, aventure de luxe, retraites spirituelles, trekking Himalaya, Marga Adventure"}
+	image={heroLg.src}
+>
+	<I18nHomeShell
+		client:idle
+		heroImageSrc={heroLg.src}
+		heroImageSrcSet={heroSrcSet}
+		nepalMapSrc={mapLg.src}
+		nepalMapSrcSet={nepalMapSrcSet}
+		journeyCategories={optimizedJourneyCategories}
+		initialLocale={lang}
+		initialDict={dict}
+		initialFallbackDict={enDict}
+	/>
+</Layout>

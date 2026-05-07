@@ -1,0 +1,194 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import PageHero from "../../../components/PageHero";
+import buddhimanImg from "../../../assets/images/team/buddhiman-tamang.webp";
+import buddhimanBlogImg from "../../../assets/images/team/buddhiman-blog-origin.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const content = {
+    en: {
+        title: "Why We Left the Guidebook Behind",
+        subtitle: "The Origin Story",
+        heroTitle: "The Origin",
+        heroSubtitle: "Why we walked away from the ordinary.",
+        metaDesc: "It started with a realization at 5,000 meters. Discover the philosophy and origin story of Marga Adventure.",
+        authorRole: "Founder & CEO",
+        readTime: "4 min read",
+        date: "December 31, 2025",
+        quote: "It started with a realization at 5,000 meters, gasping for air in the thin blue light: the summit is not the point. The point is who you become on the way up.",
+        p1: "For 16 years, I walked the trails of the Himalayas. I carried heavy packs, I managed logistics, and I watched thousands of people come to Nepal clutching a checklist. They wanted to conquer Everest Base Camp. They wanted the perfect sunrise shot at Poon Hill. They wanted to say, \"I did it.\" They were racing against time, checking off peaks like items on a grocery list.",
+        p2: "But I noticed something profound in the quiet moments between the chaos. The people who left with tears in their eyes—the ones who were truly changed—weren't the ones who marched fastest. They were the ones who stopped.",
+        p3: "They were the ones who sat on a cold stone wall to drink salty butter tea with a grandmother in a village. They were the ones who closed their eyes to listen to the wind snapping the prayer flags, feeling the vibration of the mantra in their bones. They were the ones who forgot about the WiFi password and remembered their connection to their own spirit.",
+        h1: "The Gap in the Soul",
+        p4: "Tourism has become an industry of extraction. We extract experiences, we extract photos, and we leave, often untouched. I wanted to build something different. With my background in Psychology, I understood that travel is actually a disguised search for meaning. In Sanskrit, \"Marga\" means path, not just a physical trail, but a spiritual journey.",
+        p5: "That is why Marga Adventure was born. We threw away the standard guidebook that tells you what to see. We wanted to explore how to be. We don't just \"do\" treks. We facilitate journeys. We combine high-altitude adventure with deep mindfulness. We explicitly design moments of silence into our itineraries, forcing you to confront the beauty of the present moment.",
+        h2: "The Invitation",
+        p6: "We are not for everyone. If you want to race to the top, there are other agencies. But if you want to understand why the Sherpa people bow to these peaks as gods, if you want to understand the silence of your own mind, and if you want to leave Nepal not just with photos, but with a new perspective on life... then you are ready for the Marga.",
+        p7: "We invite you to walk with us. Not just on the earth, but into yourself.",
+        p8: "Welcome to the family.",
+        back: "Back to Journal",
+        next: "Next Story",
+    },
+    fr: {
+        title: "Pourquoi nous avons délaissé le guide touristique",
+        subtitle: "L'histoire des origines",
+        heroTitle: "L'Origine",
+        heroSubtitle: "Pourquoi nous avons quitté l'ordinaire.",
+        metaDesc: "Tout a commencé par une prise de conscience à 5 000 mètres. Découvrez la philosophie et l'histoire de Marga Adventure.",
+        authorRole: "Fondateur & CEO",
+        readTime: "4 min de lecture",
+        date: "31 Décembre 2025",
+        quote: "Tout a commencé par une révélation à 5 000 mètres, cherchant mon souffle dans la lumière bleue : le sommet n'est pas le but. Le but est celui que l'on devient en chemin.",
+        p1: "Pendant 16 ans, j'ai parcouru les sentiers de l'Himalaya. J'ai porté des sacs lourds, géré la logistique et vu des milliers de personnes arriver au Népal avec une liste de choses à faire. Ils voulaient conquérir le camp de base de l'Everest. Ils voulaient la photo parfaite du lever du soleil à Poon Hill. Ils voulaient dire : « Je l'ai fait ». Ils couraient contre la montre, cochant les sommets comme des articles sur une liste de courses.",
+        p2: "Mais j'ai remarqué quelque chose de profond dans les moments de calme entre le chaos. Les gens qui partaient les larmes aux yeux — ceux qui étaient vraiment changés — n'étaient pas ceux qui marchaient le plus vite. C'étaient ceux qui s'arrêtaient.",
+        p3: "C'étaient ceux qui s'asseyaient sur un muret de pierre froide pour boire un thé au beurre salé avec une grand-mère dans un village. C'étaient ceux qui fermaient les yeux pour écouter le vent faire claquer les drapeaux de prière, sentant la vibration du mantra dans leurs os. C'étaient ceux qui oubliaient le mot de passe WiFi et se souvenaient de leur connexion avec leur propre esprit.",
+        h1: "Le vide dans l'âme",
+        p4: "Le tourisme est devenu une industrie d'extraction. Nous extrayons des expériences, nous extrayons des photos et nous partons, souvent sans être touchés. Je voulais construire quelque chose de différent. Avec ma formation en psychologie, j'ai compris que le voyage est en fait une recherche de sens déguisée. En sanskrit, « Marga » signifie chemin, pas seulement un sentier physique, mais un voyage spirituel.",
+        p5: "C'est pourquoi Marga Adventure est née. Nous avons jeté le guide standard qui vous dit quoi voir. Nous voulions explorer comment être. Nous ne nous contentons pas de « faire » des treks. Nous facilitons des voyages. Nous combinons l'aventure en haute altitude avec une pleine conscience profonde. Nous concevons explicitement des moments de silence dans nos itinéraires, vous obligeant à affronter la beauté du moment présent.",
+        h2: "L'invitation",
+        p6: "Nous ne sommes pas pour tout le monde. Si vous voulez faire la course vers le sommet, il existe d'autres agences. Mais si vous voulez comprendre pourquoi le peuple Sherpa s'incline devant ces sommets comme devant des dieux, si vous voulez comprendre le silence de votre propre esprit, et si vous voulez quitter le Népal non seulement avec des photos, mais avec une nouvelle perspective sur la vie... alors vous êtes prêt pour le Marga.",
+        p7: "Nous vous invitons à marcher avec nous. Pas seulement sur la terre, mais en vous-même.",
+        p8: "Bienvenue dans la famille.",
+        back: "Retour au Journal",
+        next: "Histoire Suivante",
+    }
+};
+
+const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
+const d = content[lang];
+---
+<Layout
+    title={d.title}
+    description={d.metaDesc}
+    image={buddhimanImg.src}
+>
+    <PageHero
+        title={d.heroTitle}
+        subtitle={d.heroSubtitle}
+        image={buddhimanImg.src}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden"
+                    >
+                        <img
+                            src={buddhimanImg.src}
+                            alt="Buddhiman Tamang"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            Buddhiman Tamang
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            {d.authorRole}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {d.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {d.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.quote}"
+                </p>
+
+                <p
+                    class="mb-8 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]"
+                >
+                    {d.p1}
+                </p>
+                <p class="mb-8">
+                    {d.p2}
+                </p>
+                <p class="mb-8">
+                    {d.p3}
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h1}
+                </h3>
+                <p class="mb-8">
+                    {d.p4}
+                </p>
+                <p class="mb-8">
+                    {d.p5}
+                </p>
+
+                <div
+                    class="my-16 relative rounded-3xl overflow-hidden h-[400px]"
+                >
+                    <img
+                        src={buddhimanBlogImg.src}
+                        alt="Himalayan landscape"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h2}
+                </h3>
+                <p class="mb-8">
+                    {d.p6}
+                </p>
+                <p class="mb-8">
+                    {d.p7}
+                </p>
+                <p>
+                    {d.p8}
+                </p>
+                <p class="mt-8 font-bold text-brand">— Buddhiman</p>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href={`${baseUrl}/blog`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← {d.back}</a
+                >
+                <a
+                    href={`${baseUrl}/blog/philosophy-of-silence`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >{d.next} →</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>

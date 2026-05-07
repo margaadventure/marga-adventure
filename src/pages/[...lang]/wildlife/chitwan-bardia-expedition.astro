@@ -1,0 +1,66 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+import crocodile from "../../../assets/images/activities/wildlife/crocodile.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { lang, baseUrl, t, tripData, dict } = await useAstroI18n(Astro.url);
+// Fetch trip data from trips.json
+const trip = tripData("wildlife.chitwan-bardia-expedition");
+
+const packingList = [
+    {
+        category: t("nav.packingClothing") || "Clothing",
+        items: [
+            t("packing.neutralClothing") || "Lightweight, neutral-colored clothing",
+            t("packing.longSleeves") || "Long-sleeved shirts and trousers",
+            t("packing.warmLayers") || "Warm layers for cool mornings",
+            t("packing.walkingShoes") || "Comfortable walking shoes",
+            t("packing.sandals") || "Sandals for around the lodge",
+            t("packing.hat") || "Hat or cap for sun protection",
+        ],
+    },
+    {
+        category: t("nav.packingGear") || "Gear & Accessories",
+        items: [
+            t("packing.binoculars") || "Binoculars",
+            t("packing.camera") || "Camera with zoom lens",
+            t("packing.sunscreen") || "Sunscreen and sunglasses",
+            t("packing.insectRepellent") || "Insect repellent",
+            t("packing.waterBottle") || "Reusable water bottle",
+            t("packing.daypack") || "Small daypack",
+        ],
+    },
+];
+---
+
+<Layout
+    title={trip.title}
+    image={crocodile.src}
+    keywords="Chitwan jungle safari, Bardia tiger tracking, Nepal wildlife tour, rhino watching Nepal, Gharial crocodile safari"
+>
+    <TripItineraryPage
+        title={trip.title}
+        heroImage={crocodile.src}
+        overview={trip.overview}
+        highlights={trip.highlights}
+        itinerary={trip.itinerary}
+        packingList={packingList}
+        showElevationGraph={false}
+        tripStats={{
+            duration: trip.itinerary.length + " " + t("nav.days"),
+            maxAltitude: "150m",
+            difficulty: t("trip.easy") || "Easy",
+            groupSize: "2-8",
+            maxAltitudeLabel: t("trip.avgElevation") || "Avg Elevation",
+        }}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+    />
+</Layout>
