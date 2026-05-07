@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { useTranslation } from '../i18n/useTranslation';
 
 interface JourneyImage {
   src: string;
@@ -15,6 +16,7 @@ interface JourneyBlockProps {
 }
 
 const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, images, alignment }) => {
+  const { t, locale } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -56,10 +58,10 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
         {description}
       </p>
       <a
-        href={`/${id}`}
+        href={`/${locale}/${id}`}
         className="flex items-center gap-8 group w-fit transition-all bg-brand hover:bg-brand-dark text-white px-8 py-4 md:px-10 md:py-5 rounded-full shadow-lg hover:shadow-brand/40 hover:-translate-y-1"
       >
-        <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Explore Path</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.4em]">{t('home.explorePath')}</span>
         <div className="w-10 h-px bg-white/50 group-hover:w-16 group-hover:bg-white transition-all duration-500"></div>
       </a>
     </div>
@@ -70,18 +72,18 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
       <div className="relative w-full h-full rounded-none overflow-hidden shadow-xl">
         <div className="absolute inset-0 bg-gray-900">
           {images.map((img, idx) => (
-            <div key={idx} className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${idx === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-100 z-0'}`}>
-              <a href={`/${id}`} className="block w-full h-full cursor-pointer">
+            <div key={idx} className={`absolute inset-0 transition-opacity duration-1500 ease-in-out ${idx === currentIndex ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-100 z-0'}`}>
+              <a href={`/${locale}/${id}`} className="block w-full h-full cursor-pointer">
                 <img
                   src={img.src}
                   srcSet={img.srcSet}
                   sizes="(max-width: 480px) 100vw, (max-width: 640px) 100vw, (max-width: 767px) 100vw, (max-width: 1279px) 85vw, 50vw"
-                  alt={`${title} - Journey Series Image ${idx + 1} - Marga Adventure`}
+                  alt={t('home.imageAlt', { title, number: idx + 1 })}
                   className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-black/20" />
               </a>
             </div>
           ))}
@@ -91,14 +93,14 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
           <button
             onClick={prevImage}
             className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-brand transition-all hover:scale-110"
-            aria-label="Previous image"
+            aria-label={t('home.prevImage')}
           >
             <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
           </button>
           <button
             onClick={nextImage}
             className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-brand transition-all hover:scale-110"
-            aria-label="Next image"
+            aria-label={t('home.nextImage')}
           >
             <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
           </button>
@@ -107,7 +109,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
         <div className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-20 flex flex-col gap-4 md:gap-6 w-full pr-12 md:pr-24">
           <div className="flex items-center gap-4">
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 md:px-6 md:py-3 rounded-2xl text-[8px] md:text-[10px] font-bold text-white uppercase tracking-[0.3em] shadow-2xl">
-              Series — 0{currentIndex + 1}
+              {t('home.series')} — 0{currentIndex + 1}
             </div>
             <div className="h-px flex-1 bg-white/20"></div>
           </div>
@@ -117,7 +119,7 @@ const JourneyBlock: React.FC<JourneyBlockProps> = ({ id, title, description, ima
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className="h-10 md:h-12 min-w-[32px] md:min-w-[48px] flex items-center justify-center cursor-pointer"
-                aria-label={`Go to image ${idx + 1}`}
+                aria-label={t('home.goToImage', { number: idx + 1 })}
               >
                 <div className={`h-0.5 md:h-1 rounded-full transition-all duration-700 ${idx === currentIndex ? 'w-10 md:w-16 bg-white' : 'w-4 md:w-6 bg-white/20 group-hover:bg-white/40'}`} />
               </button>

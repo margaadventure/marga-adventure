@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from '../i18n/useTranslation';
 
 interface ContactModalProps {
     isOpen: boolean;
@@ -7,6 +8,7 @@ interface ContactModalProps {
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle }) => {
+    const { t } = useTranslation();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [message, setMessage] = useState('');
@@ -54,11 +56,11 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
         const email = formData.get('email') as string;
         const msg = formData.get('message') as string;
 
-        if (!name || name.length < 2) newErrors.name = 'Name must be at least 2 characters.';
-        if (!phone || phone.length < 7) newErrors.phone = 'Please enter a valid phone number.';
+        if (!name || name.length < 2) newErrors.name = t('contact.validationName');
+        if (!phone || phone.length < 7) newErrors.phone = t('contact.validationPhone');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email || !emailRegex.test(email)) newErrors.email = 'Please enter a valid email address.';
-        if (!msg || msg.length < 10) newErrors.message = 'Message must be at least 10 characters.';
+        if (!email || !emailRegex.test(email)) newErrors.email = t('contact.validationEmail');
+        if (!msg || msg.length < 10) newErrors.message = t('contact.validationMessage');
 
         return newErrors;
     };
@@ -79,7 +81,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
         // Check if hCaptcha response exists
         const captchaResponse = formData.get('h-captcha-response');
         if (!captchaResponse || captchaResponse === '') {
-            setMessage('Please complete the captcha verification before submitting.');
+            setMessage(t('contact.captchaError'));
             return;
         }
 
@@ -97,10 +99,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                 setIsSuccess(true);
                 e.currentTarget.reset(); // Reset form fields
             } else {
-                setMessage(data.message || "Something went wrong. Please try again.");
+                setMessage(data.message || t('contact.errorGeneric'));
             }
         } catch (error) {
-            setMessage("An error occurred. Please try again later.");
+            setMessage(t('contact.errorNetwork'));
         } finally {
             setIsSubmitting(false);
         }
@@ -143,40 +145,40 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Thank You!</h3>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">{t('contact.successHeading')}</h3>
                             <p className="text-gray-600 mb-8">
-                                We have received your enquiry for <span className="font-bold text-brand">{tripTitle || 'your adventure'}</span>.
-                                <br />Our team will get back to you shortly.
+                                {t('contact.receivedEnquiry')} <span className="font-bold text-brand">{tripTitle || t('contact.yourAdventure')}</span>.
+                                <br />{t('contact.getBackShortly')}
                             </p>
                             <button
                                 onClick={onClose}
                                 className="inline-block bg-brand text-white px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-brand-dark transition-all"
                             >
-                                Close
+                                {t('contact.close')}
                             </button>
                         </div>
                     ) : (
                         <>
                             <div className="text-center mb-8">
-                                <span className="text-brand font-bold text-xs uppercase tracking-[0.2em] block mb-3">Start your journey</span>
-                                <h3 className="text-3xl font-bold text-gray-900">Enquire <span className="text-brand italic font-serif">Now</span></h3>
-                                {tripTitle && <p className="text-gray-500 text-sm mt-2">for {tripTitle}</p>}
+                                <span className="text-brand font-bold text-xs uppercase tracking-[0.2em] block mb-3">{t('contact.startYourJourney')}</span>
+                                <h3 className="text-3xl font-bold text-gray-900">{t('contact.enquireNow').split(' ')[0]} <span className="text-brand italic font-serif">{t('contact.enquireNow').split(' ').slice(1).join(' ')}</span></h3>
+                                {tripTitle && <p className="text-gray-500 text-sm mt-2">{t('contact.for')} {tripTitle}</p>}
                             </div>
 
                             <form key={formKey} onSubmit={handleSubmit} className="space-y-5" noValidate>
                                 <input type="hidden" name="access_key" value="33ad888f-94c9-434b-8f55-54b98c72d921" />
-                                <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || 'Marga Adventure'}`} />
+                                <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || '<span translate="no">Marga Adventure</span>'}`} />
                                 <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
                                 {/* Web3Forms hCaptcha Widget Container moved to bottom */}
 
                                 <div>
-                                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
+                                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formName')}</label>
                                     <input
                                         type="text"
                                         name="name"
                                         required
                                         className={`w-full bg-gray-50 border p-3 rounded-none focus:outline-none focus:ring-1 transition-all font-light text-sm ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-brand focus:ring-brand/20'}`}
-                                        placeholder="Your Name"
+                                        placeholder={t('contact.formNamePlaceholder')}
                                         onInput={handleInput}
                                     />
                                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -184,25 +186,25 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone *</label>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formPhone')}</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             required
                                             className={`w-full bg-gray-50 border p-3 rounded-none focus:outline-none focus:ring-1 transition-all font-light text-sm ${errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-brand focus:ring-brand/20'}`}
-                                            placeholder="+123..."
+                                            placeholder={t('contact.formPhonePlaceholder')}
                                             onInput={handleInput}
                                         />
                                         {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email *</label>
+                                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formEmail')}</label>
                                         <input
                                             type="email"
                                             name="email"
                                             required
                                             className={`w-full bg-gray-50 border p-3 rounded-none focus:outline-none focus:ring-1 transition-all font-light text-sm ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-brand focus:ring-brand/20'}`}
-                                            placeholder="email@..."
+                                            placeholder={t('contact.formEmailPlaceholder')}
                                             onInput={handleInput}
                                         />
                                         {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -210,13 +212,13 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                                 </div>
 
                                 <div>
-                                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Message *</label>
+                                    <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formMessage')}</label>
                                     <textarea
                                         name="message"
                                         required
                                         rows={4}
                                         className={`w-full bg-gray-50 border p-3 rounded-none focus:outline-none focus:ring-1 transition-all font-light text-sm ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-200' : 'border-gray-200 focus:border-brand focus:ring-brand/20'}`}
-                                        placeholder={`I'm interested in ${tripTitle || 'a trip'}...`}
+                                        placeholder={t('contact.formMessagePlaceholder')}
                                         onInput={handleInput}
                                     ></textarea>
                                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -235,7 +237,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
                                     disabled={isSubmitting}
                                     className="w-full bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] py-4 rounded-none hover:bg-brand-dark transition-all shadow-lg hover:shadow-brand/20 hover:-translate-y-0.5 mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
-                                    {isSubmitting ? 'Sending...' : 'Send Enquiry'}
+                                    {isSubmitting ? t('contact.submitSending') : t('trip.enquireNow')}
                                 </button>
                             </form>
                         </>

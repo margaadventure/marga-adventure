@@ -1,0 +1,41 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import { I18nActivityShell } from "../../components/I18nActivityShells";
+import trekking1 from "../../assets/images/activities/trekking/congde-tekking_1.webp";
+import trekking2 from "../../assets/images/activities/trekking/Thamserku-trekiking_2.webp";
+import trekking3 from "../../assets/images/activities/trekking/manewall-trekking_3.webp";
+import bg from "../../assets/images/activities/trekking/background.webp";
+import type { Locale } from "../../i18n/i18n";
+const { t, tTrip, tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout
+    title={t("nav.trekkingMetaTitle")}
+    description={t("nav.trekkingMetaDesc")}
+    image={trekking1.src}
+    keywords={lang === 'en' ? "Nepal trekking, Himalaya trekking packages, luxury trekking Nepal, Manaslu trek, Langtang valley trek" : "Trekking Népal, forfaits trekking Himalaya, trekking de luxe Népal, trek Manaslu, trek vallée du Langtang"}
+>
+    <I18nActivityShell
+        title={t("nepal.act1Title")}
+        titleKey="nepal.act1Title"
+        subtitle={t("nav.trekkingSubtitle")}
+        description={t("nav.trekkingDescription")}
+        heroImage={bg.src}
+        highlights={[
+            { text: tripData("trekking.manaslu-circuit")?.title || tTrip("trekking.manaslu"), link: `/${lang}/trekking/manaslu-circuit` },
+            { text: tripData("trekking.langtang-valley")?.title || tTrip("trekking.langtang"), link: `/${lang}/trekking/langtang-valley` },
+            { text: tripData("trekking.upper-mustang")?.title || tTrip("trekking.mustang"), link: `/${lang}/trekking/upper-mustang` },
+            { text: tripData("trekking.mohare-danda")?.title || tTrip("trekking.mohare"), link: `/${lang}/trekking/mohare-danda` },
+        ]}
+        galleryImages={[trekking1.src, trekking2.src, trekking3.src]}
+        overlayOpacity="bg-black/10"
+        client:visible
+     initialLocale={lang}
+     initialDict={dict}
+     initialFallbackDict={enDict} />
+</Layout>

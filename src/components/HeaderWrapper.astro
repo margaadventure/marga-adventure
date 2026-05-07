@@ -60,9 +60,13 @@ const menuImages: MenuImages = {
 
 interface Props {
     forceOpaque?: boolean;
+    initialLocale?: string;
 }
 
-const { forceOpaque } = Astro.props;
+import { useAstroI18n } from "../i18n/astro";
+
+const { forceOpaque, initialLocale } = Astro.props;
+const { dict, enDict } = await useAstroI18n(Astro.url);
 ---
 
-<Header client:only="react" forceOpaque={forceOpaque} menuImages={menuImages} />
+<Header client:load initialLocale={initialLocale as any} initialDict={dict} initialFallbackDict={enDict} forceOpaque={forceOpaque} menuImages={menuImages} />

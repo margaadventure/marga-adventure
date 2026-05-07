@@ -37,7 +37,7 @@ const NepalMap: React.FC<{ showDetails?: boolean }> = ({ showDetails }) => {
 
   return (
     <div
-      className="relative w-full aspect-[1027/556] bg-brand/5 rounded-none border border-gray-100 overflow-hidden group cursor-none"
+      className="relative w-full aspect-1027/556 bg-brand/5 rounded-none border border-gray-100 overflow-hidden group cursor-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setHoveredLocation(null)}
     >

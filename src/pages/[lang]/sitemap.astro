@@ -1,0 +1,162 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import type { Locale } from "../../i18n/i18n";
+
+const sitemap = [
+    {
+        category: "Main",
+        links: [
+            { name: "Home", href: "/" },
+            { name: "About Us", href: "/about" },
+            { name: "Community", href: "/community" },
+            { name: "The Journal", href: "/blog" },
+            { name: "Contact", href: "/contact" },
+        ],
+    },
+    {
+        category: "Destinations",
+        links: [
+            { name: "Nepal", href: "/nepal" },
+            { name: "Bhutan", href: "/bhutan" },
+            { name: "Tibet", href: "/tibet" },
+        ],
+    },
+    {
+        category: "Trekking in Nepal",
+        links: [
+            { name: "Trekking Overview", href: "/trekking" },
+            { name: "Langtang Valley", href: "/trekking/langtang-valley" },
+            { name: "Manaslu Circuit", href: "/trekking/manaslu-circuit" },
+            { name: "Mohare Danda", href: "/trekking/mohare-danda" },
+            { name: "Upper Mustang", href: "/trekking/upper-mustang" },
+        ],
+    },
+    {
+        category: "Spiritual Journeys",
+        links: [
+            { name: "Spiritual Overview", href: "/spiritual" },
+            {
+                name: "Buddhist Pilgrimage",
+                href: "/spiritual/buddhist-pilgrimage",
+            },
+            {
+                name: "Himalayan Yoga Trek",
+                href: "/spiritual/himalayan-yoga-trek",
+            },
+            {
+                name: "Path to Inner Peace",
+                href: "/spiritual/path-to-inner-peace",
+            },
+            { name: "The Summit Within", href: "/spiritual/summit-within" },
+        ],
+    },
+    {
+        category: "Photography Tours",
+        links: [
+            { name: "Photography Overview", href: "/photography" },
+            { name: "Holi Festival", href: "/photography/holi-festival" },
+            {
+                name: "Mustang & Chitwan Expedition",
+                href: "/photography/mustang-chitwan-expedition",
+            },
+            { name: "Shaman Festival", href: "/photography/shaman-festival" },
+            {
+                name: "Tshechu Festival & Bisket Jatra",
+                href: "/photography/tshechu-festival-bisket-jatra",
+            },
+        ],
+    },
+    {
+        category: "Wildlife Adventures",
+        links: [
+            { name: "Wildlife Overview", href: "/wildlife" },
+            { name: "Birdwatching", href: "/wildlife/birdwatching" },
+            {
+                name: "Chitwan & Bardia Expedition",
+                href: "/wildlife/chitwan-bardia-expedition",
+            },
+            {
+                name: "Kathmandu & Koshi Birding",
+                href: "/wildlife/kathmandu-koshi-birding",
+            },
+            { name: "Red Panda Expedition", href: "/wildlife/red-panda" },
+            { name: "Snow Leopard Expedition", href: "/wildlife/snow-leopard" },
+        ],
+    },
+    {
+        category: "Journal Entries",
+        links: [
+            { name: "Beyond Tourism", href: "/blog/beyond-tourism" },
+            {
+                name: "Philosophy of Silence",
+                href: "/blog/philosophy-of-silence",
+            },
+            { name: "The Origin Story", href: "/blog/the-origin-story" },
+        ],
+    },
+];
+const { t } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout
+    title="Sitemap | Marga Adventure"
+    description="Navigate through all the pages of Marga Adventure."
+    headerVariant="opaque"
+>
+    <main class="pt-32 pb-24 bg-gray-50 min-h-screen">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+            <div class="mb-16">
+                <h1
+                    class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+                >
+                    Sitemap
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl font-light">
+                    Explore our complete collection of journeys, destinations,
+                    and stories.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                {
+                    sitemap.map((section) => (
+                        <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100/50 hover:shadow-md transition-shadow duration-300">
+                            <h2 class="text-xl font-bold text-brand mb-6 border-b border-gray-100 pb-4">
+                                {section.category}
+                            </h2>
+                            <ul class="space-y-3">
+                                {section.links.map((link) => (
+                                    <li>
+                                        <a
+                                            href={link.href}
+                                            class="text-gray-600 hover:text-brand transition-colors duration-200 flex items-center gap-2 group"
+                                        >
+                                            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-brand transition-colors" />
+                                            <span class="text-sm font-medium tracking-wide">
+                                                {link.name}
+                                            </span>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="mt-16 pt-12 border-t border-gray-200 text-center">
+                <p class="text-gray-500 text-sm">
+                    Looking for something specific? <a
+                        href={`/${lang}/en/contact`}
+                        class="text-brand hover:underline">Contact us</a
+                    >.
+                </p>
+            </div>
+        </div>
+    </main>
+</Layout>

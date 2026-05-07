@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import I18nShell from '../i18n/I18nShell';
+import type { Locale } from '../i18n/i18n';
 import PageHero from './PageHero';
 import ContactModal from './ContactModal';
 
@@ -20,7 +22,7 @@ interface ExpeditionPageProps {
     packingList?: { category: string; items: string[] }[];
 }
 
-const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
+const ExpeditionPageContent: React.FC<ExpeditionPageProps> = ({
     title,
     subtitle,
     heroImage,
@@ -43,8 +45,8 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
             {/* Hero Section */}
             <div className="relative h-[85vh] min-h-[700px]">
                 <div className="absolute inset-0">
-                    <img src={heroImage} alt={`${title} Expedition - Marga Adventure`} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
+                    <img src={heroImage} alt={`${title} Expedition - <span translate="no">Marga Adventure</span>`} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/80"></div>
                 </div>
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
                     <div className="max-w-7xl mx-auto w-full">
@@ -115,7 +117,7 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
                     {/* Overview */}
                     <section id="overview">
                         <div className="inline-flex items-center gap-3 text-brand font-bold text-xs uppercase tracking-[0.3em] mb-8">
-                            <span className="w-12 h-[1px] bg-brand"></span>
+                            <span className="w-12 h-px bg-brand"></span>
                             <span>The Experience</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
@@ -162,7 +164,7 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
                     {packingList && (
                         <section>
                             <div className="inline-flex items-center gap-3 text-brand font-bold text-xs uppercase tracking-[0.3em] mb-4">
-                                <span className="w-12 h-[1px] bg-brand"></span>
+                                <span className="w-12 h-px bg-brand"></span>
                                 <span>Essentials</span>
                             </div>
                             <h3 className="text-4xl font-bold text-gray-900 mb-12">Recommended <span className="text-brand italic font-serif">Gear</span></h3>
@@ -192,7 +194,7 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
                     <div className="sticky top-24 space-y-8">
                         {/* Booking Card */}
                         <div className="bg-white p-10 border border-gray-100 shadow-2xl shadow-gray-200/50 relative overflow-hidden group hover:shadow-brand/10 transition-shadow duration-500">
-                            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand to-brand-light"></div>
+                            <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-brand to-brand-light"></div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-2">Book This Expedition</h3>
                             <p className="text-gray-500 text-sm mb-8 font-light">Join a rare citizen science initiative.</p>
 
@@ -252,4 +254,11 @@ const ExpeditionPage: React.FC<ExpeditionPageProps> = ({
     );
 };
 
+
+const ExpeditionPage = (props: any) => (
+  <I18nShell initialLocale={props.initialLocale}>
+    <ExpeditionPageContent {...props} />
+  </I18nShell>
+);
 export default ExpeditionPage;
+

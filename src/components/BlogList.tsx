@@ -1,5 +1,8 @@
 import React from 'react';
+import I18nShell from '../i18n/I18nShell';
+import type { Locale } from '../i18n/i18n';
 import PageHero from './PageHero';
+import { useTranslation } from '../i18n/useTranslation';
 
 // Import images
 import schoolGroupImg from '../assets/images/Community/school-group.webp';
@@ -7,43 +10,51 @@ import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
 import journalBg from '../assets/images/activities/journal_background.webp';
 import silenceImg from '../assets/images/silence.webp';
 
-const BLOG_POSTS = [
-    {
-        slug: 'the-origin-story',
-        category: 'Founders Journal',
-        title: 'Why We Left the Guidebook Behind',
-        excerpt: 'It started with a realization at 5,000 meters: the summit is not the point. Discover the psychology that birthed Marga Adventure.',
-        image: buddhimanTamangImg.src,
-        readTime: '4 min read',
-        date: 'Dec 31, 2025'
-    },
-    {
-        slug: 'philosophy-of-silence',
-        category: 'Philosophy',
-        title: 'The Rebellion of Silence',
-        excerpt: 'In a world screaming for attention, sitting in stillness is the most radical act you can commit. Here is why we prioritize silence over sightseeing.',
-        image: silenceImg.src,
-        readTime: '6 min read',
-        date: 'Jan 15, 2026'
-    },
-    {
-        slug: 'beyond-tourism',
-        category: 'Community',
-        title: 'Tourism that Heals',
-        excerpt: 'How your journey puts roofs over heads and books in hands. A look into our "Sharing Warmth" initiative in the remote villages of Nepal.',
-        image: schoolGroupImg.src,
-        readTime: '3 min read',
-        date: 'Jan 16, 2026',
-        authorImage: '/logo.webp'
-    }
-];
+const BlogListContent: React.FC<any> = (props) => {
+    const { t, locale } = useTranslation();
 
-const BlogList: React.FC = () => {
+    const BLOG_POSTS = [
+        {
+            slug: 'the-origin-story',
+            category: t('blog.post1Category'),
+            title: t('blog.post1Title'),
+            excerpt: locale === 'en'
+                ? "It started with a realization at 5,000 meters: the summit is not the point. Discover the psychology that birthed Marga Adventure."
+                : "Tout a commencé par une révélation à 5 000 mètres : le sommet n'est pas le but. Découvrez la psychologie qui a donné naissance à Marga Adventure.",
+            image: buddhimanTamangImg.src,
+            readTime: t('blog.post1ReadTime'),
+            date: t('blog.post1Date')
+        },
+        {
+            slug: 'philosophy-of-silence',
+            category: t('blog.post2Category'),
+            title: t('blog.post2Title'),
+            excerpt: locale === 'en'
+                ? 'In a world screaming for attention, sitting in stillness is the most radical act you can commit. Here is why we prioritize silence over sightseeing.'
+                : "Dans un monde qui crie pour attirer l'attention, rester immobile est l'acte le plus radical qui soit. Voici pourquoi nous privilégions le silence à la visite touristique.",
+            image: silenceImg.src,
+            readTime: t('blog.post2ReadTime'),
+            date: t('blog.post2Date')
+        },
+        {
+            slug: 'beyond-tourism',
+            category: t('blog.post3Category'),
+            title: t('blog.post3Title'),
+            excerpt: locale === 'en'
+                ? 'How your journey puts roofs over heads and books in hands. A look into our "Sharing Warmth" initiative in the remote villages of Nepal.'
+                : 'Comment votre voyage met des toits au-dessus des têtes et des livres entre les mains. Un regard sur notre initiative « Partager la chaleur » dans les villages reculés du Népal.',
+            image: schoolGroupImg.src,
+            readTime: t('blog.post3ReadTime'),
+            date: t('blog.post3Date'),
+            authorImage: '/logo.webp'
+        }
+    ];
+
     return (
         <div className="bg-white">
             <PageHero
-                title="The Journal"
-                subtitle="Stories of path, purpose, and people."
+                title={t('blog.heroTitle')}
+                subtitle={t('blog.heroSubtitle')}
                 image={journalBg.src}
                 parallax={true}
                 className="pb-40"
@@ -55,13 +66,13 @@ const BlogList: React.FC = () => {
                         {BLOG_POSTS.map((post, idx) => (
                             <a
                                 key={idx}
-                                href={`/blog/${post.slug}`}
+                                href={`/${locale}/blog/${post.slug}`}
                                 className="group flex flex-col gap-6 cursor-pointer"
                             >
                                 <div className="relative overflow-hidden rounded-none h-[400px] w-full shadow-lg border border-gray-100">
                                     <img
                                         src={post.image}
-                                        alt={`${post.title} - Marga Adventure Blog`}
+                                        alt={`${post.title} - <span translate="no">Marga Adventure</span> Blog`}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale"
                                         loading="lazy"
                                         decoding="async"
@@ -84,7 +95,7 @@ const BlogList: React.FC = () => {
                                         {post.excerpt}
                                     </p>
                                     <div className="flex items-center gap-2 mt-2 text-[10px] font-bold uppercase tracking-[0.3em] text-brand group-hover:text-brand-dark transition-colors">
-                                        Read Article <span>→</span>
+                                        {t('blog.readArticle')} <span>→</span>
                                     </div>
                                 </div>
                             </a>
@@ -96,18 +107,18 @@ const BlogList: React.FC = () => {
             {/* Newsletter / CTA */}
             <section className="py-24 bg-gray-50 border-t border-gray-100">
                 <div className="max-w-3xl mx-auto px-6 text-center">
-                    <h3 className="text-3xl font-bold mb-6">Join the Inner Circle</h3>
+                    <h3 className="text-3xl font-bold mb-6">{t('blog.joinCircleHeading')}</h3>
                     <p className="text-gray-500 font-light mb-10">
-                        Receive stories from the Himalayas, early access to retreat dates, and notes on mindful living directly to your inbox.
+                        {t('blog.joinCircleBody')}
                     </p>
                     <div className="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
                         <input
                             type="email"
-                            placeholder="Your email address"
+                            placeholder={t('blog.emailPlaceholder')}
                             className="flex-1 px-6 py-4 rounded-none border border-gray-200 outline-none focus:border-brand focus:ring-1 focus:ring-brand font-light"
                         />
                         <button className="px-8 py-4 bg-brand text-white font-bold text-xs uppercase tracking-[0.2em] rounded-none hover:bg-brand-dark transition-colors">
-                            Subscribe
+                            {t('blog.subscribe')}
                         </button>
                     </div>
                 </div>
@@ -116,4 +127,15 @@ const BlogList: React.FC = () => {
     );
 };
 
+
+const BlogList = (props: any) => (
+  <I18nShell 
+    initialLocale={props.initialLocale}
+    initialDict={props.initialDict}
+    initialFallbackDict={props.initialFallbackDict}
+  >
+    <BlogListContent {...props} />
+  </I18nShell>
+);
 export default BlogList;
+

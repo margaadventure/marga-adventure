@@ -1,0 +1,40 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../../components/ExpeditionSpecialLayout";
+import summitImg1 from "../../../assets/images/activities/spiritual/The summit within.webp";
+import summitImg2 from "../../../assets/images/activities/spiritual/The summit within 2.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+const trip = tripData("spiritual.summitTrip") || {};
+
+const images = [summitImg1.src, summitImg2.src];
+---
+<Layout
+    title={`${trip.title || dict['spiritual.summit']} | Marga Adventure`}
+    image={images[0]}
+    keywords={lang === 'en' ? "The Summit Within, psychological trekking, transformative travel Nepal, Everest spiritual trek, inner journey Himalayas" : "Le sommet intérieur, trekking psychologique, voyage transformateur Népal, trek spirituel Everest, voyage intérieur Himalaya"}
+>
+    <ExpeditionSpecialLayout
+        title={trip.title || dict['spiritual.summit'] || "The Summit Within"}
+        overview={trip.overview || ""}
+        images={images}
+        highlights={trip.highlights || []}
+        features={trip.features || []}
+        tripStats={{
+            destination: trip.destination || "Everest / Manaslu",
+            difficulty: trip.difficulty || dict['trip.moderate'] || "Moderate",
+            groupSize: trip.groupSize || "4-10",
+            season: trip.season || "Spring / Autumn",
+        }}
+        client:visible
+     initialLocale={lang}
+     initialDict={dict}
+     initialFallbackDict={enDict} />
+</Layout>

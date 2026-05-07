@@ -1,0 +1,21 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import { I18nCommunityShell } from "../../components/I18nPageShells";
+import schoolGroupImg from "../../assets/images/Community/school-group.webp";
+import type { Locale } from "../../i18n/i18n";
+const { t, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout
+    title={t("nav.communityMetaTitle")}
+    description={t("nav.communityMetaDesc")}
+    image={schoolGroupImg.src}
+    keywords={lang === 'en' ? "sustainable tourism Nepal, community projects Nepal, giving back, responsible travel Himalayas, education support Nepal" : "tourisme durable Népal, projets communautaires Népal, redonner, voyage responsable Himalaya, soutien à l'éducation Népal"}
+>
+    <I18nCommunityShell client:visible  initialLocale={lang} initialDict={dict} initialFallbackDict={enDict} />
+</Layout>

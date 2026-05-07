@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import PageHero from './PageHero';
 import ElevationGraph from './ElevationGraph';
 import ContactModal from './ContactModal';
+import { useTranslation } from '../i18n/useTranslation';
+import I18nShell from '../i18n/I18nShell';
+import type { Locale } from '../i18n/i18n';
 
 interface DayItinerary {
     day: string;
@@ -31,15 +34,18 @@ interface TripItineraryPageProps {
     price?: string;
     packingList?: { category: string; items: string[] }[];
     showElevationGraph?: boolean;
+    initialLocale?: string;
+    initialDict?: any;
+    initialFallbackDict?: any;
 }
 
-const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
+const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
     title,
     subtitle,
     heroImage,
     overview,
-    highlights,
-    itinerary,
+    highlights = [],
+    itinerary = [],
     tripStats = {
         duration: "12 Days",
         maxAltitude: "4,773m",
@@ -50,17 +56,20 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
     packingList,
     showElevationGraph = true
 }) => {
+    const { t, locale } = useTranslation();
     const [activeDay, setActiveDay] = useState<number | null>(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Extract altitude data for graph
-    const elevationData = itinerary.map(day => {
-        const altMatch = day.stats?.altitude?.match(/(\d+,?\d*)/);
-        return {
-            day: day.day.replace('Day ', ''),
-            altitude: altMatch ? parseInt(altMatch[0].replace(',', '')) : 0
-        };
-    }).filter(d => d.altitude > 0);
+    // Extract altitude data for graph - memoized to prevent hydration mismatches
+    const elevationData = React.useMemo(() => {
+        return (itinerary || []).map(day => {
+            const altMatch = day.stats?.altitude?.match(/(\d+,?\d*)/);
+            return {
+                day: day.day?.replace('Day ', '')?.replace('Jour ', '') || '',
+                altitude: altMatch ? parseInt(altMatch[0].replace(',', '')) : 0
+            };
+        }).filter(d => d.altitude > 0);
+    }, [itinerary]);
 
     return (
         <div className="bg-white font-sans text-gray-800">
@@ -68,14 +77,14 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
             <div className="relative h-[85vh] min-h-[700px]">
                 <div className="absolute inset-0">
                     <img src={heroImage} alt={title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80"></div>
+                    <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/80"></div>
                     {/* Subtle texture overlay if desired, but gradient is cleaner */}
                 </div>
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
                     <div className="max-w-7xl mx-auto w-full">
                         <div className="animate-fade-in-up">
                             <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/90 font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-6 backdrop-blur-sm drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                                {subtitle || "The Himalayas Await"}
+                                {subtitle || t('trip.theHimalayasAwait')}
                             </span>
                             <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 leading-[0.9] tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                                 {title}
@@ -92,7 +101,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Duration</p>
+                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('trip.duration')}</p>
                                 <p className="font-bold text-gray-900 text-lg leading-none font-serif italic">{tripStats.duration}</p>
                             </div>
                         </div>
@@ -105,7 +114,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                                 )}
                             </div>
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{tripStats.maxAltitudeLabel || "Max Altitude"}</p>
+                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{tripStats.maxAltitudeLabel || t('trip.maxAltitude')}</p>
                                 <p className="font-bold text-gray-900 text-lg leading-none font-serif italic">{tripStats.maxAltitude}</p>
                             </div>
                         </div>
@@ -114,7 +123,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                             </div>
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Difficulty</p>
+                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('trip.difficulty')}</p>
                                 <p className="font-bold text-gray-900 text-lg leading-none font-serif italic">{tripStats.difficulty}</p>
                             </div>
                         </div>
@@ -123,7 +132,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                             </div>
                             <div>
-                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">Group Size</p>
+                                <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-1">{t('trip.groupSize')}</p>
                                 <p className="font-bold text-gray-900 text-lg leading-none font-serif italic">{tripStats.groupSize}</p>
                             </div>
                         </div>
@@ -140,11 +149,11 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                     {/* Overview */}
                     <section id="overview">
                         <div className="inline-flex items-center gap-3 text-brand font-bold text-xs uppercase tracking-[0.3em] mb-8">
-                            <span className="w-12 h-[1px] bg-brand"></span>
-                            <span>The Journey</span>
+                            <span className="w-12 h-px bg-brand"></span>
+                            <span>{t('trip.theJourney')}</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                            Trip <span className="text-brand italic font-serif">Overview</span>
+                            {t('trip.trip')} <span className="text-brand italic font-serif">{t('trip.overview')}</span>
                         </h2>
                         <div className="prose prose-lg prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-500 prose-p:leading-loose prose-p:font-light max-w-none">
                             <p className="whitespace-pre-line text-lg">{overview}</p>
@@ -153,7 +162,7 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                         <div className="bg-gray-50 p-10 border-l-4 border-brand mt-12 hover:bg-gray-50/80 transition-colors">
                             <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                                 <svg className="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                                Highlight Experiences
+                                {t('trip.highlightExperiences')}
                             </h3>
                             <div className="grid sm:grid-cols-2 gap-y-6 gap-x-12">
                                 {highlights.map((highlight, index) => (
@@ -175,12 +184,12 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                     {showElevationGraph && elevationData.length > 2 && (
                         <section>
                             <div className="inline-flex items-center gap-3 text-brand font-bold text-xs uppercase tracking-[0.3em] mb-4">
-                                <span className="w-12 h-[1px] bg-brand"></span>
-                                <span>Altitude Profile</span>
+                                <span className="w-12 h-px bg-brand"></span>
+                                <span>{t('trip.altitudeProfile')}</span>
                             </div>
-                            <h3 className="text-4xl font-bold text-gray-900 mb-4">Elevation <span className="text-brand italic font-serif">Gain</span></h3>
+                            <h3 className="text-4xl font-bold text-gray-900 mb-4">{t('trip.elevation')} <span className="text-brand italic font-serif">{t('trip.gain')}</span></h3>
                             <p className="text-gray-500 text-lg font-light mb-8 max-w-xl">
-                                A visual breakdown of the altitude gain and loss throughout the trek, helping you prepare for the physical challenge.
+                                {t('trip.elevationDesc')}
                             </p>
                             <ElevationGraph data={elevationData} />
                         </section>
@@ -192,11 +201,11 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                     {/* Itinerary */}
                     <section id="itinerary" className="scroll-mt-32">
                         <div className="inline-flex items-center gap-3 text-brand font-bold text-xs uppercase tracking-[0.3em] mb-8">
-                            <span className="w-12 h-[1px] bg-brand"></span>
-                            <span>Timeline</span>
+                            <span className="w-12 h-px bg-brand"></span>
+                            <span>{t('trip.timeline')}</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-12 leading-tight">
-                            Day-by-Day <span className="text-brand italic font-serif">Itinerary</span>
+                            {t('trip.dayByDay')} <span className="text-brand italic font-serif">{t('trip.itinerary')}</span>
                         </h2>
 
                         <div className="relative border-l border-gray-200 ml-6 md:ml-8 pl-8 md:pl-12 space-y-8">
@@ -209,28 +218,32 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                                     </div>
 
                                     {/* Card Container */}
-                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border border-transparent ${activeDay === index ? 'bg-white shadow-xl border-l-[4px] border-l-brand my-4 md:my-6 md:scale-[1.02]' : 'bg-transparent border-b-gray-100'}`}>
-                                        <div
+                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border border-transparent ${activeDay === index ? 'bg-white shadow-xl border-l-4 border-l-brand my-4 md:my-6 md:scale-[1.02]' : 'bg-transparent border-b-gray-100'}`}>
+                                    <div
                                             role="button"
                                             tabIndex={0}
-                                            onClick={() => setActiveDay(activeDay === index ? null : index)}
-                                            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveDay(activeDay === index ? null : index)}
-                                            className="w-full relative z-40 block cursor-pointer text-left focus:outline-none touch-manipulation tap-highlight-transparent active:bg-gray-50 transition-colors select-none"
-                                            style={{ WebkitTapHighlightColor: 'transparent' }}
+                                            onClick={() => setActiveDay(prev => prev === index ? null : index)}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter' || e.key === ' ') {
+                                                    e.preventDefault();
+                                                    setActiveDay(prev => prev === index ? null : index);
+                                                }
+                                            }}
+                                            className="w-full relative z-10 block cursor-pointer text-left focus:outline-none transition-colors select-none outline-hidden"
                                         >
-                                            <div className="flex flex-row items-start gap-5 p-5 md:p-8 pointer-events-none">
+                                            <div className="flex flex-row items-start gap-5 p-5 md:p-8">
                                                 {/* Number */}
                                                 <div className={`shrink-0 w-10 md:w-auto flex flex-col items-center justify-start transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-300'}`}>
                                                     <span className={`text-xl md:text-5xl font-serif italic font-bold leading-none ${activeDay === index ? 'text-brand drop-shadow-sm' : ''}`}>{index + 1}</span>
                                                 </div>
-
+                                                
                                                 {/* Title & Info */}
                                                 <div className="flex-1 min-w-0 -mt-1">
                                                     <h3 className={`text-lg md:text-2xl font-bold transition-all duration-300 leading-tight mb-2 pr-2 ${activeDay === index ? 'text-gray-900' : 'text-gray-700'}`}>
                                                         {day.title}
                                                     </h3>
                                                     <div className="flex items-center gap-3">
-                                                        <span className={`hidden md:block w-6 h-[1px] transition-all duration-300 ${activeDay === index ? 'bg-brand w-12' : 'bg-gray-300'}`}></span>
+                                                        <span className={`hidden md:block w-6 h-px transition-all duration-300 ${activeDay === index ? 'bg-brand w-12' : 'bg-gray-300'}`}></span>
                                                         <span className={`text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-400'}`}>
                                                             {day.day}
                                                         </span>
@@ -244,35 +257,36 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                                             </div>
                                         </div>
 
-                                        <div className={`grid transition-all duration-500 ease-in-out ${activeDay === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
-                                            <div className="overflow-hidden">
-                                                <div className="px-6 pb-6 md:px-8 md:pb-10 pt-2 ml-0 md:ml-16 md:pl-8 md:border-l border-gray-100">
-                                                    {(day.stats?.altitude || day.stats?.distance || day.stats?.duration) && (
-                                                        <div className="flex flex-wrap gap-3 mb-8">
-                                                            {day.stats?.altitude && (
-                                                                <div className="flex items-center gap-2 text-[10px] font-bold text-brand uppercase tracking-widest bg-brand/5 px-4 py-2 rounded-none border border-brand/10">
-                                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 19.5L15 12l-6 9H3l7-10 6 10h6.5z"></path></svg>
-                                                                    {day.stats.altitude}
-                                                                </div>
-                                                            )}
-                                                            {day.stats?.distance && (
-                                                                <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
-                                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-                                                                    {day.stats.distance}
-                                                                </div>
-                                                            )}
-                                                            {day.stats?.duration && (
-                                                                <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
-                                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                                                    {day.stats.duration}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    )}
-                                                    <p className={`text-gray-600 leading-relaxed font-light text-lg ${(day.stats?.altitude || day.stats?.distance || day.stats?.duration) ? '' : 'mt-'}`}>{day.description}</p>
-                                                </div>
+                                        <div 
+                                            className={`transition-all duration-500 ease-in-out ${activeDay === index ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+                                        >
+                                            <div className="px-6 pb-6 md:px-8 md:pb-10 pt-2 ml-0 md:ml-16 md:pl-8 md:border-l border-gray-100">
+                                                {(day.stats?.altitude || day.stats?.distance || day.stats?.duration) && (
+                                                    <div className="flex flex-wrap gap-3 mb-8">
+                                                        {day.stats?.altitude && (
+                                                            <div className="flex items-center gap-2 text-[10px] font-bold text-brand uppercase tracking-widest bg-brand/5 px-4 py-2 rounded-none border border-brand/10">
+                                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 19.5L15 12l-6 9H3l7-10 6 10h6.5z"></path></svg>
+                                                                {day.stats.altitude}
+                                                            </div>
+                                                        )}
+                                                        {day.stats?.distance && (
+                                                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
+                                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                                                                {day.stats.distance}
+                                                            </div>
+                                                        )}
+                                                        {day.stats?.duration && (
+                                                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
+                                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                                {day.stats.duration}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                <p className="text-gray-600 leading-relaxed font-light text-lg">{day.description}</p>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             ))}
@@ -286,21 +300,21 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                     <div className="sticky top-24 space-y-8">
                         {/* Booking Card */}
                         <div className="bg-white p-10 border border-gray-100 shadow-2xl shadow-gray-200/50 relative overflow-hidden group hover:shadow-brand/10 transition-shadow duration-500">
-                            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand to-brand-light"></div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Book This Trip</h3>
-                            <p className="text-gray-500 text-sm mb-8 font-light">Secure your spot for an unforgettable Himalayan adventure.</p>
+                            <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-brand to-brand-light"></div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('trip.bookThisTrip')}</h3>
+                            <p className="text-gray-500 text-sm mb-8 font-light">{t('trip.bookDesc')}</p>
 
                             <div className="space-y-4 mb-8">
                                 <button
                                     onClick={() => setIsModalOpen(true)}
                                     className="block w-full bg-brand text-white text-center py-5 font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-brand/20"
                                 >
-                                    Enquire Now
+                                    {t('trip.enquireNow')}
                                 </button>
                             </div>
 
                             <div className="border-t border-gray-100 pt-6 text-center">
-                                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">Have Questions?</p>
+                                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">{t('trip.haveQuestions')}</p>
                                 <a href="tel:+9779700050945" className="text-brand font-bold text-lg hover:underline decoration-2 underline-offset-4">+977 970-0050945</a>
                             </div>
                         </div>
@@ -310,25 +324,25 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
                             <div className="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
                             <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-32 h-32 bg-brand/20 rounded-full blur-2xl"></div>
 
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs relative z-10">Why Marga?</h4>
+                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs relative z-10">{t('trip.whyMarga')}</h4>
                             <ul className="space-y-4 relative z-10">
                                 <li className="flex gap-4 items-start">
                                     <div className="p-1 rounded-full bg-white/20 shrink-0 mt-0.5">
                                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                                     </div>
-                                    <span className="text-sm text-white/90 font-light">Led by <strong className="text-white font-bold">Expert Locals</strong></span>
+                                    <span className="text-sm text-white/90 font-light">{t('trip.whyMarga1Prefix')} <strong className="text-white font-bold">{t('trip.whyMarga1Title')}</strong></span>
                                 </li>
                                 <li className="flex gap-4 items-start">
                                     <div className="p-1 rounded-full bg-white/20 shrink-0 mt-0.5">
                                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                                     </div>
-                                    <span className="text-sm text-white/90 font-light"><strong className="text-white font-bold">Sustainable</strong> & Eco-Friendly</span>
+                                    <span className="text-sm text-white/90 font-light"><strong className="text-white font-bold">{t('trip.whyMarga2Title')}</strong> & {t('trip.whyMarga2Suffix')}</span>
                                 </li>
                                 <li className="flex gap-4 items-start">
                                     <div className="p-1 rounded-full bg-white/20 shrink-0 mt-0.5">
                                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
                                     </div>
-                                    <span className="text-sm text-white/90 font-light">Small Group <strong className="text-white font-bold">Experiences</strong></span>
+                                    <span className="text-sm text-white/90 font-light">{t('trip.whyMarga3Title')} <strong className="text-white font-bold">{t('trip.whyMarga3Suffix')}</strong></span>
                                 </li>
                             </ul>
                         </div>
@@ -345,5 +359,15 @@ const TripItineraryPage: React.FC<TripItineraryPageProps> = ({
         </div>
     );
 };
+
+const TripItineraryPage: React.FC<TripItineraryPageProps> = (props) => (
+    <I18nShell 
+        initialLocale={props.initialLocale as Locale} 
+        initialDict={props.initialDict}
+        initialFallbackDict={props.initialFallbackDict}
+    >
+        <TripItineraryPageContent {...props} />
+    </I18nShell>
+);
 
 export default TripItineraryPage;

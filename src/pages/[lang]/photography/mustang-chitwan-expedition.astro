@@ -1,0 +1,62 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import ActivityPage from "../../../components/ActivityPage";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+
+import mustangImg from "../../../assets/images/activities/photography/mustang deserts.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+const trip = tripData("photography.mustang") || {};
+
+const images = [mustangImg.src];
+
+const packingList = [
+    {
+        category: "Camera Gear",
+        items: [
+            "DSLR or Mirrorless Body (Backup body recommended)",
+            "Wide angle lens (16-35mm) for landscapes",
+            "Mid-range zoom (24-70mm) for street/general",
+            "Telephoto lens (70-200mm or longer) for wildlife & portraits",
+            "Fast prime lens (35mm or 50mm f/1.8) for low light",
+            "Tripod for landscapes and long exposures",
+            "Plenty of memory cards and spare batteries",
+            "Polarizing filter and ND filters",
+            "Cleaning kit (dust is an issue in Mustang)",
+        ],
+    },
+];
+---
+<Layout
+    title={`${trip.title || 'Mustang & Chitwan Photography Expedition'} | Marga Adventure`}
+    image={images[0]}
+    keywords="Mustang Chitwan Photography, Tiji Festival photography, Nepal wildlife photography, Upper Mustang trek, landscape photography Nepal"
+>
+    <TripItineraryPage
+        title={trip.title || "Tiji Festival Mustang Adventure"}
+        heroImage={images[0]}
+        overview={trip.overview || ""}
+        highlights={trip.highlights || []}
+        itinerary={trip.itinerary || []}
+        packingList={packingList}
+        showElevationGraph={false}
+        tripStats={{
+            duration: trip.duration || "14 Days",
+            maxAltitude: trip.maxAltitude || "3,840m",
+            difficulty: trip.difficulty || "Moderate",
+            groupSize: trip.groupSize || "2-10",
+            maxAltitudeLabel: trip.maxAltitudeLabel || "Max Altitude",
+        }}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+        initialFallbackDict={enDict}
+    />
+</Layout>

@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Header from "../components/HeaderWrapper.astro";
 import Footer from "../components/FooterWrapper.astro";
 import ImageModal from "../components/ImageModal";
+import { getLangFromUrl, getAlternateUrl } from "../i18n/astro";
 
 const {
     title,
@@ -15,12 +16,22 @@ const {
     schema = null,
 } = Astro.props;
 
-const canonicalURL = new URL(
-    Astro.url.pathname,
-    Astro.site || "https://margaadventure.com",
-);
+// ── Language detection from URL ────────────────────────────────────────────────
+const lang = getLangFromUrl(Astro.url);
+const ogLocale = lang === 'fr' ? 'fr_FR' : 'en_US';
+const ogLocaleAlt = lang === 'fr' ? 'en_US' : 'fr_FR';
+
+// ── Alternate URLs for hreflang ────────────────────────────────────────────────
+const site = Astro.site || "https://margaadventure.com";
+const { enUrl, frUrl } = getAlternateUrl(Astro.url, site);
+const canonicalURL = lang === 'fr' ? frUrl : enUrl;
 
 const socialImageURL = new URL(image, Astro.url);
+
+// ── Skip link label by locale ──────────────────────────────────────────────────
+const skipLabel = lang === 'fr' ? 'Aller au contenu principal' : 'Skip to main content';
+const whatsappLabel = lang === 'fr' ? 'Discutez avec nous sur WhatsApp' : 'Chat with us on WhatsApp';
+const whatsappTooltip = lang === 'fr' ? 'Discutez avec nous' : 'Chat with us';
 
 // Default JSON-LD
 const organizationSchema = {
@@ -46,7 +57,7 @@ const organizationSchema = {
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -65,6 +76,11 @@ const organizationSchema = {
         <meta name="robots" content={robots} />
         <link rel="canonical" href={canonicalURL} />
 
+        <!-- hreflang — multilingual SEO -->
+        <link rel="alternate" hreflang="en" href={enUrl} />
+        <link rel="alternate" hreflang="fr" href={frUrl} />
+        <link rel="alternate" hreflang="x-default" href={enUrl} />
+
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={type} />
         <meta property="og:url" content={canonicalURL} />
@@ -72,8 +88,8 @@ const organizationSchema = {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={socialImageURL} />
         <meta property="og:site_name" content="Marga Adventure" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:locale:alternate" content="fr_FR" />
+        <meta property="og:locale" content={ogLocale} />
+        <meta property="og:locale:alternate" content={ogLocaleAlt} />
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image" />
@@ -99,11 +115,11 @@ const organizationSchema = {
     </head><body class="bg-white text-gray-900 font-sans overflow-x-hidden">
         <a
             href="#main-content"
-            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[200] bg-brand text-white px-4 py-2 rounded-md"
+            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-200 bg-brand text-white px-4 py-2 rounded-md"
         >
-            Skip to main content
+            {skipLabel}
         </a>
-        <Header forceOpaque={headerVariant === "opaque"} />
+        <Header forceOpaque={headerVariant === "opaque"} initialLocale={lang} />
         <ImageModal client:only="react" />
         <main id="main-content">
             <slot />
@@ -112,8 +128,8 @@ const organizationSchema = {
             href="https://wa.me/9779700050945"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Chat with us on WhatsApp"
-            class="fixed bottom-8 right-8 z-[100] flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group"
+            aria-label={whatsappLabel}
+            class="fixed bottom-8 right-8 z-100 flex items-center justify-center w-16 h-16 bg-[#25D366] rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 group"
         >
             <svg
                 class="w-9 h-9 text-white"
@@ -128,219 +144,65 @@ const organizationSchema = {
             </svg>
             <span
                 class="absolute right-full mr-4 bg-white text-black px-3 py-1 rounded-lg text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
-                >Chat with us</span
+                >{whatsappTooltip}</span
             >
         </a>
-        <Footer />
+        <Footer initialLocale={lang} />
 
         <script>
-            // Lightweight image lightbox using event delegation (single listener)
-            // This replaces the heavy MutationObserver approach that was causing 8-15s INP overhead
+            // ── Image Lightbox (event delegation) ──────────────────────────────
             document.addEventListener(
                 "click",
                 (e) => {
                     const target = e.target;
                     if (!target || !(target instanceof HTMLElement)) return;
-
-                    // Check if clicked element is an image
-                    const img =
-                        target instanceof HTMLImageElement ? target : null;
-
-                    // Skip if no image, or if image is inside a link/button, or has no-lightbox attribute
-                    if (
-                        !img ||
-                        img.closest("button, a") ||
-                        img.hasAttribute("data-no-lightbox")
-                    ) {
-                        return;
-                    }
-
-                    // Prevent default and open modal
+                    const img = target instanceof HTMLImageElement ? target : null;
+                    if (!img || img.closest("button, a") || img.hasAttribute("data-no-lightbox")) return;
                     e.preventDefault();
                     e.stopPropagation();
-
-                    window.dispatchEvent(
-                        new CustomEvent("open-image-modal", {
-                            detail: img.src,
-                        }),
-                    );
+                    window.dispatchEvent(new CustomEvent("open-image-modal", { detail: img.src }));
                 },
                 { passive: false },
-            ); // Non-passive only for preventDefault
+            );
 
-            // Optional: Add keyboard support via focus (much lighter than attaching to all images)
             document.addEventListener("keydown", (e) => {
                 const activeEl = document.activeElement;
-                if (
-                    (e.key === "Enter" || e.key === " ") &&
-                    activeEl instanceof HTMLImageElement
-                ) {
-                    if (
-                        !activeEl.closest("button, a") &&
-                        !activeEl.hasAttribute("data-no-lightbox")
-                    ) {
+                if ((e.key === "Enter" || e.key === " ") && activeEl instanceof HTMLImageElement) {
+                    if (!activeEl.closest("button, a") && !activeEl.hasAttribute("data-no-lightbox")) {
                         e.preventDefault();
-                        window.dispatchEvent(
-                            new CustomEvent("open-image-modal", {
-                                detail: activeEl.src,
-                            }),
-                        );
+                        window.dispatchEvent(new CustomEvent("open-image-modal", { detail: activeEl.src }));
                     }
                 }
             });
 
-            // Google Translate Integration
-            const getCookie = (name: string): string | null => {
-                const match = document.cookie.match(
-                    new RegExp("(^| )" + name + "=([^;]+)"),
-                );
-                if (match) return match[2];
-                return null;
-            };
+            // ── i18n: sync <html lang> + localStorage on locale change ─────────
+            window.addEventListener("marga:language-changed", (e) => {
+                const locale = (e as CustomEvent<string>).detail;
+                if (!locale) return;
+                document.documentElement.lang = locale;
+                // Navigate to the locale-prefixed URL
+                const path = window.location.pathname;
 
-            const dispatchLanguageChange = (lang: string): void => {
-                window.dispatchEvent(
-                    new CustomEvent("language-changed", { detail: lang }),
-                );
-            };
-
-            // Helper to check current language
-            const getCurrentLang = () => {
-                const cookie = getCookie("googtrans");
-                if (cookie && cookie.includes("/fr")) {
-                    return "fr";
-                }
-                return "en";
-            };
-
-            // Check initial state on load - Dispatch immediately and on load to be safe
-            const initLang = getCurrentLang();
-            dispatchLanguageChange(initLang);
-            window.addEventListener("load", () => {
-                dispatchLanguageChange(getCurrentLang());
-            });
-
-            window.addEventListener("trigger-translation-toggle", () => {
-                const currentLang = getCurrentLang();
-                const targetLang = currentLang === "fr" ? "en" : "fr";
-
-                // Cookie-based toggling
-                // We use 'auto' as the source language for better reliability
-
-                if (targetLang === "en") {
-                    // Aggressively clear cookies to revert to English
-                    document.cookie =
-                        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                    document.cookie =
-                        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" +
-                        window.location.hostname;
-                    document.cookie =
-                        "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." +
-                        window.location.hostname;
+                if (locale === 'fr') {
+                    if (path.startsWith('/en')) {
+                        window.location.href = path.replace(/^\/en/, '/fr');
+                    } else if (!path.startsWith('/fr')) {
+                        window.location.href = `/fr${path === '/' ? '' : path}`;
+                    }
                 } else {
-                    // Set cookie to force French translation (/auto/fr)
-                    document.cookie = "googtrans=/auto/fr; path=/;";
-                    document.cookie =
-                        "googtrans=/auto/fr; path=/; domain=" +
-                        window.location.hostname;
-                    document.cookie =
-                        "googtrans=/auto/fr; path=/; domain=." +
-                        window.location.hostname;
+                    if (path.startsWith('/fr')) {
+                        window.location.href = path.replace(/^\/fr/, '/en');
+                    } else if (!path.startsWith('/en')) {
+                        window.location.href = `/en${path === '/' ? '' : path}`;
+                    }
                 }
-
-                // Give the browser a moment to persist the cookie before reloading
-                setTimeout(() => {
-                    window.location.reload();
-                }, 100);
             });
+
+            // ── Sync lang attribute from URL on page load ──────────────────────
+            const urlLang = window.location.pathname.startsWith('/fr') ? 'fr' : 'en';
+            document.documentElement.lang = urlLang;
+            // Keep localStorage in sync with URL
+            localStorage.setItem('marga_lang', urlLang);
         </script>
-
-        <!-- Google Translate Widget (Hidden but active) -->
-        <div
-            id="google_translate_element"
-            style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; padding:0; margin:-1px;"
-        >
-        </div>
-
-        <!-- Google Translate - Deferred Loading to prevent breaking React -->
-        <script type="text/javascript" is:inline>
-            // Define the callback globally BEFORE loading the script
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement(
-                    {
-                        pageLanguage: "en",
-                        includedLanguages: "en,fr",
-                        autoDisplay: false,
-                        layout: google.translate.TranslateElement.InlineLayout
-                            .SIMPLE,
-                    },
-                    "google_translate_element",
-                );
-                console.log("✅ Google Translate initialized");
-            }
-
-            // Defer loading Google Translate to prevent breaking React hydration
-            function loadGoogleTranslate() {
-                // Only load if not already loaded
-                if (window.google && window.google.translate) {
-                    console.log("Google Translate already loaded");
-                    return;
-                }
-
-                console.log("Loading Google Translate script...");
-                const script = document.createElement("script");
-                script.type = "text/javascript";
-                script.src =
-                    "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-                script.async = true;
-                document.body.appendChild(script);
-            }
-
-            // Wait for everything to be ready before loading Google Translate
-            // This ensures React has hydrated and event listeners are attached
-            if (document.readyState === "complete") {
-                // Page already loaded, wait a bit more for React
-                setTimeout(loadGoogleTranslate, 2000);
-            } else {
-                window.addEventListener("load", function () {
-                    // Wait 2 seconds after load for React to fully hydrate
-                    setTimeout(loadGoogleTranslate, 2000);
-                });
-            }
-        </script>
-
-        <style is:global>
-            /* Hide Google Translate Toolbar */
-            .goog-te-banner-frame.skiptranslate {
-                display: none !important;
-            }
-            body {
-                top: 0px !important;
-            }
-            /* Hide Google Translate Tooltips */
-            .goog-tooltip {
-                display: none !important;
-            }
-            .goog-te-gadget-icon {
-                display: none !important;
-            }
-            /* Hide Google Translate elements that might block clicks */
-            .goog-te-menu-frame,
-            .goog-te-menu2,
-            .goog-te-balloon-frame,
-            #goog-gt-tt,
-            .goog-te-spinner-pos,
-            .goog-te-ftab-float {
-                display: none !important;
-            }
-            iframe.goog-te-menu-frame,
-            iframe.goog-te-banner-frame {
-                display: none !important;
-            }
-            /* Google Translate sometimes adds font elements that interfere */
-            font[style*="background-color"] {
-                background-color: transparent !important;
-            }
-        </style>
     </body>
 </html>

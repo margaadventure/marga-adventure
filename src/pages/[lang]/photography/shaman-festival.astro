@@ -1,0 +1,42 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import Layout from "../../../layouts/Layout.astro";
+import ExpeditionSpecialLayout from "../../../components/ExpeditionSpecialLayout";
+
+import shamanImg1 from "../../../assets/images/activities/photography/Shaman 1.webp";
+import shamanImg2 from "../../../assets/images/activities/photography/Shaman nepal.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+const trip = tripData("photography.shaman") || {};
+
+const images = [shamanImg1.src, shamanImg2.src];
+---
+<Layout
+    title={`${trip.title || 'Shaman Festival Photography'} | Marga Adventure`}
+    image={images[0]}
+    keywords="Shaman Festival Nepal, Lukum village shaman, Nepal cultural photography, mystical Nepal tours, adventure photography Nepal"
+>
+    <ExpeditionSpecialLayout
+        title={trip.title || "Shaman Festival"}
+        overview={trip.overview || ""}
+        images={images}
+        highlights={trip.highlights || []}
+        features={trip.features || []}
+        tripStats={{
+            destination: trip.destination || "East Rukum, Nepal",
+            difficulty: trip.difficulty || "Moderate",
+            groupSize: trip.groupSize || "4-8",
+            season: trip.season || "Mid-July",
+        }}
+        client:visible
+     initialLocale={lang}
+     initialDict={dict}
+     initialFallbackDict={enDict} />
+</Layout>

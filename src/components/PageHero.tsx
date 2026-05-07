@@ -27,7 +27,7 @@ const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: 
               srcSet={imageSrcSet}
               sizes="100vw"
               className="fixed inset-0 w-full h-full object-cover opacity-80 z-0 pointer-events-none"
-              alt="Hero Background"
+              alt={title || "Hero Background"}
               width="2560"
               height="1440"
               decoding="async"
@@ -39,7 +39,7 @@ const PageHero: React.FC<PageHeroProps & { parallax?: boolean; overlayOpacity?: 
             src={image}
             srcSet={imageSrcSet}
             sizes="100vw"
-            className="w-full h-full object-cover opacity-80 scale-100 group-hover:scale-105 transition-transform duration-[2000ms] ease-out"
+            className="w-full h-full object-cover opacity-80 scale-100 group-hover:scale-105 transition-transform duration-2000 ease-out"
             alt={title}
             width="2560"
             height="1440"

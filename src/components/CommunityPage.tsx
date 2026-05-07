@@ -1,6 +1,7 @@
 
 import React from 'react';
 import PageHero from './PageHero';
+import { useTranslation } from '../i18n/useTranslation';
 
 // Import images
 import schoolGroupImg from '../assets/images/Community/school-group.webp';
@@ -9,32 +10,36 @@ import libraryBalloonsImg from '../assets/images/Community/library-balloons.webp
 import playgroundFunImg from '../assets/images/Community/playground-fun.webp';
 
 const CommunityPage: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white">
       <PageHero
-        title="Our Community"
-        subtitle="We believe that tourism should leave a footprint of kindness, not just boots in the snow."
+        title={t('community.heroTitle')}
+        subtitle={t('community.heroSubtitle')}
         image={schoolGroupImg.src}
       />
 
       <section className="py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
           <div>
-            <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-4 block">Social Impact Partner</span>
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">Bravehearts <span className="italic font-light text-brand font-serif">Nepal</span></h2>
+            <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-4 block">{t('community.impactLabel')}</span>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
+              {t('community.braveheartsHeading')} <span className="italic font-light text-brand font-serif">Nepal</span>
+            </h2>
             <div className="space-y-6 text-gray-500 text-lg leading-relaxed font-light mb-10">
               <p className="italic text-gray-600 border-l-4 border-brand pl-6">
-                "Nepal is not just a destination to us; it is our home. We are dedicated to ensuring that the beauty of the Himalayas and culture is preserved for future generations and that the communities who host us benefit directly from your visit."
+                "{t('community.braveheartsQuote')}"
               </p>
               <p>
-                <strong>Bravehearts Nepal</strong> is a non-profit organization founded in the aftermath of the 2015 earthquake. Their mission is to build knowledgeable and socially empowered communities where local people drive their own transformation.
+                <strong>Bravehearts Nepal</strong> {t('community.braveheartsDesc1')}
               </p>
               <p>
-                We stand with their vision of creating self-reliant communities through decentralized and inclusive development. By choosing Marga, you support their vital work in education, child welfare, and community empowerment across the nation.
+                {t('community.braveheartsDesc2')}
               </p>
             </div>
             <a href="https://braveheartsnepal.org.np/" target="_blank" rel="noopener noreferrer" className="px-12 py-5 bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] rounded-full hover:bg-brand-dark transition-all shadow-xl hover:shadow-brand/30 flex items-center gap-6 w-fit">
-              Visit Bravehearts Website <span>→</span>
+              {t('community.visitWebsite')} <span>→</span>
             </a>
           </div>
 
@@ -48,9 +53,9 @@ const CommunityPage: React.FC = () => {
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute bottom-0 left-0 w-full p-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-white">
-                <p className="font-bold text-2xl mb-2">Sharing Warmth</p>
-                <p className="text-xs uppercase tracking-widest opacity-80">Winter Blanket Drive</p>
+              <div className="absolute bottom-0 left-0 w-full p-10 bg-linear-to-t from-black/90 via-black/50 to-transparent text-white">
+                <p className="font-bold text-2xl mb-2">{t('community.sharingWarmth')}</p>
+                <p className="text-xs uppercase tracking-widest opacity-80">{t('community.blanketDrive')}</p>
               </div>
             </div>
           </div>
@@ -59,7 +64,7 @@ const CommunityPage: React.FC = () => {
 
       <section className="py-24 bg-brand-dark text-white border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h3 className="text-3xl font-bold mb-16">Stories of Hope</h3>
+          <h3 className="text-3xl font-bold mb-16">{t('community.storiesHeading')}</h3>
           <div className="grid md:grid-cols-3 gap-8">
 
             {/* Card 1 */}
@@ -68,10 +73,9 @@ const CommunityPage: React.FC = () => {
                 <img src={libraryBalloonsImg.src} alt="Library Project" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
               </div>
               <div className="p-8 text-left">
-
-                <div className="text-xl font-bold mb-2">Active Learning</div>
-                <p className="text-xs uppercase tracking-widest opacity-60 mb-4">Library Projects</p>
-                <p className="text-sm opacity-80 font-light">Creating vibrant spaces like the Shree Nepal National Secondary School library where curiosity takes flight.</p>
+                <div className="text-xl font-bold mb-2">{t('community.card1Title')}</div>
+                <p className="text-xs uppercase tracking-widest opacity-60 mb-4">{t('community.card1Label')}</p>
+                <p className="text-sm opacity-80 font-light">{t('community.card1Body')}</p>
               </div>
             </div>
 
@@ -81,10 +85,9 @@ const CommunityPage: React.FC = () => {
                 <img src={playgroundFunImg.src} alt="Playground Fun" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
               </div>
               <div className="p-8 text-left">
-
-                <div className="text-xl font-bold mb-2">Joyful Childhood</div>
-                <p className="text-xs uppercase tracking-widest opacity-60 mb-4">Recreation Support</p>
-                <p className="text-sm opacity-80 font-light">Ensuring every child has the right to play. Building safe playgrounds that echo with laughter and happiness.</p>
+                <div className="text-xl font-bold mb-2">{t('community.card2Title')}</div>
+                <p className="text-xs uppercase tracking-widest opacity-60 mb-4">{t('community.card2Label')}</p>
+                <p className="text-sm opacity-80 font-light">{t('community.card2Body')}</p>
               </div>
             </div>
 
@@ -94,10 +97,9 @@ const CommunityPage: React.FC = () => {
                 <img src={schoolGroupImg.src} alt="Babuko Asha Project" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" loading="lazy" decoding="async" />
               </div>
               <div className="p-8 text-left">
-
-                <div className="text-xl font-bold mb-2">Babuko Asha</div>
-                <p className="text-xs uppercase tracking-widest opacity-60 mb-4">Community Trust</p>
-                <p className="text-sm opacity-80 font-light">"Babuko Asha" means "Father's Hope". We partner with local schools to honor heritage while building a modern future.</p>
+                <div className="text-xl font-bold mb-2">{t('community.card3Title')}</div>
+                <p className="text-xs uppercase tracking-widest opacity-60 mb-4">{t('community.card3Label')}</p>
+                <p className="text-sm opacity-80 font-light">{t('community.card3Body')}</p>
               </div>
             </div>
 

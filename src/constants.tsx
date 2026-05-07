@@ -64,53 +64,37 @@ export const JOURNEY_CATEGORIES = [
   {
     id: 'spiritual',
     title: 'Awakening Your Inner Compass',
+    titleKey: 'home.spiritualTitle',
     description: 'Spirituality is the quiet conversation between your true self and the universe. It is a profound stillness that transcends religious dogmas. Nepal is a sanctuary where the peaks of the Himalayas meet ancient wisdom. Marga carves the route to self through these monumental experiences.',
-    images: [
-      spiritual1,
-      spiritual2,
-      spiritual3,
-      spiritual4,
-      spiritual5
-    ],
+    descriptionKey: 'home.spiritualDesc',
+    images: [spiritual1, spiritual2, spiritual3, spiritual4, spiritual5],
     alignment: 'right' as const
   },
   {
     id: 'photography',
     title: 'Capture The Soul Of Himalayas',
+    titleKey: 'home.photographyTitle',
     description: 'Chase the shifting light  where earth meets heaven. From the fluttering dance of prayer flags to the ringing silence of the snow-crowned giants, We invite you to frame stories etched in stone and spirit.',
-    images: [
-      photo1,
-      photo2,
-      photo3,
-      photo4,
-      photo5
-    ],
+    descriptionKey: 'home.photographyDesc',
+    images: [photo1, photo2, photo3, photo4, photo5],
     alignment: 'left' as const
   },
   {
     id: 'wildlife',
-    title: 'Wild Secrets',
+    title: 'Wild Moments',
+    titleKey: 'home.wildlifeTitle',
     description: 'Wander where the jungle breathes. Feel the vibration of the tiger’s prowl in golden grassland and watch the armored rhino emerge from the silver morning mist. This is a true Marga(path) into the heart of the wild. Every rustle reveals a new, untamed story.',
-    images: [
-      wildlife1,
-      wildlife2,
-      wildlife3,
-      wildlife4,
-      wildlife5
-    ],
+    descriptionKey: 'home.wildlifeDesc',
+    images: [wildlife1, wildlife2, wildlife3, wildlife4, wildlife5],
     alignment: 'right' as const
   },
   {
     id: 'trekking',
     title: 'Trails of Timeless Spirit',
+    titleKey: 'home.trekkingTitle',
     description: 'Traverse ancient trails where the majesty of the Himalayas meets deep-rooted traditions.Trekking here is a physical prayer. Marga would walk along with you in every encounter with vivid mani walls and the soft hum of remote monasteries',
-    images: [
-      trekking1,
-      trekking2,
-      trekking3,
-      trekking4,
-      trekking5
-    ],
+    descriptionKey: 'home.trekkingDesc',
+    images: [trekking1, trekking2, trekking3, trekking4, trekking5],
     alignment: 'left' as const
   }
 ];
@@ -118,20 +102,28 @@ export const JOURNEY_CATEGORIES = [
 export const TESTIMONIALS = [
   {
     text: '“Having traveled for over 30 years and worked with many guides, I can confidently say Buddhiman is the best. He is organized, punctual, knowledgeable about Nepal, and a reassuring guide with genuine values. Flexible, attentive, discreet, and responsive, Boudhiman ensures the most wonderful adventures. Trust his agency to make your Nepalese dreams a reality.”',
+    textKey: 'home.testimonial1Text',
     author: 'Pierre-Etienne Vincent',
-    role: 'France, Publisher and Editor-in-Chief Le Temps d’un Voyage'
+    authorKey: 'home.testimonial1Author',
+    role: 'France, Publisher and Editor-in-Chief Le Temps d’un Voyage',
+    roleKey: 'home.testimonial1Role'
   },
   {
     text: '“Buddhimnan is an exceptional, long-time acquaintance. He is serious, professional, attentive, and speaks perfect French, simplifying communication during our Nepal trips. Cultured and passionate, he cheerfully and kindly shares his country\'s beauty. His extensive skills allow him to guide us on both mountain treks and sightseeing tours. I highly recommend him; he will make you love Nepal and ensure an unforgettable trip.”',
+    textKey: 'home.testimonial2Text',
     author: 'Nelly Guigue',
-    role: 'France'
+    authorKey: 'home.testimonial2Author',
+    role: 'France',
+    roleKey: 'home.testimonial2Role'
   },
   {
     text: '“Since 2014, Buddhiman Tamang has provided exceptional trekking experiences to me and my groups in Nepal. A warm, competent, and multilingual tour leader (French and English), he expertly tailors trips to client wishes. Highly recommended for his efficiency and positive spirit, Buddhiman ensures every journey through Nepal’s stunning regions is professional and truly unforgettable.”',
+    textKey: 'home.testimonial3Text',
     author: 'Yvonne Decrey',
-    role: 'Switzerland'
+    authorKey: 'home.testimonial3Author',
+    role: 'Switzerland',
+    roleKey: 'home.testimonial3Role'
   },
-
 ];
 
 import logoImage from './assets/logo.webp';
@@ -154,25 +146,25 @@ export const LogoIcon = ({ className = "w-10 h-10" }: { className?: string }) =>
 };
 
 export const NEPAL_NAV_ITEMS = [
-  { name: 'Nepal', href: '/nepal' },
-  { name: 'Wildlife', href: '/wildlife' },
-  { name: 'Trekking', href: '/trekking' },
-  { name: 'Photography', href: '/photography' },
-  { name: 'Spiritual Retreat', href: '/spiritual' },
+  { name: 'Nepal', nameKey: 'destinations.nepal', href: '/nepal' },
+  { name: 'Wildlife', nameKey: 'destinations.wildlife', href: '/wildlife' },
+  { name: 'Trekking', nameKey: 'destinations.trekking', href: '/trekking' },
+  { name: 'Photography', nameKey: 'destinations.photography', href: '/photography' },
+  { name: 'Spiritual Retreat', nameKey: 'destinations.spiritualRetreat', href: '/spiritual' },
 ];
 
 export const BHUTAN_NAV_ITEMS = [
-  { name: 'Kingdom of Bhutan', href: '/bhutan' }
+  { name: 'Kingdom of Bhutan', nameKey: 'destinations.kingdomOfBhutan', href: '/bhutan' }
 ];
 
 export const TIBET_NAV_ITEMS = [
-  { name: 'Roof of the World', href: '/tibet' }
+  { name: 'Roof of the World', nameKey: 'destinations.roofOfTheWorld', href: '/tibet' }
 ];
 
 export const MAIN_NAV_ITEMS = [
-  { name: 'Home', href: '/' },
-  { name: 'Community', href: '/community' },
-  { name: 'About Us', href: '/about' },
-  { name: 'The Journal', href: '/blog' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', nameKey: 'nav.home', href: '/' },
+  { name: 'Community', nameKey: 'nav.community', href: '/community' },
+  { name: 'About Us', nameKey: 'nav.about', href: '/about' },
+  { name: 'The Journal', nameKey: 'nav.journal', href: '/blog' },
+  { name: 'Contact', nameKey: 'nav.contact', href: '/contact' },
 ];

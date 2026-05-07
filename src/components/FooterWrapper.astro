@@ -1,17 +1,11 @@
 ---
-import Footer from "./Footer";
 import { getImage } from "astro:assets";
+import I18nFooterShell from "./I18nFooterShell";
 
 // Import logos to be optimized
 import ntbLogo from "../assets/images/logos/Nepal-Tourism-Board_Logo-full.webp";
 import taanLogo from "../assets/images/logos/taan-logo.webp";
 import nmaLogo from "../assets/images/logos/NMA-Logo-removebg-preview.webp";
-
-const footerData = {
-    ntb: ntbLogo,
-    taan: taanLogo,
-    nma: nmaLogo,
-};
 
 // Optimize logos
 const ntbSrc = (
@@ -29,6 +23,11 @@ const footerImages = {
     taan: taanSrc,
     nma: nmaSrc,
 };
+
+import { useAstroI18n } from "../i18n/astro";
+
+const { initialLocale } = Astro.props;
+const { dict, enDict } = await useAstroI18n(Astro.url);
 ---
 
-<Footer client:visible footerImages={footerImages} />
+<I18nFooterShell client:load initialLocale={initialLocale as any} initialDict={dict} initialFallbackDict={enDict} footerImages={footerImages} />

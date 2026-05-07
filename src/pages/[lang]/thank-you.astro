@@ -1,0 +1,81 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import type { Locale } from "../../i18n/i18n";
+const { t } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout title={t("thankYou.heading")} robots="noindex, nofollow">
+    <div
+        class="relative h-screen flex items-center justify-center overflow-hidden bg-black"
+    >
+        <div class="absolute inset-0">
+            <img
+                src="/images/activities/spiritual/meditation-spiritual_2.webp"
+                alt="Thank You"
+                class="w-full h-full object-cover opacity-50"
+            />
+            <div
+                class="absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80"
+            >
+            </div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-2xl mx-auto">
+            <div
+                class="w-20 h-20 bg-brand/20 rounded-full flex items-center justify-center mx-auto mb-8 animate-fade-in-up"
+            >
+                <svg
+                    class="w-10 h-10 text-brand"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+
+            <h1
+                class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight animate-fade-in-up"
+                style="animation-delay: 0.1s"
+            >
+                {t("thankYou.heading")}
+            </h1>
+
+            <p
+                class="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-12 animate-fade-in-up"
+                style="animation-delay: 0.2s"
+            >
+                {t("thankYou.body")}
+            </p>
+
+            <a
+                href={`/${lang}`}
+                class="inline-flex items-center gap-3 bg-brand text-white px-8 py-4 font-bold uppercase tracking-widest text-xs hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-xl hover:shadow-brand/20 animate-fade-in-up"
+                style="animation-delay: 0.3s"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                {t("thankYou.returnHome")}
+            </a>
+        </div>
+    </div>
+</Layout>

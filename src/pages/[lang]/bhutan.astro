@@ -1,0 +1,72 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import { I18nDestinationShell } from "../../components/I18nActivityShells";
+import { getImage } from "astro:assets";
+import bhutanBg from "../../assets/images/destinations/bhutan/Bhutan-bg.webp";
+import bhutanGate from "../../assets/images/destinations/bhutan/bhutan-gate.webp";
+import bhutanWeave from "../../assets/images/destinations/bhutan/bhutan-weave.webp";
+import bhutanFurniture from "../../assets/images/destinations/bhutan/bhutan-furniture.webp";
+import type { Locale } from "../../i18n/i18n";
+
+const optimizedBg = await getImage({
+    src: bhutanBg,
+    format: "webp",
+    width: 2560,
+});
+const optimizedGate = await getImage({
+    src: bhutanGate,
+    format: "webp",
+    width: 800,
+});
+const optimizedWeave = await getImage({
+    src: bhutanWeave,
+    format: "webp",
+    width: 800,
+});
+const optimizedFurniture = await getImage({
+    src: bhutanFurniture,
+    format: "webp",
+    width: 800,
+});
+const { t, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout
+    title={t("destinations.bhutanContent.title")}
+    description={t("destinations.bhutanContent.description")}
+    image={optimizedBg.src}
+    keywords={lang === 'en' ? "Bhutan travel, Bhutan tours, Tiger's Nest, Bhutan trekking, cultural tours Bhutan, Paro Dzong, Thimphu, luxury travel Bhutan" : "Voyage Bhoutan, circuits Bhoutan, Nid du Tigre, trekking Bhoutan, circuits culturels Bhoutan, Paro Dzong, Thimphu, voyage luxe Bhoutan"}
+>
+    <I18nDestinationShell
+        country={t("destinations.bhutanContent.title")}
+        heroImage={optimizedBg.src}
+        mainTitle={t("destinations.bhutanContent.mainTitle")}
+        description={t("destinations.bhutanContent.description")}
+        features={[
+            {
+                title: t("destinations.bhutanContent.architecturalMarvels"),
+                text: t("destinations.bhutanContent.architecturalMarvelsText"),
+                image: optimizedGate.src,
+            },
+            {
+                title: t("destinations.bhutanContent.livingHeritage"),
+                text: t("destinations.bhutanContent.livingHeritageText"),
+                image: optimizedWeave.src,
+            },
+            {
+                title: t("destinations.bhutanContent.sacredArts"),
+                text: t("destinations.bhutanContent.sacredArtsText"),
+                image: optimizedFurniture.src,
+            },
+        ]}
+        client:visible
+        initialLocale={lang}
+        initialDict={dict}
+        initialFallbackDict={enDict}
+    />
+</Layout>

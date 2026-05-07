@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from '../i18n/useTranslation';
 import contactHeroBg from '../assets/images/country/contact.webp';
 
 const ContactPage: React.FC = () => {
@@ -9,6 +10,7 @@ const ContactPage: React.FC = () => {
    const [formKey, setFormKey] = useState(0);
    const [loadMap, setLoadMap] = useState(false);
    const mapRef = React.useRef<HTMLDivElement>(null);
+   const { t } = useTranslation();
 
    React.useEffect(() => {
       const observer = new IntersectionObserver((entries) => {
@@ -39,14 +41,12 @@ const ContactPage: React.FC = () => {
    // Reinitialize Web3Forms script when formKey changes (form reset)
    React.useEffect(() => {
       if (formKey > 0) {
-         // Remove and re-add the script to force reinitialization
          const scriptId = 'web3forms-script';
          const existingScript = document.getElementById(scriptId);
          if (existingScript) {
             existingScript.remove();
          }
 
-         // Wait a bit for old widgets to cleanup, then reload script
          setTimeout(() => {
             const script = document.createElement('script');
             script.id = scriptId;
@@ -66,11 +66,11 @@ const ContactPage: React.FC = () => {
       const email = formData.get('email') as string;
       const msg = formData.get('message') as string;
 
-      if (!name || name.length < 2) newErrors.name = 'Name must be at least 2 characters.';
-      if (!phone || phone.length < 7) newErrors.phone = 'Please enter a valid phone number.';
+      if (!name || name.length < 2) newErrors.name = t('contact.validationName');
+      if (!phone || phone.length < 7) newErrors.phone = t('contact.validationPhone');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email || !emailRegex.test(email)) newErrors.email = 'Please enter a valid email address.';
-      if (!msg || msg.length < 10) newErrors.message = 'Message must be at least 10 characters.';
+      if (!email || !emailRegex.test(email)) newErrors.email = t('contact.validationEmail');
+      if (!msg || msg.length < 10) newErrors.message = t('contact.validationMessage');
 
       return newErrors;
    };
@@ -91,7 +91,7 @@ const ContactPage: React.FC = () => {
       // Check if hCaptcha response exists
       const captchaResponse = formData.get('h-captcha-response');
       if (!captchaResponse || captchaResponse === '') {
-         setMessage('Please complete the captcha verification before submitting.');
+         setMessage(t('contact.captchaError'));
          return;
       }
 
@@ -107,12 +107,12 @@ const ContactPage: React.FC = () => {
 
          if (data.success) {
             setIsSuccess(true);
-            e.currentTarget.reset(); // Reset form fields
+            e.currentTarget.reset();
          } else {
-            setMessage(data.message || "Something went wrong. Please try again.");
+            setMessage(data.message || t('contact.errorGeneric'));
          }
       } catch (error) {
-         setMessage("An error occurred. Please try again later.");
+         setMessage(t('contact.errorNetwork'));
       } finally {
          setIsSubmitting(false);
       }
@@ -120,7 +120,7 @@ const ContactPage: React.FC = () => {
 
    const handleSendAnother = () => {
       setIsSuccess(false);
-      setFormKey(prev => prev + 1); // Force form remount to reload captcha
+      setFormKey(prev => prev + 1);
       setMessage('');
       setErrors({});
    };
@@ -138,13 +138,13 @@ const ContactPage: React.FC = () => {
          <div className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
             <img
                src={contactHeroBg.src}
-               alt="Marga Adventure Contact Support and Headquarters in Kathmandu"
+               alt={t('home.heroAlt')}
                className="absolute inset-0 w-full h-full object-cover"
                fetchPriority="high"
                decoding="async"
             />
             <div className="relative z-10 text-center text-white px-6 -translate-y-12">
-               <h1 className="text-5xl md:text-7xl font-bold tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">Get In <span className="italic font-serif text-brand drop-shadow-none">Touch</span></h1>
+               <h1 className="text-5xl md:text-7xl font-bold tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">{t('contact.pageTitle')} <span className="italic font-serif text-brand drop-shadow-none">{t('contact.pageTitleHighlight')}</span></h1>
             </div>
          </div>
 
@@ -153,7 +153,8 @@ const ContactPage: React.FC = () => {
             {/* Info Side */}
             <div className="min-w-0 order-2 lg:order-1">
                <p className="text-gray-500 text-lg font-light mb-16 leading-relaxed">
-                  Your journey, your rhythm. Let’s design a bespoke Nepalese escape that mirrors your personal style, turning your travel dreams into a perfectly tailored reality.</p>
+                  {t('contact.tagline')}
+               </p>
 
                <div className="space-y-12">
                   <div className="flex gap-6 items-start group">
@@ -161,7 +162,7 @@ const ContactPage: React.FC = () => {
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                      </div>
                      <div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">Sanctuary HQ</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">{t('contact.sanctuaryHq')}</h3>
                         <p className="text-gray-600 font-light">Baneshwor, Kathmandu<br />Bagmati, Nepal</p>
                      </div>
                   </div>
@@ -171,7 +172,7 @@ const ContactPage: React.FC = () => {
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                      </div>
                      <div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">Contact</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">{t('contact.contactLabel')}</h3>
                         <p className="text-gray-500 text-sm">info@margaadventure.com</p>
                      </div>
                   </div>
@@ -181,7 +182,7 @@ const ContactPage: React.FC = () => {
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
                      </div>
                      <div>
-                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">WhatsApp</h3>
+                        <h3 className="font-bold text-gray-900 uppercase tracking-widest text-sm mb-2">{t('contact.whatsapp')}</h3>
                         <p className="text-gray-600 font-light">+977 970-0050945</p>
                      </div>
                   </div>
@@ -194,13 +195,13 @@ const ContactPage: React.FC = () => {
                         <iframe
                            className="w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
                            src="https://maps.google.com/maps?q=Marga+Adventure,+Kathmandu&z=15&output=embed"
-                           title="Marga Adventure Location"
+                           title={t('contact.locationTitle')}
                            loading="lazy"
                         >
                         </iframe>
                      ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                           <span className="text-gray-400 text-xs tracking-widest uppercase">Loading Map...</span>
+                           <span className="text-gray-400 text-xs tracking-widest uppercase">{t('contact.loadingMap')}</span>
                         </div>
                      )}
                      <div className="absolute top-0 left-0 w-full h-full pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
@@ -217,33 +218,35 @@ const ContactPage: React.FC = () => {
                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                      </div>
-                     <h3 className="text-3xl font-bold text-gray-900 mb-6">Message Sent!</h3>
+                     <h3 className="text-3xl font-bold text-gray-900 mb-6">{t('contact.successHeading')}</h3>
                      <p className="text-gray-600 mb-8 text-lg">
-                        Thank you for reaching out to Marga Adventure.
-                        <br />We will review your message and get back to you shortly.
+                        {t('contact.successBody', { brand: '<span translate="no">Marga Adventure</span>' }).split('<span translate="no">Marga Adventure</span>').map((part, i, arr) =>
+                           i < arr.length - 1
+                              ? <React.Fragment key={i}>{part}<span className="notranslate">Marga Adventure</span></React.Fragment>
+                              : part
+                        )}
                      </p>
                      <button
                         onClick={handleSendAnother}
                         className="inline-block bg-brand text-white px-8 py-3 font-bold uppercase tracking-widest text-xs hover:bg-brand-dark transition-all"
                      >
-                        Send Another Message
+                        {t('contact.sendAnother')}
                      </button>
                   </div>
                ) : (
                   <form key={formKey} onSubmit={handleSubmit} className="space-y-6" noValidate>
                      <input type="hidden" name="access_key" value="a2f684a6-449b-4aba-9c0a-fcb41244f207" />
-                     <input type="hidden" name="subject" value="New Contact Form Submission - Marga Adventure" />
+                     <input type="hidden" name="subject" value={`${t('contact.enquirySubject')} - Marga Adventure`} />
                      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-                     {/* Web3Forms hCaptcha Widget Container moved to bottom */}
 
                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Full Name *</label>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formName')}</label>
                         <input
                            type="text"
                            name="name"
                            required
                            className={`w-full bg-white border p-4 rounded-none focus:outline-none focus:ring-4 transition-all font-light ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-brand focus:ring-brand/10'}`}
-                           placeholder="Your Name"
+                           placeholder={t('contact.formNamePlaceholder')}
                            onInput={handleInput}
                         />
                         {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -251,25 +254,25 @@ const ContactPage: React.FC = () => {
 
                      <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                           <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Phone Number *</label>
+                           <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formPhone')}</label>
                            <input
                               type="tel"
                               name="phone"
                               required
                               className={`w-full bg-white border p-4 rounded-none focus:outline-none focus:ring-4 transition-all font-light ${errors.phone ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-brand focus:ring-brand/10'}`}
-                              placeholder="987654321"
+                              placeholder={t('contact.formPhonePlaceholder')}
                               onInput={handleInput}
                            />
                            {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                         </div>
                         <div>
-                           <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Email Address *</label>
+                           <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formEmail')}</label>
                            <input
                               type="email"
                               name="email"
                               required
                               className={`w-full bg-white border p-4 rounded-none focus:outline-none focus:ring-4 transition-all font-light ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-brand focus:ring-brand/10'}`}
-                              placeholder="email@example.com"
+                              placeholder={t('contact.formEmailPlaceholder')}
                               onInput={handleInput}
                            />
                            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -277,13 +280,13 @@ const ContactPage: React.FC = () => {
                      </div>
 
                      <div>
-                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">Message *</label>
+                        <label className="block text-xs font-bold uppercase tracking-widest text-gray-500 mb-2 ml-1">{t('contact.formMessage')}</label>
                         <textarea
                            name="message"
                            required
                            rows={6}
                            className={`w-full bg-white border p-4 rounded-none focus:outline-none focus:ring-4 transition-all font-light ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-100' : 'border-gray-200 focus:border-brand focus:ring-brand/10'}`}
-                           placeholder="Tell us about your dream journey..."
+                           placeholder={t('contact.formMessagePlaceholder')}
                            onInput={handleInput}
                         ></textarea>
                         {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -302,7 +305,7 @@ const ContactPage: React.FC = () => {
                         disabled={isSubmitting}
                         className="w-full bg-brand text-white text-[10px] font-bold uppercase tracking-[0.4em] py-5 rounded-none hover:bg-brand-dark transition-all shadow-xl hover:shadow-brand/20 hover:-translate-y-1 disabled:opacity-70 disabled:cursor-not-allowed"
                      >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        {isSubmitting ? t('contact.submitSending') : t('contact.submitButton')}
                      </button>
                   </form>
                )}

@@ -1,0 +1,38 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+import mustangImg from "../../../assets/images/activities/trekking/upper-Mustang_trekking.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { t, tripData: tripDataFn, dict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+
+const td = tripDataFn("trekking.upper-mustang") as any;
+---
+<Layout
+    title={td.title}
+    image={mustangImg.src}
+    keywords="Upper Mustang Trek, Lo Manthang trek, forbidden kingdom Nepal, Tibetan culture Nepal, monsoon trekking Nepal"
+>
+    <TripItineraryPage
+        title={td.title}
+        subtitle={td.subtitle}
+        heroImage={mustangImg.src}
+        overview={td.overview}
+        highlights={td.highlights}
+        itinerary={td.itinerary}
+        tripStats={{
+            duration: td.duration,
+            maxAltitude: td.maxAltitude,
+            difficulty: td.difficulty,
+            groupSize: td.groupSize,
+        }}
+        client:load
+     initialLocale={lang}
+     initialDict={dict} />
+</Layout>

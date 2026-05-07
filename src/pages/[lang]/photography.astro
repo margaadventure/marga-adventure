@@ -1,0 +1,40 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import { I18nActivityShell } from "../../components/I18nActivityShells";
+import photo1 from "../../assets/images/activities/photography/photography_prayers.webp";
+import photo2 from "../../assets/images/activities/photography/Photography 1_.webp";
+import photo4 from "../../assets/images/activities/photography/photography_mask.webp";
+import heroBg from "../../assets/images/activities/photography/photography-hero-bg.webp";
+import type { Locale } from "../../i18n/i18n";
+const { t, tTrip, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout
+    title={t("nav.photographyMetaTitle")}
+    description={t("nav.photographyMetaDesc")}
+    image={photo1.src}
+    keywords={lang === 'en' ? "Nepal photography tours, Himalaya photography, cultural photography Nepal, wildlife photography Nepal, festival photography tours" : "Circuits photo Népal, photographie Himalaya, photographie culturelle Népal, photographie animalière Népal, circuits photo festivals"}
+>
+    <I18nActivityShell
+        title={t("nepal.act4Title")}
+        titleKey="nepal.act4Title"
+        subtitle={t("nav.photographySubtitle")}
+        description={t("nav.photographyDescription")}
+        heroImage={heroBg.src}
+        highlights={[
+            { text: tTrip("photography.tshechu.title"), link: `/${lang}/photography/tshechu-festival-bisket-jatra` },
+            { text: tTrip("photography.mustang.title"), link: `/${lang}/photography/mustang-chitwan-expedition` },
+            { text: tTrip("photography.holi.title"), link: `/${lang}/photography/holi-festival` },
+            { text: tTrip("photography.shaman.title"), link: `/${lang}/photography/shaman-festival` },
+        ]}
+        galleryImages={[photo1.src, photo2.src, photo4.src]}
+        client:visible
+     initialLocale={lang}
+     initialDict={dict}
+     initialFallbackDict={enDict} />
+</Layout>

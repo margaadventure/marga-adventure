@@ -1,0 +1,21 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../i18n/astro";
+import Layout from "../../layouts/Layout.astro";
+import { I18nBlogShell } from "../../components/I18nPageShells";
+import journalBg from "../../assets/images/activities/journal_background.webp";
+import type { Locale } from "../../i18n/i18n";
+const { t, dict, enDict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+---
+<Layout
+    title={t("nav.blogMetaTitle")}
+    description={t("nav.blogMetaDesc")}
+    image={journalBg.src}
+    keywords={lang === 'en' ? "Marga Adventure blog, Nepal travel stories, spiritual travel journal, Himalaya culture, adventure philosophy, sustainable tourism blog" : "Blog Marga Adventure, histoires de voyage au Népal, journal de voyage spirituel, culture de l'Himalaya, philosophie de l'aventure, blog sur le tourisme durable"}
+>
+    <I18nBlogShell client:idle  initialLocale={lang} initialDict={dict} initialFallbackDict={enDict} />
+</Layout>

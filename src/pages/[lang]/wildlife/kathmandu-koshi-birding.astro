@@ -1,0 +1,42 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+import eagle from "../../../assets/images/activities/wildlife/eagle-birdwatching .webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const { t, tripData, dict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+
+// Fetch trip data from trips.json
+const trip = tripData("wildlife.kathmandu-koshi-birding");
+---
+
+<Layout
+    title={trip.title}
+    image={eagle.src}
+    keywords="Kathmandu birding, Koshi Tappu birdwatching, Bengal Florican, Phulchowki birding, Nepal birding tour"
+>
+    <TripItineraryPage
+        title={trip.title}
+        heroImage={eagle.src}
+        overview={trip.overview}
+        highlights={trip.highlights}
+        itinerary={trip.itinerary}
+        packingList={[]}
+        showElevationGraph={false}
+        tripStats={{
+            duration: trip.itinerary.length + " " + t("nav.days"),
+            maxAltitude: "2,762m",
+            difficulty: t("trip.moderate"),
+            groupSize: "2-10",
+        }}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+    />
+</Layout>

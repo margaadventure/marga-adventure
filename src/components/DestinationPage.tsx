@@ -1,6 +1,9 @@
 
 import React from 'react';
+import I18nShell from '../i18n/I18nShell';
+import type { Locale } from '../i18n/i18n';
 import PageHero from './PageHero';
+import { useTranslation } from '../i18n/useTranslation';
 
 interface DestinationPageProps {
   country: string;
@@ -12,7 +15,7 @@ interface DestinationPageProps {
   seasonNote?: string;
 }
 
-const DestinationPage: React.FC<DestinationPageProps> = ({
+const DestinationPageContent: React.FC<DestinationPageProps> = ({
   country,
   heroImage,
   description,
@@ -21,15 +24,17 @@ const DestinationPage: React.FC<DestinationPageProps> = ({
   activeMonths = ['MAR', 'APR', 'MAY', 'SEP', 'OCT', 'NOV'],
   seasonNote = "Spring and Autumn offer the clearest views and most comfortable temperatures for cultural tours and trekking."
 }) => {
+    const { t, locale } = useTranslation();
+
   return (
     <div className="bg-white">
-      <PageHero title={`Explore ${country}`} subtitle="Beyond the mountains, a new culture awaits." image={heroImage} />
+      <PageHero title={t('destination.exploreCountry', { country })} subtitle={t('destination.subtitle')} image={heroImage} />
 
       <section className="py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto text-center mb-20">
           <div className="inline-flex items-center gap-2 text-brand font-bold text-xs uppercase tracking-[0.4em] mb-6">
             <div className="w-8 h-px bg-brand"></div>
-            <span>Marga Destinations</span>
+            <span>{t('destination.margaDestinations')}</span>
             <div className="w-8 h-px bg-brand"></div>
           </div>
           <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
@@ -49,7 +54,7 @@ const DestinationPage: React.FC<DestinationPageProps> = ({
                 <div className="absolute inset-0 bg-brand/10 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
                 <img
                   src={feature.image}
-                  alt={`${feature.title} - Highlight - Marga Adventure`}
+                  alt={`${feature.title} - Highlight - <span translate="no">Marga Adventure</span>`}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
@@ -62,7 +67,7 @@ const DestinationPage: React.FC<DestinationPageProps> = ({
         </div>
 
         <div className="max-w-5xl mx-auto bg-gray-50 rounded-none p-12 md:p-16 border border-gray-100 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Best Time to Visit</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-8">{t('destination.bestTimeToVisit')}</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {['MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV'].map(m => (
               <div
@@ -79,10 +84,10 @@ const DestinationPage: React.FC<DestinationPageProps> = ({
           <p className="mt-8 text-gray-500 text-sm font-light">{seasonNote}</p>
           <div className="mt-12">
             <a
-              href="/contact"
+              href={`/${locale}/contact`}
               className="inline-block px-10 py-4 bg-brand text-white font-bold uppercase tracking-widest hover:bg-brand-dark transition-colors duration-300"
             >
-              Plan Your Journey
+              {t('activity.bookConsultation')}
             </a>
           </div>
         </div>
@@ -91,4 +96,7 @@ const DestinationPage: React.FC<DestinationPageProps> = ({
   );
 };
 
-export default DestinationPage;
+
+export default DestinationPageContent;
+
+

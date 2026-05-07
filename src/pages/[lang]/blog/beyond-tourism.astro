@@ -1,0 +1,178 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import PageHero from "../../../components/PageHero";
+import schoolGroupImg from "../../../assets/images/Community/school-group.webp";
+import libraryBalloonsImg from "../../../assets/images/Community/library-balloons.webp";
+import playgroundFunImg from "../../../assets/images/Community/playground-fun.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const content = {
+    en: {
+        title: "Tourism that Heals",
+        subtitle: "Beyond the Transaction",
+        heroTitle: "Beyond Tourism",
+        heroSubtitle: "When you travel with heart, you leave more than footprints.",
+        metaDesc: "Discover how your journey puts roofs over heads and books in hands. A look into our 'Sharing Warmth' initiative in the remote villages of Nepal.",
+        authorRole: "Community Initiative",
+        readTime: "3 min read",
+        date: "January 16, 2026",
+        quote: "We often ask what we can get from a destination. But the most profound travel experiences happen when we ask: what can we give?",
+        p1: "In the high villages of Ruby Valley, the winter wind bites hard. It finds the gaps in the stone walls; it creeps under thin blankets. For many years, we walked through these villages as trekkers, admirers of the landscape. We took our photos of the snow-capped peaks and the smiling children.",
+        p2: "But one day, we stopped just looking. We started seeing. We saw that behind the beautiful smiles, there were shivering hands. We saw that the \"rustic charm\" of a school often meant a roof that leaked icy water onto textbooks.",
+        h1: "The Birth of 'Sharing Warmth'",
+        p3: "We realized that Marga Adventure could not just be a tour company. We had to be a bridge. A bridge between the resources of our guests and the needs of our hosts.",
+        p4: "This is not \"charity\" in the cold, distant sense. This is family. When you Trek with us, a portion of your fee goes directly into the Sharing Warmth fund. But more than that, we invite you to be part of the distribution.",
+        prev: "Previous",
+        back: "Back to Journal",
+    },
+    fr: {
+        title: "Le Tourisme qui Guérit",
+        subtitle: "Au-delà de la Transaction",
+        heroTitle: "Au-delà du Tourisme",
+        heroSubtitle: "Quand vous voyagez avec le cœur, vous laissez plus que des empreintes.",
+        metaDesc: "Découvrez comment votre voyage met des toits sur les têtes et des livres dans les mains. Un aperçu de notre initiative « Partager la chaleur » dans les villages reculés du Népal.",
+        authorRole: "Initiative Communautaire",
+        readTime: "3 min de lecture",
+        date: "16 Janvier 2026",
+        quote: "On se demande souvent ce qu'on peut obtenir d'une destination. Mais les expériences de voyage les plus profondes arrivent quand on demande : que pouvons-nous donner ?",
+        p1: "Dans les hauts villages de la Ruby Valley, le vent d'hiver mord cruellement. Il trouve les failles dans les murs de pierre ; il se glisse sous les couvertures fines. Pendant de nombreuses années, nous avons parcouru ces villages en tant que randonneurs, admirateurs du paysage. Nous prenions nos photos des sommets enneigés et des enfants souriants.",
+        p2: "Mais un jour, nous avons cessé de simplement regarder. Nous avons commencé à voir. Nous avons vu que derrière les sourires magnifiques, il y avait des mains tremblantes. Nous avons vu que le « charme rustique » d'une école signifiait souvent un toit qui laissait couler de l'eau glacée sur les manuels scolaires.",
+        h1: "La Naissance de « Partager la Chaleur »",
+        p3: "Nous avons réalisé que Marga Adventure ne pouvait pas être seulement une agence de voyage. Nous devions être un pont. Un pont entre les ressources de nos invités et les besoins de nos hôtes.",
+        p4: "Ce n'est pas de la « charité » au sens froid et lointain. C'est la famille. Lorsque vous partez en trek avec nous, une partie de vos frais va directement au fonds « Partager la Chaleur ». Mais plus encore, nous vous invitons à participer à la distribution.",
+        prev: "Précédent",
+        back: "Retour au Journal",
+    }
+};
+
+const { t, dict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+const d = content[lang];
+---
+<Layout
+    title={d.title}
+    description={d.metaDesc}
+    image={schoolGroupImg.src}
+>
+    <PageHero
+        title={d.heroTitle}
+        subtitle={d.heroSubtitle}
+        image={schoolGroupImg.src}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center border border-gray-100"
+                    >
+                        <img
+                            src="/logo.webp"
+                            alt="Marga Team"
+                            class="w-8 h-8 object-contain"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            Marga Team
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            {d.authorRole}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {d.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {d.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.quote}"
+                </p>
+
+                <p
+                    class="mb-8 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]"
+                >
+                    {d.p1}
+                </p>
+                <p class="mb-8">
+                    {d.p2}
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h1}
+                </h3>
+                <p class="mb-8">
+                    {d.p3}
+                </p>
+                <p class="mb-8">
+                    {d.p4}
+                </p>
+
+                <div class="my-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={libraryBalloonsImg.src}
+                            alt="Children with balloons"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={playgroundFunImg.src}
+                            alt="Playground Fun"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href={`/${lang}/blog/philosophy-of-silence`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← {d.prev}</a
+                >
+                <a
+                    href={`/${lang}/blog`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >{d.back}</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>

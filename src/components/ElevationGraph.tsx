@@ -1,15 +1,18 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceDot } from 'recharts';
 
+import { useTranslation } from '../i18n/useTranslation';
+
 interface ElevationGraphProps {
   data: { day: string; altitude: number }[];
 }
 
 const CustomTooltip = ({ active, payload, label }: any) => {
+  const { t } = useTranslation();
   if (active && payload && payload.length) {
     return (
       <div className="bg-white p-4 border border-gray-100 shadow-xl shadow-blue-900/5 rounded-none ring-1 ring-black/5">
-        <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">Day {label}</p>
+        <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-2">{t('nav.days')} {label}</p>
         <div className="flex items-end gap-1">
           <p className="text-brand font-bold text-2xl leading-none">
             {payload[0].value.toLocaleString()}
@@ -23,19 +26,32 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 const ElevationGraph: React.FC<ElevationGraphProps> = ({ data }) => {
+  const { t } = useTranslation();
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  
+  if (!data || data.length === 0) return null;
+
   // Find max altitude for reference dot
   const maxAltitudePoint = data.reduce((prev, current) => (prev.altitude > current.altitude) ? prev : current, data[0]);
+
+  if (!maxAltitudePoint || !isMounted) {
+    return <div className="w-full h-[400px] bg-gray-50/50 animate-pulse mt-8"></div>;
+  }
 
   return (
     <div className="w-full bg-white p-8 border border-gray-100 shadow-sm mt-8 relative overflow-hidden group hover:shadow-md transition-shadow duration-500">
       <div className="flex justify-between items-end mb-8 relative z-10">
         <div>
-          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-[0.2em]">Elevation Profile</h3>
-          <p className="text-gray-400 text-xs mt-2 font-light">Altitude gain over time</p>
+          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-[0.2em]">{t('trip.altitudeProfile')}</h3>
+          <p className="text-gray-400 text-xs mt-2 font-light">{t('trip.elevationDesc')}</p>
         </div>
         <div className="text-right">
           <span className="block text-brand font-bold text-lg">{maxAltitudePoint.altitude.toLocaleString()}m</span>
-          <span className="text-[10px] text-gray-400 uppercase tracking-wider">Max Elevation</span>
+          <span className="text-[10px] text-gray-400 uppercase tracking-wider">{t('trip.maxElevation')}</span>
         </div>
       </div>
 
@@ -93,7 +109,6 @@ const ElevationGraph: React.FC<ElevationGraphProps> = ({ data }) => {
               fill="#fff"
               stroke="#1E73BE"
               strokeWidth={3}
-              isFront={true}
             />
           </AreaChart>
         </ResponsiveContainer>

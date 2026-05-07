@@ -23,7 +23,7 @@ const ImageModal: React.FC = () => {
 
     return (
         <div
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 animate-fade-in"
+            className="fixed inset-0 z-100 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 animate-fade-in"
             onClick={close}
         >
             <button

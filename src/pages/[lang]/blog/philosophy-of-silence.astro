@@ -1,0 +1,204 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import PageHero from "../../../components/PageHero";
+import silenceImg from "../../../assets/images/silence.webp";
+import deepakImg from "../../../assets/images/team/deepak-profile.webp";
+import type { Locale } from "../../../i18n/i18n";
+
+const content = {
+    en: {
+        title: "The Rebellion of Silence",
+        subtitle: "Philosophy of Marga",
+        heroTitle: "Silence",
+        heroSubtitle: "The loudest sound in the world.",
+        metaDesc: "In a noisy world, silence is rebellion. Learn how Marga Adventure integrates mindfulness and silence into high-altitude trekking.",
+        authorRole: "CIO & Strategist",
+        readTime: "6 min read",
+        date: "January 15, 2026",
+        quote: "We live in an age of notification. The ping, the buzz, the red dot. To choose silence in a world screaming for your attention is the ultimate act of rebellion.",
+        p1: "When was the last time you heard absolutely nothing? No distant hum of traffic, no whir of a server room, no playlist filling the void. Just... nothing. Or perhaps, just the terrifyingly loud sound of your own heartbeat, or the crunch of snow under a boot at 4,000 meters?",
+        p2: "At Marga Adventure, we believe that in the 21st century, the greatest luxury is not gold taps or 500-thread-count sheets. The ultimate luxury is undistracted attention. It is the ability to be fully here, now.",
+        h1: "The Digital Detox",
+        p3: "As a technologist, I see the toll. We are wired but disconnected. We curate our lives for an audience we don't know, missing the life happening right in front of us. We curate our trips to break this cycle. We take you to the shadow of the Annapurnas, where the signal bars fade to zero.",
+        p4: "Panic sets in for the first hour. The phantom vibration in your pocket. The itch to check email. Boredom sets in for the second. You don't know where to look.",
+        p5: "And then, something magical almost spiritual happens. The boredom gives way to observation. You notice the way the light turns the snow gold at sunset. You notice the intricate carving on a Mani stone. You notice that the knot in your chest has loosened. You are free.",
+        h2: "The Gift of Stillness",
+        p6: "We don't impose silence, we invite it. On our journeys, you'll find moments where the only playlist is the wind through the pines and the distant roar of a glacial river. We create spaces like quiet sunrises or fireside evenings where you can disconnect from the network and reconnect with your own thoughts. It's in these uncurated moments that the true journey begins.",
+        h3: "Returning Home",
+        p7: "Our goal is not just to give you a break, but to give you a tool. When you return to the cacophony of the city, you carry a piece of the Himalayan silence within you. You realize that you can access that \"Marga\" state anywhere. You realize you don't have to answer every ping.",
+        p8: "Silence isn't empty. It's full of the answers you've been too busy to hear.",
+        prev: "Previous",
+        next: "Next Story",
+    },
+    fr: {
+        title: "La Rébellion du Silence",
+        subtitle: "Philosophie de Marga",
+        heroTitle: "Silence",
+        heroSubtitle: "Le son le plus fort au monde.",
+        metaDesc: "Dans un monde bruyant, le silence est une rébellion. Apprenez comment Marga Adventure intègre la pleine conscience et le silence dans les treks en haute altitude.",
+        authorRole: "CIO & Stratège",
+        readTime: "6 min de lecture",
+        date: "15 Janvier 2026",
+        quote: "Nous vivons à l'ère de la notification. Le bip, le vibreur, le point rouge. Choisir le silence dans un monde qui hurle pour attirer votre attention est l'acte de rébellion ultime.",
+        p1: "À quand remonte la dernière fois où vous n'avez absolument rien entendu ? Pas de bruit lointain de circulation, pas de ronronnement de salle de serveurs, pas de playlist comblant le vide. Juste... rien. Ou peut-être, juste le son terrifiant de votre propre rythme cardiaque, ou le craquement de la neige sous une chaussure à 4 000 mètres ?",
+        p2: "Chez Marga Adventure, nous pensons qu'au 21ème siècle, le plus grand luxe n'est pas les robinets en or ou les draps à 500 fils. Le luxe ultime est l'attention sans distraction. C'est la capacité d'être pleinement ici, maintenant.",
+        h1: "La Détox Digitale",
+        p3: "En tant que technologue, j'en vois les conséquences. Nous sommes connectés mais déconnectés. Nous scénarisons nos vies pour un public que nous ne connaissons pas, manquant la vie qui se déroule juste devant nous. Nous concevons nos voyages pour briser ce cycle. Nous vous emmenons à l'ombre des Annapurnas, là où les barres de réseau disparaissent.",
+        p4: "La panique s'installe la première heure. La vibration fantôme dans votre poche. L'envie irrépressible de vérifier vos e-mails. L'ennui s'installe la deuxième heure. Vous ne savez pas où regarder.",
+        p5: "Et puis, quelque chose de magique, presque spirituel, se produit. L'ennui cède la place à l'observation. Vous remarquez la façon dont la lumière rend la neige dorée au coucher du soleil. Vous remarquez les sculptures complexes sur une pierre Mani. Vous remarquez que le nœud dans votre poitrine s'est desserré. Vous êtes libre.",
+        h2: "Le Don du Calme",
+        p6: "Nous n'imposons pas le silence, nous l'invitons. Lors de nos voyages, vous trouverez des moments où la seule playlist est le vent dans les pins et le rugissement lointain d'une rivière glaciaire. Nous créons des espaces comme des levers de soleil silencieux ou des soirées au coin du feu où vous pouvez vous déconnecter du réseau et vous reconnecter avec vos propres pensées. C'est dans ces moments non scénarisés que le véritable voyage commence.",
+        h3: "Le Retour à la Maison",
+        p7: "Notre objectif n'est pas seulement de vous offrir une pause, mais de vous donner un outil. Lorsque vous retournez à la cacophonie de la ville, vous portez en vous un morceau de ce silence himalayen. Vous réalisez que vous pouvez accéder à cet état « Marga » n'importe où. Vous réalisez que vous n'avez pas à répondre à chaque notification.",
+        p8: "Le silence n'est pas vide. Il est plein des réponses que vous avez été trop occupé pour entendre.",
+        prev: "Précédent",
+        next: "Histoire Suivante",
+    }
+};
+
+const { t, dict } = await useAstroI18n(Astro.url);
+const lang = Astro.params.lang as Locale;
+const d = content[lang];
+---
+<Layout
+    title={d.title}
+    description={d.metaDesc}
+    image={silenceImg.src}
+>
+    <PageHero
+        title={d.heroTitle}
+        subtitle={d.heroSubtitle}
+        image={silenceImg.src}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden"
+                    >
+                        <img
+                            src={deepakImg.src}
+                            alt="Deepak Mahato Tharu"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            Deepak Mahato Tharu
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            {d.authorRole}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {d.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {d.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.quote}"
+                </p>
+
+                <p class="mb-8">
+                    {d.p1}
+                </p>
+                <p class="mb-8">
+                    {d.p2}
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h1}
+                </h3>
+                <p class="mb-8">
+                    {d.p3}
+                </p>
+                <p class="mb-8">
+                    {d.p4}
+                </p>
+                <p class="mb-8">
+                    {d.p5}
+                </p>
+
+                <div
+                    class="my-16 bg-brand/5 p-10 rounded-3xl border border-brand/10 relative overflow-hidden"
+                >
+                    <div
+                        class="absolute top-0 right-0 -mt-4 -mr-4 text-brand/10"
+                    >
+                        <svg
+                            width="100"
+                            height="100"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-gray-900 text-xl mb-4 font-serif">
+                        {d.h2}
+                    </h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        {d.p6}
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h3}
+                </h3>
+                <p class="mb-8">
+                    {d.p7}
+                </p>
+                <p>
+                    {d.p8}
+                </p>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href={`/${lang}/blog/the-origin-story`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← {d.prev}</a
+                >
+                <a
+                    href={`/${lang}/blog/beyond-tourism`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >{d.next} →</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>
