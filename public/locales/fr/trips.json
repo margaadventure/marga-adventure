@@ -280,6 +280,234 @@
           "description": "Accédez à une région isolée et rarement visitée, garantissant un portfolio d'images vraiment uniques et exclusives."
         }
       ]
+    },
+    "bisketJatra": "La fête de Bisket Jatra, Nouvel An Népalais",
+    "bisketJatraTrip": {
+      "title": "La fête de Bisket Jatra, Nouvel An Népalais",
+      "subtitle": "Un pèlerinage festif et culturel",
+      "overview": "Le Bisket Jatra est une célébration spectaculaire marquant le Nouvel An népalais à Bhaktapur. Ce festival ancestral s'ouvre sur une lutte acharnée entre les quartiers de la ville pour tirer le colossal chariot du dieu Bhairav. L'effervescence atteint son paroxysme avec l'érection du Linga, un mât sacré dont la chute symbolise la victoire sur les forces démoniaques. À Thimi, la fête se pare d'un orange éclatant lors du Sindur Jatra, où une foule extatique s'asperge de poudre de vermillon. Le rituel s'achève par l'impressionnant perçage de la langue à Bode, un acte de dévotion extrême pour assurer la prospérité commune. Entre ferveur mystique et explosions de couleurs, ce festival est une immersion viscérale dans l'âme et les traditions millénaires du peuple Newar.",
+      "duration": "15 Jours",
+      "maxAltitudeLabel": "Type de Voyage",
+      "maxAltitude": "Festival & Photo",
+      "difficulty": "Facile",
+      "groupSize": "2-10",
+      "highlights": [
+        {
+          "title": "Le Tir du Chariot de Bhairav",
+          "description": "Participez à la ferveur collective en observant la lutte amicale pour tirer le colossal char en bois à Bhaktapur."
+        },
+        {
+          "title": "L'Érection du Linga Sacré",
+          "description": "Assistez à l'élévation périlleuse d'un mât de bois de 25 mètres symbolisant la victoire sur les forces démoniaques."
+        },
+        {
+          "title": "Sindur Jatra à Thimi",
+          "description": "Vivez une explosion de couleurs lors de cette fête où la foule s'asperge de poudre de vermillon orange vif."
+        },
+        {
+          "title": "Perçage de la Langue à Bode",
+          "description": "Observez ce rituel de dévotion extrême et spectaculaire accompli pour assurer la prospérité du village."
+        },
+        {
+          "title": "Safari Sauvage à Bardia",
+          "description": "Partez à la traque du tigre royal du Bengale et du rhinocéros unicorne dans la jungle préservée de Bardia."
+        },
+        {
+          "title": "Sérénité de Lumbini",
+          "description": "Visitez le temple sacré de Maya Devi à Lumbini, le lieu de naissance historique du Seigneur Bouddha."
+        }
+      ],
+      "itinerary": [
+        {
+          "day": "Jour 1",
+          "title": "Arrivée et transfert à l'hôtel",
+          "description": "Bienvenue à Katmandou. Dès votre installation à Thamel, plongez dans l'effervescence de ce quartier légendaire. C'est un labyrinthe sensoriel où les drapeaux de prières flottent au-dessus des boutiques d'artisanat et des cafés animés. Explorez les ruelles étroites, respirez les effluves d'encens et de thé massala, et observez les petits sanctuaires cachés dans les cours intérieures."
+        },
+        {
+          "day": "Jour 2",
+          "title": "Vol vers Nepalgunj et conduire à Parc National de Bardia",
+          "description": "Quittez la vallée pour l'ouest sauvage du Népal. Après un vol panoramique vers Nepalgunj, une route traverse des paysages ruraux authentiques pour rejoindre le Parc National de Bardia. Plus isolé et préservé que Chitwan, Bardia offre une immersion brute dans la nature. À votre arrivée, installez-vous dans votre lodge en lisière de forêt. Profitez de la fin de journée pour vous promener dans les villages Tharu environnants. Le calme absolu et l'air chaud de la jungle marquent un contraste saisissant avec Katmandou, vous préparant à une exploration au cœur de l'un des derniers refuges du tigre royal du Bengale."
+        },
+        {
+          "day": "Jour 3",
+          "title": "Safari sauvage à Parc National de Bardia",
+          "description": "Consacrez votre journée à l'exploration du parc de Bardia, sanctuaire de biodiversité. Que ce soit en jeep ou lors d'un safari à dos d'éléphant, partez à la recherche du majestueux tigre du Bengale, du rhinocéros unicorne et des éléphants sauvages. Bardia est célèbre pour ses paysages diversifiés, entre forêts de sals et vastes prairies bordant la rivière Karnali. Gardez l'œil ouvert pour apercevoir les dauphins du Gange ou les gavials sur les berges. La traque silencieuse dans cette jungle dense procure une émotion incomparable. Le soir, les récits de brousse autour du feu complètent cette expérience immersive et sauvage."
+        },
+        {
+          "day": "Jour 4",
+          "title": "Conduire Bardia à Lumbini, l'endroit de naissance de Budhha",
+          "description": "Après le calme de la jungle, envolez-vous vers Lumbini. C'est l'un des sites les plus sacrés au monde, reconnu comme le lieu de naissance de Siddhartha Gautama, le Bouddha. Classé au patrimoine mondial de l'UNESCO, ce sanctuaire paisible attire des pèlerins du monde entier. Le site abrite le temple sacré de Maya Devi, le pilier d'Ashoka et de nombreux monastères internationaux illustrant diverses architectures bouddhistes. C'est un centre spirituel majeur dédié à la paix universelle, offrant une atmosphère de sérénité et de réflexion profonde."
+        },
+        {
+          "day": "Jour 5",
+          "title": "Vol vers Pokhara et conduire vers Durlung",
+          "description": "Après le petit déjeuner prenez le vol pour Pokhara, une ville de montagnes, puis route vers Durlung, dans le district de Parbat. Ce village authentique, hors des circuits classiques, offre un panorama spectaculaire sur les rizières en terrasses qui dégringolent dans la vallée. L'accueil des villageois y est d'une sincérité rare. Explorez les sentiers locaux, découvrez l'architecture traditionnelle des maisons en pierre et imprégnez-vous de la sérénité de cette vie rurale préservée. C'est une journée de connexion profonde avec la terre et les traditions montagnardes népalaises."
+        },
+        {
+          "day": "Jour 6",
+          "title": "Retour à la sérénité de Pokhara",
+          "description": "Après avoir partagé des moments privilégiés avec les habitants de Durlung, reprenez la route vers Pokhara. Profitez de ce retour pour explorer ce que vous avez manqué : la pagode de la Paix, perchée sur une colline offrant une vue plongeante sur le lac et la chaîne des Annapurna. La douceur de vivre de Pokhara est un enchantement permanent qui complète parfaitement l'aventure rurale vécue à Parbat. Le soir, cérémonie hindoue au bord du lac Phewa."
+        },
+        {
+          "day": "Jour 7",
+          "title": "Bandipur, le village-musée",
+          "description": "Réveil avant l'aube pour assister au lever du soleil sur l'Himalaya, un spectacle où les sommets s'embrasent d'or et de pourpre. Prenez ensuite la route vers Bandipur, une ancienne escale commerciale Newar perchée sur une crête de montagne. Ce village est un véritable musée à ciel ouvert avec ses rues pavées interdites aux voitures et ses bâtiments en briques rouges magnifiquement restaurés. L'architecture y est raffinée, avec des balcons en bois sculptés et des temples anciens. Depuis le plateau de Tundikhel, la vue sur la vallée de la Marsyangdi et les sommets himalayens est époustouflante au coucher du soleil. C'est une escale romantique et historique où le temps semble s'être arrêté, offrant une atmosphère unique de cité médiévale suspendue entre ciel et terre."
+        },
+        {
+          "day": "Jour 8",
+          "title": "Retour à Kathmandu",
+          "description": "Le trajet de retour vers Katmandou suit la spectaculaire rivière Trishuli, célèbre pour ses rapides. Vous traverserez des paysages verdoyants et des villages animés bordant la route sinueuse. C'est une dernière occasion d'observer la vie rurale népalaise avant de retrouver l'effervescence de la capitale."
+        },
+        {
+          "day": "Jour 9",
+          "title": "Le Chariot de Bisket Jatra à Bhaktapur",
+          "description": "Plongez dans l'effervescence de Bhaktapur pour le début du festival Bisket Jatra. Le point d'orgue est le tirage du chariot massif du dieu Bhairav. Des centaines de locaux tirent sur d'énormes cordes dans une compétition amicale entre les quartiers haut et bas de la ville. L'énergie est électrique, la foule est immense et la poussière vole au rythme des chants dévotionnels. C'est une immersion brute et magnifique dans l'une des traditions les plus vivantes et les plus anciennes du Népal."
+        },
+        {
+          "day": "Jour 10",
+          "title": "Patan, Pashupatinath et Boudhanath",
+          "description": "Journée consacrée aux joyaux spirituels de la vallée. Commencez par Patan, la cité des arts, célèbre pour ses sculptures en métal et son architecture raffinée. Dirigez-vous ensuite vers Pashupatinath, le temple hindou le plus sacré du pays, situé au bord de la rivière Bagmati, pour observer les rituels de crémation et la dévotion des sadhus. Terminez par le stupa géant de Boudhanath, centre du bouddhisme tibétain. Suivez les pèlerins pour la 'Kora' (circonvolution) autour du dôme blanc sous les yeux bienveillants du Bouddha."
+        },
+        {
+          "day": "Jour 11",
+          "title": "Sérénité à Bhaktapur",
+          "description": "Après le chaos festif, redécouvrez Bhaktapur dans une ambiance plus calme. Explorez la place des potiers, où des centaines de pots en argile sèchent au soleil, créant des motifs géométriques au sol. Admirez le palais aux 55 fenêtres et le temple Nyatapola, le plus haut du Népal. Chaque coin de rue révèle des sculptures sur bois complexes et des briques séculaires. Cette ville-musée est parfaite pour comprendre l'ingéniosité des artisans Newar et l'harmonie qui règne dans cette cité médiévale préservée."
+        },
+        {
+          "day": "Jour 12",
+          "title": "L'érection du Linga à Bhaktapur",
+          "description": "Retour à l'intensité du festival pour l'érection du 'Linga', un mât de bois géant symbolisant la victoire sur les forces négatives. La foule se rassemble à Lyasinkhel pour assister à cet acte périlleux et symbolique. La chute du mât le lendemain marquera le début officiel de la nouvelle année népalaise. Les chants, les cymbales et l'enthousiasme des dévots créent une atmosphère mystique et vibrante."
+        },
+        {
+          "day": "Jour 13",
+          "title": "Les fabriques de briques de Bhaktapur",
+          "description": "Aujourd'hui, sortez du centre historique pour explorer les zones périphériques où se trouvent les impressionnantes fabriques de briques artisanales. Ce paysage industriel unique offre un contraste saisissant avec les temples sculptés. Observez le travail titanesque des ouvriers qui façonnent et empilent des milliers de briques d'argile sous le soleil. Les hautes cheminées crachant de la fumée et les structures géométriques de briques rouges créent une atmosphère presque cinématographique. C'est une immersion poignante dans l'économie locale et le labeur manuel qui a bâti la vallée de Katmandou depuis des siècles."
+        },
+        {
+          "day": "Jour 14",
+          "title": "Sindur Jatra et Perçage de langue à Thimi",
+          "description": "La célébration du Bisket Jatra à Thimi et Bode, vivez l'apogée des festivités à Thimi et Bode. Assistez au Sindur Jatra, où les participants s'aspergent de poudre vermillon orange vif dans une ambiance extatique. Les palanquins des dieux dansent au milieu d'un nuage de couleur. Cette explosion de couleurs symbolise la victoire du printemps et la joie collective. À Bode, assistez au rituel impressionnant du perçage de langue, où un dévot se fait traverser la langue par une tige de fer pour assurer la prospérité du village. C'est une expérience viscérale, intense et d'une rare puissance culturelle qui marque la fin du festival. Cet acte de bravoure extrême est accompli pour protéger la communauté contre les mauvais esprits et assurer une année de prospérité."
+        },
+        {
+          "day": "Jour 15",
+          "title": "Départ",
+          "description": "Votre voyage touche à sa fin. Selon l'heure de votre vol, profitez de vos derniers instants pour acheter quelques souvenirs artisanaux ou goûter une dernière fois aux saveurs locales. Imprégné des couleurs du festival, de la paix des montagnes et de la ferveur des temples, vous quittez le Népal avec des souvenirs impérissables."
+        }
+      ]
+    },
+    "nepalColorsContrasts": "Népal : Couleurs & Contrastes",
+    "nepalColorsContrastsTrip": {
+      "title": "Népal : Couleurs & Contrastes",
+      "subtitle": "Un paradis pour les photographes et fêtes sacrées",
+      "overview": "Le Népal est un magnifique pays himalayen, riche d'une longue histoire, d'un art fascinant et d'une architecture unique. Malgré sa petite taille, il est mondialement connu comme une nation de couleurs et de contrastes, un Shangri-La caché où se mêlent nature, culture et aventure. Pour tout visiteur, le Népal est un mythe, le royaume de l'Himalaya. Terre hindoue et bouddhiste empreinte d'une grande spiritualité, et particulièrement réputée pour ses montagnes, ce royaume est situé au cœur de l'Himalaya.\n\nLe Népal est un paradis pour les photographes. Capturez la lueur éthérée de l'Himalaya à l'aube, puis plongez dans la jungle luxuriante de Chitwan à la recherche des rhinocéros unicorne et d'une faune sauvage insaisissable. Sur les places ancestrales, laissez-vous émerveiller par l'explosion de couleurs lors des fêtes sacrées et imprégnez-vous de l'âme intemporelle de la culture newar. Des visages burinés et souriants des Népalais aux yeux sereins des moines, chaque cliché raconte l'histoire d'une terre où spiritualité et nature se rencontrent dans une lumière spectaculaire.",
+      "duration": "15 Jours",
+      "maxAltitudeLabel": "Type de Voyage",
+      "maxAltitude": "Festival & Photo",
+      "difficulty": "Facile",
+      "groupSize": "2-10",
+      "highlights": [
+        {
+          "title": "Shivaratri, la plus grande fête de Shiva",
+          "description": "Célébrez la plus grande fête de Shiva au temple sacré de Pashupatinath au milieu de milliers de sadhus et dévots."
+        },
+        {
+          "title": "Loshar, le Nouvel An Tibétain",
+          "description": "Vivez la fête du Nouvel An tibétain et sherpa à Boudhanath avec une importante communauté locale."
+        },
+        {
+          "title": "Région de l'Annapurna",
+          "description": "Admirez le panorama exceptionnel sur les chaînes de l'Annapurna, du Machhapuchare et du Dhaulagiri."
+        },
+        {
+          "title": "Fêtes de Navadurga & Danses Sacrées",
+          "description": "Assistez aux fêtes de Navadurga et aux danses rituelles masquées Cham exécutées par les moines."
+        },
+        {
+          "title": "Villages de Durlung et Landruk",
+          "description": "Découvrez le mode de vie Gurung, la cuisine locale authentique et séjournez chez l'habitant."
+        },
+        {
+          "title": "Chitwan Wildlife Safari",
+          "description": "Partez pour un safari en jeep et à dos d'éléphant à la recherche du rhinocéros unicorne et du tigre du Bengale."
+        }
+      ],
+      "itinerary": [
+        {
+          "day": "Jour 1",
+          "title": "Arrivée et transfert à l'hôtel, promenade dans Thamel",
+          "description": "Namaste et bienvenue à Katmandou, au Népal ! Votre arrivée à l'aéroport international Tribhuvan est une expérience unique. Le temps d'attente pour les formalités d'immigration dépend de si vous souhaitez obtenir un visa à l'arrivée ou non. À votre sortie de la zone de récupération des bagages/douane à l'aéroport de Katmandou, un agent de sécurité récupérera l'étiquette de vos bagages. Veuillez noter que des chariots à bagages sont disponibles gratuitement à l'aéroport. Promenade de découverte du quartier de Thamel."
+        },
+        {
+          "day": "Jour 2",
+          "title": "Route vers Chitwan",
+          "description": "De Katmandou, le trajet jusqu'à Chitwan, d'environ 160 km, dure environ 6 heures. Vous profiterez de vues imprenables sur la rivière Trishuli, les villages, les rizières en terrasses, les ponts suspendus et les montagnes environnantes. À Mugling, prenez la direction du sud et descendez progressivement des collines centrales vers les plaines fertiles du Teraï occidental et le parc national de Chitwan. Ce parc est célèbre pour ses rhinocéros unicorne, ses tigres du Bengale et bien d'autres animaux. Visite d'un village ethnique THARU l'après-midi."
+        },
+        {
+          "day": "Jour 3",
+          "title": "Safari à dos d'éléphant et safari en jeep",
+          "description": "Cette journée sera consacrée à un safari à dos d'éléphant au cœur de la jungle. Le safari dans la jungle vous permettra de visiter le parc national de Chitwan, site classé au patrimoine mondial de l'UNESCO. Créé en 1973, le parc national de Chitwan s'étend sur 932 km² de vallées subtropicales et de forêts denses. Il abrite notamment 694 rhinocéros unicorne, 128 tigres du Bengale, des léopards tachetés, des éléphants sauvages, des gavials, des nilgauts et bien d'autres animaux sauvages, ainsi que plus de 650 espèces d'oiseaux. Au cœur de ces merveilles naturelles, le parc national de Chitwan vous invite à une immersion totale dans l'atmosphère sauvage de la jungle."
+        },
+        {
+          "day": "Jour 4",
+          "title": "Route vers Bandipur",
+          "description": "Nous quittons Chitwan et traversons les profondes gorges de la rivière Narayani pour rejoindre la campagne, ses petits villages et ses fermes, le long de routes sinueuses, jusqu'à Bandipur, une ville magnifiquement préservée, perchée sur une colline et ornée de maisons traditionnelles newar. Nous empruntons le sentier historique de Dumre Bazaar à travers des forêts vierges pour atteindre une ville qui a peu changé. Bandipur, remarquablement bien préservée, invite aujourd'hui les voyageurs à découvrir ses atouts uniques : une riche culture montagnarde, des panoramas exceptionnels sur les montagnes et la randonnée. Contrairement à la plupart des comptoirs commerciaux des montagnes népalaises, Bandipur a conservé son patrimoine culturel ancestral: temples, sanctuaires, grottes sacrées, innombrables festivals et une architecture newar."
+        },
+        {
+          "day": "Jour 5",
+          "title": "Route vers Pokhara",
+          "description": "Nous quittons Bandipur tôt le matin pour rejoindre Pokhara, à 80 km (environ 2 heures de route). Après le déjeuner, visite de Pokhara et de ses rives lacustres. Pokhara est l'une des destinations touristiques les plus populaires du Népal, également connue comme la « ville des lacs ». Elle est connue comme la porte d'entrée du circuit des Annapurnas, un sentier de randonnée renommé de l'Himalaya."
+        },
+        {
+          "day": "Jour 6",
+          "title": "Visite de Pokhara",
+          "description": "Vous partez tôt le matin pour assister au lever de soleil sur la chaîne des Annapurnas et le Machapuchare (Fishtail). La plupart des visiteurs s'y rendent à l'aube ou au crépuscule, lorsque le soleil embrase les sommets de couleurs flamboyantes. Vous y admirerez le lever de soleil à couper le souffle sur la chaîne des Annapurnas et profiterez d'une visite du sommet. Visitez le Stupa de la Paix Mondiale, également connu sous le nom de Stupa Shanti ou Pagode de la Paix Mondiale, un monument de style pagode bouddhiste situé au sommet d'une colline surplombant le lac Phewa. Cette pagode est dédiée à la paix dans le monde. Après cela, visitez la statue géante de Shiva, l'une des plus grandes statues de Shiva récemment érigée à Pumdikot, offrant une vue imprenable sur la ville et la magnifique chaîne de l'Annapurna."
+        },
+        {
+          "day": "Jour 7",
+          "title": "Route vers le village de Durlung",
+          "description": "Après le petit déjeuner, route vers le village de Durlung. Le trajet en voiture dure environ 2 heures pour une distance de 60 km. Durlung est un comité de développement villageois du district de Parbat. C'est un village Gurung où vous pourrez découvrir de près la culture et le mode de vie Gurung en séjournant chez l'habitant."
+        },
+        {
+          "day": "Jour 8",
+          "title": "Route vers le village de Landruk",
+          "description": "Le matin, visite de l'école de Durlung, et après le petit déjeuner, départ pour le village de Landruk. Le trajet dure environ 3 heures depuis Durlung jusqu'au charmant village de Landruk. Situé dans le district de Kaski, Landruk se trouve dans l'aire de conservation de l'Annapurna. Perché à environ 1 600 mètres d'altitude, il est principalement habité par la communauté Gurung, réputée pour la richesse de sa culture, ses traditions et ses courageux soldats Gurkhas. Le village a su préserver son charme traditionnel, ses maisons en pierre, ses ruelles pavées et ses rizières en terrasses. Le village offre un point de vue idéal pour admirer les majestueux sommets de l'Annapurna Sud, de l'Himchuli et du Machapuchare."
+        },
+        {
+          "day": "Jour 9",
+          "title": "Retour à Pokhara",
+          "description": "Après le petit-déjeuner, nous descendrons dans la vallée offrant des vues imprenables sur la chaîne de l'Annapurna. Sur le chemin du retour vers Pokhara, vous visiterez également des villages Gurung typiques et observerez les cultures en terrasses."
+        },
+        {
+          "day": "Jour 10",
+          "title": "Retour à Katmandou et visite du palais royal de Katmandou",
+          "description": "Vol retour vers Katmandou (environ 30 minutes) offrant une vue imprenable sur l'Himalaya. En fin d'après-midi, visite des marchés locaux et de la place Durbar de Katmandou, également connue sous le nom de place Hanuman Dhoka Durbar. Classée au patrimoine mondial de l'UNESCO, elle revêt une immense importance culturelle, religieuse et historique. Elle servait autrefois de palais royal aux dynasties Malla et Shah. Le marché d'Ason, le plus ancien de Katmandou, vous propose une expérience immersive au cœur de l'un des marchés les plus animés et vibrants de la ville. C'est un lieu réputé pour acheter des produits de première nécessité, notamment diverses épices."
+        },
+        {
+          "day": "Jour 11",
+          "title": "Shivaratri, célébrez la plus grande fête de Shiva",
+          "description": "Le temple de Pashupatinath est dédié à Shiva, dieu hindou de la destruction, également connu sous le nom de Pashupatinath (Seigneur des Animaux). Ce temple est un lieu de pèlerinage pour les fidèles hindous du monde entier, situé au bord du fleuve sacré Bagmati et orné avec une grande finesse. Pashupatinath abrite de nombreux sadhus hindous venus du monde entier avec leurs longues dreadlocks. Le festival de Shiva Ratri est le plus important célébré chaque année. Les fidèles veillent toute la nuit, chantent des prières, jeûnent, pratiquent le yoga, méditent ou récitent des prières à Shiva."
+        },
+        {
+          "day": "Jour 12",
+          "title": "Patan et le monastère de Shechen",
+          "description": "Visite matinale du plus grand marché de fruits et légumes de Katmandou. Ensuite, explorez la place Durbar de Patan, réputée pour son architecture remarquable, ses boiseries finement travaillées et ses balcons sculptés. Plus tard dans l'après-midi, visitez le monastère de Shechen où les moines exécutent la danse sacrée Cham. Vêtus de brocarts de soie et de masques à l'expression à la fois compatissante et courroucée, ils évoluent au rythme tonitruant des longues trompettes et des cymbales. Cette vibrante « méditation en mouvement » dissipe les obstacles de l'année écoulée."
+        },
+        {
+          "day": "Jour 13",
+          "title": "Place Durbar de Bhaktapur",
+          "description": "Célèbre pour son patrimoine religieux, culturel et historique, Bhaktapur est considérée comme un musée à ciel ouvert et la cité des dieux. Cette ville magnifique a su préserver son identité historique et sa civilisation. Visite de briqueteries, une expérience unique et immersive permettant de découvrir les techniques de fabrication de briques ancestrales utilisées pour la construction. En fin d'après-midi, vous aurez l'occasion d'assister au festival de Navadura (danses sacrées masquées de la déesse Durga)."
+        },
+        {
+          "day": "Jour 14",
+          "title": "Festival de Loshar (Nouvel An tibétain), visite des stupas de Boudhanath et de Swayambhunath",
+          "description": "Le stupa de Boudhanath est l'un des sites les plus sacrés du Népal. Classé au patrimoine mondial de l'UNESCO, ce stupa, symbole de paix et d'amour, était autrefois un lieu de repos pour les marchands tibétains. C'est ici que bat le cœur de la fête de Loshar, le Nouvel An tibétain et sherpa, réunissant la communauté dans une ambiance festive et dévotieuse. Visite également du stupa de Swayambhunath sur sa colline sacrée."
+        },
+        {
+          "day": "Jour 15",
+          "title": "Départ/Transfert aéroport",
+          "description": "Conformément à la réglementation des compagnies aériennes, transfert privé vers l'aéroport environ 3 heures avant l'heure de vol prévue pour votre vol de retour. Fin de ce magnifique voyage de couleurs et de contrastes."
+        }
+      ]
     }
   },
   "trekking": {
@@ -1032,6 +1260,115 @@
         {
           "title": "Synergie Altitude-Yoga",
           "description": "Ce qui rend ce voyage unique, c'est l'utilisation scientifique de techniques de respiration profonde pour favoriser l'acclimatation."
+        }
+      ]
+    },
+    "voyageHimalaya": "Voyage Intérieur au Cœur de l'Himalaya Népalaise",
+    "voyageHimalayaTrip": {
+      "title": "Voyage Intérieur au Cœur de l'Himalaya",
+      "subtitle": "Du 25 Octobre au 7 Novembre 2026, Népal",
+      "overview": "Au cœur de l’Himalaya, le Népal est une terre qui apaise instantanément le corps, le mental et l’âme. Berceau du Bouddha, terre sacrée de Shiva, ce pays vibre d’une sagesse millénaire où hindouisme et bouddhisme se rencontrent naturellement, dans une harmonie profondément inspirante. Ici, la spiritualité ne se cherche pas : elle se ressent.\nDes sommets majestueux de l’Himalaya aux lacs paisibles de Pokhara, des rizières en terrasses aux forêts luxuriantes, chaque paysage invite au ralentissement, à la présence, au silence intérieur. Le Népal est un espace où la nature devient un miroir, et où il devient enfin possible de s’écouter vraiment.\nCe voyage initiatique au Népal n’est pas une simple retraite pour se reposer. C’est une immersion consciente, un retour à soi profond, une traversée intérieure guidée par l’énergie puissante et stable de l’Himalaya. Jour après jour, vous déposez les tensions, le stress accumulé, les rôles et les conditionnements qui vous éloignent de votre vérité.\nÀ travers le mouvement, la respiration, la méditation, les pratiques corporelles et énergétiques pour réguler le système nerveux, vous retrouvez la sécurité intérieure, la vitalité et une clarté nouvelle. Vous apprenez à réguler votre système nerveux, à écouter vos ressentis, à vous ancrer solidement dans votre corps pour retrouver vitalité, clarté et fluidité dans vos relations et votre vie.\nCe voyage n’est pas une parenthèse hors du monde. C’est un tournant.\nUn espace-temps pour vous réaligner, pour vous reconnecter à votre essence, et repartir avec des outils concrets, capables de transformer votre quotidien. Vous ne rentrerez pas simplement apaisée : vous reviendrez recentrée, ancrée, alignée, avec une vision plus claire de ce qui est juste pour vous et la capacité de traverser la vie avec calme, conscience et intention.",
+      "duration": "14 Jours",
+      "maxAltitudeLabel": "Type de Voyage",
+      "maxAltitude": "Coaching & Bien-être",
+      "difficulty": "Modéré",
+      "groupSize": "4-10",
+      "highlights": [
+        {
+          "title": "Mieux se connaître",
+          "description": "Vous découvrez votre fonctionnement unique grâce aux clés fondamentales de votre Human Design."
+        },
+        {
+          "title": "Apaiser vos relations",
+          "description": "Apprenez comment vivre des relations sans conflits."
+        },
+        {
+          "title": "Apaiser durablement le stress",
+          "description": "Régulez votre système nerveux pour retrouver sécurité, calme intérieur et fluidité dans vos relations et prises de décision."
+        },
+        {
+          "title": "Se reconnecter à sa nature authentique",
+          "description": "Sortez des schémas de sur-adaptation pour vivre et décider en cohérence avec qui vous êtes vraiment."
+        },
+        {
+          "title": "Retrouver sa vitalité",
+          "description": "Rééquilibrez votre énergie pour avancer avec constance, élan et sans épuisement."
+        },
+        {
+          "title": "Renforcer sa résilience émotionnelle",
+          "description": "Traversez les défis avec recul et sérénité, et choisissez depuis un espace intérieur stable et confiant."
+        }
+      ],
+      "itinerary": [
+        {
+          "day": "Jour 1",
+          "title": "Arrivée et transfert à Bhaktapur",
+          "description": "Arrivée à l'aéroport international de Katmandou. Accueil traditionnel et transfert privé vers la cité médiévale préservée de Bhaktapur. Reposez-vous après le vol et imprégnez-vous de l'atmosphère unique de cette ancienne cité royale, hors du temps. Repas inclus : Dîner. Nuit à Bajra Guest House ou similaire."
+        },
+        {
+          "day": "Jour 2",
+          "title": "Petite randonnée de Telkot à Changu Narayan",
+          "description": "Une marche douce de mise en jambes le long de la crête reliant Telkot au temple historique de Changu Narayan (le plus ancien temple hindou de la vallée, classé à l'UNESCO). Profitez de superbes vues sur la vallée et les collines environnantes. Repas inclus : Petit-déjeuner et Dîner. Nuit à Bajra Guest House ou similaire. Distance : 5 km. Durée : 2h."
+        },
+        {
+          "day": "Jour 3",
+          "title": "Route vers Pharping et le monastère de Azom",
+          "description": "Départ pour le site sacré de Pharping (1h30 de route), lieu de pèlerinage bouddhiste majeur lié à Guru Rinpoche (Padmasambhava). Installation dans la maison d'hôtes du monastère tibétain d'Azom. Découvrez le silence et la vie rythmée par les prières et les rituels monastiques. Repas inclus : Pension complète. Nuit au monastère d'Azom ou similaire."
+        },
+        {
+          "day": "Jour 4",
+          "title": "Grotte d'Asura et exploration spirituelle",
+          "description": "Journée consacrée à l'exploration spirituelle de Pharping. Visite de la grotte sacrée d'Asura, où Padmasambhava a atteint de hauts niveaux de réalisation. Pratiques méditatives dans ces lieux hautement énergétiques. Repas inclus : Pension complète. Nuit au monastère d'Azom ou similaire."
+        },
+        {
+          "day": "Jour 5",
+          "title": "Route vers les plaines du Teraï (Chitwan)",
+          "description": "Descente vers les plaines subtropicales du Teraï pour rejoindre le Parc National de Chitwan (environ 5h de route). Installation dans un resort paisible au bord de la jungle. L'énergie de la terre y est accueillante et ressourçante. Repas inclus : Pension complète. Nuit à Tigerland Safari Resort ou similaire."
+        },
+        {
+          "day": "Jour 6",
+          "title": "Safari dans la jungle et canoë sur la rivière Rapti",
+          "description": "Journée complète d'activités dans le parc : safari en jeep, observation de la faune (rhinocéros unicorne, oiseaux rares, crocodiles) et descente tranquille en canoë traditionnel sur la rivière Rapti au lever ou coucher de soleil. Repas inclus : Pension complète. Nuit à Tigerland Safari Resort ou similaire."
+        },
+        {
+          "day": "Jour 7",
+          "title": "Route vers Pokhara",
+          "description": "Route pittoresque vers Pokhara (environ 3h de route), la ville des lacs située au pied des majestueux Annapurnas. Temps libre pour vous détendre ou flâner au bord du lac Phewa. Repas inclus : Petit-déjeuner et Dîner. Nuit à l'hôtel Temple Bell ou similaire."
+        },
+        {
+          "day": "Jour 8",
+          "title": "Lever de soleil à Sarangkot et randonnée vers Australian Camp",
+          "description": "Départ matinal pour assister au lever de soleil grandiose sur l'Everest et les Annapurnas à Sarangkot. Transfert à Kande, puis début de la randonnée jusqu'au magnifique Australian Camp (2000m) offrant un panorama unique sur la montagne sacrée Fishtail. Repas inclus : Pension complète. Nuit en Lodge. Distance : 4.5 km. Durée : 2h."
+        },
+        {
+          "day": "Jour 9",
+          "title": "Randonnée à Pritam Deurali et retour à Australian Camp",
+          "description": "Hike panoramique à travers de belles forêts de rhododendrons jusqu'au col de Pritam Deurali (2150m), puis retour tranquille vers Australian Camp pour une autre soirée sous les étoiles de l'Himalaya. Repas inclus : Pension complète. Nuit en Lodge. Distance : 6 km. Durée : 3h."
+        },
+        {
+          "day": "Jour 10",
+          "title": "Descente vers Kande et retour à Pokhara",
+          "description": "Descente à pied vers Kande, puis transfert retour vers Pokhara. Après-midi consacrée à l'intégration des expériences vécues en montagne. Repas inclus : Petit-déjeuner et Dîner. Nuit à l'hôtel Temple Bell ou similaire. Distance : 7 km. Durée : 3h."
+        },
+        {
+          "day": "Jour 11",
+          "title": "Vol pour Katmandou et soin vibratoire aux bols chantants",
+          "description": "Vol intérieur de retour vers Katmandou. L'après-midi, vivez une expérience profonde de relaxation et d'alignement avec une séance de bols tibétains thérapeutiques de guérison. Repas inclus : Petit-déjeuner et Dîner. Nuit à l'hôtel Lomustang ou similaire."
+        },
+        {
+          "day": "Jour 12",
+          "title": "Visite culturelle de la vallée de Katmandou",
+          "description": "Exploration des sites majeurs de la vallée, notamment le grand stupa de Boudhanath et le temple sacré de Pashupatinath au bord de la rivière Bagmati, pour observer les rituels et la philosophie hindoue de la vie et de la mort. Repas inclus : Petit-déjeuner et Dîner. Nuit à l'hôtel Lomustang ou similaire."
+        },
+        {
+          "day": "Jour 13",
+          "title": "Place Durbar de Patan, art du mandala et temps libre",
+          "description": "Visite de Patan Durbar Square, réputée pour ses artisans et son architecture Newar. Participez à une initiation à l'art traditionnel du Mandala (peinture bouddhiste) et profitez d'une heure de massage incluse. Après-midi libre pour vos derniers achats. Repas inclus : Petit-déjeuner et Dîner. Nuit à l'hôtel Lomustang ou similaire."
+        },
+        {
+          "day": "Jour 14",
+          "title": "Départ de Katmandou",
+          "description": "Temps libre selon vos horaires de vol, puis transfert privé vers l'aéroport pour votre vol retour. Fin de ce merveilleux voyage intérieur. Repas inclus : Petit-déjeuner."
         }
       ]
     }

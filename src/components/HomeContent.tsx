@@ -7,6 +7,9 @@ import { LogoIcon, TESTIMONIALS } from '../constants';
 import { useTranslation } from '../i18n/useTranslation';
 import JourneyBlock from './JourneyBlock';
 import heroBg from '../assets/images/hero/hero-bg.webp';
+import voyageHimalayaHero from '../assets/images/activities/spiritual/voyage-himalaya-hero.png';
+import bisketJatraHero from '../assets/images/activities/photography/Bisket Jatra.webp';
+import nepalColorsHero from '../assets/images/activities/photography/Photography 1_.webp';
 
 interface JourneyImage {
     src: string;
@@ -36,8 +39,40 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [loadMap, setLoadMap] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [activeFeaturedTab, setActiveFeaturedTab] = useState(0);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchEndX, setTouchEndX] = useState<number | null>(null);
     const mapRef = React.useRef<HTMLDivElement>(null);
     const { t, locale, getBaseUrl } = useTranslation();
+
+    // Auto-cycle featured journeys
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveFeaturedTab((prev) => (prev + 1) % 3);
+        }, 6000);
+        return () => clearInterval(interval);
+    }, [activeFeaturedTab]);
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setTouchEndX(null);
+        setTouchStartX(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEndX(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStartX || !touchEndX) return;
+        const diffX = touchStartX - touchEndX;
+        if (diffX > 50) {
+            // Swipe left -> next
+            setActiveFeaturedTab((prev) => (prev + 1) % 3);
+        } else if (diffX < -50) {
+            // Swipe right -> prev
+            setActiveFeaturedTab((prev) => (prev - 1 + 3) % 3);
+        }
+    };
 
     React.useEffect(() => {
         let timeoutId: number;
@@ -146,6 +181,195 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                     <span className="text-lg group-hover:translate-x-2 transition-transform">→</span>
                 </a>
             </section>
+
+            {/* 3. Featured Journeys Interactive Showcase */}
+            <section className="py-20 md:py-32 px-6 md:px-12 lg:px-24 bg-white border-t border-gray-100 overflow-hidden">
+                <style dangerouslySetInnerHTML={{__html: `
+                    @keyframes activeTabProgress {
+                        from { transform: scaleX(0); }
+                        to { transform: scaleX(1); }
+                    }
+                `}} />
+                <div className="max-w-7xl mx-auto">
+                    {/* Header */}
+                    <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+                        <span className="text-brand font-bold text-[10px] tracking-[0.5em] uppercase block mb-4 font-sans">
+                            {locale === 'fr' ? "EXPÉRIENCES UNIQUES" : "UNIQUE EXPERIENCES"}
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
+                            {locale === 'fr' 
+                                ? "Nos Voyages d'Exception en Vedette" 
+                                : "Our Featured Exceptional Journeys"}
+                        </h2>
+                        <div className="w-16 h-0.5 bg-brand/30 mx-auto mt-6"></div>
+                    </div>
+
+                    {/* Interactive Split Layout */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                        {/* Left Column: Image Viewer */}
+                        <div 
+                            className="lg:col-span-6 relative overflow-hidden shadow-2xl rounded-2xl border border-gray-100 bg-gray-900 group/carousel"
+                            onTouchStart={handleTouchStart}
+                            onTouchMove={handleTouchMove}
+                            onTouchEnd={handleTouchEnd}
+                        >
+                            <div className="aspect-square sm:aspect-16/10 lg:aspect-4/3 overflow-hidden relative">
+                                {[
+                                    { image: voyageHimalayaHero.src, title: t('home.featuredTripTitle') },
+                                    { image: bisketJatraHero.src, title: t('home.featuredTrip2Title') },
+                                    { image: nepalColorsHero.src, title: t('home.featuredTrip3Title') }
+                                ].map((item, idx) => (
+                                    <img
+                                        key={idx}
+                                        src={item.image}
+                                        alt={item.title}
+                                        className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out transform ${
+                                            activeFeaturedTab === idx 
+                                                ? 'opacity-100 scale-100 pointer-events-auto' 
+                                                : 'opacity-0 scale-105 pointer-events-none'
+                                        }`}
+                                        loading={idx === 0 ? "eager" : "lazy"}
+                                    />
+                                ))}
+                                <div className="absolute inset-0 bg-linear-to-t from-gray-900/40 via-transparent to-transparent pointer-events-none"></div>
+                                
+                                {/* Left Arrow */}
+                                <button
+                                    onClick={() => setActiveFeaturedTab((prev) => (prev - 1 + 3) % 3)}
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm text-gray-900 w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand hover:text-white transition-all shadow-md cursor-pointer opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100"
+                                    aria-label="Previous trip"
+                                >
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                {/* Right Arrow */}
+                                <button
+                                    onClick={() => setActiveFeaturedTab((prev) => (prev + 1) % 3)}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm text-gray-900 w-10 h-10 rounded-full flex items-center justify-center hover:bg-brand hover:text-white transition-all shadow-md cursor-pointer opacity-100 lg:opacity-0 lg:group-hover/carousel:opacity-100"
+                                    aria-label="Next trip"
+                                >
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Right Column: Dynamic Content & Switcher */}
+                        <div className="lg:col-span-6 flex flex-col justify-between py-2">
+                            {/* Trip Info Display with transition */}
+                            <div className="w-full relative min-h-[360px] sm:min-h-[320px]">
+                                {[
+                                    {
+                                        label: t('home.featuredTripLabel'),
+                                        dates: t('home.featuredTripDates'),
+                                        title: t('home.featuredTripTitle'),
+                                        desc: t('home.featuredTripDesc'),
+                                        cta: t('home.featuredTripCta'),
+                                        link: `${getBaseUrl()}/spiritual/voyage-himalaya-nepal`
+                                    },
+                                    {
+                                        label: t('home.featuredTrip2Label'),
+                                        dates: t('home.featuredTrip2Dates'),
+                                        title: t('home.featuredTrip2Title'),
+                                        desc: t('home.featuredTrip2Desc'),
+                                        cta: t('home.featuredTrip2Cta'),
+                                        link: `${getBaseUrl()}/photography/bisket-jatra-festival`
+                                    },
+                                    {
+                                        label: t('home.featuredTrip3Label'),
+                                        dates: t('home.featuredTrip3Dates'),
+                                        title: t('home.featuredTrip3Title'),
+                                        desc: t('home.featuredTrip3Desc'),
+                                        cta: t('home.featuredTrip3Cta'),
+                                        link: `${getBaseUrl()}/photography/nepal-colors-contrasts`
+                                    }
+                                ].map((trip, idx) => (
+                                    <div
+                                        key={idx}
+                                        className={`transition-all duration-500 ease-in-out ${
+                                            activeFeaturedTab === idx
+                                                ? 'opacity-100 translate-x-0 pointer-events-auto relative z-10'
+                                                : 'opacity-0 translate-x-4 pointer-events-none absolute inset-0'
+                                        }`}
+                                    >
+                                        <span className="inline-block px-4 py-1.5 bg-brand/10 text-brand font-bold text-[10px] tracking-[0.3em] uppercase rounded-full mb-6 font-sans">
+                                            {trip.label}
+                                        </span>
+                                        <span className="block text-gray-500 font-sans text-xs tracking-wider uppercase mb-2 font-semibold">
+                                            {trip.dates}
+                                        </span>
+                                        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
+                                            {trip.title}
+                                        </h3>
+                                        <p className="text-gray-700 text-base leading-relaxed font-light mb-8 max-w-xl">
+                                            {trip.desc}
+                                        </p>
+                                        <a
+                                            href={trip.link}
+                                            className="group inline-flex items-center gap-4 px-8 py-4 bg-brand text-white font-bold text-[10px] uppercase tracking-[0.4em] rounded-full hover:shadow-xl hover:shadow-brand/20 hover:-translate-y-0.5 transition-all duration-300"
+                                        >
+                                            <span>{trip.cta}</span>
+                                            <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Custom Premium Tabs Indicator */}
+                            <div className="w-full mt-12 pt-8 border-t border-gray-100 grid grid-cols-3 sm:flex sm:flex-row gap-2 sm:gap-4 justify-between">
+                                {[
+                                    { title: t('home.featuredTripTitle') },
+                                    { title: t('home.featuredTrip2Title') },
+                                    { title: t('home.featuredTrip3Title') }
+                                ].map((trip, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setActiveFeaturedTab(idx)}
+                                        className={`flex-1 text-center sm:text-left py-2 px-2 sm:py-3 sm:px-4 rounded-xl transition-all duration-300 group relative border border-transparent cursor-pointer ${
+                                            activeFeaturedTab === idx ? 'bg-brand/[0.04]' : 'hover:bg-gray-50'
+                                        }`}
+                                    >
+                                        {/* Dynamic accent top border indicator */}
+                                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-100">
+                                            {activeFeaturedTab === idx ? (
+                                                <div 
+                                                    key={activeFeaturedTab}
+                                                    className="h-full bg-brand origin-left"
+                                                    style={{
+                                                        animation: 'activeTabProgress 6000ms linear forwards'
+                                                    }}
+                                                />
+                                            ) : (
+                                                <div className="h-full bg-transparent group-hover:bg-gray-200" />
+                                            )}
+                                        </div>
+                                        <span className={`text-[10px] font-bold block mb-1 tracking-wider transition-colors duration-300 ${
+                                            activeFeaturedTab === idx ? 'text-brand' : 'text-gray-400'
+                                        }`}>
+                                            0{idx + 1}
+                                        </span>
+                                        <span className={`text-[10px] sm:text-xs font-semibold block line-clamp-1 transition-colors duration-300 ${
+                                            activeFeaturedTab === idx ? 'text-gray-900' : 'text-gray-500 group-hover:text-gray-700'
+                                        }`}>
+                                            {trip.title
+                                                .replace("Voyage Intérieur au Cœur de l'Himalaya Népalaise", "Voyage Intérieur")
+                                                .replace("La fête de Bisket Jatra, Nouvel An Népalais", "Bisket Jatra")
+                                                .replace("Népal : Couleurs & Contrastes", "Couleurs & Contrastes")
+                                                .replace("Inner Journey to the Heart of the Nepalese Himalayas", "Inner Journey")
+                                                .replace("Bisket Jatra Festival & Nepalese New Year", "Bisket Jatra")
+                                                .replace("Nepal: Colors & Contrasts", "Colors & Contrasts")
+                                            }
+                                        </span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
             <section className="py-8 md:py-16 lg:py-24 px-6 md:px-10 lg:px-24 bg-gray-50 border-y border-gray-100">
                 <div className="w-full max-w-[1920px] mx-auto">

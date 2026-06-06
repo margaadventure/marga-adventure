@@ -1,0 +1,67 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+
+const { lang, baseUrl, t, tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const trip = tripData("photography.bisketJatraTrip") || {};
+
+const packingList = [
+    {
+        category: "Camera Gear",
+        items: [
+            "Full-frame DSLR/Mirrorless Body (plus a backup body)",
+            "Wide-angle Lens (16-35mm) for landscapes and festival crowds",
+            "Telephoto Lens (70-200mm) for close-ups of rituals and portraits",
+            "Fast Prime Lens (35mm or 50mm f/1.8) for low light & street",
+            "Sturdy Tripod & remote shutter release",
+            "Protective rain cover & dust covers for camera gear",
+            "Extra Batteries & Memory Cards (plenty of spares)",
+        ],
+    },
+    {
+        category: "Clothing & Essentials",
+        items: [
+            "Comfortable, sturdy walking shoes",
+            "Lightweight, breathable clothing for warm days in Bardia/Lumbini",
+            "Dust Mask or Buff (extremely important for Bhaktapur festival crowds)",
+            "Sun hat, sunglasses, and high-factor sunscreen",
+            "Small daypack for carrying gear and personal items",
+        ],
+    },
+];
+
+import bgImage from "../../../assets/images/activities/photography/Bisket Jatra.webp";
+import type { Locale } from "../../../i18n/i18n";
+---
+<Layout
+    title={`${trip.title || 'Bisket Jatra Festival & Nepalese New Year'} | Marga Adventure`}
+    image={bgImage.src}
+    keywords="Bisket Jatra Nepal, Bhaktapur festival, Nepalese New Year, Bardia safari, Lumbini Buddha, cultural photography Nepal"
+>
+    <TripItineraryPage
+        title={trip.title || "Bisket Jatra Festival & Nepalese New Year"}
+        subtitle={trip.subtitle || "A Festive & Cultural Pilgrimage"}
+        heroImage={bgImage.src}
+        overview={trip.overview || ""}
+        highlights={trip.highlights || []}
+        itinerary={trip.itinerary || []}
+        tripStats={{
+            duration: trip.duration || "15 Days",
+            maxAltitude: trip.maxAltitude || "Festival & Photo",
+            maxAltitudeLabel: trip.maxAltitudeLabel || "Trip Type",
+            difficulty: trip.difficulty || "Easy",
+            groupSize: trip.groupSize || "2-10",
+        }}
+        showElevationGraph={false}
+        packingList={packingList}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+        initialFallbackDict={enDict}
+    />
+</Layout>

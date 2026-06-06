@@ -6,6 +6,7 @@ import deepakImg from "../assets/images/team/deepak-profile.webp";
 import laxmiImg from "../assets/images/team/Laxmi.webp";
 import binodImg from "../assets/images/team/Binod KC_.webp";
 import buddhimanTrekImg from "../assets/images/team/Buddhiman-trek.webp";
+import pierreImg from "../assets/images/team/pierre-etienne.png";
 import trekkingBg from "../assets/images/activities/trekking/background.webp";
 
 const TEAM_DATA = [
@@ -13,6 +14,7 @@ const TEAM_DATA = [
    { name: 'Laxmi Pradhan', roleKey: 'about.operationHead', img: laxmiImg.src },
    { name: 'Binod KC', roleKey: 'about.athleteRole', img: binodImg.src, noteKey: 'about.binodNote' },
    { name: 'Deepak Mahato Tharu', roleKey: 'about.cioRole', img: deepakImg.src, noteKey: 'about.deepakNote' },
+   { name: 'Pierre-Etienne Vincent', roleKey: 'about.pierreRole', img: pierreImg.src, noteKey: 'about.pierreNote' },
 ];
 
 const AboutPage: React.FC = () => {
@@ -98,7 +100,7 @@ const AboutPage: React.FC = () => {
                   <p className="text-gray-600 max-w-md md:text-right font-light">{t('about.teamTagline')}</p>
                </div>
 
-               <div className="grid md:grid-cols-2 2xl:grid-cols-4 gap-8">
+               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8">
                   {TEAM_DATA.map((member, i) => (
                      <div key={i} className="group relative overflow-hidden rounded-none h-[500px] shadow-xl">
                         <img

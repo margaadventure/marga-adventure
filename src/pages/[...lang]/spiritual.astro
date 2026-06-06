@@ -26,6 +26,7 @@ const { lang, baseUrl, t, tTrip, dict, enDict } = await useAstroI18n(Astro.url);
         description={t("nav.spiritualDescription")}
         heroImage={bg.src}
         highlights={[
+            { text: tTrip("spiritual.voyageHimalaya"), link: `${baseUrl}/spiritual/voyage-himalaya-nepal` },
             { text: tTrip("spiritual.pilgrimage"), link: `${baseUrl}/spiritual/buddhist-pilgrimage` },
             { text: tTrip("spiritual.innerPeace"), link: `${baseUrl}/spiritual/path-to-inner-peace` },
             { text: tTrip("spiritual.summit"), link: `${baseUrl}/spiritual/summit-within` },

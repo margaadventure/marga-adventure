@@ -1,0 +1,40 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import TripItineraryPage from "../../../components/TripItineraryPage";
+
+import bgImage from "../../../assets/images/activities/spiritual/voyage-himalaya-hero.png";
+import type { Locale } from "../../../i18n/i18n";
+
+const { lang, baseUrl, tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const trip = tripData("spiritual.voyageHimalayaTrip") || {};
+---
+<Layout
+    title={`${trip.title || dict['spiritual.voyageHimalaya']} | Marga Adventure`}
+    image={bgImage.src}
+    keywords={lang === 'en' ? "Spiritual retreat Nepal, inner journey Himalayas, mindfulness retreat Pokhara, nervous system regulation, human design Nepal" : "Retraite spirituelle Népal, voyage intérieur Himalaya, retraite pleine conscience Pokhara, régulation système nerveux, human design Népal"}
+>
+    <TripItineraryPage
+        title={trip.title || dict['spiritual.voyageHimalaya'] || "Inner Journey to the Himalayas"}
+        subtitle={trip.subtitle || "Spiritual & Wellness Journey"}
+        heroImage={bgImage.src}
+        overview={trip.overview || ""}
+        highlights={trip.highlights || []}
+        itinerary={trip.itinerary || []}
+        tripStats={{
+            duration: trip.duration || dict['trip.duration'] || "14 Days",
+            maxAltitude: trip.maxAltitude || "Coaching & Wellness",
+            maxAltitudeLabel: trip.maxAltitudeLabel || dict['trip.maxAltitude'] || "Trip Type",
+            difficulty: trip.difficulty || dict['trip.moderate'] || "Moderate",
+            groupSize: trip.groupSize || "4-10",
+        }}
+        showElevationGraph={false}
+        client:load
+     initialLocale={lang}
+     initialDict={dict}
+     initialFallbackDict={enDict} />
+</Layout>
