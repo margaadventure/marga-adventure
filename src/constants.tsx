@@ -103,7 +103,7 @@ export const TESTIMONIALS = [
   {
     text: '“Having traveled for over 30 years and worked with many guides, I can confidently say Buddhiman is the best guide and reassuring companion. He is organized, punctual, knowledgeable about Nepal, and a reassuring guide with genuine values. Flexible, attentive, discreet, and responsive, Budddhiman ensures the most wonderful adventures. Trust his agency to make your Nepalese dreams a reality.”',
     textKey: 'home.testimonial1Text',
-    author: 'Pierre-Etienne Vincent',
+    author: 'Pierre-Etienne VINCENT',
     authorKey: 'home.testimonial1Author',
     role: 'France, Publisher and Editor-in-Chief Le Temps d’un Voyage',
     roleKey: 'home.testimonial1Role'

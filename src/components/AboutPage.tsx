@@ -14,7 +14,7 @@ const TEAM_DATA = [
    { name: 'Laxmi Pradhan', roleKey: 'about.operationHead', img: laxmiImg.src },
    { name: 'Binod KC', roleKey: 'about.athleteRole', img: binodImg.src, noteKey: 'about.binodNote' },
    { name: 'Deepak Mahato Tharu', roleKey: 'about.cioRole', img: deepakImg.src, noteKey: 'about.deepakNote' },
-   { name: 'Pierre-Etienne Vincent', roleKey: 'about.pierreRole', img: pierreImg.src, noteKey: 'about.pierreNote' },
+   { name: 'Pierre-Etienne VINCENT', roleKey: 'about.pierreRole', img: pierreImg.src, noteKey: 'about.pierreNote' },
 ];
 
 const AboutPage: React.FC = () => {
@@ -82,44 +82,44 @@ const AboutPage: React.FC = () => {
                         </p>
                         <p className="border-l-4 border-brand pl-6 italic text-gray-700">
                            {t('about.founderQuote', { brand: '<span translate="no">Marga Adventure</span>' })}
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+             </div>
 
-         </section>
+          </section>
 
-         <section className="py-24 bg-gray-50 px-6 border-y border-gray-100">
-            <div className="max-w-7xl mx-auto">
-               <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
-                  <div>
-                     <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-2 block">{t('about.ourPeople')}</span>
-                     <h2 className="text-4xl font-bold text-gray-900">{t('about.meetTheTeam')}</h2>
-                  </div>
-                  <p className="text-gray-600 max-w-md md:text-right font-light">{t('about.teamTagline')}</p>
-               </div>
+          <section className="py-24 bg-gray-50 px-6 border-y border-gray-100">
+             <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-6">
+                   <div>
+                      <span className="text-brand font-bold text-xs uppercase tracking-[0.4em] mb-2 block">{t('about.ourPeople')}</span>
+                      <h2 className="text-4xl font-bold text-gray-900">{t('about.meetTheTeam')}</h2>
+                   </div>
+                   <p className="text-gray-600 max-w-md md:text-right font-light">{t('about.teamTagline')}</p>
+                </div>
 
-               <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8">
-                  {TEAM_DATA.map((member, i) => (
-                     <div key={i} className="group relative overflow-hidden rounded-none h-[500px] shadow-xl">
-                        <img
-                           src={member.img}
-                           alt={`${member.name} - ${t(member.roleKey)} at <span translate="no">Marga Adventure</span>`}
-                           className="w-full h-full object-cover transition-transform duration-700 xl:group-hover:scale-110 xl:grayscale xl:group-hover:grayscale-0"
-                           loading="lazy"
-                           decoding="async"
-                        />
-                        <div className="absolute bottom-0 w-full xl:inset-0 bg-linear-to-t from-black/95 via-black/70 to-transparent xl:via-transparent xl:from-black/90 xl:opacity-90 transition-opacity duration-500 flex flex-col justify-end p-6 xl:p-8">
-                           <p className="text-white font-bold text-xl xl:text-2xl mb-1 leading-tight">{member.name}</p>
-                           <p className="text-brand font-bold text-xs uppercase tracking-widest mb-2">{t(member.roleKey)}</p>
-                           {member.noteKey && (
-                              <div className="grid grid-rows-[1fr] xl:grid-rows-[0fr] xl:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out">
-                                 <div className="overflow-hidden">
-                                    <p className="text-white/90 text-xs leading-relaxed mt-2">{t(member.noteKey as any)}</p>
-                                 </div>
-                              </div>
-                           )}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-8">
+                   {TEAM_DATA.map((member, i) => (
+                      <div key={i} className="group relative overflow-hidden rounded-none h-[500px] shadow-xl">
+                         <img
+                            src={member.img}
+                            alt={`${member.name} - ${t(member.roleKey)} at <span translate="no">Marga Adventure</span>`}
+                            className="w-full h-full object-cover transition-transform duration-700 xl:group-hover:scale-110 xl:grayscale xl:group-hover:grayscale-0"
+                            loading="lazy"
+                            decoding="async"
+                         />
+                         <div className="absolute bottom-0 w-full xl:inset-0 bg-linear-to-t from-black/95 via-black/70 to-transparent xl:via-transparent xl:from-black/90 xl:opacity-90 transition-opacity duration-500 flex flex-col justify-end p-6 xl:p-8">
+                            <p className="text-white font-bold text-xl xl:text-2xl mb-1 leading-tight">{member.name}</p>
+                            <p className="text-brand font-bold text-xs uppercase tracking-widest mb-2">{t(member.roleKey)}</p>
+                            {member.noteKey && (
+                               <div className="grid grid-rows-[1fr] xl:grid-rows-[0fr] xl:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-out">
+                                  <div className="overflow-hidden">
+                                     <p className="text-white/90 text-xs leading-relaxed mt-2 whitespace-pre-line">{t(member.noteKey as any)}</p>
+                                  </div>
+                               </div>
+                            )}
                         </div>
                      </div>
                   ))}
