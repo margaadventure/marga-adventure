@@ -6,7 +6,7 @@ import deepakImg from "../assets/images/team/deepak-profile.webp";
 import laxmiImg from "../assets/images/team/Laxmi.webp";
 import binodImg from "../assets/images/team/Binod KC_.webp";
 import buddhimanTrekImg from "../assets/images/team/Buddhiman-trek.webp";
-import pierreImg from "../assets/images/team/pierre-etienne.png";
+import pierreImg from "../assets/images/team/pierre-etienne.webp";
 import trekkingBg from "../assets/images/activities/trekking/background.webp";
 
 const TEAM_DATA = [
