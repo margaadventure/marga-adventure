@@ -18,7 +18,7 @@ import wildlife2 from './assets/images/activities/wildlife/tiger.webp';
 import wildlife3 from './assets/images/activities/wildlife/monkey.webp';
 import wildlife4 from './assets/images/activities/wildlife/eagle-wildlife_4.webp';
 import wildlife5 from './assets/images/activities/wildlife/deer-wildlife_5.webp';
-
+ 
 import trekking1 from './assets/images/activities/trekking/congde-tekking_1.webp';
 import trekking2 from './assets/images/activities/trekking/Thamserku-trekiking_2.webp';
 import trekking3 from './assets/images/activities/trekking/manewall-trekking_3.webp';

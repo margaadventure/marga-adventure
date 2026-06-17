@@ -43,7 +43,7 @@ const AboutPage: React.FC = () => {
                </h2>
                <div className="text-gray-800 text-lg leading-relaxed font-light space-y-6">
                   <p>{t('about.margaMeans')}</p>
-                  <p>{t('about.margaPhilosophy', { brand: '<span translate="no">Marga Adventure</span>' })}</p>
+                  <p dangerouslySetInnerHTML={{ __html: t('about.margaPhilosophy', { brand: '<span translate="no">Marga Adventure</span>' }) }} />
                </div>
             </div>
 
@@ -74,15 +74,12 @@ const AboutPage: React.FC = () => {
                      <div className="space-y-6 text-gray-800 text-lg leading-relaxed font-light">
                         <p>{t('about.founderBio1')}</p>
                         <p>
-                           {t('about.founderBio2', { masters1: '', masters2: '' }).split('')[0]}
-                           <strong>{t('about.masterAdventureTourism')}</strong>
-                           {' '}{t('about.asWellAsA')}{' '}
-                           <strong>{t('about.masterPsychology')}</strong>.{' '}
-                           {t('about.founderBio2').split('.').slice(1).join('.').trim()}
+                           {t('about.founderBio2', {
+                              masters1: t('about.masterAdventureTourism'),
+                              masters2: t('about.masterPsychology')
+                           })}
                         </p>
-                        <p className="border-l-4 border-brand pl-6 italic text-gray-700">
-                           {t('about.founderQuote', { brand: '<span translate="no">Marga Adventure</span>' })}
-                         </p>
+                        <p className="border-l-4 border-brand pl-6 italic text-gray-700" dangerouslySetInnerHTML={{ __html: t('about.founderQuote', { brand: '<span translate="no">Marga Adventure</span>' }) }} />
                       </div>
                    </div>
                 </div>
@@ -105,7 +102,7 @@ const AboutPage: React.FC = () => {
                       <div key={i} className="group relative overflow-hidden rounded-none h-[500px] shadow-xl">
                          <img
                             src={member.img}
-                            alt={`${member.name} - ${t(member.roleKey)} at <span translate="no">Marga Adventure</span>`}
+                            alt={`${member.name} - ${t(member.roleKey)} at Marga Adventure`}
                             className="w-full h-full object-cover transition-transform duration-700 xl:group-hover:scale-110 xl:grayscale xl:group-hover:grayscale-0"
                             loading="lazy"
                             decoding="async"
