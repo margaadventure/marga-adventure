@@ -9,6 +9,7 @@ import schoolGroupImg from '../assets/images/Community/school-group.webp';
 import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
 import journalBg from '../assets/images/activities/journal_background.webp';
 import silenceImg from '../assets/images/silence.webp';
+import manasluCoverImg from '../assets/images/blog/manaslu-2026/1.jpg';
 
 const BlogListContent: React.FC<any> = (props) => {
     const { t, locale, getBaseUrl } = useTranslation();
@@ -47,6 +48,17 @@ const BlogListContent: React.FC<any> = (props) => {
             readTime: t('blog.post3ReadTime'),
             date: t('blog.post3Date'),
             authorImage: '/logo.webp'
+        },
+        {
+            slug: 'heartbeat-of-manaslu',
+            category: t('blog.post4Category'),
+            title: t('blog.post4Title'),
+            excerpt: locale === 'en'
+                ? "This May, I walked the Manaslu Circuit with Adrien and Christelle from France. We did not just hike; we let the ancient rhythm of the Himalayas change us."
+                : "En mai dernier, j'ai parcouru le circuit du Manaslu avec Adrien et Christelle, venus de France. Nous n'avons pas seulement marché ; nous avons laissé le rythme ancestral de l'Himalaya nous transformer.",
+            image: manasluCoverImg.src,
+            readTime: t('blog.post4ReadTime'),
+            date: t('blog.post4Date')
         }
     ];
 

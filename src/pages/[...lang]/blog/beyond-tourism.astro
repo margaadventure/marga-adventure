@@ -29,6 +29,7 @@ const content = {
         p4: "This is not \"charity\" in the cold, distant sense. This is family. When you Trek with us, a portion of your fee goes directly into the Sharing Warmth fund. But more than that, we invite you to be part of the distribution.",
         prev: "Previous",
         back: "Back to Journal",
+        next: "Next Story",
     },
     fr: {
         title: "Le Tourisme qui Guérit",
@@ -47,6 +48,7 @@ const content = {
         p4: "Ce n'est pas de la « charité » au sens froid et lointain. C'est la famille. Lorsque vous partez en trek avec nous, une partie de vos frais va directement au fonds « Partager la Chaleur ». Mais plus encore, nous vous invitons à participer à la distribution.",
         prev: "Précédent",
         back: "Retour au Journal",
+        next: "Histoire Suivante",
     }
 };
 
@@ -167,9 +169,9 @@ const d = content[lang];
                     >← {d.prev}</a
                 >
                 <a
-                    href={`${baseUrl}/blog`}
+                    href={`${baseUrl}/blog/heartbeat-of-manaslu`}
                     class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
-                    >{d.back}</a
+                    >{d.next} →</a
                 >
             </div>
         </div>

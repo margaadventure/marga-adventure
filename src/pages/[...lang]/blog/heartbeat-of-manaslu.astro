@@ -1,0 +1,390 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import PageHero from "../../../components/PageHero";
+import buddhimanImg from "../../../assets/images/team/buddhiman-tamang.webp";
+
+// Import blog photos
+import img1 from "../../../assets/images/blog/manaslu-2026/1.jpg";
+import img2 from "../../../assets/images/blog/manaslu-2026/2.jpg";
+import img3_0 from "../../../assets/images/blog/manaslu-2026/3.0.jpg";
+import img3_1 from "../../../assets/images/blog/manaslu-2026/3.1.jpg";
+import img3_2 from "../../../assets/images/blog/manaslu-2026/3.2.jpg";
+import img4_1 from "../../../assets/images/blog/manaslu-2026/4.1.jpg";
+import img4_2 from "../../../assets/images/blog/manaslu-2026/4.2.jpg";
+import img4_3 from "../../../assets/images/blog/manaslu-2026/4.3.jpg";
+import img5_1 from "../../../assets/images/blog/manaslu-2026/5.1.jpg";
+import img5_2 from "../../../assets/images/blog/manaslu-2026/5.2.jpg";
+import img5_3 from "../../../assets/images/blog/manaslu-2026/5.3.jpg";
+import bgImg from "../../../assets/images/blog/manaslu-2026/bg.jpg";
+import img6 from "../../../assets/images/blog/manaslu-2026/6.jpg";
+
+import type { Locale } from "../../../i18n/i18n";
+
+const content = {
+    en: {
+        title: "The True Path: Sunrises, Shadows, and the Heartbeat of Manaslu",
+        subtitle: "Manaslu Circuit Journey",
+        heroTitle: "The True Path",
+        heroSubtitle: "Sunrises, Shadows, and the Heartbeat of Manaslu.",
+        metaDesc: "Read about Buddhiman Tamang's 12-day journey with Adrien and Christelle on the Manaslu Circuit, sharing trails with Yarshagumba collectors and crossing Larkya La.",
+        authorRole: "Founder & CEO",
+        readTime: "5 min read",
+        date: "May 28, 2026",
+        quote: "To find the true heart of a place, you must first slow down to match its pace.",
+        p1: "At Marga Adventure, we believe deeply in the Marga- the path. We believe that true travel never takes without giving back. It is a shared breath between the traveler, the land, and the people who call these high mountains home. A mountain is not a playground to be conquered, but a quiet teacher to be respected.",
+        p2: "This May, over twelve sun-filled and snow-swept days, I walked this path with a wonderful couple from France Adrein and Christelle along with Sujit our always smiling and jolly team member. We did not just hike the Manaslu Circuit; we let it change us.",
+        h1: "The Rhythm of the Gorge",
+        p3: "The comfort of the modern world vanished right away on the bumpy, wild jeep ride from Kathmandu to Machha Khola. From there, the ancient rhythm of the Himalayas took over.",
+        p4: "We followed the deep, winding valley of the Budhi Gandaki river. We held our breath crossing old suspension bridges that swayed over roaring, dark-grey waters. We pressed our backs against the cool stone of the mountain to make room for a bustling line of donkey and yak caravans, their heavy bells echoing against the valley walls.",
+        h2: "The Himalayan Gold Rush",
+        p5: "As we climbed higher, the air grew thin and the local culture slowly changed. The green farming hills of Gurung villages turned into ancient Tibetan settlements. In Shyala, the valley opened wide, and Manaslu finally showed herself a towering giant of ice. It was a quiet, breathless moment for the couple. They stood hand-in-hand, warm hugs and looking up at the massive, stunning peak.",
+        p6: "But the true heartbeat of this journey was found in the people and their hospitality with beautiful smiles.",
+        p7: "In the month of May in the high Himalayas brings a thrilling energy to the trails. It is the season of Yarshagumba, the rare caterpillar fungus known as Himalayan Gold. We saw an amazing human journey unfold: entire villages carrying tents, tools, and heavy food supplies for their expeditation. Sharing the trail with then was an extraordinary experience itself. They were climbing into the harsh, freezing mountains to find this gold and support their families.",
+        p8: "To practice the Marga philosophy means knowing we are only guests in their home. We walked beside them with deep respect, amazed by their strength and courage.",
+        p9: "Next to this raw display of human hard work, nature offered its own beauty. At 4,000 meters, the bare landscape was suddenly broken by rhododendron flowers. They bloomed in bright, magical bursts of deep red, pink and white.",
+        h3: "The Dark and the Light of Larkya La",
+        p10: "Dharamshala Base Camp at 3:00 AM makes you feel very small. The cold is not just a temperature; it feels like a heavy weight on your shoulders.",
+        p11: "We woke up in the pitch black with sky full of stars, ate a quiet and quick breakfast (Museli). By 4:00 AM, our headlamps were the only stars touching the earth. For four hours, we climbed through the painfully thin air. But the mountains always reward those who keep going.",
+        p12: "As we reached the top of Larkya La pass (5,106 meters), the sun peeked over the sharp peaks. It washed the ice in a bright, beautiful gold. Our extreme tiredness simply vanished. We didn’t need fancy, expensive drinks to celebrate. We stood at the roof of the world, our breath showing in the freezing air. We cheered our shared success with \"Himalayan Champagne\", a sharp, sweet, perfect mix of Sprite and fresh lemon juice and dried local Kiwi.",
+        h4: "The Grounding Return",
+        p13: "The steep climb down toward Bhimthang was a fast, exciting thrill.",
+        p14: "We slipped and stumbled multiple times on the rugged descent, the sheer gravity turning our trek into a playful dance. At one point, our team member, Sujit, took a harmless tumble into a snowy ditch, sending a chorus of loud, echoing laughter into the crisp mountain air. Adrien and I rushed over, pulling him out with wide smiles. When we finally reached the welcoming haven of Bhimthang, the day’s exhaustion gave way to a wonderful, warm evening as we shared stories over glasses of rich, local Nepali Khukuri rum.",
+        p15: "The following morning, we awoke to a breathtaking sunrise painting the peaks above Bhimthang. We took our time, standing in quiet awe to soak in the magnificent 360-degree panorama of the surrounding giants. As we continued our journey downward, the harsh alpine trail slowly gave way to the serene, deeply calming embrace of beautiful pine and rhododendron forests, guiding us gently toward Tilche to mark the end of our trek.",
+        p16: "On our last night, our journey felt complete. The freezing cold of the high mountains melted into the warmth of true friendship. The evening turned into a joyful party filled with local music. We danced, we raised glasses of homemade millet wine and beers , and our voices joined the classic Nepali song, Resham Firiri and other beautiful songs.",
+        p17: "The next day, the drive down to Besisahar was an adventure all its own, tracing the deep, dramatic gorge of the Marshyangdi River. Along the rugged route, we paused to take in the magnificent Chamche waterfall, its roaring cascade a fitting farewell to the region's raw power. Upon finally arriving in Besisahar, we sat down to share one last, comforting meal. We savored freshly picked *niguro* (fiddlehead ferns) cooked beautifully with mountain spices and served with rice.",
+        p18: "We had come looking for the Manaslu Circuit, but we left having found the Marga, “ The path Within”",
+        prev: "Previous Story",
+        back: "Back to Journal"
+    },
+    fr: {
+        title: "Le Vrai Chemin : Levers de Soleil, Ombres et le Battement de Cœur du Manaslu",
+        subtitle: "Voyage sur le circuit du Manaslu",
+        heroTitle: "Le Vrai Chemin",
+        heroSubtitle: "Levers de soleil, ombres et le battement de cœur du Manaslu.",
+        metaDesc: "Lisez le récit du voyage de 12 jours de Buddhiman Tamang avec Adrien et Christelle sur le circuit du Manaslu, partageant les sentiers avec les récolteurs de Yarshagumba.",
+        authorRole: "Fondateur & CEO",
+        readTime: "5 min de lecture",
+        date: "28 mai 2026",
+        quote: "Pour trouver le véritable cœur d'un lieu, il faut d'abord ralentir pour s'adapter à son rythme.",
+        p1: "Chez Marga Adventure, nous croyons profondément au Marga - le chemin. Nous pensons que le vrai voyage ne prend jamais sans donner en retour. C'est un souffle partagé entre le voyageur, la terre et les personnes qui habitent ces hautes montagnes. Une montagne n'est pas un terrain de jeu à conquérir, mais un maître silencieux à respecter.",
+        p2: "En mai dernier, pendant douze jours ensoleillés et enneigés, j'ai parcouru ce chemin avec un merveilleux couple de France, Adrien et Christelle, ainsi que Sujit, notre membre de l'équipe toujours souriant et joyeux. Nous n'avons pas seulement fait la randonnée du Circuit du Manaslu ; nous l'avons laissé nous changer.",
+        h1: "Le Rythme de la Gorge",
+        p3: "Le confort du monde moderne s'est évanoui dès le trajet cahoteux et sauvage en jeep de Katmandou à Machha Khola. De là, le rythme ancestral de l'Himalaya a pris le dessus.",
+        p4: "Nous avons suivi la vallée profonde et sinueuse de la rivière Budhi Gandaki. Nous avons retenu notre souffle en traversant de vieux ponts suspendus qui se balançaient au-dessus d'eaux tumultueuses gris foncé. Nous avons plaqué notre dos contre la pierre fraîche de la montagne pour laisser passer une caravane animée d'ânes et de yacks, leurs lourdes cloches résonnant contre les parois de la vallée.",
+        h2: "La Ruée vers l'Or de l'Himalaya",
+        p5: "À mesure que nous montions, l'air se raréfiait et la culture locale changeait lentement. Les collines agricoles verdoyantes des villages Gurung se sont transformées en anciens établissements tibétains. À Shyala, la vallée s'est ouverte largement, et le Manaslu s'est enfin montré, un géant de glace imposant. Ce fut un moment de calme et de souffle coupé pour le couple. Ils se tenaient main dans la main, s'enlaçant chaleureusement et contemplant le sommet massif et magnifique.",
+        p6: "Mais le véritable battement de cœur de ce voyage se trouvait dans les gens et leur hospitalité aux sourires magnifiques.",
+        p7: "Le mois de mai dans les hautes Alpes de l'Himalaya apporte une énergie palpitante sur les sentiers. C'est la saison du Yarshagumba, ce champignon-chenille rare connu sous le nom d'Or de l'Himalaya. Nous avons vu un voyage humain extraordinaire se dérouler : des villages entiers transportant des tentes, des outils et de lourdes provisions pour leur expédition. Partager le sentier avec eux était une expérience extraordinaire en soi. Ils grimpaient dans les montagnes glaciales et hostiles pour trouver cet or et subvenir aux besoins de leurs familles.",
+        p8: "Pratiquer la philosophie Marga signifie savoir que nous ne sommes que des invités chez eux. Nous avons marché à leurs côtés avec un profond respect, émerveillés par leur force et leur courage.",
+        p9: "À côté de cette démonstration brute de travail humain, la nature offrait sa propre beauté. À 4 000 mètres, le paysage dénudé était soudainement interrompu par des fleurs de rhododendron. Elles fleurissaient en éclats vifs et magiques de rouge profond, de rose et de blanc.",
+        h3: "L'Ombre et la Lumière du Larkya La",
+        p10: "Le camp de base de Dharamshala à 3h00 du matin vous fait vous sentir tout petit. Le froid n'est pas seulement une température ; il ressemble à un poids lourd sur vos épaules.",
+        p11: "Nous nous sommes réveillés dans le noir complet avec un ciel plein d'étoiles, avons pris un petit-déjeuner rapide et calme (Muesli). À 4h00 du matin, nos lampes frontales étaient les seules étoiles touchant la terre. Pendant quatre heures, nous avons grimpé dans un air douloureusement rare. Mais les montagnes récompensent toujours ceux qui continuent.",
+        p12: "Alors que nous atteignions le sommet du col de Larkya La (5 106 mètres), le soleil a pointé le bout de son nez derrière les sommets acérés. Il a baigné la glace d'un or éclatant et magnifique. Notre extrême fatigue s'est tout simplement envolée. Nous n'avions pas besoin de boissons de luxe et chères pour célébrer. Nous nous tenions sur le toit du monde, notre souffle visible dans l'air glacial. Nous avons célébré notre succès partagé avec du « Champagne de l'Himalaya », un mélange vif, doux et parfait de Sprite, de jus de citron frais et de Kiwi local séché.",
+        h4: "Le Retour à la Terre",
+        p13: "La descente raide vers Bhimthang a été un frisson rapide et excitant.",
+        p14: "Nous nous sommes glissés et trébuchés plusieurs fois sur la descente accidentée, la seule gravité transformant notre trek en une danse ludique. À un moment donné, notre membre de l'équipe, Sujit, a fait une chute inoffensive dans un fossé enneigé, envoyant un chœur de rires sonores et résonnants dans l'air pur de la montagne. Adrien et moi nous sommes précipités, le sortant de là avec de grands sourires. Quand nous avons enfin atteint le havre accueillant de Bhimthang, l'épuisement de la journée a laissé place à une soirée chaleureuse et merveilleuse où nous avons partagé des histoires autour de verres de riche rhum népalais local Khukuri.",
+        p15: "Le lendemain matin, nous nous sommes réveillés avec un lever de soleil époustouflant peignant les sommets au-dessus de Bhimthang. Nous avons pris notre temps, debout dans un calme émerveillé pour nous imprégner du magnifique panorama à 360 degrés des géants environnants. Alors que nous continuions notre descente, le sentier alpin rude a lentement laissé place à l'étreinte sereine et profondément apaisante des magnifiques forêts de pins et de rhododendrons, nous guidant doucement vers Tilche pour marquer la fin de notre trek.",
+        p16: "Lors de notre dernière nuit, notre voyage semblait complet. Le froid glacial des hautes montagnes s'est fondu dans la chaleur d'une amitié sincère. La soirée s'est transformée en une fête joyeuse remplie de musique locale. Nous avons dansé, levé nos verres de vin de millet fait maison et de bières, et nos voix se sont jointes à la chanson népalaise classique Resham Firiri et à d'autres belles mélodies.",
+        p17: "Le lendemain, le trajet jusqu'à Besisahar a été une aventure à part entière, longeant la gorge profonde et spectaculaire de la rivière Marshyangdi. Le long de cette route accidentée, nous nous sommes arrêtés pour admirer la magnifique cascade de Chamche, son torrent rugissant offrant un adieu digne de la force brute de la région. En arrivant enfin à Besisahar, nous nous sommes assis pour partager un dernier repas réconfortant. Nous avons savouré du *niguro* (crosse de fougère) fraîchement cueilli, magnifiquement cuisiné avec des épices de montagne et servi avec du riz.",
+        p18: "Nous étions venus chercher le circuit du Manaslu, mais nous sommes repartis en ayant trouvé le Marga, « Le Chemin Intérieur ».",
+        prev: "Histoire Précédente",
+        back: "Retour au Journal"
+    }
+};
+
+const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
+const d = content[lang];
+---
+<Layout
+    title={d.title}
+    description={d.metaDesc}
+    image={bgImg.src}
+>
+    <PageHero
+        title={d.heroTitle}
+        subtitle={d.heroSubtitle}
+        image={bgImg.src}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden"
+                    >
+                        <img
+                            src={buddhimanImg.src}
+                            alt="Buddhiman Tamang"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            Buddhiman Tamang
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            {d.authorRole}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {d.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {d.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.quote}"
+                </p>
+
+                <p
+                    class="mb-8 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]"
+                >
+                    {d.p1}
+                </p>
+                <p class="mb-8">
+                    {d.p2}
+                </p>
+
+                <div
+                    class="my-16 relative rounded-3xl overflow-hidden h-[600px] max-w-md mx-auto"
+                >
+                    <img
+                        src={img1.src}
+                        alt="Manaslu Circuit Sunrise"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h1}
+                </h3>
+                <p class="mb-8">
+                    {d.p3}
+                </p>
+                <p class="mb-8">
+                    {d.p4}
+                </p>
+
+                <div
+                    class="my-16 relative rounded-3xl overflow-hidden h-[500px]"
+                >
+                    <img
+                        src={img2.src}
+                        alt="Budhi Gandaki River Gorge"
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h2}
+                </h3>
+                <p class="mb-8">
+                    {d.p5}
+                </p>
+                <p class="mb-8">
+                    {d.p6}
+                </p>
+                <p class="mb-8">
+                    {d.p7}
+                </p>
+
+                <div class="my-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={img3_0.src}
+                            alt="Himalayan Gold Rush - Yarshagumba Expedition"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={img3_1.src}
+                            alt="Yarshagumba Collectors"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={img3_2.src}
+                            alt="Rhododendrons at high altitude"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+
+                <p class="mb-8">
+                    {d.p8}
+                </p>
+                <p class="mb-8">
+                    {d.p9}
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h3}
+                </h3>
+
+                <div class="my-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={img4_1.src}
+                            alt="Dharamshala Base Camp 3 AM"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={img4_2.src}
+                            alt="Climbing Larkya La Pass"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[300px]">
+                        <img
+                            src={img4_3.src}
+                            alt="Celebrating at Larkya La Summit 5,106m"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+
+                <p class="mb-8">
+                    {d.p10}
+                </p>
+                <p class="mb-8">
+                    {d.p11}
+                </p>
+                <p class="mb-8">
+                    {d.p12}
+                </p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h4}
+                </h3>
+                <p class="mb-8">
+                    {d.p13}
+                </p>
+                <p class="mb-8">
+                    {d.p14}
+                </p>
+
+                <div class="my-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden h-[350px]">
+                        <img
+                            src={img5_1.src}
+                            alt="Peaks above Bhimthang"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[350px]">
+                        <img
+                            src={img5_2.src}
+                            alt="Sunrise painting the peaks of Bhimthang"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+
+                <p class="mb-8">
+                    {d.p15}
+                </p>
+                <p class="mb-8">
+                    {d.p16}
+                </p>
+
+                <div class="my-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden h-[500px]">
+                        <img
+                            src={img5_3.src}
+                            alt="Joyful local music and millet wine celebration"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden h-[500px]">
+                        <img
+                            src={img6.src}
+                            alt="Chamche Waterfall"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                </div>
+
+                <p class="mb-8">
+                    {d.p17}
+                </p>
+                <p class="mb-8">
+                    {d.p18}
+                </p>
+                
+                <p class="mt-8 font-bold text-brand">— Buddhiman</p>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href={`${baseUrl}/blog/beyond-tourism`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← {d.prev}</a
+                >
+                <a
+                    href={`${baseUrl}/blog`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >{d.back}</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>
