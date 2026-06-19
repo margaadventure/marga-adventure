@@ -360,6 +360,10 @@ const HomeContent: React.FC<HomeContentProps> = ({ heroImageSrc, heroImageSrcSet
                                                 .replace("Inner Journey to the Heart of the Nepalese Himalayas", "Inner Journey")
                                                 .replace("Bisket Jatra Festival & Nepalese New Year", "Bisket Jatra")
                                                 .replace("Nepal: Colors & Contrasts", "Colors & Contrasts")
+                                                .replace("Nepal’s Timeless Heritage and Untamed Wilderness", "Timeless Heritage")
+                                                .replace("Patrimoine intemporel et nature indomptée du Népal", "Patrimoine Intemporel")
+                                                .replace("Color and Contrast to Nepal and its Sacred Festivals", "Colors & Contrasts")
+                                                .replace("Couleur et contraste au Népal et ses festivals sacrés", "Couleurs & Contrastes")
                                             }
                                         </span>
                                     </button>
