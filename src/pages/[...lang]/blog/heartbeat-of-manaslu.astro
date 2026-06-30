@@ -59,7 +59,8 @@ const content = {
         p17: "The next day, the drive down to Besisahar was an adventure all its own, tracing the deep, dramatic gorge of the Marshyangdi River. Along the rugged route, we paused to take in the magnificent Chamche waterfall, its roaring cascade a fitting farewell to the region's raw power. Upon finally arriving in Besisahar, we sat down to share one last, comforting meal. We savored freshly picked *niguro* (fiddlehead ferns) cooked beautifully with mountain spices and served with rice.",
         p18: "We had come looking for the Manaslu Circuit, but we left having found the Marga, “ The path Within”",
         prev: "Previous Story",
-        back: "Back to Journal"
+        back: "Back to Journal",
+        next: "Next Story"
     },
     fr: {
         title: "Le Vrai Chemin : Levers de Soleil, Ombres et le Battement de Cœur du Manaslu",
@@ -94,7 +95,8 @@ const content = {
         p17: "Le lendemain, le trajet jusqu'à Besisahar a été une aventure à part entière, longeant la gorge profonde et spectaculaire de la rivière Marshyangdi. Le long de cette route accidentée, nous nous sommes arrêtés pour admirer la magnifique cascade de Chamche, son torrent rugissant offrant un adieu digne de la force brute de la région. En arrivant enfin à Besisahar, nous nous sommes assis pour partager un dernier repas réconfortant. Nous avons savouré du *niguro* (crosse de fougère) fraîchement cueilli, magnifiquement cuisiné avec des épices de montagne et servi avec du riz.",
         p18: "Nous étions venus chercher le circuit du Manaslu, mais nous sommes repartis en ayant trouvé le Marga, « Le Chemin Intérieur ».",
         prev: "Histoire Précédente",
-        back: "Retour au Journal"
+        back: "Retour au Journal",
+        next: "Histoire Suivante"
     }
 };
 
@@ -380,9 +382,9 @@ const d = content[lang];
                     >← {d.prev}</a
                 >
                 <a
-                    href={`${baseUrl}/blog`}
+                    href={`${baseUrl}/blog/the-delay-was-better`}
                     class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
-                    >{d.back}</a
+                    >{d.next} →</a
                 >
             </div>
         </div>

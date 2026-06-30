@@ -10,6 +10,7 @@ import buddhimanTamangImg from '../assets/images/team/buddhiman-tamang.webp';
 import journalBg from '../assets/images/activities/journal_background.webp';
 import silenceImg from '../assets/images/silence.webp';
 import manasluCoverImg from '../assets/images/blog/manaslu-2026/1.jpg';
+import phoksundoCoverImg from '../assets/images/blog/Shey-Phoksundo-Blog/Hero Image.jpg';
 
 const BlogListContent: React.FC<any> = (props) => {
     const { t, locale, getBaseUrl } = useTranslation();
@@ -59,6 +60,17 @@ const BlogListContent: React.FC<any> = (props) => {
             image: manasluCoverImg.src,
             readTime: t('blog.post4ReadTime'),
             date: t('blog.post4Date')
+        },
+        {
+            slug: 'the-delay-was-better',
+            category: t('blog.post5Category'),
+            title: t('blog.post5Title'),
+            excerpt: locale === 'en'
+                ? "Sometimes the best part of an adventure isn't the destination. It's everything that happens while you're trying to get there. How a stuck truck and a riverbank created a lifelong friendship."
+                : "Parfois, la meilleure partie d'une aventure n'est pas la destination. C'est tout ce qui se passe pendant que vous essayez d'y arriver. Comment un camion embourbé et une berge de rivière ont créé une amitié durable.",
+            image: phoksundoCoverImg.src,
+            readTime: t('blog.post5ReadTime'),
+            date: t('blog.post5Date')
         }
     ];
 

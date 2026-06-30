@@ -1,0 +1,1038 @@
+---
+export function getStaticPaths() {
+  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import PageHero from "../../../components/PageHero";
+import deepakImg from "../../../assets/images/team/deepak-profile.webp";
+
+// Import blog photos from Shey-Phoksundo-Blog folder
+import heroImg from "../../../assets/images/blog/Shey-Phoksundo-Blog/Hero Image.jpg";
+import img2 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo2.jpg";
+import img3 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo3.jpg";
+import img4 from "../../../assets/images/blog/Shey-Phoksundo-Blog/Photo4.jpg";
+import img5 from "../../../assets/images/blog/Shey-Phoksundo-Blog/Photo5.jpg";
+import img6 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo6.jpg";
+import img7_1 from "../../../assets/images/blog/Shey-Phoksundo-Blog/Photo7.1.jpg";
+import img7_2 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo7.2.jpg";
+import img7_3 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo7.3.jpg";
+import img8 from "../../../assets/images/blog/Shey-Phoksundo-Blog/Photo8.jpg";
+import img9 from "../../../assets/images/blog/Shey-Phoksundo-Blog/Photo9.png";
+import img10 from "../../../assets/images/blog/Shey-Phoksundo-Blog/Photo10.jpg";
+import img11 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo11.jpg";
+import img12 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo12.jpg";
+import img13 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo13.jpg";
+import img14 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo14.jpg";
+import img15 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo15.jpg";
+
+import type { Locale } from "../../../i18n/i18n";
+
+const content = {
+    en: {
+        title: "The Lake Was Beautiful. The Delay Was Better.",
+        subtitle: "How a Stuck Truck, a Riverbank, and a Long Road to Dolpa Gave Me One of My Favorite Travel Memories",
+        heroTitle: "The Delay Was Better",
+        heroSubtitle: "How a stuck truck, a riverbank, and a long road to Dolpa gave me one of my favorite travel memories.",
+        metaDesc: "Read Deepak Mahato's travel memory of the journey to Shey Phoksundo Lake in Dolpa. A story of roads, landslides, patience, and friendship.",
+        authorRole: "CIO & Strategist",
+        readTime: "7 min read",
+        date: "July 1, 2026",
+        quote: "Sometimes the best part of an adventure isn't the destination. It's everything that happens while you're trying to get there.",
+        
+        // Part 1: Intro
+        p1: "When people ask me about Shey Phoksundo, they usually expect me to talk about the lake.",
+        p2: "The color.",
+        p3: "The mountains.",
+        p4: "The views.",
+        p5: "And yes, the lake is incredible.",
+        p6: "But when I think about that journey, the first thing that comes to my mind isn't Phoksundo.",
+        p7: "It's a river.",
+        p8: "A stuck truck.",
+        p9: "And two strangers who became friends.",
+        p10: "Because sometimes the best part of an adventure isn't the destination.",
+        p11: "It's everything that happens while you're trying to get there.",
+
+        // Part 2: The Plan Looked Simple on Paper
+        h1: "The Plan Looked Simple on Paper",
+        p12: "Three friends.",
+        p13: "One destination.",
+        p14: "One of Nepal's most beautiful lakes.",
+        p15: "What could possibly go wrong?",
+        p16: "Quite a lot, actually.",
+        p17: "We left Kathmandu from Gongabu Bus Park with the kind of excitement that only exists before a trip begins. The backpacks were packed. Snacks were secured. Everyone was full of energy and confidence.",
+        p18: "We talked about Phoksundo.",
+        p19: "We talked about photography.",
+        p20: "We talked about the stories we would bring back.",
+        p21: "Nobody talked about landslides.",
+        p22: "Nobody talked about bus fires.",
+        p23: "Nobody talked about spending hours waiting beside roads wondering if we'd ever reach Dolpa.",
+        p24: "The mountains kept those details to themselves.",
+
+        // Part 3: Dolpa Doesn't Give You Anything Easily
+        h2: "Dolpa Doesn't Give You Anything Easily",
+        p25: "The first day felt normal.",
+        p26: "The second day reminded us where we were going.",
+        p27: "Somewhere near Kankri, a landslide brought everything to a halt. For six hours, nobody moved. Vehicles stretched across the road. Drivers smoked cigarettes. Travelers searched for tea. Everyone waited for news that never seemed to arrive.",
+        p28: "At first, I checked every movement near the landslide.",
+        p29: "Then every fifteen minutes.",
+        p30: "Then every hour.",
+        p31: "Eventually, I accepted what everyone else already knew.",
+        p32: "The mountain would decide when we moved.",
+        p33: "Not us.",
+
+        p34: "Eventually the road opened.",
+        p35: "Everyone cheered.",
+        p36: "The bus moved.",
+        p37: "Life was good again.",
+        p38: "For about three hours.",
+        p39: "Then another delay.",
+        p40: "This time a bus ahead had caught fire.",
+        p41: "At this point I started to suspect that Dolpa was personally testing our commitment.",
+        p42: "\"Do you really want to see this lake?\"",
+        p43: "Because every kilometer seemed to come with another challenge.",
+
+        // Part 4: The Friendship That Started Beside a River
+        h3: "The Friendship That Started Beside a River",
+        p44: "The next day brought another obstacle.",
+        p45: "A truck became stuck on the road ahead.",
+        p46: "Traffic stopped.",
+        p47: "Again.",
+        p48: "There was nothing to do.",
+        p49: "No shortcuts.",
+        p50: "No solutions.",
+        p51: "Just waiting.",
+        p52: "So we walked down toward the river nearby.",
+        p53: "And sat.",
+        p54: "The water moved faster than the traffic.",
+        p55: "The mountains stood silently around us.",
+        p56: "And for the first time in days, nobody was checking the road.",
+        p57: "We had surrendered.",
+
+        p58: "That's where we met them.",
+        p59: "A couple traveling the same route.",
+        p60: "At first it was nothing more than casual conversation.",
+        p61: "The kind travelers have everywhere.",
+        p62: "Where are you from?",
+        p63: "How far are you going?",
+        p64: "How long have you been traveling?",
+        p65: "Simple questions.",
+        p66: "Simple answers.",
+        p67: "But something interesting happens when people are forced to slow down.",
+        p68: "The conversations become longer.",
+        p69: "The walls come down.",
+        p70: "People become real.",
+        p71: "One conversation became several.",
+        p72: "One shared laugh became many.",
+        p73: "Without realizing it, we stopped feeling like strangers.",
+
+        p74: "Looking back, I find it funny.",
+        p75: "If that truck hadn't gotten stuck, we probably would've passed each other without ever speaking.",
+        p76: "A roadblock created a friendship.",
+        p77: "That's a lesson travel keeps teaching me.",
+        p78: "Not everything that delays you is holding you back.",
+        p79: "Sometimes it's introducing you to something you would've otherwise missed.",
+
+        // Part 5: Finally, The Trek Begins
+        h4: "Finally, The Trek Begins",
+        p80: "After what felt like an eternity of roads, delays, and unexpected detours, we finally reached Dunai and began the trek.",
+        p81: "And suddenly everything changed.",
+        p82: "No horns.",
+        p83: "No engines.",
+        p84: "No traffic.",
+        p85: "Just the sound of the river and our footsteps.",
+        p86: "The trail wound through forests, suspension bridges, villages, and cliffs.",
+        p87: "Life became wonderfully simple.",
+        p88: "Wake up.",
+        p89: "Walk.",
+        p90: "Eat.",
+        p91: "Talk.",
+        p92: "Sleep.",
+        p93: "Repeat.",
+        p94: "There's something deeply satisfying about a life reduced to its essentials.",
+
+        // Part 6: The Magic of Shared Miles
+        h5: "The Magic of Shared Miles",
+        p95: "Over the next few days, the couple and our group kept meeting.",
+        p96: "At tea stops.",
+        p97: "At lunch.",
+        p98: "At viewpoints.",
+        p99: "At villages.",
+        p100: "Soon we were no longer crossing paths.",
+        p101: "We were traveling together.",
+        p102: "Sharing snacks.",
+        p103: "Sharing stories.",
+        p104: "Sharing the universal suffering of uphill climbs.",
+        p105: "There is no faster way to know someone than walking for hours beside them.",
+        p106: "No notifications.",
+        p107: "No distractions.",
+        p108: "No performance.",
+        p109: "Just conversation.",
+        p110: "The mountains strip away everything unnecessary.",
+        p111: "What's left is usually the best part of a person.",
+
+        // Part 7: The Day My Legs Filed a Formal Complaint
+        h6: "The Day My Legs Filed a Formal Complaint",
+        p112: "The climb toward Ringmo felt endless.",
+        p113: "Every corner promised a destination.",
+        p114: "Every destination revealed another corner.",
+        p115: "I became deeply suspicious of anyone saying, \"We're almost there.\"",
+        p116: "Because in the mountains, \"almost there\" is more philosophy than fact.",
+        p117: "Fortunately, we had made awesome friends to walk the path with.",
+        p118: "One of the smartest decisions of the entire trip.",
+
+        // Part 8: Then We Saw It
+        h7: "Then We Saw It",
+        p119: "Late in the evening, we reached Ringmo.",
+        p120: "And finally—",
+        p121: "Phoksundo.",
+        p122: "After three days of buses.",
+        p123: "Roadblocks.",
+        p124: "Landslides.",
+        p125: "Dust.",
+        p126: "Delays.",
+        p127: "There it was.",
+        p128: "The blue was impossible.",
+        p129: "The photographs hadn't lied.",
+        p130: "If anything, they had failed.",
+        p131: "Because no camera can capture that feeling.",
+
+        p132: "Nobody spoke much.",
+        p133: "We just stood there.",
+        p134: "Looking.",
+        p135: "Smiling.",
+        p136: "Taking it in.",
+        p137: "Sometimes a place is so beautiful that words only make it smaller.",
+
+        // Part 9: We Arrived as Three. We Left as Five.
+        h8: "We Arrived as Three. We Left as Five.",
+        p138: "The next morning we explored the lake together.",
+        p139: "The water reflected the cliffs.",
+        p140: "The mountains reflected on the lake.",
+        p141: "The world felt perfectly still.",
+        p142: "And standing there, I realized something.",
+        p143: "We had left Kathmandu as three friends.",
+        p144: "Yet here we were.",
+        p145: "Five friends.",
+        p146: "The couple we met beside a river no longer felt like people we met on a trip.",
+        p147: "They felt like people who had become part of the story.",
+
+        // Part 10: Why This Matters
+        h9: "Why This Matters",
+        p148: "At Marga Adventure, we often talk about meaningful travel.",
+        p149: "People sometimes assume that means mountains.",
+        p150: "Or lakes.",
+        p151: "Or remote destinations.",
+        p152: "But that's only part of it.",
+        p153: "Meaningful travel isn't about checking places off a list.",
+        p154: "It's about collecting moments you could never plan.",
+        p155: "A conversation beside a river.",
+        p156: "A friendship born from a delay.",
+        p157: "A shared laugh after a difficult climb.",
+        p158: "A memory that follows you home.",
+        p159: "Phoksundo gave me breathtaking views.",
+        p160: "But the thing I treasure most from that journey can't be photographed.",
+        p161: "It's the reminder that the world is still full of people worth meeting.",
+        p162: "And sometimes, the roadblocks we complain about become the stories we tell for years.",
+
+        closingQuote: "The best journeys don't just take us somewhere new. They introduce us to people we were meant to meet.",
+        
+        // Image Captions
+        caption1: "The impossible blue of Shey Phoksundo Lake.",
+        caption2: "Our schedule was no longer our own.",
+        caption3: "Adventure is often just patience wearing a backpack.",
+        caption4: "The place where strangers became friends.",
+        caption5: "The friendship none of us planned.",
+        caption6: "The noise disappeared. The adventure began.",
+        caption7: "Crossing the swaying suspension bridges of Dolpa.",
+        caption7_2: "Winding trails carved into the mountain cliffs.",
+        caption7_3: "Tracing the path along the rushing river gorge.",
+        caption8: "Every great friendship starts somewhere. Ours started over tea.",
+        caption9: "Sharing miles and smiles under the Himalayan sky.",
+        caption10: "Horses carrying bags and supplies through the rugged trails.",
+        caption11: "The spectacular Jharana waterfall cascading down.",
+        caption12: "Worth every delay.",
+        caption13: "A mirror of pure turquoise reflecting the heavens.",
+        caption14: "Golden hours and serene sunset reflections over Phoksundo.",
+        caption15: "The best souvenir from Dolpa.",
+        caption16: "We came for the lake. We left with a story.",
+        
+        prev: "Previous Story",
+        back: "Back to Journal"
+    },
+    fr: {
+        title: "Le lac était beau. Le retard était encore meilleur.",
+        subtitle: "Comment un camion bloqué, une berge de rivière et une longue route vers le Dolpo m'ont offert l'un de mes meilleurs souvenirs de voyage",
+        heroTitle: "Le retard était meilleur",
+        heroSubtitle: "Comment un camion embourbé, une berge de rivière et une longue route vers le Dolpo m'ont offert l'un de mes souvenirs de voyage préférés.",
+        metaDesc: "Lisez le récit de voyage de Deepak Mahato vers le lac Shey Phoksundo au Dolpo. Une histoire de routes, de glissements de terrain, de patience et d'amitié.",
+        authorRole: "CIO & Stratège",
+        readTime: "7 min de lecture",
+        date: "1 Juillet 2026",
+        quote: "Parfois, la meilleure partie d'une aventure n'est pas la destination. C'est tout ce qui se passe pendant que vous essayez d'y arriver.",
+        
+        // Part 1: Intro
+        p1: "Quand les gens m'interrogent sur Shey Phoksundo, ils s'attendent généralement à ce que je leur parle du lac.",
+        p2: "La couleur.",
+        p3: "Les montagnes.",
+        p4: "Les paysages.",
+        p5: "Et oui, le lac est incroyable.",
+        p6: "Mais quand je repense à ce voyage, la première chose qui me vient à l'esprit n'est pas Phoksundo.",
+        p7: "C'est une rivière.",
+        p8: "Un camion embourbé.",
+        p9: "Et deux inconnus devenus des amis.",
+        p10: "Parce que parfois, la meilleure partie d'une aventure n'est pas la destination.",
+        p11: "C'est tout ce qui se passe pendant que vous essayez d'y arriver.",
+
+        // Part 2: The Plan Looked Simple on Paper
+        h1: "Le plan semblait simple sur le papier",
+        p12: "Trois amis.",
+        p13: "Une destination.",
+        p14: "L'un des plus beaux lacs du Népal.",
+        p15: "Qu'est-ce qui pourrait mal tourner ?",
+        p16: "Pas mal de choses, en réalité.",
+        p17: "Nous avons quitté Katmandou depuis la gare routière de Gongabu avec ce genre d'excitation qui n'existe qu'avant le début d'un voyage. Les sacs à dos étaient bouclés. Les collations étaient prêtes. Tout le monde débordait d'énergie et de confiance.",
+        p18: "Nous parlions de Phoksundo.",
+        p19: "Nous parlions de photographie.",
+        p20: "Nous parlions des histoires que nous allions rapporter.",
+        p21: "Personne ne parlait de glissements de terrain.",
+        p22: "Personne ne parlait d'autobus en feu.",
+        p23: "Personne ne parlait des heures passées à attendre au bord de la route en se demandant si nous atteindrions un jour le Dolpo.",
+        p24: "Les montagnes gardaient jalousement ces détails.",
+
+        // Part 3: Dolpa Doesn't Give You Anything Easily
+        h2: "Le Dolpo ne vous offre rien facilement",
+        p25: "Le premier jour a semblé normal.",
+        p26: "Le deuxième jour nous a rappelé où nous allions.",
+        p27: "Quelque part près de Kankri, un glissement de terrain a tout arrêté. Pendant six heures, plus rien n'a bougé. Les véhicules s'étiraient le long de la route. Les chauffeurs fumaient des cigarettes. Les voyageurs cherchaient du thé. Tout le monde attendait des nouvelles qui ne semblaient jamais arriver.",
+        p28: "Au début, je guettais le moindre mouvement près du glissement de terrain.",
+        p29: "Puis toutes les quinze minutes.",
+        p30: "Puis toutes les heures.",
+        p31: "Finalement, j'ai accepté ce que tous les autres savaient déjà.",
+        p32: "La montagne déciderait de notre départ.",
+        p33: "Pas nous.",
+
+        p34: "Finalement, la route s'est ouverte.",
+        p35: "Tout le monde a applaudi.",
+        p36: "Le bus a démarré.",
+        p37: "La vie était belle à nouveau.",
+        p38: "Pendant environ trois heures.",
+        p39: "Puis un autre retard.",
+        p40: "Cette fois, un bus devant nous avait pris feu.",
+        p41: "À ce stade, j'ai commencé à soupçonner le Dolpo de tester personnellement notre engagement.",
+        p42: "« Voulez-vous vraiment voir ce lac ? »",
+        p43: "Parce que chaque kilomètre semblait s'accompagner d'un nouveau défi.",
+
+        // Part 4: The Friendship That Started Beside a River
+        h3: "L'amitié qui a commencé au bord d'une rivière",
+        p44: "Le lendemain a apporté un autre obstacle.",
+        p45: "Un camion s'est embourbé sur la route devant nous.",
+        p46: "La circulation s'est arrêtée.",
+        p47: "Encore.",
+        p48: "Il n'y avait rien à faire.",
+        p49: "Pas de raccourcis.",
+        p50: "Pas de solutions.",
+        p51: "Juste de l'attente.",
+        p52: "Alors nous sommes descendus vers la rivière voisine.",
+        p53: "Et nous nous sommes assis.",
+        p54: "L'eau coulait plus vite que le trafic ne bougeait.",
+        p55: "Les montagnes se dressaient silencieusement autour de nous.",
+        p56: "Et pour la première fois depuis des jours, personne ne surveillait la route.",
+        p57: "Nous avions capitulé.",
+
+        p58: "C'est là que nous les avons rencontrés.",
+        p59: "Un couple voyageant sur le même itinéraire.",
+        p60: "Au début, ce n'était rien de plus qu'une conversation informelle.",
+        p61: "Le genre que les voyageurs ont partout.",
+        p62: "D'où venez-vous ?",
+        p63: "Jusqu'où allez-vous ?",
+        p64: "Depuis combien de temps voyagez-vous ?",
+        p65: "Des questions simples.",
+        p66: "Des réponses simples.",
+        p67: "Mais il se passe quelque chose d'intéressant quand les gens sont forcés de ralentir.",
+        p68: "Les conversations s'allongent.",
+        p69: "Les barrières tombent.",
+        p70: "Les gens deviennent authentiques.",
+        p71: "Une conversation en a entraîné plusieurs.",
+        p72: "Un rire partagé est devenu de nombreux rires.",
+        p73: "Sans nous en rendre compte, nous avons cessé de nous sentir comme des inconnus.",
+
+        p74: "En y repensant, je trouve ça drôle.",
+        p75: "Si ce camion ne s'était pas embourbé, nous nous serions probablement croisés sans jamais nous parler.",
+        p76: "Un barrage routier a créé une amitié.",
+        p77: "C'est une leçon que le voyage ne cesse de m'enseigner.",
+        p78: "Tout ce qui vous retarde ne vous freine pas nécessairement.",
+        p79: "Parfois, cela vous présente quelque chose que vous auriez manqué autrement.",
+
+        // Part 5: Finally, The Trek Begins
+        h4: "Enfin, le trek commence",
+        p80: "Après ce qui a semblé être une éternité de routes, de retards et de détours inattendus, nous avons enfin atteint Dunai et commencé le trek.",
+        p81: "Et soudain, tout a changé.",
+        p82: "Pas de klaxons.",
+        p83: "Pas de moteurs.",
+        p84: "Pas de trafic.",
+        p85: "Juste le bruit de la rivière et de nos pas.",
+        p86: "Le sentier serpentait à travers les forêts, les ponts suspendus, les villages et les falaises.",
+        p87: "La vie est devenue merveilleusement simple.",
+        p88: "Se réveiller.",
+        p89: "Marcher.",
+        p90: "Manger.",
+        p91: "Parler.",
+        p92: "Dormir.",
+        p93: "Recommencer.",
+        p94: "Il y a quelque chose de profondément satisfaisant dans une vie réduite à l'essentiel.",
+
+        // Part 6: The Magic of Shared Miles
+        h5: "La magie des kilomètres partagés",
+        p95: "Au cours des jours suivants, le couple et notre groupe n'ont cessé de se croiser.",
+        p96: "Aux arrêts thé.",
+        p97: "Au déjeuner.",
+        p98: "Aux points de vue.",
+        p99: "Dans les villages.",
+        p100: "Bientôt, nous ne faisions plus que nous croiser.",
+        p101: "Nous voyagions ensemble.",
+        p102: "Partageant nos collations.",
+        p103: "Partageant nos histoires.",
+        p104: "Partageant la souffrance universelle des montées.",
+        p105: "Il n'y a pas de moyen plus rapide de connaître quelqu'un que de marcher des heures à ses côtés.",
+        p106: "Pas de notifications.",
+        p107: "Pas de distractions.",
+        p108: "Pas de faux-semblants.",
+        p109: "Juste de la conversation.",
+        p110: "Les montagnes dépouillent de tout le superflu.",
+        p111: "Ce qui reste est généralement la meilleure partie d'une personne.",
+
+        // Part 7: The Day My Legs Filed a Formal Complaint
+        h6: "Le jour où mes jambes ont déposé une plainte officielle",
+        p112: "La montée vers Ringmo semblait interminable.",
+        p113: "Chaque virage promettait une destination.",
+        p114: "Chaque destination révélait un autre virage.",
+        p115: "Je suis devenu profondément méfiant envers quiconque disait : « On y est presque. »",
+        p116: "Parce que dans les montagnes, « presque arrivé » relève plus de la philosophie que de la réalité.",
+        p117: "Heureusement, nous nous étions fait de super amis avec qui faire la route.",
+        p118: "L'une des décisions les plus intelligentes de tout le voyage.",
+
+        // Part 8: Then We Saw It
+        h7: "Puis nous l'avons vu",
+        p119: "Tard dans la soirée, nous avons atteint Ringmo.",
+        p120: "Et enfin —",
+        p121: "Phoksundo.",
+        p122: "Après trois jours de bus.",
+        p123: "De barrages routiers.",
+        p124: "De glissements de terrain.",
+        p125: "De poussière.",
+        p126: "De retards.",
+        p127: "Il était là.",
+        p128: "Le bleu était irréel.",
+        p129: "Les photographies n'avaient pas menti.",
+        p130: "Si tant est, elles n'avaient pas réussi à lui faire justice.",
+        p131: "Parce qu'aucun appareil photo ne peut capturer ce sentiment.",
+
+        p132: "Personne ne parlait beaucoup.",
+        p133: "Nous étions juste là, debout.",
+        p134: "Regardant.",
+        p135: "Souriant.",
+        p136: "Imprégnant nos esprits.",
+        p137: "Parfois, un endroit est si beau que les mots ne font que le rendre plus petit.",
+
+        // Part 9: We Arrived as Three. We Left as Five.
+        h8: "Arrivés à trois. Partis à cinq.",
+        p138: "Le lendemain matin, nous avons exploré le lac ensemble.",
+        p139: "L'eau reflétait les falaises.",
+        p140: "Les montagnes se reflétaient sur le lac.",
+        p141: "Le monde semblait parfaitement immobile.",
+        p142: "Et là, debout, j'ai réalisé quelque chose.",
+        p143: "Nous avions quitté Katmandou à trois amis.",
+        p144: "Pourtant, nous étions là.",
+        p145: "Cinq amis.",
+        p146: "Le couple rencontré au bord d'une rivière ne ressemblait plus à des personnes croisées lors d'un voyage.",
+        p147: "Ils avaient l'impression de faire désormais partie de l'histoire.",
+
+        // Part 10: Why This Matters
+        h9: "Pourquoi c'est important",
+        p148: "Chez Marga Adventure, nous parlons souvent de voyage porteur de sens.",
+        p149: "Les gens supposent parfois que cela fait référence aux montagnes.",
+        p150: "Ou aux lacs.",
+        p151: "Ou aux destinations lointaines.",
+        p152: "Mais ce n'est qu'une partie.",
+        p153: "Le voyage porteur de sens ne consiste pas à cocher des endroits sur une liste.",
+        p154: "Il s'agit de collecter des moments que vous ne pourriez jamais planifier.",
+        p155: "Une conversation au bord d'une rivière.",
+        p156: "Une amitié née d'un retard.",
+        p157: "Un rire partagé après une ascension difficile.",
+        p158: "Un souvenir qui vous accompagne jusqu'à la maison.",
+        p159: "Phoksundo m'a offert des vues à couper le souffle.",
+        p160: "Mais la chose que je chéris le plus dans ce voyage ne peut pas être photographiée.",
+        p161: "C'est le rappel que le monde est encore plein de personnes qui valent la peine d'être rencontrées.",
+        p162: "Et parfois, les obstacles dont nous nous plaignons deviennent les histoires que nous racontons pendant des années.",
+
+        closingQuote: "Les meilleurs voyages ne se contentent pas de nous emmener quelque part. Ils nous présentent les personnes que nous devions rencontrer.",
+        
+        // Image Captions
+        caption1: "Le bleu irréel du lac Shey Phoksundo.",
+        caption2: "Notre emploi du temps ne nous appartenait plus.",
+        caption3: "L'aventure n'est souvent que de la patience portant un sac à dos.",
+        caption4: "Le lieu où des inconnus sont devenus des amis.",
+        caption5: "L'amitié que personne n'avait prévue.",
+        caption6: "Le bruit a disparu. L'aventure a commencé.",
+        caption7: "Traverser les ponts suspendus oscillants du Dolpo.",
+        caption7_2: "Sentiers sinueux taillés dans les falaises de la montagne.",
+        caption7_3: "Tracer le chemin le long de la gorge de la rivière impétueuse.",
+        caption8: "Chaque grande amitié commence quelque part. La nôtre a commencé autour d'un thé.",
+        caption9: "Marcher côte à côte, partager le voyage.",
+        caption10: "Des chevaux transportant des bagages et des provisions à travers les sentiers escarpés.",
+        caption11: "La spectaculaire cascade de Jharana dévalant la montagne.",
+        caption12: "Valait bien tous les retards.",
+        caption13: "Un miroir de turquoise pure reflétant les cieux.",
+        caption14: "Heures dorées et reflets sereins du coucher de soleil sur Phoksundo.",
+        caption15: "Le meilleur souvenir du Dolpo.",
+        caption16: "Nous étions venus pour le lac. Nous sommes repartis avec une histoire.",
+        
+        prev: "Histoire Précédente",
+        back: "Retour au Journal"
+    }
+};
+
+const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
+const d = content[lang];
+---
+<Layout
+    title={d.title}
+    description={d.metaDesc}
+    image={heroImg.src}
+>
+    <PageHero
+        title={d.heroTitle}
+        subtitle={d.heroSubtitle}
+        image={heroImg.src}
+        parallax={true}
+    />
+
+    <article class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden"
+                    >
+                        <img
+                            src={deepakImg.src}
+                            alt="Deepak Mahato"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            Deepak Mahato
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            {d.authorRole}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {d.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {d.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content with exact poetic spacing from the user prompt */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-relaxed"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.quote}"
+                </p>
+
+                {/* Part 1: Intro */}
+                <p class="mb-6 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]">{d.p1}</p>
+                <p class="mb-6">{d.p2}</p>
+                <p class="mb-6">{d.p3}</p>
+                <p class="mb-6">{d.p4}</p>
+                <p class="mb-6">{d.p5}</p>
+                <p class="mb-6">{d.p6}</p>
+                <p class="mb-6">{d.p7}</p>
+                <p class="mb-6">{d.p8}</p>
+                <p class="mb-6">{d.p9}</p>
+                <p class="mb-6">{d.p10}</p>
+                <p class="mb-6">{d.p11}</p>
+
+                {/* Part 2: The Plan Looked Simple on Paper */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h1}</h3>
+                <p class="mb-6">{d.p12}</p>
+                <p class="mb-6">{d.p13}</p>
+                <p class="mb-6">{d.p14}</p>
+                <p class="mb-6">{d.p15}</p>
+                <p class="mb-6">{d.p16}</p>
+                <p class="mb-6">{d.p17}</p>
+                <p class="mb-6">{d.p18}</p>
+                <p class="mb-6">{d.p19}</p>
+                <p class="mb-6">{d.p20}</p>
+                <p class="mb-6">{d.p21}</p>
+                <p class="mb-6">{d.p22}</p>
+                <p class="mb-6">{d.p23}</p>
+                <p class="mb-6">{d.p24}</p>
+
+                {/* PHOTO 1 - Hero Image shown inside article too */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={heroImg.src}
+                        alt="Best panoramic view of Shey Phoksundo Lake"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption1}
+                    </div>
+                </div>
+
+                {/* Part 3: Dolpa Doesn't Give You Anything Easily */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h2}</h3>
+                <p class="mb-6">{d.p25}</p>
+                <p class="mb-6">{d.p26}</p>
+                <p class="mb-6">{d.p27}</p>
+                <p class="mb-6">{d.p28}</p>
+                <p class="mb-6">{d.p29}</p>
+                <p class="mb-6">{d.p30}</p>
+                <p class="mb-6">{d.p31}</p>
+                <p class="mb-6">{d.p32}</p>
+                <p class="mb-6">{d.p33}</p>
+
+                {/* PHOTO 2 */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img2.src}
+                        alt="Landslide roadblock on the road to Dolpa"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption2}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p34}</p>
+                <p class="mb-6">{d.p35}</p>
+                <p class="mb-6">{d.p36}</p>
+                <p class="mb-6">{d.p37}</p>
+                <p class="mb-6">{d.p38}</p>
+                <p class="mb-6">{d.p39}</p>
+                <p class="mb-6">{d.p40}</p>
+                <p class="mb-6">{d.p41}</p>
+                <p class="mb-6">{d.p42}</p>
+                <p class="mb-6">{d.p43}</p>
+
+                {/* PHOTO 3 */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img3.src}
+                        alt="Roadside waiting next to mountains"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption3}
+                    </div>
+                </div>
+
+                {/* Part 4: The Friendship That Started Beside a River */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h3}</h3>
+                <p class="mb-6">{d.p44}</p>
+                <p class="mb-6">{d.p45}</p>
+                <p class="mb-6">{d.p46}</p>
+                <p class="mb-6">{d.p47}</p>
+                <p class="mb-6">{d.p48}</p>
+                <p class="mb-6">{d.p49}</p>
+                <p class="mb-6">{d.p50}</p>
+                <p class="mb-6">{d.p51}</p>
+                <p class="mb-6">{d.p52}</p>
+                <p class="mb-6">{d.p53}</p>
+                <p class="mb-6">{d.p54}</p>
+                <p class="mb-6">{d.p55}</p>
+                <p class="mb-6">{d.p56}</p>
+                <p class="mb-6">{d.p57}</p>
+
+                {/* PHOTO 4 */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img4.src}
+                        alt="Riverbank waiting place"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption4}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p58}</p>
+                <p class="mb-6">{d.p59}</p>
+                <p class="mb-6">{d.p60}</p>
+                <p class="mb-6">{d.p61}</p>
+                <p class="mb-6">{d.p62}</p>
+                <p class="mb-6">{d.p63}</p>
+                <p class="mb-6">{d.p64}</p>
+                <p class="mb-6">{d.p65}</p>
+                <p class="mb-6">{d.p66}</p>
+                <p class="mb-6">{d.p67}</p>
+                <p class="mb-6">{d.p68}</p>
+                <p class="mb-6">{d.p69}</p>
+                <p class="mb-6">{d.p70}</p>
+                <p class="mb-6">{d.p71}</p>
+                <p class="mb-6">{d.p72}</p>
+                <p class="mb-6">{d.p73}</p>
+
+                {/* PHOTO 5 */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img5.src}
+                        alt="Meeting new friends beside the river"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption5}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p74}</p>
+                <p class="mb-6">{d.p75}</p>
+                <p class="mb-6">{d.p76}</p>
+                <p class="mb-6">{d.p77}</p>
+                <p class="mb-6">{d.p78}</p>
+                <p class="mb-6">{d.p79}</p>
+
+                {/* Part 5: Finally, The Trek Begins */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h4}</h3>
+                <p class="mb-6">{d.p80}</p>
+                <p class="mb-6">{d.p81}</p>
+                <p class="mb-6">{d.p82}</p>
+                <p class="mb-6">{d.p83}</p>
+                <p class="mb-6">{d.p84}</p>
+                <p class="mb-6">{d.p85}</p>
+                <p class="mb-6">{d.p86}</p>
+                <p class="mb-6">{d.p87}</p>
+                <p class="mb-6">{d.p88}</p>
+                <p class="mb-6">{d.p89}</p>
+                <p class="mb-6">{d.p90}</p>
+                <p class="mb-6">{d.p91}</p>
+                <p class="mb-6">{d.p92}</p>
+                <p class="mb-6">{d.p93}</p>
+                <p class="mb-6">{d.p94}</p>
+
+                {/* PHOTO 6 & PHOTO 7 (Suspension bridge series 7.1, 7.2, 7.3) */}
+                <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                        <img
+                            src={img6.src}
+                            alt="Trail winding through the lush green forests"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption6}
+                        </div>
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                        <img
+                            src={img7_1.src}
+                            alt="Swaying suspension bridge across the valley"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption7}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-sm h-[300px]">
+                        <img
+                            src={img7_2.src}
+                            alt="Trail path bridge views"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption7_2}
+                        </div>
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-sm h-[300px]">
+                        <img
+                            src={img7_3.src}
+                            alt="Walking along the river gorges"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption7_3}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Part 6: The Magic of Shared Miles */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h5}</h3>
+                <p class="mb-6">{d.p95}</p>
+                <p class="mb-6">{d.p96}</p>
+                <p class="mb-6">{d.p97}</p>
+                <p class="mb-6">{d.p98}</p>
+                <p class="mb-6">{d.p99}</p>
+                <p class="mb-6">{d.p100}</p>
+                <p class="mb-6">{d.p101}</p>
+                <p class="mb-6">{d.p102}</p>
+                <p class="mb-6">{d.p103}</p>
+                <p class="mb-6">{d.p104}</p>
+                <p class="mb-6">{d.p105}</p>
+                <p class="mb-6">{d.p106}</p>
+                <p class="mb-6">{d.p107}</p>
+                <p class="mb-6">{d.p108}</p>
+                <p class="mb-6">{d.p109}</p>
+                <p class="mb-6">{d.p110}</p>
+                <p class="mb-6">{d.p111}</p>
+
+                {/* PHOTO 8 & PHOTO 9 */}
+                <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                        <img
+                            src={img8.src}
+                            alt="Tea stop with group members"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption8}
+                        </div>
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                        <img
+                            src={img9.src}
+                            alt="Walking together along the Himalayan path"
+                            class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption9}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Part 7: The Day My Legs Filed a Formal Complaint */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h6}</h3>
+                <p class="mb-6">{d.p112}</p>
+                <p class="mb-6">{d.p113}</p>
+                <p class="mb-6">{d.p114}</p>
+                <p class="mb-6">{d.p115}</p>
+                <p class="mb-6">{d.p116}</p>
+                <p class="mb-6">{d.p117}</p>
+                <p class="mb-6">{d.p118}</p>
+
+                {/* PHOTO 10 & PHOTO 11 */}
+                <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                        <img
+                            src={img10.src}
+                            alt="Horses carrying backpacks and gear"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption10}
+                        </div>
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                        <img
+                            src={img11.src}
+                            alt="Mighty Jharana waterfall near the trail"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption11}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Part 8: Then We Saw It */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h7}</h3>
+                <p class="mb-6">{d.p119}</p>
+                <p class="mb-6">{d.p120}</p>
+                <p class="mb-6">{d.p121}</p>
+                <p class="mb-6">{d.p122}</p>
+                <p class="mb-6">{d.p123}</p>
+                <p class="mb-6">{d.p124}</p>
+                <p class="mb-6">{d.p125}</p>
+                <p class="mb-6">{d.p126}</p>
+                <p class="mb-6">{d.p127}</p>
+                <p class="mb-6">{d.p128}</p>
+                <p class="mb-6">{d.p129}</p>
+                <p class="mb-6">{d.p130}</p>
+                <p class="mb-6">{d.p131}</p>
+
+                {/* PHOTO 12 */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img12.src}
+                        alt="First glimpse of the turquoise Shey Phoksundo Lake"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption12}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p132}</p>
+                <p class="mb-6">{d.p133}</p>
+                <p class="mb-6">{d.p134}</p>
+                <p class="mb-6">{d.p135}</p>
+                <p class="mb-6">{d.p136}</p>
+                <p class="mb-6">{d.p137}</p>
+
+                {/* PHOTO 13 & PHOTO 14 */}
+                <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                        <img
+                            src={img13.src}
+                            alt="Wide panoramic shot of Shey Phoksundo Lake"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption13}
+                        </div>
+                    </div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                        <img
+                            src={img14.src}
+                            alt="Serene sunset at Phoksundo"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                            {d.caption14}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Part 9: We Arrived as Three. We Left as Five. */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h8}</h3>
+                <p class="mb-6">{d.p138}</p>
+                <p class="mb-6">{d.p139}</p>
+                <p class="mb-6">{d.p140}</p>
+                <p class="mb-6">{d.p141}</p>
+                <p class="mb-6">{d.p142}</p>
+                <p class="mb-6">{d.p143}</p>
+                <p class="mb-6">{d.p144}</p>
+                <p class="mb-6">{d.p145}</p>
+                <p class="mb-6">{d.p146}</p>
+                <p class="mb-6">{d.p147}</p>
+
+                {/* PHOTO 15 */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img15.src}
+                        alt="Group photo of the five friends at Shey Phoksundo"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption15}
+                    </div>
+                </div>
+
+                {/* Part 10: Why This Matters */}
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h9}</h3>
+                <p class="mb-6">{d.p148}</p>
+                <p class="mb-6">{d.p149}</p>
+                <p class="mb-6">{d.p150}</p>
+                <p class="mb-6">{d.p151}</p>
+                <p class="mb-6">{d.p152}</p>
+                <p class="mb-6">{d.p153}</p>
+                <p class="mb-6">{d.p154}</p>
+                <p class="mb-6">{d.p155}</p>
+                <p class="mb-6">{d.p156}</p>
+                <p class="mb-6">{d.p157}</p>
+                <p class="mb-6">{d.p158}</p>
+                <p class="mb-6">{d.p159}</p>
+                <p class="mb-6">{d.p160}</p>
+                <p class="mb-6">{d.p161}</p>
+                <p class="mb-6">{d.p162}</p>
+
+                {/* PHOTO 16 (Closing Image) - using img7_3 as a representation of all walking away or similar */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                    <img
+                        src={img7_3.src}
+                        alt="Closing image of group walking on the trail"
+                        class="w-full h-auto max-h-[600px] object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                        {d.caption16}
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <p class="font-bold text-gray-900 mb-1">Deepak Mahato</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">CIO Marga Adventure</p>
+                </div>
+
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mt-12 mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.closingQuote}" 🏔️✨
+                </p>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href={`${baseUrl}/blog/heartbeat-of-manaslu`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← {d.prev}</a
+                >
+                <a
+                    href={`${baseUrl}/blog`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >{d.back}</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>
