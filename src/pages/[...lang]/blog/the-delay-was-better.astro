@@ -1,6 +1,6 @@
 ---
 export function getStaticPaths() {
-  return [{ params: { lang: undefined } }, { params: { lang: 'fr' } }];
+    return [{ params: { lang: undefined } }, { params: { lang: "fr" } }];
 }
 
 import { useAstroI18n } from "../../../i18n/astro";
@@ -26,21 +26,25 @@ import img12 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo12.jpg";
 import img13 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo13.jpg";
 import img14 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo14.jpg";
 import img15 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo15.jpg";
+import img16 from "../../../assets/images/blog/Shey-Phoksundo-Blog/photo16.jpg";
 
 import type { Locale } from "../../../i18n/i18n";
 
 const content = {
     en: {
         title: "The Lake Was Beautiful. The Delay Was Better.",
-        subtitle: "How a Stuck Truck, a Riverbank, and a Long Road to Dolpa Gave Me One of My Favorite Travel Memories",
+        subtitle:
+            "How a Stuck Truck, a Riverbank, and a Long Road to Dolpa Gave Me One of My Favorite Travel Memories",
         heroTitle: "The Delay Was Better",
-        heroSubtitle: "How a stuck truck, a riverbank, and a long road to Dolpa gave me one of my favorite travel memories.",
-        metaDesc: "Read Deepak Mahato's travel memory of the journey to Shey Phoksundo Lake in Dolpa. A story of roads, landslides, patience, and friendship.",
+        heroSubtitle:
+            "How a stuck truck, a riverbank, and a long road to Dolpa gave me one of my favorite travel memories.",
+        metaDesc:
+            "Read Deepak Mahato's travel memory of the journey to Shey Phoksundo Lake in Dolpa. A story of roads, landslides, patience, and friendship.",
         authorRole: "CIO & Strategist",
         readTime: "7 min read",
         date: "July 1, 2026",
         quote: "Sometimes the best part of an adventure isn't the destination. It's everything that happens while you're trying to get there.",
-        
+
         // Part 1: Intro
         p1: "When people ask me about Shey Phoksundo, they usually expect me to talk about the lake.",
         p2: "The color.",
@@ -90,7 +94,7 @@ const content = {
         p39: "Then another delay.",
         p40: "This time a bus ahead had caught fire.",
         p41: "At this point I started to suspect that Dolpa was personally testing our commitment.",
-        p42: "\"Do you really want to see this lake?\"",
+        p42: '"Do you really want to see this lake?"',
         p43: "Because every kilometer seemed to come with another challenge.",
 
         // Part 4: The Friendship That Started Beside a River
@@ -177,8 +181,8 @@ const content = {
         p112: "The climb toward Ringmo felt endless.",
         p113: "Every corner promised a destination.",
         p114: "Every destination revealed another corner.",
-        p115: "I became deeply suspicious of anyone saying, \"We're almost there.\"",
-        p116: "Because in the mountains, \"almost there\" is more philosophy than fact.",
+        p115: 'I became deeply suspicious of anyone saying, "We\'re almost there."',
+        p116: 'Because in the mountains, "almost there" is more philosophy than fact.',
         p117: "Fortunately, we had made awesome friends to walk the path with.",
         p118: "One of the smartest decisions of the entire trip.",
 
@@ -236,8 +240,9 @@ const content = {
         p161: "It's the reminder that the world is still full of people worth meeting.",
         p162: "And sometimes, the roadblocks we complain about become the stories we tell for years.",
 
-        closingQuote: "The best journeys don't just take us somewhere new. They introduce us to people we were meant to meet.",
-        
+        closingQuote:
+            "The best journeys don't just take us somewhere new. They introduce us to people we were meant to meet.",
+
         // Image Captions
         caption1: "The impossible blue of Shey Phoksundo Lake.",
         caption2: "Our schedule was no longer our own.",
@@ -248,30 +253,35 @@ const content = {
         caption7: "Crossing the swaying suspension bridges of Dolpa.",
         caption7_2: "Winding trails carved into the mountain cliffs.",
         caption7_3: "Tracing the path along the rushing river gorge.",
-        caption8: "Every great friendship starts somewhere. Ours started over tea.",
+        caption8:
+            "Every great friendship starts somewhere. Ours started over tea.",
         caption9: "Sharing miles and smiles under the Himalayan sky.",
-        caption10: "Horses carrying bags and supplies through the rugged trails.",
+        caption10:
+            "Waterfalls cascading through the pine-covered gorges of Dolpa.",
         caption11: "The spectacular Jharana waterfall cascading down.",
         caption12: "Worth every delay.",
         caption13: "A mirror of pure turquoise reflecting the heavens.",
         caption14: "Golden hours and serene sunset reflections over Phoksundo.",
         caption15: "The best souvenir from Dolpa.",
         caption16: "We came for the lake. We left with a story.",
-        
+
         prev: "Previous Story",
-        back: "Back to Journal"
+        back: "Back to Journal",
     },
     fr: {
         title: "Le lac était beau. Le retard était encore meilleur.",
-        subtitle: "Comment un camion bloqué, une berge de rivière et une longue route vers le Dolpo m'ont offert l'un de mes meilleurs souvenirs de voyage",
+        subtitle:
+            "Comment un camion bloqué, une berge de rivière et une longue route vers le Dolpo m'ont offert l'un de mes meilleurs souvenirs de voyage",
         heroTitle: "Le retard était meilleur",
-        heroSubtitle: "Comment un camion embourbé, une berge de rivière et une longue route vers le Dolpo m'ont offert l'un de mes souvenirs de voyage préférés.",
-        metaDesc: "Lisez le récit de voyage de Deepak Mahato vers le lac Shey Phoksundo au Dolpo. Une histoire de routes, de glissements de terrain, de patience et d'amitié.",
+        heroSubtitle:
+            "Comment un camion embourbé, une berge de rivière et une longue route vers le Dolpo m'ont offert l'un de mes souvenirs de voyage préférés.",
+        metaDesc:
+            "Lisez le récit de voyage de Deepak Mahato vers le lac Shey Phoksundo au Dolpo. Une histoire de routes, de glissements de terrain, de patience et d'amitié.",
         authorRole: "CIO & Stratège",
         readTime: "7 min de lecture",
         date: "1 Juillet 2026",
         quote: "Parfois, la meilleure partie d'une aventure n'est pas la destination. C'est tout ce qui se passe pendant que vous essayez d'y arriver.",
-        
+
         // Part 1: Intro
         p1: "Quand les gens m'interrogent sur Shey Phoksundo, ils s'attendent généralement à ce que je leur parle du lac.",
         p2: "La couleur.",
@@ -467,41 +477,46 @@ const content = {
         p161: "C'est le rappel que le monde est encore plein de personnes qui valent la peine d'être rencontrées.",
         p162: "Et parfois, les obstacles dont nous nous plaignons deviennent les histoires que nous racontons pendant des années.",
 
-        closingQuote: "Les meilleurs voyages ne se contentent pas de nous emmener quelque part. Ils nous présentent les personnes que nous devions rencontrer.",
-        
+        closingQuote:
+            "Les meilleurs voyages ne se contentent pas de nous emmener quelque part. Ils nous présentent les personnes que nous devions rencontrer.",
+
         // Image Captions
         caption1: "Le bleu irréel du lac Shey Phoksundo.",
         caption2: "Notre emploi du temps ne nous appartenait plus.",
-        caption3: "L'aventure n'est souvent que de la patience portant un sac à dos.",
+        caption3:
+            "L'aventure n'est souvent que de la patience portant un sac à dos.",
         caption4: "Le lieu où des inconnus sont devenus des amis.",
         caption5: "L'amitié que personne n'avait prévue.",
         caption6: "Le bruit a disparu. L'aventure a commencé.",
         caption7: "Traverser les ponts suspendus oscillants du Dolpo.",
-        caption7_2: "Sentiers sinueux taillés dans les falaises de la montagne.",
-        caption7_3: "Tracer le chemin le long de la gorge de la rivière impétueuse.",
-        caption8: "Chaque grande amitié commence quelque part. La nôtre a commencé autour d'un thé.",
+        caption7_2:
+            "Sentiers sinueux taillés dans les falaises de la montagne.",
+        caption7_3:
+            "Tracer le chemin le long de la gorge de la rivière impétueuse.",
+        caption8:
+            "Chaque grande amitié commence quelque part. La nôtre a commencé autour d'un thé.",
         caption9: "Marcher côte à côte, partager le voyage.",
-        caption10: "Des chevaux transportant des bagages et des provisions à travers les sentiers escarpés.",
+        caption10:
+            "Des cascades jaillissant à travers les gorges bordées de pins du Dolpo.",
         caption11: "La spectaculaire cascade de Jharana dévalant la montagne.",
         caption12: "Valait bien tous les retards.",
         caption13: "Un miroir de turquoise pure reflétant les cieux.",
-        caption14: "Heures dorées et reflets sereins du coucher de soleil sur Phoksundo.",
+        caption14:
+            "Heures dorées et reflets sereins du coucher de soleil sur Phoksundo.",
         caption15: "Le meilleur souvenir du Dolpo.",
-        caption16: "Nous étions venus pour le lac. Nous sommes repartis avec une histoire.",
-        
+        caption16:
+            "Nous étions venus pour le lac. Nous sommes repartis avec une histoire.",
+
         prev: "Histoire Précédente",
-        back: "Retour au Journal"
-    }
+        back: "Retour au Journal",
+    },
 };
 
 const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
 const d = content[lang];
 ---
-<Layout
-    title={d.title}
-    description={d.metaDesc}
-    image={heroImg.src}
->
+
+<Layout title={d.title} description={d.metaDesc} image={heroImg.src}>
     <PageHero
         title={d.heroTitle}
         subtitle={d.heroSubtitle}
@@ -561,36 +576,31 @@ const d = content[lang];
                 </p>
 
                 {/* Part 1: Intro */}
-                <p class="mb-6 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]">{d.p1}</p>
-                <p class="mb-6">{d.p2}</p>
-                <p class="mb-6">{d.p3}</p>
-                <p class="mb-6">{d.p4}</p>
-                <p class="mb-6">{d.p5}</p>
-                <p class="mb-6">{d.p6}</p>
-                <p class="mb-6">{d.p7}</p>
-                <p class="mb-6">{d.p8}</p>
-                <p class="mb-6">{d.p9}</p>
-                <p class="mb-6">{d.p10}</p>
-                <p class="mb-6">{d.p11}</p>
+                <p
+                    class="mb-6 first-letter:text-7xl first-letter:font-bold first-letter:text-brand first-letter:float-left first-letter:mr-4 first-letter:mt-[-10px]"
+                >
+                    {d.p1}
+                </p>
+                {
+                    Array.from({ length: 10 }, (_, i) => i + 2).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* Part 2: The Plan Looked Simple on Paper */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h1}</h3>
-                <p class="mb-6">{d.p12}</p>
-                <p class="mb-6">{d.p13}</p>
-                <p class="mb-6">{d.p14}</p>
-                <p class="mb-6">{d.p15}</p>
-                <p class="mb-6">{d.p16}</p>
-                <p class="mb-6">{d.p17}</p>
-                <p class="mb-6">{d.p18}</p>
-                <p class="mb-6">{d.p19}</p>
-                <p class="mb-6">{d.p20}</p>
-                <p class="mb-6">{d.p21}</p>
-                <p class="mb-6">{d.p22}</p>
-                <p class="mb-6">{d.p23}</p>
-                <p class="mb-6">{d.p24}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h1}
+                </h3>
+                {
+                    Array.from({ length: 13 }, (_, i) => i + 12).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 1 - Hero Image shown inside article too */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={heroImg.src}
                         alt="Best panoramic view of Shey Phoksundo Lake"
@@ -598,25 +608,27 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption1}
                     </div>
                 </div>
 
                 {/* Part 3: Dolpa Doesn't Give You Anything Easily */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h2}</h3>
-                <p class="mb-6">{d.p25}</p>
-                <p class="mb-6">{d.p26}</p>
-                <p class="mb-6">{d.p27}</p>
-                <p class="mb-6">{d.p28}</p>
-                <p class="mb-6">{d.p29}</p>
-                <p class="mb-6">{d.p30}</p>
-                <p class="mb-6">{d.p31}</p>
-                <p class="mb-6">{d.p32}</p>
-                <p class="mb-6">{d.p33}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h2}
+                </h3>
+                {
+                    Array.from({ length: 9 }, (_, i) => i + 25).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 2 */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={img2.src}
                         alt="Landslide roadblock on the road to Dolpa"
@@ -624,24 +636,23 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption2}
                     </div>
                 </div>
 
-                <p class="mb-6">{d.p34}</p>
-                <p class="mb-6">{d.p35}</p>
-                <p class="mb-6">{d.p36}</p>
-                <p class="mb-6">{d.p37}</p>
-                <p class="mb-6">{d.p38}</p>
-                <p class="mb-6">{d.p39}</p>
-                <p class="mb-6">{d.p40}</p>
-                <p class="mb-6">{d.p41}</p>
-                <p class="mb-6">{d.p42}</p>
-                <p class="mb-6">{d.p43}</p>
+                {
+                    Array.from({ length: 10 }, (_, i) => i + 34).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 3 */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={img3.src}
                         alt="Roadside waiting next to mountains"
@@ -649,30 +660,27 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption3}
                     </div>
                 </div>
 
                 {/* Part 4: The Friendship That Started Beside a River */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h3}</h3>
-                <p class="mb-6">{d.p44}</p>
-                <p class="mb-6">{d.p45}</p>
-                <p class="mb-6">{d.p46}</p>
-                <p class="mb-6">{d.p47}</p>
-                <p class="mb-6">{d.p48}</p>
-                <p class="mb-6">{d.p49}</p>
-                <p class="mb-6">{d.p50}</p>
-                <p class="mb-6">{d.p51}</p>
-                <p class="mb-6">{d.p52}</p>
-                <p class="mb-6">{d.p53}</p>
-                <p class="mb-6">{d.p54}</p>
-                <p class="mb-6">{d.p55}</p>
-                <p class="mb-6">{d.p56}</p>
-                <p class="mb-6">{d.p57}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h3}
+                </h3>
+                {
+                    Array.from({ length: 14 }, (_, i) => i + 44).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 4 */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={img4.src}
                         alt="Riverbank waiting place"
@@ -680,30 +688,23 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption4}
                     </div>
                 </div>
 
-                <p class="mb-6">{d.p58}</p>
-                <p class="mb-6">{d.p59}</p>
-                <p class="mb-6">{d.p60}</p>
-                <p class="mb-6">{d.p61}</p>
-                <p class="mb-6">{d.p62}</p>
-                <p class="mb-6">{d.p63}</p>
-                <p class="mb-6">{d.p64}</p>
-                <p class="mb-6">{d.p65}</p>
-                <p class="mb-6">{d.p66}</p>
-                <p class="mb-6">{d.p67}</p>
-                <p class="mb-6">{d.p68}</p>
-                <p class="mb-6">{d.p69}</p>
-                <p class="mb-6">{d.p70}</p>
-                <p class="mb-6">{d.p71}</p>
-                <p class="mb-6">{d.p72}</p>
-                <p class="mb-6">{d.p73}</p>
+                {
+                    Array.from({ length: 16 }, (_, i) => i + 58).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 5 */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={img5.src}
                         alt="Meeting new friends beside the river"
@@ -711,39 +712,36 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption5}
                     </div>
                 </div>
 
-                <p class="mb-6">{d.p74}</p>
-                <p class="mb-6">{d.p75}</p>
-                <p class="mb-6">{d.p76}</p>
-                <p class="mb-6">{d.p77}</p>
-                <p class="mb-6">{d.p78}</p>
-                <p class="mb-6">{d.p79}</p>
+                {
+                    Array.from({ length: 6 }, (_, i) => i + 74).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* Part 5: Finally, The Trek Begins */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h4}</h3>
-                <p class="mb-6">{d.p80}</p>
-                <p class="mb-6">{d.p81}</p>
-                <p class="mb-6">{d.p82}</p>
-                <p class="mb-6">{d.p83}</p>
-                <p class="mb-6">{d.p84}</p>
-                <p class="mb-6">{d.p85}</p>
-                <p class="mb-6">{d.p86}</p>
-                <p class="mb-6">{d.p87}</p>
-                <p class="mb-6">{d.p88}</p>
-                <p class="mb-6">{d.p89}</p>
-                <p class="mb-6">{d.p90}</p>
-                <p class="mb-6">{d.p91}</p>
-                <p class="mb-6">{d.p92}</p>
-                <p class="mb-6">{d.p93}</p>
-                <p class="mb-6">{d.p94}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h4}
+                </h3>
+                {
+                    Array.from({ length: 15 }, (_, i) => i + 80).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
-                {/* PHOTO 6 & PHOTO 7 (Suspension bridge series 7.1, 7.2, 7.3) */}
+                {
+                    /* PHOTO 6 & PHOTO 7 (Suspension bridge series 7.1, 7.2, 7.3) */
+                }
                 <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[400px]"
+                    >
                         <img
                             src={img6.src}
                             alt="Trail winding through the lush green forests"
@@ -751,11 +749,15 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption6}
                         </div>
                     </div>
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[400px]"
+                    >
                         <img
                             src={img7_1.src}
                             alt="Swaying suspension bridge across the valley"
@@ -763,14 +765,18 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption7}
                         </div>
                     </div>
                 </div>
 
                 <div class="my-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="relative rounded-3xl overflow-hidden shadow-sm h-[300px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-sm h-[300px]"
+                    >
                         <img
                             src={img7_2.src}
                             alt="Trail path bridge views"
@@ -778,11 +784,15 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption7_2}
                         </div>
                     </div>
-                    <div class="relative rounded-3xl overflow-hidden shadow-sm h-[300px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-sm h-[300px]"
+                    >
                         <img
                             src={img7_3.src}
                             alt="Walking along the river gorges"
@@ -790,35 +800,29 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption7_3}
                         </div>
                     </div>
                 </div>
 
                 {/* Part 6: The Magic of Shared Miles */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h5}</h3>
-                <p class="mb-6">{d.p95}</p>
-                <p class="mb-6">{d.p96}</p>
-                <p class="mb-6">{d.p97}</p>
-                <p class="mb-6">{d.p98}</p>
-                <p class="mb-6">{d.p99}</p>
-                <p class="mb-6">{d.p100}</p>
-                <p class="mb-6">{d.p101}</p>
-                <p class="mb-6">{d.p102}</p>
-                <p class="mb-6">{d.p103}</p>
-                <p class="mb-6">{d.p104}</p>
-                <p class="mb-6">{d.p105}</p>
-                <p class="mb-6">{d.p106}</p>
-                <p class="mb-6">{d.p107}</p>
-                <p class="mb-6">{d.p108}</p>
-                <p class="mb-6">{d.p109}</p>
-                <p class="mb-6">{d.p110}</p>
-                <p class="mb-6">{d.p111}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h5}
+                </h3>
+                {
+                    Array.from({ length: 17 }, (_, i) => i + 95).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 8 & PHOTO 9 */}
                 <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[400px]"
+                    >
                         <img
                             src={img8.src}
                             alt="Tea stop with group members"
@@ -826,11 +830,15 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption8}
                         </div>
                     </div>
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[400px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[400px]"
+                    >
                         <img
                             src={img9.src}
                             alt="Walking together along the Himalayan path"
@@ -838,37 +846,45 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption9}
                         </div>
                     </div>
                 </div>
 
                 {/* Part 7: The Day My Legs Filed a Formal Complaint */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h6}</h3>
-                <p class="mb-6">{d.p112}</p>
-                <p class="mb-6">{d.p113}</p>
-                <p class="mb-6">{d.p114}</p>
-                <p class="mb-6">{d.p115}</p>
-                <p class="mb-6">{d.p116}</p>
-                <p class="mb-6">{d.p117}</p>
-                <p class="mb-6">{d.p118}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h6}
+                </h3>
+                {
+                    Array.from({ length: 7 }, (_, i) => i + 112).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 10 & PHOTO 11 */}
                 <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[350px]"
+                    >
                         <img
                             src={img10.src}
-                            alt="Horses carrying backpacks and gear"
+                            alt="Waterfalls cascading through the pine-covered gorges"
                             class="w-full h-full object-cover"
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption10}
                         </div>
                     </div>
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[350px]"
+                    >
                         <img
                             src={img11.src}
                             alt="Mighty Jharana waterfall near the trail"
@@ -876,30 +892,28 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption11}
                         </div>
                     </div>
                 </div>
 
                 {/* Part 8: Then We Saw It */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h7}</h3>
-                <p class="mb-6">{d.p119}</p>
-                <p class="mb-6">{d.p120}</p>
-                <p class="mb-6">{d.p121}</p>
-                <p class="mb-6">{d.p122}</p>
-                <p class="mb-6">{d.p123}</p>
-                <p class="mb-6">{d.p124}</p>
-                <p class="mb-6">{d.p125}</p>
-                <p class="mb-6">{d.p126}</p>
-                <p class="mb-6">{d.p127}</p>
-                <p class="mb-6">{d.p128}</p>
-                <p class="mb-6">{d.p129}</p>
-                <p class="mb-6">{d.p130}</p>
-                <p class="mb-6">{d.p131}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h7}
+                </h3>
+                {
+                    Array.from({ length: 13 }, (_, i) => i + 119).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 12 */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={img12.src}
                         alt="First glimpse of the turquoise Shey Phoksundo Lake"
@@ -907,21 +921,24 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption12}
                     </div>
                 </div>
 
-                <p class="mb-6">{d.p132}</p>
-                <p class="mb-6">{d.p133}</p>
-                <p class="mb-6">{d.p134}</p>
-                <p class="mb-6">{d.p135}</p>
-                <p class="mb-6">{d.p136}</p>
-                <p class="mb-6">{d.p137}</p>
+                {
+                    Array.from({ length: 6 }, (_, i) => i + 132).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 13 & PHOTO 14 */}
                 <div class="my-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[350px]"
+                    >
                         <img
                             src={img13.src}
                             alt="Wide panoramic shot of Shey Phoksundo Lake"
@@ -929,11 +946,15 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption13}
                         </div>
                     </div>
-                    <div class="relative rounded-3xl overflow-hidden shadow-md h-[350px]">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-md h-[350px]"
+                    >
                         <img
                             src={img14.src}
                             alt="Serene sunset at Phoksundo"
@@ -941,27 +962,28 @@ const d = content[lang];
                             loading="lazy"
                             decoding="async"
                         />
-                        <div class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white">
+                        <div
+                            class="absolute bottom-0 inset-x-0 bg-black/60 backdrop-blur-sm px-6 py-3 text-xs text-white"
+                        >
                             {d.caption14}
                         </div>
                     </div>
                 </div>
 
                 {/* Part 9: We Arrived as Three. We Left as Five. */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h8}</h3>
-                <p class="mb-6">{d.p138}</p>
-                <p class="mb-6">{d.p139}</p>
-                <p class="mb-6">{d.p140}</p>
-                <p class="mb-6">{d.p141}</p>
-                <p class="mb-6">{d.p142}</p>
-                <p class="mb-6">{d.p143}</p>
-                <p class="mb-6">{d.p144}</p>
-                <p class="mb-6">{d.p145}</p>
-                <p class="mb-6">{d.p146}</p>
-                <p class="mb-6">{d.p147}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h8}
+                </h3>
+                {
+                    Array.from({ length: 10 }, (_, i) => i + 138).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
                 {/* PHOTO 15 */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
                         src={img15.src}
                         alt="Group photo of the five friends at Shey Phoksundo"
@@ -969,46 +991,48 @@ const d = content[lang];
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption15}
                     </div>
                 </div>
 
                 {/* Part 10: Why This Matters */}
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">{d.h9}</h3>
-                <p class="mb-6">{d.p148}</p>
-                <p class="mb-6">{d.p149}</p>
-                <p class="mb-6">{d.p150}</p>
-                <p class="mb-6">{d.p151}</p>
-                <p class="mb-6">{d.p152}</p>
-                <p class="mb-6">{d.p153}</p>
-                <p class="mb-6">{d.p154}</p>
-                <p class="mb-6">{d.p155}</p>
-                <p class="mb-6">{d.p156}</p>
-                <p class="mb-6">{d.p157}</p>
-                <p class="mb-6">{d.p158}</p>
-                <p class="mb-6">{d.p159}</p>
-                <p class="mb-6">{d.p160}</p>
-                <p class="mb-6">{d.p161}</p>
-                <p class="mb-6">{d.p162}</p>
+                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h9}
+                </h3>
+                {
+                    Array.from({ length: 15 }, (_, i) => i + 148).map((i) => (
+                        <p class="mb-6">{d[`p${i}` as keyof typeof d]}</p>
+                    ))
+                }
 
-                {/* PHOTO 16 (Closing Image) - using img7_3 as a representation of all walking away or similar */}
-                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl">
+                {
+                    /* PHOTO 16 (Closing Image) - sitting on a bench overlooking Shey Phoksundo Lake */
+                }
+                <div
+                    class="my-12 relative rounded-3xl overflow-hidden shadow-xl"
+                >
                     <img
-                        src={img7_3.src}
-                        alt="Closing image of group walking on the trail"
+                        src={img16.src}
+                        alt="Deepak sitting on a bench overlooking the turquoise Shey Phoksundo Lake"
                         class="w-full h-auto max-h-[600px] object-cover"
                         loading="lazy"
                         decoding="async"
                     />
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic">
+                    <div
+                        class="bg-gray-50 px-6 py-4 border-t border-gray-100 text-sm text-gray-500 font-serif italic"
+                    >
                         {d.caption16}
                     </div>
                 </div>
 
                 <div class="mt-12 pt-8 border-t border-gray-100">
                     <p class="font-bold text-gray-900 mb-1">Deepak Mahato</p>
-                    <p class="text-xs text-gray-400 uppercase tracking-widest">CIO Marga Adventure</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">
+                        CIO Marga Adventure
+                    </p>
                 </div>
 
                 <p
