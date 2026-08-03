@@ -28,6 +28,7 @@ const ImageModal: React.FC = () => {
         >
             <button
                 onClick={close}
+                aria-label="Close fullscreen image"
                 className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2"
             >
                 <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

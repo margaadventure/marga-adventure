@@ -84,7 +84,7 @@ const DestinationPageContent: React.FC<DestinationPageProps> = ({
           <p className="mt-8 text-gray-500 text-sm font-light">{seasonNote}</p>
           <div className="mt-12">
             <a
-              href={`/${locale}/contact`}
+              href={`${getBaseUrl()}/contact`}
               className="inline-block px-10 py-4 bg-brand text-white font-bold uppercase tracking-widest hover:bg-brand-dark transition-colors duration-300"
             >
               {t('activity.bookConsultation')}
