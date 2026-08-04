@@ -61,11 +61,46 @@ const content = {
 
 const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
 const d = content[lang];
+
+const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: d.title,
+    description: d.metaDesc,
+    image: new URL(buddhimanImg.src, Astro.url).toString(),
+    datePublished: "2025-12-31T00:00:00+05:45",
+    author: {
+        "@type": "Person",
+        name: "Buddhiman Tamang",
+        jobTitle: "Founder & CEO",
+        worksFor: {
+            "@type": "Organization",
+            name: "Marga Adventure"
+        }
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Marga Adventure",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://margaadventure.com/logo.webp"
+        }
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": Astro.url.toString()
+    },
+    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-US'
+};
 ---
 <Layout
     title={d.title}
     description={d.metaDesc}
     image={buddhimanImg.src}
+    type="article"
+    schema={blogPostSchema}
+    publishedTime="2025-12-31"
+    authorName="Buddhiman Tamang"
 >
     <PageHero
         title={d.heroTitle}
@@ -137,9 +172,9 @@ const d = content[lang];
                     {d.p3}
                 </p>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h1}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p4}
                 </p>
@@ -159,9 +194,9 @@ const d = content[lang];
                     />
                 </div>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h2}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p6}
                 </p>

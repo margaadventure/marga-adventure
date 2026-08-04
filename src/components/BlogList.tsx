@@ -96,7 +96,7 @@ const BlogListContent: React.FC<any> = (props) => {
                                 <div className="relative overflow-hidden rounded-none h-[400px] w-full shadow-lg border border-gray-100">
                                     <img
                                         src={post.image}
-                                        alt={`${post.title} - <span translate="no">Marga Adventure</span> Blog`}
+                                        alt={`${post.title} - Marga Adventure Blog`}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                         loading="lazy"
                                         decoding="async"

@@ -54,11 +54,42 @@ const content = {
 
 const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
 const d = content[lang];
+
+const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: d.title,
+    description: d.metaDesc,
+    image: new URL(schoolGroupImg.src, Astro.url).toString(),
+    datePublished: "2026-01-16T00:00:00+05:45",
+    author: {
+        "@type": "Organization",
+        name: "Marga Team",
+        url: "https://margaadventure.com"
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Marga Adventure",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://margaadventure.com/logo.webp"
+        }
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": Astro.url.toString()
+    },
+    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-US'
+};
 ---
 <Layout
     title={d.title}
     description={d.metaDesc}
     image={schoolGroupImg.src}
+    type="article"
+    schema={blogPostSchema}
+    publishedTime="2026-01-16"
+    authorName="Marga Team"
 >
     <PageHero
         title={d.heroTitle}
@@ -127,9 +158,9 @@ const d = content[lang];
                     {d.p2}
                 </p>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h1}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p3}
                 </p>

@@ -102,11 +102,46 @@ const content = {
 
 const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
 const d = content[lang];
+
+const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: d.title,
+    description: d.metaDesc,
+    image: new URL(bgImg.src, Astro.url).toString(),
+    datePublished: "2026-05-28T00:00:00+05:45",
+    author: {
+        "@type": "Person",
+        name: "Buddhiman Tamang",
+        jobTitle: "Founder & CEO",
+        worksFor: {
+            "@type": "Organization",
+            name: "Marga Adventure"
+        }
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Marga Adventure",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://margaadventure.com/logo.webp"
+        }
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": Astro.url.toString()
+    },
+    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-US'
+};
 ---
 <Layout
     title={d.title}
     description={d.metaDesc}
     image={bgImg.src}
+    type="article"
+    schema={blogPostSchema}
+    publishedTime="2026-05-28"
+    authorName="Buddhiman Tamang"
 >
     <PageHero
         title={d.heroTitle}
@@ -187,9 +222,9 @@ const d = content[lang];
                     />
                 </div>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h1}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p3}
                 </p>
@@ -209,9 +244,9 @@ const d = content[lang];
                     />
                 </div>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h2}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p5}
                 </p>
@@ -259,9 +294,9 @@ const d = content[lang];
                     {d.p9}
                 </p>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h3}
-                </h3>
+                </h2>
 
                 <div class="my-16 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="relative rounded-3xl overflow-hidden h-[300px]">
@@ -303,9 +338,9 @@ const d = content[lang];
                     {d.p12}
                 </p>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h4}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p13}
                 </p>

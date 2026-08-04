@@ -63,11 +63,46 @@ const content = {
 
 const { lang, baseUrl, t, dict } = await useAstroI18n(Astro.url);
 const d = content[lang];
+
+const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: d.title,
+    description: d.metaDesc,
+    image: new URL(silenceImg.src, Astro.url).toString(),
+    datePublished: "2026-01-15T00:00:00+05:45",
+    author: {
+        "@type": "Person",
+        name: "Deepak Mahato Tharu",
+        jobTitle: "CIO & Strategist",
+        worksFor: {
+            "@type": "Organization",
+            name: "Marga Adventure"
+        }
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Marga Adventure",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://margaadventure.com/logo.webp"
+        }
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": Astro.url.toString()
+    },
+    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-US'
+};
 ---
 <Layout
     title={d.title}
     description={d.metaDesc}
     image={silenceImg.src}
+    type="article"
+    schema={blogPostSchema}
+    publishedTime="2026-01-15"
+    authorName="Deepak Mahato Tharu"
 >
     <PageHero
         title={d.heroTitle}
@@ -134,9 +169,9 @@ const d = content[lang];
                     {d.p2}
                 </p>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h1}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p3}
                 </p>
@@ -164,17 +199,17 @@ const d = content[lang];
                             ></path>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-gray-900 text-xl mb-4 font-serif">
+                    <h3 class="font-bold text-gray-900 text-xl mb-4 font-serif">
                         {d.h2}
-                    </h4>
+                    </h3>
                     <p class="text-gray-700 leading-relaxed">
                         {d.p6}
                     </p>
                 </div>
 
-                <h3 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 mt-12 mb-6">
                     {d.h3}
-                </h3>
+                </h2>
                 <p class="mb-8">
                     {d.p7}
                 </p>
