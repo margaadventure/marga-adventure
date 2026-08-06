@@ -267,6 +267,7 @@ const content = {
 
         prev: "Previous Story",
         back: "Back to Journal",
+        next: "Next Story",
     },
     fr: {
         title: "Le lac était beau. Le retard était encore meilleur.",
@@ -509,6 +510,7 @@ const content = {
 
         prev: "Histoire Précédente",
         back: "Retour au Journal",
+        next: "Histoire Suivante",
     },
 };
 
@@ -1091,9 +1093,9 @@ const blogPostSchema = {
                     >← {d.prev}</a
                 >
                 <a
-                    href={`${baseUrl}/blog`}
+                    href={`${baseUrl}/blog/shamans-of-lugum`}
                     class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
-                    >{d.back}</a
+                    >{d.next} →</a
                 >
             </div>
         </div>

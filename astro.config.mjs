@@ -1,8 +1,18 @@
 import { defineConfig } from 'astro/config';
+import { createLogger } from 'vite';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import tunnel from 'astro-tunnel';
+
+const customLogger = createLogger();
+const originalWarn = customLogger.warn;
+customLogger.warn = (msg, options) => {
+  if (msg.includes('esbuild') || msg.includes('optimizeDeps.esbuildOptions') || msg.includes('vite:react-babel')) {
+    return;
+  }
+  originalWarn(msg, options);
+};
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,6 +44,7 @@ export default defineConfig({
   },
 
   vite: {
+    customLogger,
     plugins: [tailwindcss()],
   },
   build: {

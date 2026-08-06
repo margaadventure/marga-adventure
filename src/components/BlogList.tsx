@@ -11,6 +11,7 @@ import journalBg from '../assets/images/activities/journal_background.webp';
 import silenceImg from '../assets/images/silence.webp';
 import manasluCoverImg from '../assets/images/blog/manaslu-2026/1.jpg';
 import phoksundoCoverImg from '../assets/images/blog/Shey-Phoksundo-Blog/Hero Image.jpg';
+import shamanCoverImg from '../assets/images/blog/Shaman-blog/0.png';
 
 const BlogListContent: React.FC<any> = (props) => {
     const { t, locale, getBaseUrl } = useTranslation();
@@ -71,6 +72,17 @@ const BlogListContent: React.FC<any> = (props) => {
             image: phoksundoCoverImg.src,
             readTime: t('blog.post5ReadTime'),
             date: t('blog.post5Date')
+        },
+        {
+            slug: 'shamans-of-lugum',
+            category: t('blog.post6Category'),
+            title: t('blog.post6Title'),
+            excerpt: locale === 'en'
+                ? "To find the true heart of a place, you must first slow down to match its pace. A 7-day journey through ancient villages, sacred rituals, and the silent alpine meadows of Dhorpatan."
+                : "Pour trouver le véritable cœur d'un lieu, il faut d'abord ralentir pour s'adapter à son rythme. Un voyage de 7 jours à travers des villages anciens, des rituels sacrés et les prairies alpines de Dhorpatan.",
+            image: shamanCoverImg.src,
+            readTime: t('blog.post6ReadTime'),
+            date: t('blog.post6Date')
         }
     ];
 

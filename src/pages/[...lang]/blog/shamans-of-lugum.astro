@@ -1,0 +1,703 @@
+---
+export function getStaticPaths() {
+    return [{ params: { lang: undefined } }, { params: { lang: "fr" } }];
+}
+
+import { useAstroI18n } from "../../../i18n/astro";
+import Layout from "../../../layouts/Layout.astro";
+import PageHero from "../../../components/PageHero";
+
+// Import blog photos from Shaman-blog folder
+import img0 from "../../../assets/images/blog/Shaman-blog/0.png";
+import img1 from "../../../assets/images/blog/Shaman-blog/1.JPG";
+import img2 from "../../../assets/images/blog/Shaman-blog/2.JPG";
+import img3 from "../../../assets/images/blog/Shaman-blog/3.jpg";
+import img4 from "../../../assets/images/blog/Shaman-blog/4.JPG";
+import img5 from "../../../assets/images/blog/Shaman-blog/5.JPG";
+import img6 from "../../../assets/images/blog/Shaman-blog/6.jpeg";
+import img7 from "../../../assets/images/blog/Shaman-blog/7.JPG";
+import img8 from "../../../assets/images/blog/Shaman-blog/8.jpg";
+import img9 from "../../../assets/images/blog/Shaman-blog/9.jpg";
+import img10 from "../../../assets/images/blog/Shaman-blog/10.jpg";
+import img11 from "../../../assets/images/blog/Shaman-blog/11.jpg";
+import img12 from "../../../assets/images/blog/Shaman-blog/12..jpg";
+
+import type { Locale } from "../../../i18n/i18n";
+
+const content = {
+    en: {
+        title: "The True Path: Sacred Drums, Alpine Shadows, and the Shamans of Lugum",
+        subtitle: "A 7-day Journey to East Rukum & Dhorpatan",
+        heroTitle: "The Shamans of Lugum",
+        heroSubtitle: "Sacred Drums, Alpine Shadows, and the Ancient Heritage of Kham Magars",
+        metaDesc: "Discover the Shaman Festival (Jhakri Mela) of Lukum in East Rukum, Nepal. Sacred drums, animistic rituals, Kham Magar heritage, and alpine meadows of Dhorpatan.",
+        authorName: "Buddhiman & Marga Team",
+        authorRole: "Editorial Team",
+        readTime: "8 min read",
+        date: "August 5, 2026",
+        quote: "To find the true heart of a place, you must first slow down to match its pace.",
+
+        p1: "There are places where history is written in books. Others preserve it in monuments. But in the remote hills of eastern Rukum, history is carried in rhythm.",
+        p2: "Every year, on the first Tuesday or Saturday of the Nepali month of Shrawan (Mid July), the quiet mountain village of Lugum awakens to the deep, resonant beat of the dhyangro, the traditional drum of Nepal's shamans. The villagers gather in the open ground near by the village. The fragrance of incense drifts through the cool mountain air as one after another, shamans enter the ceremonial ground wearing feathered crowns, bronze bells, traditional ornaments, colourful garments, and carrying the sacred drum that has accompanied generations before them.",
+        p3: "For a visitor, the scene is mesmerizing. For the people of Lugum, it is home.",
+        p4: "Far from Nepal's famous trekking trails and bustling cities, this annual gathering is not organised for tourists or performances. It is a living tradition through which the Kham Magar community honours its ancestors, strengthens family and community bonds, and preserves a spiritual heritage that has survived through generations.",
+        p5: "Our seven day journey would lead us through mist-covered mountain roads, ancient villages, sacred rituals, and the silent alpine meadows of Dhorpatan. But more than a journey across landscapes, it became a journey into one of Nepal's oldest living cultures.",
+
+        h1: "Day 1 – Kathmandu to Baglung",
+        p6: "Our journey began before sunrise in Kathmandu. As the city slowly disappeared behind us, the road followed the Trishuli and Marsyangdi rivers before climbing into western Nepal. Busy highways gradually gave way to quieter mountain roads lined with terraced hillsides, cascading waterfalls, and villages perched high above deep valleys.",
+        p7: "The drive to Baglung is long, yet it gently prepares travelers for what lies ahead. Every passing hour feels like another step away from modern life and closer to the slower rhythm of Nepal's mid-hills. By evening, we reached Baglung, where we rested before continuing deeper into the mountains the following morning.",
+
+        h2: "Day 2 – Into the Homeland of the Kham Magars",
+        p8: "Morning arrived wrapped in thick Himalayan fog. The mountains seemed to appear and disappear behind drifting clouds as we left Baglung and began the drive toward Lugum Village in East Rukum.",
+        p9: "The first section of the road was a bit rough, with uneven terrain demanding patience. Yet every difficult stretch was rewarded by extraordinary scenery. Terraced fields climbed impossibly steep hillsides, waterfalls spilled down rocky cliffs, and scattered villages emerged quietly from the mist.",
+        p10: "By late afternoon, we arrived in Lukum. Nestled among the hills, the village is home to one of Nepal's largest Kham Magar communities. Built almost entirely from locally quarried stone with traditional slate roofs, the tightly packed houses seem to grow naturally from the mountainside itself.",
+        p11: "The Kham Magars are among Nepal's oldest Indigenous communities. Long before roads connected these valleys, they developed a way of life deeply rooted in the surrounding forests and mountains. Their beliefs reflect an animistic worldview in which rivers, trees, ancestors, and mountain landscapes possess living spirits deserving of respect. While many traditional practices have faded elsewhere, Lukum remains one of the few places where these customs continue to shape everyday life.",
+        p12: "We stayed in a modest village guesthouse. The rooms were simple. The welcome was unforgettable. Children greeted us with cheerful smiles. The elders stopped to ask where we had travelled from. Neighbours gathered out of curiosity, eager to share stories about their village and the festival that would begin the following morning.",
+        p13: "It never felt as though we were checking into accommodation. It felt as though the village itself had welcomed us home. As evening settled over the hills, excitement quietly spread through Lukum. Tomorrow will be the most important day of the year.",
+
+        h3: "Day 3 – The Great Shaman Festival",
+        p14: "Before dawn, villagers already started their preparation for the festival. The steady beat of the dhyangro echoed through the valley while curls of incense drifted into the cool mountain air. Families arrived together. Relatives came from neighbouring villages. Children watched with anticipation as elders prepared for the day's ceremonies.",
+        p15: "One by one, the shamans started to gather to prepare for the big day. Each wore magnificent feathered headdresses crafted from Himalayan monal and pheasant feathers, bronze bells around their necks, colourful ceremonial garments, sacred ornaments, and carried the dhyangro, drum that would accompany them throughout the day.",
+        p16: "The annual Shaman Festival is held on the first Tuesday or Saturday of Shrawan ( mid July), bringing together not only the people of Lukum but also relatives, people from neighbouring villages, and few international visitors. For the Kham Magar community, it is one of the year's most important cultural gatherings, a time to honour ancestors, strengthen social ties, pass on sacred knowledge and protection from the evil spirits, and celebrate an identity that has endured through generations.",
+        p17: "While shamanic traditions have gradually disappeared from many parts of Nepal, Lukum continues to preserve them as a vibrant part of everyday life. Today, dozens of shamans remain active within the village, and one remarkable aspect of the tradition is that women serve as shamans alongside men, reflecting a long-standing practice in which spiritual leadership is shared across genders.",
+        p18: "Sacred chants, rituals, and ceremonial knowledge are passed from teacher to disciple, often within the same family, ensuring that each generation inherits not only techniques but also the responsibility of protecting the community's cultural heritage.",
+
+        subH1: "The Legend Behind the Festival",
+        p19: "During our stay, we had the privilege to have a conversation with Bir Prasad Gharti Magar, a local resident who is promoting the Lugum village and its intangible culture through his content creation. He generously shared the stories and traditions that have been passed down through generations. Like many Indigenous cultures, the Kham Magars preserve much of their history through oral storytelling, and one legend in particular continues to shape the meaning of the festival.",
+        p20: "According to Bir Prasad, a long time ago a powerful evil spirit terrorised the village, bringing fear and death to its people. Unable to live in peace, the villagers sought help from a great shaman from the village. A fierce spiritual battle followed, lasting until the shaman finally imprisoned the evil spirit in the earth at the edge of the village.",
+        p21: "Enraged by her defeat, the evil spirit cursed both the shaman and the people of Lukum. The shaman, however, negotiated with the evil spirit, and an agreement was reached : once every year, the spirit would be temporarily released before being bound once again, this is the day celebrated as the Shaman Festival (Jhakri Mela). Even today, villagers believe that if someone passes away shortly after the festival, it is because the evil spirit claimed the life promised under that ancient agreement.",
+        p22: "Whether understood as folklore, spiritual belief, or cultural memory, the legend remains an important part of the village's identity and continues to be told from one generation to the next.",
+
+        subH2: "A Village of Shamans",
+        p23: "One of Lukum's most unique traditions is the close relationship between every household and the community of shamans. Historically, each family is expected to have a shaman to represent them during the festival. If a household does not have one within the family. Then, they either hire another shaman to represent them or contribute a traditional fine to the shaman community. In this way, every household participates in maintaining the village's spiritual and cultural responsibilities.",
+        p24: "Throughout the day, more than dozens of  shamans performed sacred rituals and dances almost without interruption.",
+        p25: "The rhythmic beat of the drums gradually intensified. Bronze bells rang with every movement. Feet struck the earth in perfect rhythm. Ancient chants echoed across the village square. Hour after hour, the shamans danced in remarkable unison, their movements expressing centuries of inherited tradition rather than choreographed performance.",
+        p26: "Standing among the crowd, it became clear that this gathering was far more than a festival. It was a living archive. Every feather. Every drumbeat. Every chant. Every dance. Together they carried the memory of generations who had gathered on the very same ground long before us.",
+        p27: "As the final rhythms faded into the evening mist, the ceremonies for the day came to an end. But the festival itself was only halfway complete. The following morning, the atmosphere would change entirely. The solemn rituals would give way to music, laughter, playful traditions, and celebrations that would fill the entire village.",
+
+        h4: "Day 4 – Celebration, Purification, and the Blessings",
+        p28: "If the previous day belonged to the spirits, The fourth day belonged to the people. The atmosphere in Lukum changed completely. The solemn chants gave way to laughter. The slow rhythm of ceremonial drums became lively folk beats, and the entire village gathered once again not only to celebrate the successful completion of the sacred rituals but also to enjoy one another's company.",
+        p29: "The shamans' assistants, many of them younger apprentices learning the traditions from their elders, took centre stage. Their energetic drumming echoed across the village square as they playfully teased the young women through songs, dance, and light-hearted exchanges that have long been part of the festival's social tradition.",
+        p30: "Children chased one another through the narrow lanes. Elders laughed from shaded verandas. Visitors who had arrived only as spectators soon found themselves smiling alongside everyone else.",
+
+        subH3: "The Sisno Tradition",
+        p31: "One of the festival's most distinctive customs is the Sisno (stinging nettle) ritual. Fresh nettles are gently used by the villagers as they playfully strike one another. To an outsider, the practice may seem unusual, but for the people of Lukum it carries deep symbolic meaning.",
+        p32: "The community believes the ritual helps cleanse the body, remove negative influences, and offer protection from illness and misfortune in the coming year. What appears playful on the surface is, for the villagers, another way of renewing both body and spirit.",
+
+        subH4: "A Festival of Mud, Laughter, and Equality",
+        p33: "Soon afterwards, another celebration unfolded. Without warning, handfuls of cool mountain earth began flying through the air. Children covered their parents. Friends chased one another through the village square. Even visitors were not spared if they were ready to be part of the celebration. Within minutes, everyone was covered in mud.",
+        p34: "The celebration immediately reminded us of Holi, but instead of coloured powder, the people of Lukum celebrate with the very soil beneath their feet.",
+        p35: "The earth is more than mud. It represents the land that feeds the community, the fields that sustain every family, and the reminder that regardless of age, wealth, or social standing, everyone ultimately returns to the same ground.",
+        p36: "Covered in mud, distinctions disappear. Everyone becomes equal. The square filled with nothing but laughter. For a few beautiful hours, the village celebrated life itself.",
+
+        subH5: "Protection and Blessing Every Home",
+        p37: "As the public celebrations gradually came to an end, another important tradition quietly began. Unlike the ceremonies held in the village square, this ritual takes place behind the doors of every household. One by one, the shamans travelled from house to house across the village.",
+        p38: "According to local tradition, every family receives the blessings and protection of the shamans before the festival concludes. The purpose is to cleanse the negative energy, protect the household from evil spirits, and pray for the good health, prosperity, and well-being of every family member during the year ahead.",
+        p39: "By this stage, many of the shamans had entered deep states of spiritual trance. Their assistants carefully guided them from one house to the next, carrying ritual objects and helping prepare each ceremony. In every home, sacred chants filled the rooms while offerings were made.",
+        p40: "As part of the traditional ritual, a chicken was ceremonially sacrificed in each household. For the community, the offering represents gratitude, protection, and the renewal of the bond between the family, their ancestors, and the unseen spiritual world.",
+        p41: "It is an intensely personal ceremony. Visitors are welcomed with respect, but the rituals remain deeply rooted in the lives of the families themselves.",
+        p42: "Walking through the village that evening, it became clear that the festival is not something performed in one public square. It belongs to every household. Every family. Every generation.",
+        p43: "By nightfall, the sound of the drums slowly faded. The village became quiet once more. The annual gathering had come to an end, but its blessings and protection would remain with the community until the following Shrawan.",
+
+        h5: "Day 5 – The Road to Burtibang",
+        p44: "The following morning, we said goodbye to Lukum. The roads once again wound through forests, river valleys, and mountains as we travelled toward Burtibang, the gateway to one of Nepal's most remarkable alpine landscapes.",
+        p45: "Leaving the village felt strangely emotional. Only a day earlier, the streets had been filled with music, chanting, and celebration. Now they were peaceful once again, returning to the quiet rhythm of everyday life.",
+        p46: "As the kilometres passed, the scenery gradually changed. Steep hills gave way to wider valleys. Dense forests opened into broad mountain landscapes. Every turn revealed another dramatic view stretching toward the distant Himalayas.",
+        p47: "Burtibang has long served as an important stop for travellers, traders, and shepherds moving through western Nepal. Today, it is best known as the starting point for journeys into the spectacular highlands of Dhorpatan.",
+        p48: "After checking into our accommodation, we rested for the night, preparing for an early departure the following morning.",
+
+        h6: "Day 6 – The Silent Meadows of Dhorpatan",
+        p49: "Before sunrise, we were already on the road. A two-hour drive carried us steadily upward until the landscape suddenly opened into something entirely different. The mountains seemed to step back. The valleys widened. The horizon stretched endlessly. We had arrived in Dhorpatan.",
+        p50: "For generations, these vast alpine grasslands have served as seasonal grazing grounds for shepherds who bring their flocks into the high Himalayas during the warmer months. Even today, sheep continue to roam freely across the meadows, watched over by shepherds whose lives remain closely connected to the rhythm of the mountains.",
+        p51: "Unlike the dramatic peaks that often define Nepal in photographs, Dhorpatan offers something quieter. Rolling grasslands. Crystal-clear streams. Wetlands reflecting the sky. Snow-covered mountains standing silently in the distance.",
+        p52: "We spent the morning wandering through Patan, the expansive alpine meadows that give Dhorpatan its distinctive character.",
+        p53: "The contrast with Lukum could not have been greater. Just two days earlier, our ears had been filled with the relentless rhythm of drums, chanting, bells, and celebration. Here... There was only wind. The occasional sound of sheep bells. The whisper of grass moving beneath the breeze.",
+        p54: "The silence felt almost sacred. It invited reflection. The festival had reminded us of the strength of community. Dhorpatan reminded us of the quiet power of nature.",
+        p55: "After several peaceful hours exploring the high meadows, we began the drive back toward Kusma. The mountains slowly disappeared behind us, but the stillness they offered remained long after we had left.",
+
+        h7: "More Than a Festival",
+        p56: "Many visitors arrive in Nepal hoping to see towering mountains. Others come searching for famous trekking trails. Few realise that some of the country's greatest treasures are not landscapes at all. They are its people.",
+        p57: "The Shaman Festival (Jhakri Mela) of Lukum is remarkable not simply because more than dozens of shamans perform spiritual rituals and dance together from early morning until evening. Not because of feathered crowns, rhythmic drums, or ancient rituals. Its true significance lies elsewhere.",
+        p58: "It is one of the rare places where an Indigenous tradition continues to thrive not as a performance, but as everyday life. Children grow up watching their grandparents participate. Women serve alongside men as respected spiritual leaders. Entire families gather each year to honour their ancestors, renew community bonds, protect the village and pass their traditions to the next generation.",
+        p59: "In a rapidly changing world, that continuity is extraordinary. The festival is not a recreation of the past. It is the present. A living culture that continues to evolve while remaining deeply connected to its roots.",
+
+        h8: "The True Path",
+        p60: "When we first set out from Kathmandu, we thought we were travelling to witness a festival. Instead, we found something far more meaningful. We found a community that welcomed strangers as guests. We found traditions that have endured despite the passing of centuries. We found mountain landscapes where silence speaks as powerfully as music. And we found that the richest journeys are often the ones that ask us not to conquer a place, but to listen to it.",
+        p61: "In Nepali, \"Marga\" means the path. Not simply a road from one destination to another, but a way of moving through the world with curiosity, humility, and respect.",
+        p62: "Looking back, that is what this journey became. The road to Lukum was a bit rough somewhere. The drums were loud. The mountains were vast. The stories were ancient. And somewhere between the mist-covered hills of Rukum and the quiet alpine meadows of Dhorpatan, we realised that the true destination had never been a village or a festival. It was a deeper understanding of the people who call these mountains home.",
+        p63: "As the final echoes of the dhyangro faded into memory and the highway carried us back to Kathmandu, one feeling remained. Some journeys end when you return home. The meaningful ones continue long after the road has ended.",
+
+        prev: "Previous Story",
+        back: "Back to Journal",
+        next: "Next Story",
+
+        caption0: "Collage – The Shamans of Lugum",
+        caption1: "Scenic highway leaving Kathmandu with rivers, terraced hills and mountain landscapes",
+        caption2: "Fog-covered mountain road between Baglung and Rukum",
+        caption3: "Traditional slate-roofed stone houses of Lukum Village",
+        caption4: "Villagers gathering as shamans enter the ceremonial ground",
+        caption5: "A group of shamans performing together with dhyangro drums",
+        caption6: "A young boy portraying the shaman while villagers gather around",
+        caption7: "Villagers participating in the Sisno ritual",
+        caption8: "Villagers joyfully throwing mud and laughing together",
+        caption9: "Protecting home",
+        caption10: "A beautiful waterfall between Lukum and Burtibang",
+        caption11: "First panoramic view of Dhorpatan's alpine valley",
+        caption12: "Horse grazing in the Patan of Dhorpatan"
+    },
+    fr: {
+        title: "Le Vrai Chemin : Tambours Sacrés, Ombres Alpines et les Shamans de Lugum",
+        subtitle: "Un voyage de 7 jours dans l'Est de Rukum et Dhorpatan",
+        heroTitle: "Les Shamans de Lugum",
+        heroSubtitle: "Tambours Sacrés, Ombres Alpines et le Patrimoine Ancestral des Kham Magars",
+        metaDesc: "Découvrez le festival des shamans (Jhakri Mela) de Lukum dans l'Est de Rukum, au Népal. Tambours sacrés, rituels animistes, héritage Kham Magar et prairies alpines de Dhorpatan.",
+        authorName: "Buddhiman & Équipe Marga",
+        authorRole: "Équipe Rédactionnelle",
+        readTime: "8 min de lecture",
+        date: "5 août 2026",
+        quote: "Pour trouver le véritable cœur d'un lieu, il faut d'abord ralentir pour s'adapter à son rythme.",
+
+        p1: "Il y a des endroits où l'histoire s'écrit dans les livres. D'autres la préservent dans des monuments. Mais dans les collines reculées de l'est de Rukum, l'histoire se transporte en rythme.",
+        p2: "Chaque année, le premier mardi ou samedi du mois népalais de Shrawan (mi-juillet), le paisible village de montagne de Lugum s'éveille au son profond et résonnant du dhyangro, le tambour traditionnel des shamans du Népal. Bien avant que le soleil ne se lève sur les collines environnantes, les villageois se rassemblent sur la place centrale de la localité. Le parfum de l'encens flotte dans l'air frais de la montagne tandis que, les uns après les autres, les shamans pénèrent sur le terrain cérémoniel vêtus de couronnes de plumes, de cloches en bronze, d'ornements traditionnels, de vêtements colorés, et portant le tambour sacré qui accompagne les générations depuis des siècles.",
+        p3: "Pour un visiteur, la scène est fascinante. Pour les habitants de Lugum, c'est leur foyer.",
+        p4: "Loin des célèbres sentiers de trek du Népal et des villes animées, ce rassemblement annuel n'est pas organisé pour les touristes ou le spectacle. C'est une tradition vivante par laquelle la communauté Kham Magar honore ses ancêtres, renforce les liens familiaux et communautaires, et préserve un héritage spirituel qui a survécu à travers les générations.",
+        p5: "Notre voyage de sept jours allait nous mener à travers des routes de montagne enveloppées de brume, des villages anciens, des rituels sacrés et les prairies alpines silencieuses de Dhorpatan. Mais plus qu'un voyage à travers les paysages, c'est devenu une immersion dans l'une des plus anciennes cultures vivantes du Népal.",
+
+        h1: "Jour 1 – De Katmandou à Baglung",
+        p6: "Notre voyage a commencé avant le lever du soleil à Katmandou. Alors que la ville disparaissait lentement derrière nous, la route suivait les rivières Trishuli et Marsyangdi avant de grimper vers l'ouest du Népal. Les autoroutes animées ont progressivement laissé la place à des routes de montagne plus paisibles bordées de collines en terrasses, de cascades ruisselantes et de villages perchés au-dessus de vallées profondes.",
+        p7: "Le trajet jusqu'à Baglung est long, mais il prépare en douceur les voyageurs à ce qui les attend. Chaque heure qui passe ressemble à un pas de plus hors de la vie moderne, pour se rapprocher du rythme plus lent des collines népalaises. En soirée, nous avons atteint Baglung, où nous nous sommes reposés avant de nous enfoncer plus profondément dans les montagnes le lendemain matin.",
+
+        h2: "Jour 2 – Au cœur de la terre des Kham Magars",
+        p8: "Le matin est arrivé enveloppé d'un épais brouillard himalayen. Les montagnes semblaient apparaître et disparaître derrière des nuages dérivants alors que nous quittions Baglung pour prendre la route vers le village de Lukum dans l'Est de Rukum.",
+        p9: "La première section de la route était rude, avec des pistes rocheuses et un terrain inégal exigeant la patience du chauffeur et des passagers. Pourtant, chaque tronçon difficile était récompensé par des paysages extraordinaires. Des champs en terrasses escaladaient des collines incroyablement escarpées, des cascades se déversaient le long de falaises rocheuses, et des villages dispersés émergeaient doucement de la brume.",
+        p10: "En fin d'après-midi, nous sommes arrivés à Lukum. Niche au milieu des collines, le village abrite l'une des plus grandes communautés Kham Magar du Népal. Construites presque entièrement en pierre locale avec des toits de lauze traditionnels, les maisons serrées semblent pousser naturellement à même la montagne.",
+        p11: "Les Kham Magars comptent parmi les plus anciennes communautés autochtones du Népal. Bien avant que des routes ne relient ces vallées, ils ont développé un mode de vie profondément enraciné dans les forêts et les montagnes environnantes. Leurs croyances reflètent une vision animiste du monde où les rivières, les arbres, les ancêtres et les paysages montagneux possèdent des esprits vivants dignes de respect. Alors que de nombreuses pratiques traditionnelles se sont effacées ailleurs, Lukum reste l'un des rares endroits où ces coutumes continuent de façonner la vie quotidienne.",
+        p12: "Nous avons séjourné dans une modeste maison d'hôtes du village. Les chambres étaient simples, mais l'accueil était inoubliable. Les enfants nous ont accueillis avec des sourires chaleureux, les aînés s'arrêtaient pour nous demander d'où nous venions, et les voisins se rassemblaient par curiosité, impatients de partager des histoires sur leur village et le festival qui allait débuter le lendemain matin.",
+        p13: "On n'a jamais eu l'impression de s'installer dans un hébergement marchand — on avait le sentiment que le village lui-même nous accueillait chez nous. Alors que le soir se posait sur les collines, une excitation contenue s'est propagée dans Lukum. Demain sera le jour le plus important de l'année.",
+
+        h3: "Jour 3 – Le Grand Festival des Shamans",
+        p14: "Avant l'aube, les habitants cheminaient déjà vers la place du village. Le battement régulier du dhyangro résonnait dans la vallée tandis que des volutes d'encens s'élevaient dans l'air frais de la montagne. Les familles arrivaient ensemble, des proches revenaient des districts voisins et les enfants observaient avec impatience les aînés préparer les cérémonies de la journée.",
+        p15: "Un par un, les shamans ont commencé à se rassembler pour se préparer au grand jour. Chacun portait une magnifique coiffe de plumes confectionnée à partir de plumes de lophophore d'Himalaya et de faisant, des cloches en bronze autour du cou, des habits cérémoniels colorés, des ornements sacrés, et tenait le dhyangro, le tambour qui allait les accompagner tout au long de la journée.",
+        p16: "Le festival annuel des shamans se tient le premier mardi ou samedi de Shrawan (mi-juillet), réunissant non seulement les habitants de Lukum mais aussi des membres de la famille, des personnes des villages voisins et quelques visiteurs internationaux. Pour la communauté Kham Magar, c'est l'un des rassemblements culturels les plus importants de l'année : un moment pour honorer les ancêtres, renforcer les liens sociaux, transmettre les connaissances sacrées et la protection contre les mauvais esprits, et célébrer une identité qui perdure depuis des générations.",
+        p17: "Alors que les traditions shamaniques ont progressivement disparu de nombreuses régions du Népal, Lukum continue de les préserver comme une partie vibrante de la vie quotidienne. Aujourd'hui, des dizaines de shamans restent actifs dans le village, et un aspect remarquable de la tradition est que les femmes officient comme shamans aux côtés des hommes, reflétant une pratique ancienne où la direction spirituelle est partagée entre les genres.",
+        p18: "Les chants sacrés, les rituels et le savoir cérémoniel se transmettent de maître à disciple, souvent au sein de la même famille, garantissant que chaque génération hérite non seulement des techniques mais aussi de la responsabilité de protéger le patrimoine culturel de la communauté.",
+
+        subH1: "La Légende derrière le Festival",
+        p19: "Pendant notre séjour, nous avons eu le privilège d'échanger avec Bir Prasa Gharti Magar, un habitant local qui promeut le village de Lugum et sa culture immatérielle à travers sa création de contenu. Il a généreusement partagé les histoires et traditions transmises de génération en génération. Comme de nombreuses cultures autochtones, les Kham Magars préservent une grande partie de leur histoire par la tradition orale, et une légende en particulier continue de donner tout son sens au festival.",
+        p20: "Selon la tradition locale, un puissant esprit maléfique terrorisait autrefois le village, apportant la peur et la mort parmi ses habitants. Incapables de vivre en paix, les villageois ont demandé l'aide d'un grand shaman du village. Une féroce bataille spirituelle s'ensuivit, jusqu'à ce que le shaman emprisonne enfin l'esprit maléfique dans la terre aux limites du village.",
+        p21: "Rageur de sa défaite, l'esprit maléfique maudit le shaman et le peuple de Lukum. Le shaman négocia cependant avec l'esprit maléfique et un accord fut conclu : une fois par an, l'esprit serait temporairement libéré avant d'être scellé à nouveau ; c'est ce jour qui est célébré comme le Festival des Shamans (Jhakri Mela). Aujourd'hui encore, les villageois croient que si quelqu'un vient à décéder peu après le festival, c'est parce que l'esprit maléfique a réclamé la vie promise selon cet accord ancien.",
+        p22: "Qu'on la comprenne comme du folklore, une croyance spirituelle ou une mémoire culturelle, la légende reste un élément essentiel de l'identité du village et continue de se raconter d'une génération à l'autre.",
+
+        subH2: "Un Village de Shamans",
+        p23: "L'une des traditions les plus uniques de Lukum est le lien étroit entre chaque foyer et la communauté des shamans. Historiquement, chaque famille doit avoir un shaman pour la représenter pendant le festival. Si une famille n'en compte pas en son sein, elle engage un autre shaman pour la représenter ou verse une amende traditionnelle à la communauté des shamans. De cette manière, chaque foyer participe au maintien des responsabilités spirituelles et culturelles du village.",
+        p24: "Tout au long de la journée, plus de plusieurs dizaines de shamans ont exécuté des rituels sacrés et des danses presque sans interruption.",
+        p25: "Le rythme régulier des tambours s'est progressivement intensifié, les cloches en bronze résonnaient à chaque mouvement, les pieds frappaient la terre en parfaite cadence et les chants anciens répétaient leurs échos sur la place du village. Heure après heure, les shamans dansaient dans un unisson remarquable, leurs mouvements exprimant des siècles de traditions héritées plutôt qu'une performance chorégraphiée.",
+        p26: "En se tenant au milieu de la foule, il est devenu évident que ce rassemblement était bien plus qu'un festival — c'était une archive vivante. Chaque plume, chaque coup de tambour, chaque chant et chaque danse portaient ensemble la mémoire de générations qui s'étaient rassemblées sur ce même sol bien avant nous.",
+        p27: "Alors que les derniers rythmes s'estompaient dans la brume du soir, les cérémonies de la journée ont pris fin. Mais le festival lui-même n'était qu'à moitié accompli. Le lendemain matin, l'atmosphère allait changer du tout au tout : les rituels solennels céderaient la place à la musique, aux rires, aux traditions ludiques et aux célébrations qui rempliraient tout le village.",
+
+        h4: "Jour 4 – Célébration, Purification et Bénédictions",
+        p28: "Si la journée précédente appartenait aux esprits, la quatrième journée appartenait au peuple. L'atmosphère à Lukum a complètement changé. Les chants solennels ont laissé la place aux rires, le rythme lent des tambours cérémoniels est devenu des rythmes folk entraînants, et le village entier s'est rassemblé à nouveau non seulement pour fêter l'aboutissement des rituels sacrés mais aussi pour profiter de la compagnie des uns et des autres.",
+        p29: "Les assistants des shamans, dont beaucoup sont de jeunes apprentis apprenant les traditions auprès de leurs aînés, ont pris le devant de la scène. Leurs coups de tambour énergiques résonnaient sur la place du village alors qu'ils taquinaient gentiment les jeunes femmes en chansons, danses et échanges joyeux qui font depuis longtemps partie de la tradition sociale du festival.",
+        p30: "Les enfants se couraient après dans les ruelles étroites, les aînés riaient depuis les vérandas à l'ombre, et les visiteurs arrivés comme simples spectateurs se sont vite surpris à sourire aux côtés de tout le monde.",
+
+        subH3: "La Tradition du Sisno",
+        p31: "L'une des coutumes les plus distinctives du festival est le rituel du Sisno (ortie brûlante). Des orties fraîches sont délicatement utilisées par les villageois pour se frapper de manière ludique. Pour un observateur extérieur, la pratique peut paraître inhabituelle, mais pour les habitants de Lukum elle porte une signification symbolique profonde.",
+        p32: "La communauté croit que le rituel aide à purifier le corps, à éloigner les influences négatives et à offrir une protection contre la maladie et le malheur pour l'année à venir. Ce qui semble ludique en surface est, pour les villageois, une autre façon de renouveler à la fois le corps et l'esprit.",
+
+        subH4: "Un Festival de Boue, de Rires et d'Égalité",
+        p33: "Peu après, une autre célébration s'est déroulée. Sans préavis, des poignées de terre fraîche de montagne ont commencé à voler dans les airs. Les enfants en recouvraient leurs parents, les amis se poursuivaient sur la place du village, et même les visiteurs n'ont pas été épargnés. En quelques minutes, tout le monde était couvert de boue.",
+        p34: "La célébration nous a immédiatement rappelé Holi, mais au lieu de poudre colorée, les habitants de Lukum célèbrent avec le sol même sous leurs pieds.",
+        p35: "La terre est bien plus que de la boue. Elle représente la terre qui nourrit la communauté, les champs qui font vivre chaque famille, et le rappel que quels que soient l'âge, la richesse ou le rang social, chacun retourne finalement à la même terre.",
+        p36: "Couverts de boue, les distinctions s'effacent et tout le monde devient égal. La place s'est remplie de rires purs, et pendant quelques heures magnifiques, le village a célébré la vie elle-même.",
+
+        subH5: "Protection et Bénédiction de chaque Foyer",
+        p37: "Alors que les célébrations publiques s'achevaient peu à peu, une autre tradition importante a commencé en silence. Contrairement aux cérémonies tenues sur la place du village, ce rituel a lieu derrière les portes de chaque foyer. Un par un, les shamans ont voyagé de maison en maison à travers le village.",
+        p38: "Selon la tradition locale, chaque famille reçoit les bénédictions et la protection des shamans avant la clôture du festival. Le but est de purifier les énergies négatives, de protéger le foyer contre les esprits maléfiques et de prier pour la santé, la prospérité et le bien-être de chaque membre de la famille au cours de l'année à venir.",
+        p39: "À ce stade, de nombreux shamans étaient entrés dans un état profond de transe spirituelle. Leurs assistants les guidaient soigneusement d'une maison à l'autre, portant des objets rituels et aidant à préparer chaque cérémonie. Dans chaque maison, des chants sacrés remplissaient les pièces pendant que les offrandes étaient faites.",
+        p40: "Dans le cadre du rituel traditionnel, un poulet était sacrifié de manière cérémonielle dans chaque foyer. Pour la communauté, l'offrande représente la gratitude, la protection et le renouvellement du lien entre la famille, ses ancêtres et le monde spirituel invisible.",
+        p41: "C'est une cérémonie intensément personnelle. Les visiteurs sont accueillis avec respect, mais les rituels restent profondément ancrés dans la vie des familles elles-mêmes.",
+        p42: "En marchant dans le village ce soir-là, il est devenu évident que le festival n'est pas quelque chose qui s'exécute sur une seule place publique. Il appartient à chaque foyer, chaque famille, chaque génération.",
+        p43: "À la tombée de la nuit, le son des tambours s'est lentement éteint et le village est redevenu calme. Le rassemblement annuel touchait à sa fin, mais ses bénédictions et sa protection resteraient avec la communauté jusqu'au Shrawan suivant.",
+
+        h5: "Jour 5 – La Route vers Burtibang",
+        p44: "Le lendemain matin, nous avons fait nos adieux à Lukum. Les routes serpentaient à nouveau à travers les forêts, les vallées fluviales et les montagnes alors que nous voyagions vers Burtibang, la porte d'entrée vers l'un des paysages alpins les plus remarquables du Népal.",
+        p45: "Quitter le village a suscité une émotion étrange. Un jour plus tôt à peine, les rues étaient remplies de musique, de chants et de célébrations. Désormais, elles étaient paisibles à nouveau, retrouvant le rythme calme de la vie quotidienne.",
+        p46: "Au fil des kilomètres, le paysage a progressivement changé. Les collines escarpées ont fait place à de plus larges vallées, les forêts denses se sont ouvertes sur de vastes paysages montagneux, et chaque virage révélait une nouvelle vue spectaculaire s'étendant vers l'Himalaya lointain.",
+        p47: "Burtibang sert depuis longtemps d'étape importante pour les voyageurs, les commerçants et les bergers traversant l'ouest du Népal. Aujourd'hui, elle est surtout connue comme le point de départ des voyages vers les hautes terres spectaculaires de Dhorpatan.",
+        p48: "Après avoir pris possession de nos chambres, nous nous sommes reposés pour la nuit, nous préparant à un départ matinal le lendemain.",
+
+        h6: "Jour 6 – Les Prairies Silencieuses de Dhorpatan",
+        p49: "Avant le lever du soleil, nous étions déjà sur la route. Deux heures de route nous ont fait grimper régulièrement jusqu'à ce que le paysage s'ouvre soudainement sur quelque chose de totalement différent. Les montagnes semblaient reculer, les vallées s'élargir et l'horizon s'étendre à l'infini. Nous étions arrivés à Dhorpatan.",
+        p50: "Depuis des générations, ces vastes pâturages alpins servent de zones de pâturage saisonnières pour les bergers qui amènent leurs troupeaux dans le haut Himalaya pendant les mois les plus chauds. Aujourd'hui encore, les moutons continuent de paître librement à travers les prairies, gardés par des bergers dont les vies restent étroitement liées au rythme des montagnes.",
+        p51: "Contrairement aux sommets spectaculaires qui définissent souvent le Népal en photo, Dhorpatan offre quelque chose de plus paisible : des prairies vallonnées, des ruisseaux cristallins, des zones humides reflétant le ciel, et des montagnes enneigées se dressant silencieusement au loin.",
+        p52: "Nous avons passé la matinée à déambuler à travers le Patan — les vastes prairies alpines qui donnent à Dhorpatan son caractère si distinctif.",
+        p53: "Le contraste avec Lukum ne pouvait pas être plus grand. Deux jours plus tôt à peine, nos oreilles étaient remplies du rythme incessant des tambours, des chants, des cloches et de la fête. Ici, il n'y avait que le vent, le son occasionnel des cloches des moutons et le chuchotement de l'herbe ondulant sous la brise.",
+        p54: "Le silence semblait presque sacré. Il invitait à la réflexion. Le festival nous avait rappelé la force de la communauté ; Dhorpatan nous rappelait la puissance silencieuse de la nature.",
+        p55: "Après plusieurs heures paisibles à explorer les hautes prairies, nous avons entamé la route du retour vers Kusma. Les montagnes disparaissaient lentement derrière nous, mais la sérénité qu'elles offraient est restée bien après notre départ.",
+
+        h7: "Plus qu'un Festival",
+        p56: "De nombreux visiteurs arrivent au Népal en espérant voir des montagnes imposantes. D'autres viennent chercher des sentiers de trek célèbres. Peu réalisent que certains des plus grands trésors du pays ne sont pas des paysages du tout — ce sont ses habitants.",
+        p57: "Le Festival des Shamans (Jhakri Mela) de Lukum est remarquable non pas simplement parce que des dizaines de shamans exécutent des rituels spirituels et dansent ensemble du petit matin jusqu'au soir, ni en raison des couronnes de plumes, des tambours rythmiques ou des rituels anciens. Sa véritable signification réside ailleurs.",
+        p58: "C'est l'un des rares endroits où une tradition autochtone continue de prospérer non pas comme un spectacle, mais comme la vie quotidienne. Les enfants grandissent en regardant leurs grands-parents participer, de jeunes apprentis continuent d'apprendre des chants sacrés auprès de shamans expérimentés, et des femmes officient aux côtés des hommes comme leaders spirituelles respectées. Des familles entières se rassemblent chaque année pour honorer leurs ancêtres, renouveler les liens communautaires et transmettre leurs traditions à la génération suivante.",
+        p59: "Dans un monde en mutation rapide, cette continuité est extraordinaire. Le festival n'est pas une reconstitution du passé — c'est le présent, une culture vivante qui continue d'évoluer tout en restant profondément connectée à ses racines.",
+
+        h8: "Le Vrai Chemin",
+        p60: "Quand nous sommes partis de Katmandou, nous pensions voyager pour assister à un festival. Au lieu de cela, nous avons trouvé quelque chose de bien plus profond. Nous avons trouvé une communauté qui a accueilli des inconnus comme des invités, des traditions qui ont traversé les siècles, des paysages de montagne où le silence parle aussi fort que la musique, et nous avons découvert que les voyages les plus riches sont souvent ceux qui nous demandent non pas de conquérir un lieu, mais de l'écouter.",
+        p61: "En népalais, « Marga » signifie le chemin — pas simplement une route d'une destination à une autre, mais une façon de se déplacer dans le monde avec curiosité, humilité et respect.",
+        p62: "Avec le recul, c'est ce que ce voyage est devenu. La route vers Lukum était rude, les tambours étaient forts, les montagnes étaient vastes et les histoires étaient anciennes. Et quelque part entre les collines de Rukum enveloppées de brume et les prairies alpines paisibles de Dhorpatan, nous avons réalisé que la vraie destination n'avait jamais été un village ou un festival. C'était une compréhension plus profonde des gens qui habitent ces montagnes.",
+        p63: "Alors que les derniers échos du dhyangro s'effaçaient dans nos mémoires et que l'autoroute nous ramenait à Katmandou, un sentiment est resté : certains voyages prennent fin quand vous rentrez chez vous, mais les voyages qui ont du sens continuent longtemps après que la route s'est arrêtée.",
+
+        prev: "Histoire Précédente",
+        back: "Retour au Journal",
+        next: "Histoire Suivante",
+
+        caption0: "Collage – Les Shamans de Lugum",
+        caption1: "Route panoramique quittant Katmandou avec rivières, collines en terrasses et paysages de montagne",
+        caption2: "Route de montagne couverte de brouillard entre Baglung et Rukum",
+        caption3: "Maisons traditionnelles en pierre avec toits de lauze du village de Lukum",
+        caption4: "Les villageois se rassemblant alors que les shamans entrent sur le terrain cérémoniel",
+        caption5: "Un groupe de shamans performant ensemble avec des tambours dhyangro",
+        caption6: "Un jeune garçon incarnant le shaman pendant que les villageois se rassemblent autour",
+        caption7: "Les villageois participant au rituel du Sisno",
+        caption8: "Les villageois jetant joyeusement de la boue et riant ensemble",
+        caption9: "Protection du foyer",
+        caption10: "Une magnifique cascade entre Lukum et Burtibang",
+        caption11: "Première vue panoramique sur la vallée alpine de Dhorpatan",
+        caption12: "Cheval paissant dans le Patan de Dhorpatan"
+    }
+};
+
+const { lang, baseUrl } = await useAstroI18n(Astro.url);
+const d = content[lang as Locale] || content.en;
+
+const blogPostSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: d.title,
+    description: d.metaDesc,
+    image: new URL(img0.src, Astro.url).toString(),
+    datePublished: "2026-08-05T00:00:00+05:45",
+    author: {
+        "@type": "Organization",
+        name: "Buddhiman & Marga Team"
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Marga Adventure",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://margaadventure.com/logo.webp"
+        }
+    },
+    mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": Astro.url.toString()
+    },
+    inLanguage: lang === 'fr' ? 'fr-FR' : 'en-US'
+};
+---
+
+<Layout
+    title={d.title}
+    description={d.metaDesc}
+    image={img0.src}
+    type="article"
+    schema={blogPostSchema}
+    publishedTime="2026-08-05"
+    authorName="Buddhiman & Marga Team"
+>
+    <PageHero
+        title={d.heroTitle}
+        subtitle={d.heroSubtitle}
+        image={img0.src}
+        parallax={true}
+    />
+
+    <article class="py-20 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-3xl mx-auto">
+            {/* Header Info */}
+            <div
+                class="flex items-center justify-between border-b border-gray-100 pb-8 mb-12"
+            >
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-full bg-gray-100 overflow-hidden flex items-center justify-center border border-gray-100"
+                    >
+                        <img
+                            src="/logo.webp"
+                            alt={d.authorName}
+                            class="w-8 h-8 object-contain"
+                        />
+                    </div>
+                    <div>
+                        <p
+                            class="text-xs font-bold uppercase tracking-widest text-gray-900"
+                        >
+                            {d.authorName}
+                        </p>
+                        <p
+                            class="text-[10px] text-gray-400 uppercase tracking-widest mt-1"
+                        >
+                            {d.authorRole}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs font-bold text-gray-900">
+                        {d.date}
+                    </p>
+                    <p
+                        class="text-[10px] text-brand uppercase tracking-widest mt-1"
+                    >
+                        {d.readTime}
+                    </p>
+                </div>
+            </div>
+
+            {/* Content */}
+            <div
+                class="prose prose-lg prose-headings:font-serif prose-headings:font-bold prose-headings:text-gray-900 prose-p:text-gray-800 prose-blockquote:font-serif prose-blockquote:text-brand-dark prose-blockquote:not-italic prose-blockquote:border-brand max-w-none leading-loose"
+            >
+                <p
+                    class="text-xl md:text-2xl text-gray-900 font-serif italic mb-10 leading-relaxed border-l-4 border-brand pl-8 py-2"
+                >
+                    "{d.quote}"
+                </p>
+
+                <p class="mb-6">{d.p1}</p>
+
+                {/* 0.Image: Collage */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img0.src}
+                        alt={d.caption0}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption0}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p2}</p>
+                <p class="mb-6">{d.p3}</p>
+                <p class="mb-6">{d.p4}</p>
+                <p class="mb-6">{d.p5}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h1}
+                </h2>
+                <p class="mb-6">{d.p6}</p>
+
+                {/* 1.Image: Scenic highway leaving Kathmandu */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img1.src}
+                        alt={d.caption1}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption1}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p7}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h2}
+                </h2>
+                <p class="mb-6">{d.p8}</p>
+                <p class="mb-6">{d.p9}</p>
+
+                {/* 2.Image: Fog-covered mountain road */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img2.src}
+                        alt={d.caption2}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption2}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p10}</p>
+                <p class="mb-6">{d.p11}</p>
+
+                {/* 3.Image: Traditional slate-roofed stone houses */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img3.src}
+                        alt={d.caption3}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption3}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p12}</p>
+                <p class="mb-6">{d.p13}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h3}
+                </h2>
+                <p class="mb-6">{d.p14}</p>
+                <p class="mb-6">{d.p15}</p>
+
+                {/* 4.Image: Villagers gathering before sunrise */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img4.src}
+                        alt={d.caption4}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption4}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p16}</p>
+                <p class="mb-6">{d.p17}</p>
+                <p class="mb-6">{d.p18}</p>
+
+                <h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-10 mb-4">
+                    {d.subH1}
+                </h3>
+                <p class="mb-6">{d.p19}</p>
+                <p class="mb-6">{d.p20}</p>
+                <p class="mb-6">{d.p21}</p>
+                <p class="mb-6">{d.p22}</p>
+
+                <h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-10 mb-4">
+                    {d.subH2}
+                </h3>
+                <p class="mb-6">{d.p23}</p>
+                <p class="mb-6">{d.p24}</p>
+
+                {/* 5.Image: Shamans performing */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img5.src}
+                        alt={d.caption5}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption5}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p25}</p>
+                <p class="mb-6">{d.p26}</p>
+
+                <h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-10 mb-4">
+                    {d.subH3}
+                </h3>
+                <p class="mb-6">{d.p31}</p>
+                <p class="mb-6">{d.p32}</p>
+
+                {/* 7.Image: Sisno ritual */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img7.src}
+                        alt={d.caption7}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption7}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p27}</p>
+
+                <h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-10 mb-4">
+                    {d.subH5}
+                </h3>
+                <p class="mb-6">{d.p37}</p>
+
+                {/* 9.Image: House blessing ritual */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img9.src}
+                        alt={d.caption9}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption9}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p38}</p>
+                <p class="mb-6">{d.p39}</p>
+                <p class="mb-6">{d.p40}</p>
+                <p class="mb-6">{d.p41}</p>
+                <p class="mb-6">{d.p42}</p>
+                <p class="mb-6">{d.p43}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h4}
+                </h2>
+                <p class="mb-6">{d.p28}</p>
+                <p class="mb-6">{d.p29}</p>
+
+                {/* 6.Image: Shaman assistants */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img6.src}
+                        alt={d.caption6}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption6}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p30}</p>
+
+                <h3 class="text-xl md:text-2xl font-bold text-gray-900 mt-10 mb-4">
+                    {d.subH4}
+                </h3>
+                <p class="mb-6">{d.p33}</p>
+
+                {/* 8.Image: Mud celebration */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img8.src}
+                        alt={d.caption8}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption8}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p34}</p>
+                <p class="mb-6">{d.p35}</p>
+                <p class="mb-6">{d.p36}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h5}
+                </h2>
+                <p class="mb-6">{d.p44}</p>
+                <p class="mb-6">{d.p45}</p>
+                <p class="mb-6">{d.p46}</p>
+
+                {/* 10.Image: Road to Burtibang */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img10.src}
+                        alt={d.caption10}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption10}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p47}</p>
+                <p class="mb-6">{d.p48}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h6}
+                </h2>
+                <p class="mb-6">{d.p49}</p>
+
+                {/* 11.Image: Dhorpatan valley */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img11.src}
+                        alt={d.caption11}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption11}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p50}</p>
+                <p class="mb-6">{d.p51}</p>
+                <p class="mb-6">{d.p52}</p>
+
+                {/* 12.Image: Horse grazing */}
+                <div class="my-12 relative rounded-3xl overflow-hidden shadow-xl max-w-2xl mx-auto">
+                    <img
+                        src={img12.src}
+                        alt={d.caption12}
+                        class="w-full h-auto object-cover"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <div class="bg-gray-50 px-6 py-3 border-t border-gray-100 text-xs md:text-sm text-gray-500 font-serif italic text-center">
+                        {d.caption12}
+                    </div>
+                </div>
+
+                <p class="mb-6">{d.p53}</p>
+                <p class="mb-6">{d.p54}</p>
+                <p class="mb-6">{d.p55}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h7}
+                </h2>
+                <p class="mb-6">{d.p56}</p>
+                <p class="mb-6">{d.p57}</p>
+                <p class="mb-6">{d.p58}</p>
+                <p class="mb-6">{d.p59}</p>
+
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12 mb-6">
+                    {d.h8}
+                </h2>
+                <p class="mb-6">{d.p60}</p>
+                <p class="mb-6">{d.p61}</p>
+                <p class="mb-6">{d.p62}</p>
+                <p class="mb-6">{d.p63}</p>
+
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <p class="font-bold text-gray-900 mb-1">{d.authorName}</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-widest">
+                        Marga Adventure
+                    </p>
+                </div>
+            </div>
+
+            {/* Footer Nav */}
+            <div
+                class="mt-24 pt-12 border-t border-gray-100 flex justify-between items-center"
+            >
+                <a
+                    href={`${baseUrl}/blog/the-delay-was-better`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >← {d.prev}</a
+                >
+                <a
+                    href={`${baseUrl}/blog`}
+                    class="text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-brand transition-colors"
+                    >{d.back}</a
+                >
+            </div>
+        </div>
+    </article>
+</Layout>
