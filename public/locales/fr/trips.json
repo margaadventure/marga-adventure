@@ -1,291 +1,407 @@
 {
   "photography": {
     "tshechu": {
-      "title": "Festival Tshechu & Bisket Jatra",
-      "subtitle": "Un pèlerinage visuel",
-      "overview": "Ce voyage photographique offre un périple visuel complet à travers les paysages diversifiés et les traditions vibrantes du Népal. Vous documenterez l'intensité spirituelle du festival Tsechu au monastère de Shechen et l'énergie chaotique du festival Bisket Jatra à Bhaktapur. Le voyage se poursuit vers les jungles brumeuses de Chitwan pour des clichés animaliers, l'architecture préservée de Bandipur et les vues majestueuses de l'Annapurna depuis Ghandruk. C'est un mélange parfait de portrait, d'action, de faune et de paysage, conçu pour les conteurs visuels.",
+      "title": "Festival Tshechu & Danses Sacrées Cham",
+      "subtitle": "Rituels Monastiques, Danses Masquées Cham & Culture Himalayenne",
+      "overview": "Ce voyage photographique de 14 jours est dédié à la documentation du festival sacré de Tshechu au monastère de Shechen et dans les grands sanctuaires bouddhistes tibétains de la vallée de Katmandou et du contrefort himalayen. Le Tshechu est une célébration de transformation spirituelle en l'honneur de Guru Rinpoche (Padmasambhava). Pendant 2 jours intensifs au monastère, photographiez les moines bouddhistes exécutant d'anciennes danses Cham en habits de brocart et masques sculptés au son résonnant des trompes dungchen, cymbales et tambours. Au-delà des cours monastiques, capturez la dévotion intemporelle aux stupas de Boudhanath et Swayambhunath, l'architecture newar traditionnelle de Bandipur et les levers de soleil spectaculaires sur l'Annapurna.",
+      "duration": "12 Jours",
+      "maxAltitudeLabel": "Type de Voyage",
+      "maxAltitude": "Monastique & Photo",
+      "difficulty": "Facile",
+      "groupSize": "2 à 10",
       "highlights": [
         {
-          "title": "Tsechu du monastère de Shechen",
-          "description": "Capturez les danses Cham (masquées) vibrantes et les costumes de brocart complexes dans un cadre spirituel."
+          "title": "Danses Cham du Monastère de Shechen",
+          "description": "Photographiez 3 jours de danses masquées sacrées Cham exécutées par les moines en costumes de brocart."
         },
         {
-          "title": "Festival Bisket Jatra",
-          "description": "Figez l'action brute et l'émotion du gigantesque tir à la corde du char à Bhaktapur."
+          "title": "Déploiement du Thangka Sacré en Soie",
+          "description": "Documentez le dévoilement matinal spectaculaire d'un thangka géant en soie brodée dans la cour du monastère."
         },
         {
-          "title": "Katmandou Spirituel",
-          "description": "Photographiez des silhouettes atmosphériques à Swayambhunath et l'éclairage dramatique du feu de l'Aarti."
+          "title": "Musique Rituelle & Prières Monastiques",
+          "description": "Capturez des portraits en basse lumière de lamas et de jeunes novices sonnant les trompes dungchen et tambours."
         },
         {
-          "title": "Faune de Chitwan",
-          "description": "Photographiez les rhinocéros et les oiseaux à travers la brume matinale mystique de la rivière Rapti."
+          "title": "Stupas de Boudhanath & Swayambhunath",
+          "description": "Documentez les pèlerins tournant les moulins à prières et effectuant la kora matinale autour des stupas."
         },
         {
-          "title": "Scènes de rue de Bandipur",
-          "description": "Cadrez l'architecture Newari intemporelle et les rues sans voitures sur fond de décor himalayen."
+          "title": "Architecture Newar de Bandipur",
+          "description": "Photographiez les balcons en bois newars du XVIIIe siècle et les rues pavées paisibles."
         },
         {
-          "title": "Reflets de Pokhara",
-          "description": "Capturez la perfection des reflets du mont Machhapuchhre sur le lac Phewa à l'aube."
+          "title": "Lever de Soleil Himalayen à Ghandruk",
+          "description": "Capturez la lumière dorée sur le Machhapuchhre (Fishtail) et l'Annapurna Sud depuis le village traditionnel Gurung."
         }
       ],
       "itinerary": [
         {
           "day": "Jour 1",
-          "title": "Arrivée et transfert à l'hôtel",
-          "description": "Arrivez à Katmandou et transfert à votre hôtel. Utilisez cette journée pour vous acclimater."
+          "title": "Arrivée à Katmandou, Installation à l'Hôtel & Briefing de l'Expédition",
+          "description": "Dès votre arrivée à l'aéroport international Tribhuvan de Katmandou, notre représentant vous accueille chaleureusement et assure votre transfert privé vers votre hôtel boutique. Profitez de la matinée pour vous reposer, déballer votre matériel photo et vous acclimater au rythme local. En fin d'après-midi, promenade photographique dans les ruelles animées de Thamel, en vous concentrant sur la lumière ambiante, les textures du marché et les portraits de rue. Le soir, dîner de bienvenue et briefing détaillé exposant le protocole monastique, les conditions de lumière et le matériel recommandé pour le festival Tshechu."
         },
         {
           "day": "Jour 2",
-          "title": "Visite de Patan, Swayambhunath et temple de Pashupatinath",
-          "description": "Commencez par les détails dorés complexes et l'architecture Newari de la place Durbar de Patan."
+          "title": "Swayambhunath et Place Durbar de Patan",
+          "description": "Commencez votre journée au stupa de Swayambhunath perché sur la colline, en admirant le stupa ancien, les drapeaux de prière et les vues panoramiques sur la vallée de Katmandou. Ensuite, rendez-vous sur la place Durbar de Patan à Lalitpur. Admirez l'artisanat newar raffiné, les sculptures sur bois et les temples en pierre iconiques comme Krishna Mandir. Promenez-vous dans les galeries d'art des cours et les marchés locaux animés avant de retourner à votre hôtel."
         },
         {
           "day": "Jour 3",
-          "title": "Boudhanath et festival Tsechu du monastère de Shechen",
-          "description": "Commencez par la symétrie du colossal stupa de Boudhanath. Déplacez-vous au monastère de Shechen pour le festival de Tsechu."
+          "title": "Préparatifs du Tsechu au Monastère de Shechen",
+          "description": "Passez la journée au monastère de Shechen près de Boudhanath, en observant l'attente et l'énergie spirituelle précédant le Tsechu. Regardez les moines bouddhistes effectuer les prières préliminaires, affiner les pas rituels et apporter la touche finale aux masques colorés et costumes sacrés. Engagez-vous dans une réflexion paisible dans la cour tranquille alors que les dévots locaux se rassemblent, créant une atmosphère sereine et recueillie."
         },
         {
           "day": "Jour 4",
-          "title": "Voyage à Bhaktapur, Bisket Jatra",
-          "description": "Alors que le Bisket Jatra commence, documentez l'assemblage de l'énorme char en bois."
+          "title": "Le Grand Jour du Festival Tsechu",
+          "description": "Vivez la journée complète de célébration du Tsechu dans la cour du monastère de Shechen. Assistez aux danses sacrées masquées cham exécutées par les moines, honorant Guru Rinpoche à travers une chorégraphie complexe, une musique symbolique et des récits spirituels. Rejoint par de hauts lamas, des dignitaires et des foules de dévots, immergez-vous dans ce rituel bouddhiste himalayen profondément émouvant."
         },
         {
           "day": "Jour 5",
-          "title": "Bhaktapur Bisket Jatra",
-          "description": "Plongez dans la grande énergie du festival. Aujourd'hui est consacré à la photographie d'action."
+          "title": "Route vers Chitwan",
+          "description": "Quittez Katmandou pour un voyage pittoresque le long de vallées fluviales sinueuses vers le parc national de Chitwan. Alors que vous descendez vers les plaines subtropicales du Téraï, observez le paysage montagneux céder la place à des forêts verdoyantes et des villages Tharu. Arrivez à votre lodge de jungle, installez-vous et profitez d'une promenade paisible en soirée le long de la rivière Rapti pour admirer le coucher du soleil."
         },
         {
           "day": "Jour 6",
-          "title": "Bhaktapur Bisket Jatra - L'apogée",
-          "description": "Concentrez-vous sur l'apogée du festival, impliquant souvent le levage du Yashin."
+          "title": "Safari Jungle d'une Journée Entière",
+          "description": "Passez la journée à explorer le parc national de Chitwan. Embarquez pour un safari en jeep ou une pirogue le long de la rivière Rapti pour repérer la faune rare, notamment les rhinocéros unicornes, les crocodiles gavials, les éléphants sauvages et diverses espèces d'oiseaux. Accompagné de guides naturalistes expérimentés, découvrez les efforts de conservation de la jungle et concluez la soirée par un spectacle traditionnel de danse culturelle Tharu."
         },
         {
           "day": "Jour 7",
-          "title": "Route pour Chitwan",
-          "description": "La route vers les basses terres offre un changement dans la photographie de paysage."
+          "title": "Route vers Pokhara",
+          "description": "Laissez Chitwan derrière vous et prenez la route vers l'ouest le long de voies panoramiques en direction de Pokhara. Arrivez dans la ville au bord du lac, située au pied du majestueux massif des Annapurnas. Installez-vous à l'hôtel et passez l'après-midi à vous détendre au bord du lac Phewa, en profitant de la brise de montagne, des cafés chaleureux et des vues pittoresques sur le pic Machhapuchhre."
         },
         {
           "day": "Jour 8",
-          "title": "Chitwan, Safari dans la jungle",
-          "description": "Passez à votre téléobjectif le plus long pour la faune."
+          "title": "Route vers le Village de Ghandruk",
+          "description": "Prenez une route pittoresque depuis Pokhara dans les contreforts de l'Annapurna pour rejoindre Ghandruk, un village traditionnel de montagne Gurung. Marchez le long des ruelles pavées d'ardoise devant des maisons en pierre et des champs en terrasses. Immergez-vous dans la culture locale, visitez le musée du patrimoine et profitez de vues panoramiques rapprochées sur l'Annapurna Sud, Hiunchuli et le Fishtail."
         },
         {
           "day": "Jour 9",
-          "title": "Route pour Bandipur",
-          "description": "Bandipur est un joyau pour la photographie de rue sans le chaos."
+          "title": "Route de Retour vers Pokhara et Temps Libre",
+          "description": "Profitez d'une matinée paisible à Ghandruk en respirant l'air pur avant de redescendre vers Pokhara. Passez l'après-midi à profiter d'activités de loisirs autour de Lakeside. Vous pouvez louer une barque en bois sur le lac Phewa, visiter les boutiques d'artisans locaux ou simplement vous détendre dans un café."
         },
         {
           "day": "Jour 10",
-          "title": "Route pour Pokhara",
-          "description": "La route offre des vues panoramiques sur la vallée, mais le point culminant vous attend à Pokhara."
+          "title": "Lever de Soleil à Sarangkot et Vol Retour vers Katmandou",
+          "description": "Réveillez-vous tôt pour rejoindre le point de vue de Sarangkot et admirer un lever de soleil à couper le souffle sur les chaînes de l'Annapurna et du Dhaulagiri. Regardez les sommets enneigés se teinter d'or avant de vous rendre à l'aéroport pour votre court vol domestique vers Katmandou. Transfert à votre hôtel pour vous reposer."
         },
         {
           "day": "Jour 11",
-          "title": "Route pour Ghandruk",
-          "description": "Ce voyage vous emmène au plus près des sommets."
+          "title": "Visite de Bhaktapur et du Temple de Pashupatinath",
+          "description": "Explorez la place Durbar de Bhaktapur le matin, en admirant le Palais aux 55 fenêtres et le temple Nyatapola tout en observant la fabrication traditionnelle de poteries. Plus tard, visitez le complexe sacré du temple de Pashupatinath sur les berges de la rivière Bagmati pour observer les traditions hindoues et les rituels aarti du soir."
         },
         {
           "day": "Jour 12",
-          "title": "Route de retour à Pokhara",
-          "description": "Réveillez-vous avant l'aube pour le lever du soleil sur les montagnes."
-        },
-        {
-          "day": "Jour 13",
-          "title": "Vol de retour à Katmandou",
-          "description": "Vous aurez l'occasion de prendre des photos aériennes de l'Himalaya."
-        },
-        {
-          "day": "Jour 14",
-          "title": "Départ",
-          "description": "Utilisez ces dernières heures pour des photos détaillées."
+          "title": "Départ Final",
+          "description": "Profitez de votre dernière matinée à Katmandou avec un petit-déjeuner détendu et quelques achats de souvenirs de dernière minute. Selon l'horaire de votre vol, transfert vers l'aéroport international Tribhuvan pour votre vol de départ, emportant des souvenirs inoubliables du patrimoine culturel et des paysages du Népal."
         }
       ]
     },
     "mustang": {
-      "title": "Expédition Photographique au Mustang et à Chitwan",
-      "overview": "Cette expédition photographique de 14 jours vous emmène des jungles de Chitwan au royaume interdit du Haut Mustang. L'itinéraire est ancré par le vibrant festival de Tiji à Lo Manthang, offrant une occasion rare de documenter d'anciens rituels tibétains. Vous capturerez la diversité architecturale de Katmandou, la faune du Téraï et les paysages désertiques austères de haute altitude du Trans-Himalaya.",
+      "title": "Expédition Photographique du Festival Tiji au Mustang",
+      "subtitle": "Rituels Tibétains Ancestraux & Déserts Trans-Himalayens",
+      "overview": "Cette expédition photographique de 15 jours offre un voyage extraordinaire à travers les paysages les plus spectaculaires et les fêtes sacrées du Népal. Ancrée par le célèbre festival Tiji à Lo Manthang, la capitale médiévale fortifiée du Haut Mustang, vous photographierez des danses masquées sacrées (Chham) exécutées par des moines bouddhistes en vêtements de brocart pour chasser les mauvais esprits. Traversez des canyons arides du désert trans-himalayen, des falaises de grès rouge et des grottes célestes millénaires.",
+      "duration": "14 Jours",
+      "maxAltitudeLabel": "Altitude Max",
+      "maxAltitude": "3 840 m",
+      "difficulty": "Modéré",
+      "groupSize": "2-10",
       "highlights": [
         {
-          "title": "Masques du Festival Tiji",
-          "description": "Figez le mouvement dramatique des moines en costumes de brocart exécutant les danses de « Chasse aux démons » à Lo Manthang."
+          "title": "Danses Masquées du Festival Tiji",
+          "description": "Photographiez les 3 jours du festival sacré de Tiji à Lo Manthang, capturant les moines en costumes de brocart et masques de divinités."
         },
         {
-          "title": "Paysages du Haut Mustang",
-          "description": "Capturez les falaises rouges surréalistes de Ghami et le terrain lunaire du plateau tibétain."
+          "title": "Cité Fortifiée de Lo Manthang",
+          "description": "Explorez le royaume fortifié du XVe siècle de Lo Manthang, ses monastères anciens, ses ruelles pavées et la culture traditionnelle Lopa."
         },
         {
-          "title": "Ville fortifiée de Lo Manthang",
-          "description": "Photographiez la capitale médiévale fortifiée, ses ruelles étroites et la vie quotidienne du peuple Lopa."
+          "title": "Canyons Rouges & Grottes Célestes",
+          "description": "Capturez les falaises de grès rouge à Ghami et Drakmar, et explorez les grottes célestes mystérieuses de Jhong à Chhoser."
         },
         {
-          "title": "Faune de Chitwan",
-          "description": "Photographiez des rhinocéros unicornes et des cerfs tachetés dans la douce lumière matinale et brumeuse de la jungle."
+          "title": "Traque du Tigre du Bengale à Bardiya",
+          "description": "Participez à des safaris à pied et en 4x4 guidés dans le parc national de Bardiya — le meilleur habitat sauvage pour observer le tigre du Bengale."
         },
         {
-          "title": "Vues Aériennes des Montagnes",
-          "description": "Capturez les chaînes du Dhaulagiri et de l'Annapurna d'en haut lors du vol dramatique Jomsom-Pokhara."
+          "title": "Safari Fluvial sur la Rivière Karnali",
+          "description": "Descendez les rivières préservées Karnali et Babai pour photographier les dauphins d'eau douce du Gange, les crocodiles et les oiseaux rares."
         },
         {
-          "title": "Kora de Boudhanath",
-          "description": "Documentez la dévotion des pèlerins qui tournent autour du dôme blanc massif du stupa."
-        },
-        {
-          "title": "Couleurs du Marché",
-          "description": "Des gros plans macro de produits vibrants et l'énergie chaotique du commerce sur les marchés de légumes de Katmandou."
+          "title": "Vols Panoramiques & Cols Himalayens",
+          "description": "Profitez de vols de montagne spectaculaires au-dessus des gorges de la Kali Gandaki entre les massifs du Dhaulagiri et des Annapurnas."
         }
       ],
       "itinerary": [
         {
           "day": "Jour 1",
-          "title": "Arrivée et transfert à l'hôtel",
-          "description": "Dès votre arrivée, transfert à votre hôtel et préparation de votre équipement."
+          "title": "Arrivée à Katmandou et transfert à l'hôtel",
+          "description": "À votre arrivée à l'aéroport international Tribhuvan de Katmandou, notre représentant vous accueillera chaleureusement et vous transférera à votre hôtel. Reposez-vous après votre long vol. En fin d'après-midi, promenade dans les rues animées avant le briefing de l'expédition photo et le dîner de bienvenue."
         },
         {
           "day": "Jour 2",
-          "title": "Visite de Patan, du stupa de Swayambhunath et du temple de Pashupatinath",
-          "description": "Commencez par la place Durbar de Patan pour photographier les sculptures en pierre complexes."
+          "title": "Sites du Patrimoine UNESCO: Swayambhunath et Stupa de Boudhanath",
+          "description": "Commencez tôt au stupa de Swayambhunath en capturant la lumière matinale sur les stupas anciens et les vues panoramiques, puis visitez Pashupatinath, temple dédié à Shiva. L'après-midi, visitez Boudhanath, le cœur du bouddhisme tibétain à Katmandou, pour photographier les moines et pèlerins effectuant la kora."
         },
         {
           "day": "Jour 3",
-          "title": "Stupa de Boudhanath et place Durbar de Bhaktapur",
-          "description": "Commencez par le stupa de Boudhanath, en vous concentrant sur la symétrie des yeux."
+          "title": "Vol pour Pokhara et Route vers Lete",
+          "description": "Prenez un vol panoramique de 25 minutes de Katmandou à Pokhara offrant des vues imprenables sur le Langtang, le Manaslu et l'Annapurna. À l'arrivée, embarquez en véhicule tout-terrain pour remonter la vallée de la Kali Gandaki vers Lete."
         },
         {
           "day": "Jour 4",
-          "title": "Route pour Chitwan",
-          "description": "Le trajet vous emmène des collines aux plaines plates du Téraï."
+          "title": "Route Lete vers Kagbeni via le Village de Lupra",
+          "description": "Franchissez le poste de contrôle vers le Haut Mustang à Kagbeni, village fortifié médiéval. Traversez des paysages désertiques trans-himalayens en passant par des chortens colorés, des champs d'orge et des falaises de grès rouge avant d'arriver au village de Ghami."
         },
         {
           "day": "Jour 5",
-          "title": "Chitwan, Safari dans la jungle",
-          "description": "Utilisez votre plus long objectif pour le safari dans la jungle."
+          "title": "Route Kagbeni vers Ghami via le village de Tangge",
+          "description": "Départ de Kagbeni pour une route tout-terrain dans le terrain de haut désert du Mustang. Traversez des cols et canyons arides avant un détour par Tangge, village célèbre pour ses rangées de chortens et son architecture en briques de boue. Poursuivez jusqu'à Ghami, accueillis par le plus long mur mani du Mustang."
         },
         {
           "day": "Jour 6",
-          "title": "Route pour Pokhara",
-          "description": "Ce trajet offre des transitions panoramiques. Arrêtez-vous à des points de vue pour photographier les champs en terrasses."
+          "title": "Route Ghami vers la Cité Fortifiée de Lo Manthang",
+          "description": "Passez le col de Tsarang (3870 m) et les impressionnantes falaises rouges de Drakmar. Continuez vers la capitale historique fortifiée de Lo Manthang. Installez-vous à votre gîte et photographiez les remparts du XVe siècle et le palais royal."
         },
         {
           "day": "Jour 7",
-          "title": "Route pour Jomsom",
-          "description": "C'est un long voyage accidenté offrant des paysages d'aventure bruts."
+          "title": "Festival Tiji Jour 1: Danses d'Exorcisme (Tsa Chham)",
+          "description": "Premier jour du festival sacré de Tiji ! Installez-vous autour de la place du palais pour photographier l'arrivée cérémonielle du roi du Mustang et des lamas. Assistez aux danses masquées 'Tsa Chham' représentant la victoire de Dorje Jono sur les démons."
         },
         {
           "day": "Jour 8",
-          "title": "Route de Jomsom à Ghami",
-          "description": "Entrez dans le désert austère de haute altitude du Haut Mustang."
+          "title": "Festival Tiji Jour 2: Dispersion des Esprits Maléfiques (Nga Chham)",
+          "description": "Le deuxième jour de Tiji met l'accent sur les armes célestes et la transformation spirituelle. Les moines exécutent la danse 'Nga Chham' avec des masques d'animaux et de divinités. Capturez le mouvement dramatique et les costumes de soie."
         },
         {
           "day": "Jour 9",
-          "title": "Route de Ghami à Lo Manthang",
-          "description": "La route vers la capitale fortifiée de Lo Manthang est visuellement spectaculaire."
+          "title": "Festival Tiji Jour 3: Destruction du Mal & Procession Triomphale",
+          "description": "Le grand final du festival Tiji ! Moines et habitants rejoignent une procession hors des remparts. Le haut moine tire une flèche sacrée sur une effigie symbolisant les esprits maléfiques, apportant paix et renouveau au Mustang."
         },
         {
           "day": "Jour 10",
-          "title": "Festival Tiji",
-          "description": "C'est l'apogée visuel du voyage sur la place principale de Lo Manthang."
+          "title": "Exploration des Grottes Célestes de Chhoser & Monastère de Garphu",
+          "description": "Court trajet vers la vallée de Chhoser près de la frontière tibétaine. Explorez et photographiez la grotte céleste de Jhong creusée à même la falaise. Visitez les monastères de Garphu et Nyphu intégrés aux rochers."
         },
         {
           "day": "Jour 11",
-          "title": "Visite de Lo Manthang et Koncholing",
-          "description": "Explorez les mystères des grottes célestes à Koncholing."
+          "title": "Route Lo Manthang Retour vers Jomsom",
+          "description": "Dites adieu à Lo Manthang et entamez votre retour vers le sud à travers le Haut Mustang. Photographiez le mur Mani de Ghami et les ombres du soir sur le désert avant d'atteindre Jomsom."
         },
         {
           "day": "Jour 12",
-          "title": "Route de retour à Jomsom",
-          "description": "Retracez votre chemin à travers le désert, avec une perspective d'éclairage différente."
+          "title": "Vol Jomsom vers Pokhara et Exploration de Pokhara",
+          "description": "Vol matinal de 20 minutes de Jomsom à Pokhara en survolant les gorges de la Kali Gandaki. Vues spectaculaires sur l'Annapurna et le Dhaulagiri. Profitez de l'après-midi pour explorer la ville, faire une balade en bateau sur le lac Phewa et visiter le temple Tal Barahi."
         },
         {
           "day": "Jour 13",
-          "title": "Vol Jomsom vers Pokhara et Pokhara vers Katmandou",
-          "description": "Le vol tôt le matin offre l'une des meilleures opportunités de photographie aérienne."
+          "title": "Vol vers Katmandou et Palais Anciens",
+          "description": "Vol de retour vers Katmandou pour vous immerger dans le riche patrimoine des anciennes cités royales de la vallée. Explorez la place Durbar de Patan, célèbre pour son artisanat newar, puis la place Durbar de Bhaktapur avec le Palais aux 55 fenêtres et le temple Nyatapola."
         },
         {
           "day": "Jour 14",
-          "title": "Visite du marché aux fruits et légumes et après-midi libre",
-          "description": "Visitez le marché de gros de Kalimati ou d'Ason tôt le matin."
+          "title": "Départ Final de Katmandou",
+          "description": "Profitez d'un dernier petit-déjeuner paisible à l'hôtel. Transfert privé vers l'aéroport international Tribhuvan environ trois heures avant votre vol de départ, clôturant cette expédition photographique d'exception."
         }
       ]
     },
     "holi": {
-      "title": "Voyage Photographique du Festival Holi",
-      "overview": "Un voyage photographique pour le festival Holi au Népal est une explosion sensorielle, offrant une place de premier rang à la célébration du printemps la plus cinématographique au monde. Dans les places historiques de Katmandou, Patan et Bhaktapur, les photographes capturent l'énergie brute de la « Fagu Purnima » alors que les anciens temples de briques deviennent les toiles de fond de nuages vibrants de vermillon et de turquoise. Ce qui distingue le Népal, c'est le cadrage architectural — la juxtaposition du chaos coloré avec les sculptures médiévales Newari. Des traditions uniques comme l'érection du Chir (mât cérémoniel) et la célébration spécifique sur deux jours (Hills vs Terai) offrent des opportunités de narration diverses et à fort contraste que l'on ne trouve nulle part ailleurs.",
+      "title": "Expédition Photographique du Festival Holi",
+      "subtitle": "Couleurs Vibrantes, Places Durbar Historiques & Traditions Newar Ancestrales",
+      "overview": "Un voyage photographique pour le festival Holi au Népal est une explosion sensorielle, offrant une place de premier rang à la célébration du printemps la plus cinématographique au monde. Sur les places historiques classées à l'UNESCO de Katmandou et Patan, les photographes capturent l'énergie brute de la Fagu Purnima alors que les anciens temples de briques deviennent la toile de fond de nuages vibrants de vermillon, d'indigo et de jaune.",
+      "duration": "11 Jours",
+      "maxAltitudeLabel": "Altitude Max",
+      "maxAltitude": "1 400 m",
+      "difficulty": "Facile",
+      "groupSize": "2-10",
       "highlights": [
         {
-          "title": "Printemps Cinématographique",
-          "description": "Vivez une explosion sensorielle et une place de premier rang pour la célébration du printemps la plus cinématographique au monde."
+          "title": "Printemps Cinématographique à Katmandou",
+          "description": "Vivez une explosion sensorielle aux premières loges de la célébration du printemps la plus cinématographique au monde sur les places du Durbar."
         },
         {
-          "title": "Décors Historiques",
-          "description": "Capturez l'énergie brute de la Fagu Purnima sur les places historiques de Katmandou, Patan et Bhaktapur."
+          "title": "Décors Historiques des Places Durbar",
+          "description": "Capturez l'énergie brute de la Fagu Purnima à Katmandou, Patan et Bhaktapur alors que les temples anciens encadrent des nuages de poudres multicolores."
         },
         {
-          "title": "Couleurs de la Foi",
-          "description": "Observez les anciens temples de briques devenir des toiles de fond vibrantes pour des nuages de poudre vermillon et turquoise."
+          "title": "La Cérémonie Sacrée du Chir",
+          "description": "Assistez et photographiez l'érection cérémonielle du Chir, un grand mât en bois décoré d'étoffes colorées marquant le début officiel de Holi."
         },
         {
-          "title": "Célébration sur Deux Jours",
-          "description": "Documentez la célébration unique répartie entre les régions montagneuses et les plaines du Terai, offrant des opportunités de photos variées."
+          "title": "Patrimoine de Bhaktapur & Culture Newar",
+          "description": "Explorez les ruelles médiévales, la place des potiers et les processions musicales Newar traditionnelles de Bhaktapur pendant les jours de fête."
         },
         {
-          "title": "Culture Newari",
-          "description": "Photographiez la juxtaposition du chaos joyeux du festival avec la sérénité intemporelle des sculptures sur bois médiévales Newari."
+          "title": "Festivités au Bord du Lac de Pokhara",
+          "description": "Photographiez les célébrations détendues au bord du lac Phewa avec les sommets enneigés des Annapurnas se reflétant sur les eaux paisibles."
         },
         {
-          "title": "Le Chir",
-          "description": "Témoignez de l'érection cérémonielle du Chir, une tradition unique marquant le début des festivités de Holi."
+          "title": "Portraits Culturels & Lumière Dorée",
+          "description": "Immortalisez des portraits de rue authentiques de sadhous, d'artisans et de villageois souriants recouverts de pigments de joie."
         }
       ],
-      "features": [
+      "itinerary": [
         {
-          "title": "Narration Visuelle",
-          "description": "Ce qui distingue le Népal, c'est le cadrage architectural — la juxtaposition du chaos coloré avec les sculptures médiévales Newari. Des traditions uniques comme l'érection du Chir et la célébration spécifique sur deux jours (Hills vs Terai) offrent des opportunités de narration diverses et à fort contraste que l'on ne trouve nulle part ailleurs."
+          "day": "Jour 1",
+          "title": "Arrivée à Katmandou & Coucher de Soleil à Swayambhunath",
+          "description": "À votre arrivée à l'aéroport international Tribhuvan de Katmandou, notre représentant vous accueillera et assurera votre transfert à l'hôtel. En fin d'après-midi, séance photo au stupa de Swayambhunath. Capturez la lumière dorée éclairant les yeux du Bouddha et les vues panoramiques. Dîner de bienvenue en soirée."
+        },
+        {
+          "day": "Jour 2",
+          "title": "Érection du Chir & Promenade Photo au Bazar d'Asan",
+          "description": "Promenade photographique matinale dans les ruelles animées d'Asan et d'Indra Chowk. Rejoignez ensuite la place Durbar de Katmandou pour photographier l'érection du Chir — un mât en bois décoré de tissus colorés marquant le début officiel de Holi."
+        },
+        {
+          "day": "Jour 3",
+          "title": "Sanctuaires Sacrés & Sadhous: Pashupatinath & Boudhanath",
+          "description": "Matinée au temple de Pashupatinath au bord de la rivière Bagmati pour photographier les sadhous. L'après-midi, visitez Boudhanath pour photographier moines tibétains et pèlerins effectuant la kora."
+        },
+        {
+          "day": "Jour 4",
+          "title": "Fagu Purnima (Jour Principal de Holi - Katmandou & Patan)",
+          "description": "Jour d'apogée de Holi ! Plongez sur la place Durbar de Katmandou et la place Durbar de Patan. Imprégnez-vous du chaos joyeux alors que des nuages de poudres multicolores emplissent l'air face aux temples anciens."
+        },
+        {
+          "day": "Jour 5",
+          "title": "Vol vers Janakpur pour la Célébration de Holi dans le Téraï",
+          "description": "Vol court vers Janakpur, cœur culturel du Téraï. Plongez dans l'énergie vibrante de Holi dans le Téraï avec musiques traditionnelles, danses folkloriques et processions colorées. Visitez le magnifique temple Ram Janaki illuminé en soirée."
+        },
+        {
+          "day": "Jour 6",
+          "title": "Route vers le Parc National de Chitwan",
+          "description": "Après le petit-déjeuner, route panoramique vers Chitwan. Arrivée au lodge, installation et promenade en fin d'après-midi au bord de la rivière Rapti au coucher du soleil, suivie d'une danse culturelle Tharu."
+        },
+        {
+          "day": "Jour 7",
+          "title": "Safari Jungle dans le Parc National",
+          "description": "Safari en jeep ou marche dans la jungle pour observer le rhinocéros unicorne, les cervidés et le tigre du Bengale. Balade en pirogue sur la rivière Rapti pour observer crocodiles et oiseaux."
+        },
+        {
+          "day": "Jour 8",
+          "title": "Route vers Pokhara et Visite de la Pagode de la Paix et de la Statue de Shiva",
+          "description": "Route vers Pokhara au pied des Annapurnas. Montez à la Pagode de la Paix pour une vue panoramique sur les montagnes et la ville, puis visitez la statue géante de Shiva à Pumdikot avant de vous promener au bord du lac."
+        },
+        {
+          "day": "Jour 9",
+          "title": "Lever de Soleil à Sarangkot & Vol vers Katmandou",
+          "description": "Réveil matinal pour le lever du soleil à Sarangkot sur l'Annapurna et le Machhapuchhare. Promenade en bateau sur le lac Phewa jusqu'au temple Tal Barahi, puis vol de retour vers Katmandou et dîner de clôture."
+        },
+        {
+          "day": "Jour 10",
+          "title": "Visite de Bhaktapur Durbar et Changunarayan",
+          "description": "Explorez deux sites de l'UNESCO. Admirez l'architecture médiévale de Bhaktapur Durbar, puis rejoignez Changu Narayan, le plus ancien temple hindou du Népal perché sur une crête."
+        },
+        {
+          "day": "Jour 11",
+          "title": "Départ Final de Katmandou",
+          "description": "Petit-déjeuner détendu et temps libre pour vos derniers achats artisanaux avant votre transfert privé vers l'aéroport international Tribhuvan."
         }
       ]
     },
     "shaman": {
-      "title": "Festival des Chamanes",
-      "overview": "Un festival de chamanes dans le village de Lukum, East Rukum, est une rare odyssée photographique au cœur du mysticisme Kham Magar. Célébré pendant Sawan Sankranti (mi-juillet), ce rassemblement voit des dizaines de Jhankris (chamanes) converger pour exécuter des danses rythmées et des rituels de « capture d'esprit » pour protéger la communauté. La particularité de Lukum réside dans ses pratiques chamaniques, mettant en vedette des objets rares comme des tambours à une seule peau et des armures en cuir décorées de cloches et d'attributs d'animaux. Les photographes capturent une culture primitive intacte où les transes anciennes et les offrandes ancestrales se déroulent sur fond de maisons traditionnelles en pierre et du paysage accidenté de Dhorpatan.",
-      "features": [
-        {
-          "title": "Mysticisme Kham Magar",
-          "description": "Le village de Lukum, dans l'East Rukum, offre un aperçu rare d'une culture primitive intacte. Le Festival des Chamanes est une odyssée photographique au cœur des croyances anciennes, avec des danses rythmées et des rituels de capture d'esprit visant à protéger la communauté."
-        }
-      ],
+      "title": "Expédition au Festival des Chamanes",
+      "subtitle": "Rituels Sacrés, Culture Kham Magar & Réserve de Dhorpatan",
+      "overview": "Embarquez pour une odyssée culturelle et photographique exceptionnelle de 12 jours au cœur de l'East Rukum, l'une des régions de montagne les plus reculées et authentiques du Népal. Le point d'orgue de ce voyage est le célèbre Jhakri Mela (Festival des Chamanes) dans le village de Lukum, où des dizaines de chamanes vêtus de coiffes de plumes, de cloches en bronze et d'habits sacrés se rassemblent pour exécuter des rythmes de tambour envoûtants et des rituels de guérison ancestraux.",
+      "duration": "12 Jours",
+      "maxAltitudeLabel": "Altitude Max",
+      "maxAltitude": "2 850 m",
+      "difficulty": "Modéré",
+      "groupSize": "2-10",
       "highlights": [
         {
-          "title": "Sawan Sankranti",
-          "description": "Soyez témoin de la convergence de dizaines de Jhankris (chamanes) à la mi-juillet pour une puissante démonstration de foi et de tradition."
+          "title": "Jhakri Mela (Festival des Chamanes)",
+          "description": "Assistez aux rituels chamaniques authentiques Kham Magar, au rythme des tambours, aux coiffes de plumes et aux danses ancestrales hypnotiques dans le village de Lukum."
         },
         {
-          "title": "Artefacts rares",
-          "description": "Photographiez des outils chamaniques uniques, y compris des tambours à une seule peau et des armures en cuir ornées de cloches et d'attributs d'animaux."
+          "title": "Rituel de la Sisno (Ortie brûlante)",
+          "description": "Découvrez le rituel symbolique des orties pratiqué par les villageois pour purifier les énergies négatives, chasser la maladie et renouveler le corps et l'esprit."
         },
         {
-          "title": "Culture primitive",
-          "description": "Capturez l'essence brute d'une culture intacte où les transes anciennes et les offrandes ancestrales sont encore un mode de vie."
+          "title": "Célébration Joyeuse de la Terre",
+          "description": "Participez à la fête colorée du 2ème jour où la terre des montagnes vole dans les airs, honorant le sol fertile qui nourrit chaque famille."
         },
         {
-          "title": "Toile de fond spectaculaire",
-          "description": "Cadrez vos photos contre les paysages accidentés de Dhorpatan et les maisons traditionnelles en pierre du village de Lukum."
+          "title": "Héritage Kham Magar Preservé",
+          "description": "Explorez les villages traditionnels de pierre de Lukum et Taksera préservés du tourisme de masse, à la rencontre des tisseurs de chanvre et des anciens."
         },
         {
-          "title": "Capture d'esprit",
-          "description": "Documentez les rituels intenses de « capture d'esprit », un élément central de l'objectif du festival de sauvegarder le village."
+          "title": "Réserve Sauvage de Dhorpatan",
+          "description": "Voyagez dans l'unique réserve de chasse protégée du Népal, un superbe plateau alpin abritant le grand mouflon bleu, le thar de l'Himalaya et des monastères tibétains."
         },
         {
-          "title": "Accès exclusif",
-          "description": "Accédez à une région isolée et rarement visitée, garantissant un portfolio d'images vraiment uniques et exclusives."
+          "title": "Pont Suspendu de Kusma & Routes Panoramiques",
+          "description": "Traversez l'un des plus hauts ponts suspendus piétons du Népal au-dessus des gorges de la Kali Gandaki et profitez de vols panoramiques entre Katmandou et Pokhara."
+        }
+      ],
+      "itinerary": [
+        {
+          "day": "Jour 1",
+          "title": "Arrivée à Katmandou et Transfert à l'Hôtel",
+          "description": "Arrivée à l'aéroport de Katmandou et transfert privé à l'hôtel. Repos, promenade dans Thamel et briefing du voyage en soirée."
+        },
+        {
+          "day": "Jour 2",
+          "title": "Vol pour Pokhara et Route vers Kusma",
+          "description": "Vol panoramique de 25 minutes vers Pokhara avec vue sur l'Annapurna. Route en 4x4 vers Kusma et traversée du célèbre pont suspendu au-dessus des gorges de la Kali Gandaki."
+        },
+        {
+          "day": "Jour 3",
+          "title": "Route vers le Village de Lugum",
+          "description": "Route de montagne passionnante vers Rukum East jusqu'à Lukum (Lugum), village traditionnel Magar aux toits de pierre. Exploration des ruelles et repas local bio."
+        },
+        {
+          "day": "Jour 4",
+          "title": "Jhakri Mela (Festival des Chamanes Jour 1)",
+          "description": "Ouverture du Jhakri Mela à Lukum ! Immersion au rythme des tambours, coiffes de plumes et danses rituelles. Observation du rituel symbolique des orties (Sisno) pour purifier le corps et chasser la maladie."
+        },
+        {
+          "day": "Jour 5",
+          "title": "Jhakri Mela (Festival des Chamanes Jour 2)",
+          "description": "Célébration populaire et joyeuse ! Tambours des apprentis chamanes et fête de la terre où la boue de montagne vole dans les airs pour honorer le sol nourricier."
+        },
+        {
+          "day": "Jour 6",
+          "title": "Route vers le Village de Taksera",
+          "description": "Trajet en 4x4 vers Taksera, autre village Kham Magar emblématique. Visite guidée des habitations en pierre et observation de l'artisanat du chanvre."
+        },
+        {
+          "day": "Jour 7",
+          "title": "Route vers Burtibang",
+          "description": "Descente à travers cols de montagne, forêts de rhododendrons et vallées jusqu'à Burtibang dans le district de Baglung."
+        },
+        {
+          "day": "Jour 8",
+          "title": "Burtibang vers Dhorpatan",
+          "description": "Montée vers le haut plateau de la réserve de chasse de Dhorpatan, unique réserve protégée du Népal abritant le mouflon bleu. Promenade dans la vallée et visite du monastère tibétain."
+        },
+        {
+          "day": "Jour 9",
+          "title": "Route de Retour vers Baglung",
+          "description": "Descente du plateau le long des rivières de montagne à travers des hamlets agricoles jusqu à Baglung Bazaar."
+        },
+        {
+          "day": "Jour 10",
+          "title": "Route vers Pokhara",
+          "description": "Trajet de 2 heures sur la highway vers Pokhara. Promenade en bateau sur le lac Phewa vers le temple Tal Barahi et visite de la Pagode de la Paix."
+        },
+        {
+          "day": "Jour 11",
+          "title": "Vol de Retour vers Katmandou et Visites",
+          "description": "Vol de retour vers Katmandou. Visite guidée de Boudhanath et Pashupatinath, suivie d'un dîner traditionnel de célébration."
+        },
+        {
+          "day": "Jour 12",
+          "title": "Départ Final",
+          "description": "Dernier petit-déjeuner et transfert privé vers l'aéroport international Tribhuvan pour votre vol de retour."
         }
       ]
     },
-    "bisketJatra": "Patrimoine intemporel et nature indomptée du Népal",
+    "bisketJatra": "Festival Bisket Jatra, Nouvel An Népalais et Parc National de Bardia",
     "bisketJatraTrip": {
-      "title": "Patrimoine intemporel et nature indomptée du Népal",
+      "title": "Festival Bisket Jatra & Nouvel An Népalais",
       "subtitle": "Un pèlerinage festif et culturel",
-      "overview": "Le Bisket Jatra est une célébration spectaculaire marquant le Nouvel An népalais à Bhaktapur. Ce festival ancestral s'ouvre sur une lutte acharnée entre les quartiers de la ville pour tirer le colossal chariot du dieu Bhairav. L'effervescence atteint son paroxysme avec l'érection du Linga, un mât sacré dont la chute symbolise la victoire sur les forces démoniaques.\n\nÀ Thimi, la fête se pare d'un orange éclatant lors du Sindur Jatra, où une foule extatique s'asperge de poudre de vermillon. Le rituel s'achève par l'impressionnant perçage de la langue à Bode, un acte de dévotion extrême pour assurer la prospérité commune. Entre ferveur mystique et explosions de couleurs, ce festival est une immersion viscérale dans l'âme et les traditions millénaires du peuple Newar.",
+      "overview": "Le Bisket Jatra est une célébration spectaculaire marquant le Nouvel An népalais à Bhaktapur. Ce festival ancestral s'ouvre sur une lutte acharnée entre les quartiers de la ville pour tirer le colossal chariot du dieu Bhairav. L'effervescence atteint son paroxysme avec l'érection du Linga, un mât sacré dont la chute symbolise la victoire sur les forces démoniaques. À Thimi, la fête se pare d'un orange éclatant lors du Sindur Jatra où une foule extatique s'asperge de poudre de vermillon. Le rituel s'achève par l'impressionnant perçage de la langue à Bode, un acte de dévotion extrême pour assurer la prospérité commune.",
       "duration": "15 Jours",
       "maxAltitudeLabel": "Type de Voyage",
       "maxAltitude": "Festival & Photo",
@@ -321,83 +437,83 @@
         {
           "day": "Jour 1",
           "title": "Arrivée et transfert à l'hôtel",
-          "description": "Bienvenue à Katmandou. Dès votre installation à Thamel, plongez dans l'effervescence de ce quartier légendaire. C'est un labyrinthe sensoriel où les drapeaux de prières flottent au-dessus des boutiques d'artisanat et des cafés animés. Explorez les ruelles étroites, respirez les effluves d'encens et de thé massala, et observez les petits sanctuaires cachés dans les cours intérieures."
+          "description": "Bienvenue à Katmandou. Dès votre installation à l'hôtel, plongez dans l'effervescence de Thamel, labyrinthe sensoriel de boutiques, cafés et sanctuaires."
         },
         {
           "day": "Jour 2",
-          "title": "Vol vers Nepalgunj et conduire à Parc National de Bardia",
-          "description": "Quittez la vallée pour l'ouest sauvage du Népal. Après un vol panoramique vers Nepalgunj, une route traverse des paysages ruraux authentiques pour rejoindre le Parc National de Bardia. Plus isolé et préservé que Chitwan, Bardia offre une immersion brute dans la nature. À votre arrivée, installez-vous dans votre lodge en lisière de forêt. Profitez de la fin de journée pour vous promener dans les villages Tharu environnants. Le calme absolu et l'air chaud de la jungle marquent un contraste saisissant avec Katmandou, vous préparant à une exploration au cœur de l'un des derniers refuges du tigre royal du Bengale."
+          "title": "Vol vers Nepalgunj et route vers le Parc National de Bardia",
+          "description": "Vol vers Nepalgunj puis route rurale vers le Parc National de Bardia. Promenade dans les villages Tharu environnants en lisière de forêt."
         },
         {
           "day": "Jour 3",
-          "title": "Safari sauvage à Parc National de Bardia",
-          "description": "Consacrez votre journée à l'exploration du parc de Bardia, sanctuaire de biodiversité. Que ce soit en jeep ou lors d'un safari à dos d'éléphant, partez à la recherche du majestueux tigre du Bengale, du rhinocéros unicorne et des éléphants sauvages. Bardia est célèbre pour ses paysages diversifiés, entre forêts de sals et vastes prairies bordant la rivière Karnali. Gardez l'œil ouvert pour apercevoir les dauphins du Gange ou les gavials sur les berges. La traque silencieuse dans cette jungle dense procure une émotion incomparable. Le soir, les récits de brousse autour du feu complètent cette expérience immersive et sauvage."
+          "title": "Safari Sauvage au Parc National de Bardia",
+          "description": "Journée entière d'exploration sauvage à Bardia. En jeep ou à pied dans la jungle, recherchez le tigre du Bengale, le rhinocéros unicorne et les éléphants sauvages."
         },
         {
           "day": "Jour 4",
-          "title": "Conduire Bardia à Lumbini, l'endroit de naissance de Budhha",
-          "description": "Après le calme de la jungle, envolez-vous vers Lumbini. C'est l'un des sites les plus sacrés au monde, reconnu comme le lieu de naissance de Siddhartha Gautama, le Bouddha. Classé au patrimoine mondial de l'UNESCO, ce sanctuaire paisible attire des pèlerins du monde entier. Le site abrite le temple sacré de Maya Devi, le pilier d'Ashoka et de nombreux monastères internationaux illustrant diverses architectures bouddhistes. C'est un centre spirituel majeur dédié à la paix universelle, offrant une atmosphère de sérénité et de réflexion profonde."
+          "title": "Promenade le long de la Rivière Karnali",
+          "description": "Balade fluviale paisible le long de la rivière Karnali pour observer les crocodiles gavials, les oiseaux migrateurs et la faune s'abreuvant sur les Berges."
         },
         {
           "day": "Jour 5",
-          "title": "Vol vers Pokhara et conduire vers Durlung",
-          "description": "Après le petit déjeuner prenez le vol pour Pokhara, une ville de montagnes, puis route vers Durlung, dans le district de Parbat. Ce village authentique, hors des circuits classiques, offre un panorama spectaculaire sur les rizières en terrasses qui dégringolent dans la vallée. L'accueil des villageois y est d'une sincérité rare. Explorez les sentiers locaux, découvrez l'architecture traditionnelle des maisons en pierre et imprégnez-vous de la sérénité de cette vie rurale préservée. C'est une journée de connexion profonde avec la terre et les traditions montagnardes népalaises."
+          "title": "Route de Bardia vers Lumbini",
+          "description": "Voyage vers les plaines sacrées de Lumbini, lieu de naissance historique de Siddhartha Gautama, le Bouddha."
         },
         {
           "day": "Jour 6",
-          "title": "Retour à la sérénité de Pokhara",
-          "description": "Après avoir partagé des moments privilégiés avec les habitants de Durlung, reprenez la route vers Pokhara. Profitez de ce retour pour explorer ce que vous avez manqué : la pagode de la Paix, perchée sur une colline offrant une vue plongeante sur le lac et la chaîne des Annapurna. La douceur de vivre de Pokhara est un enchantement permanent qui complète parfaitement l'aventure rurale vécue à Parbat. Le soir, cérémonie hindoue au bord du lac Phewa."
+          "title": "Retour à la sérénité de Pokhara et village de Durlung",
+          "description": "Vol vers Pokhara puis court trajet vers Durlung, village communautaire paisible niché dans les collines. Immersion dans la vie rurale et l'hospitalité locale."
         },
         {
           "day": "Jour 7",
-          "title": "Bandipur, le village-musée",
-          "description": "Réveil avant l'aube pour assister au lever du soleil sur l'Himalaya, un spectacle où les sommets s'embrasent d'or et de pourpre. Prenez ensuite la route vers Bandipur, une ancienne escale commerciale Newar perchée sur une crête de montagne. Ce village est un véritable musée à ciel ouvert avec ses rues pavées interdites aux voitures et ses bâtiments en briques rouges magnifiquement restaurés. L'architecture y est raffinée, avec des balcons en bois sculptés et des temples anciens. Depuis le plateau de Tundikhel, la vue sur la vallée de la Marsyangdi et les sommets himalayens est époustouflante au coucher du soleil. C'est une escale romantique et historique où le temps semble s'être arrêté, offrant une atmosphère unique de cité médiévale suspendue entre ciel et terre."
+          "title": "Route de retour vers Pokhara et temps libre",
+          "description": "Retour à Pokhara. Détente au bord du lac Phewa, balade en bateau jusqu'au temple Tal Barahi ou promenade dans les ruelles commerçantes."
         },
         {
           "day": "Jour 8",
-          "title": "Retour à Kathmandu",
-          "description": "Le trajet de retour vers Katmandou suit la spectaculaire rivière Trishuli, célèbre pour ses rapides. Vous traverserez des paysages verdoyants et des villages animés bordant la route sinueuse. C'est une dernière occasion d'observer la vie rurale népalaise avant de retrouver l'effervescence de la capitale."
+          "title": "Retour à Katmandou",
+          "description": "Lever de soleil à Sarangkot sur les Annapurnas, puis vol vers Katmandou. Transfert à l'hôtel et temps libre pour visiter la ville."
         },
         {
           "day": "Jour 9",
           "title": "Le Chariot de Bisket Jatra à Bhaktapur",
-          "description": "Plongez dans l'effervescence de Bhaktapur pour le début du festival Bisket Jatra. Le point d'orgue est le tirage du chariot massif du dieu Bhairav. Des centaines de locaux tirent sur d'énormes cordes dans une compétition amicale entre les quartiers haut et bas de la ville. L'énergie est électrique, la foule est immense et la poussière vole au rythme des chants dévotionnels. C'est une immersion brute et magnifique dans l'une des traditions les plus vivantes et les plus anciennes du Népal."
+          "description": "Plongez dans l'effervescence de Bhaktapur pour le début de Bisket Jatra et le tirage spectaculaire du chariot massif du dieu Bhairav."
         },
         {
           "day": "Jour 10",
           "title": "Patan, Pashupatinath et Boudhanath",
-          "description": "Journée consacrée aux joyaux spirituels de la vallée. Commencez par Patan, la cité des arts, célèbre pour ses sculptures en métal et son architecture raffinée. Dirigez-vous ensuite vers Pashupatinath, le temple hindou le plus sacré du pays, situé au bord de la rivière Bagmati, pour observer les rituels de crémation et la dévotion des sadhus. Terminez par le stupa géant de Boudhanath, centre du bouddhisme tibétain. Suivez les pèlerins pour la 'Kora' (circonvolution) autour du dôme blanc sous les yeux bienveillants du Bouddha."
+          "description": "Journée consacrée aux joyaux spirituels : Patan et ses sculptures metal, Pashupatinath au bord de la Bagmati, et la kora autour du stupa de Boudhanath."
         },
         {
           "day": "Jour 11",
           "title": "Sérénité à Bhaktapur",
-          "description": "Après le chaos festif, redécouvrez Bhaktapur dans une ambiance plus calme. Explorez la place des potiers, où des centaines de pots en argile sèchent au soleil, créant des motifs géométriques au sol. Admirez le palais aux 55 fenêtres et le temple Nyatapola, le plus haut du Népal. Chaque coin de rue révèle des sculptures sur bois complexes et des briques séculaires. Cette ville-musée est parfaite pour comprendre l'ingéniosité des artisans Newar et l'harmonie qui règne dans cette cité médiévale préservée."
+          "description": "Redécouvrez Bhaktapur au calme : place des potiers, Palais aux 55 Fenêtres, temple Nyatapola et ruelles médiévales préservees."
         },
         {
           "day": "Jour 12",
           "title": "L'érection du Linga à Bhaktapur",
-          "description": "Retour à l'intensité du festival pour l'érection du 'Linga', un mât de bois géant symbolisant la victoire sur les forces négatives. La foule se rassemble à Lyasinkhel pour assister à cet acte périlleux et symbolique. La chute du mât le lendemain marquera le début officiel de la nouvelle année népalaise. Les chants, les cymbales et l'enthousiasme des dévots créent une atmosphère mystique et vibrante."
+          "description": "Retour au festival pour l'érection du Linga à Lyasinkhel, mât géant en bois symbolisant la victoire sur les forces démoniaques."
         },
         {
           "day": "Jour 13",
           "title": "Les fabriques de briques de Bhaktapur",
-          "description": "Aujourd'hui, sortez du centre historique pour explorer les zones périphériques où se trouvent les impressionnantes fabriques de briques artisanales. Ce paysage industriel unique offre un contraste saisissant avec les temples sculptés. Observez le travail titanesque des ouvriers qui façonnent et empilent des milliers de briques d'argile sous le soleil. Les hautes cheminées crachant de la fumée et les structures géométriques de briques rouges créent une atmosphère presque cinématographique. C'est une immersion poignante dans l'économie locale et le labeur manuel qui a bâti la vallée de Katmandou depuis des siècles."
+          "description": "Visite des impressionnantes fabriques artisanales de briques en périphérie de Bhaktapur, immersion dans l'artisanat séculaire."
         },
         {
           "day": "Jour 14",
           "title": "Sindur Jatra et Perçage de langue à Thimi",
-          "description": "La célébration du Bisket Jatra à Thimi et Bode, vivez l'apogée des festivités à Thimi et Bode. Assistez au Sindur Jatra, où les participants s'aspergent de poudre vermillon orange vif dans une ambiance extatique. Les palanquins des dieux dansent au milieu d'un nuage de couleur. Cette explosion de couleurs symbolise la victoire du printemps et la joie collective. À Bode, assistez au rituel impressionnant du perçage de langue, où un dévot se fait traverser la langue par une tige de fer pour assurer la prospérité du village. C'est une expérience viscérale, intense et d'une rare puissance culturelle qui marque la fin du festival. Cet acte de bravoure extrême est accompli pour protéger la communauté contre les mauvais esprits et assurer une année de prospérité."
+          "description": "Apogée des fêtes à Thimi et Bode : bataille de poudre vermillon orange (Sindur Jatra) et rituel impressionnant du perçage de la langue à Bode."
         },
         {
           "day": "Jour 15",
           "title": "Départ",
-          "description": "Votre voyage touche à sa fin. Selon l'heure de votre vol, profitez de vos derniers instants pour acheter quelques souvenirs artisanaux ou goûter une dernière fois aux saveurs locales. Imprégné des couleurs du festival, de la paix des montagnes et de la ferveur des temples, vous quittez le Népal avec des souvenirs impérissables."
+          "description": "Derniers moments pour acheter des souvenirs avant votre transfert privé à l'aéroport pour votre vol de départ."
         }
       ]
     },
-    "nepalColorsContrasts": "Couleur et contraste au Népal et ses festivals sacrés",
+    "nepalColorsContrasts": "Festival de Shivaratri : Couleurs et Contrastes du Népal",
     "nepalColorsContrastsTrip": {
-      "title": "Couleur et contraste au Népal et ses festivals sacrés",
+      "title": "Festival de Shivaratri : Couleurs et Contrastes du Népal",
       "subtitle": "Un paradis pour les photographes et fêtes sacrées",
       "overview": "Le Népal est un magnifique pays himalayen, riche d'une longue histoire, d'un art fascinant et d'une architecture unique. Malgré sa petite taille, il est mondialement connu comme une nation de couleurs et de contrastes, un Shangri-La caché où se mêlent nature, culture et aventure. Pour tout visiteur, le Népal est un mythe, le royaume de l'Himalaya. Terre hindoue et bouddhiste empreinte d'une grande spiritualité, et particulièrement réputée pour ses montagnes, ce royaume est situé au cœur de l'Himalaya.\n\nLe Népal est un paradis pour les photographes. Capturez la lueur éthérée de l'Himalaya à l'aube, puis plongez dans la jungle luxuriante de Chitwan à la recherche des rhinocéros unicorne et d'une faune sauvage insaisissable. Sur les places ancestrales, laissez-vous émerveiller par l'explosion de couleurs lors des fêtes sacrées et imprégnez-vous de l'âme intemporelle de la culture newar. Des visages burinés et souriants des Népalais aux yeux sereins des moines, chaque cliché raconte l'histoire d'une terre où spiritualité et nature se rencontrent dans une lumière spectaculaire.",
       "duration": "15 Jours",
