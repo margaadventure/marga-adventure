@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PageHero from './PageHero';
-import ElevationGraph from './ElevationGraph';
+const ElevationGraph = React.lazy(() => import('./ElevationGraph'));
 import ContactModal from './ContactModal';
 import { useTranslation } from '../i18n/useTranslation';
 import I18nShell from '../i18n/I18nShell';
@@ -80,13 +80,13 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                     <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/80"></div>
                     {/* Subtle texture overlay if desired, but gradient is cleaner */}
                 </div>
-                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-32 md:pb-36 lg:pb-40">
                     <div className="max-w-7xl mx-auto w-full">
                         <div className="animate-fade-in-up">
                             <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/90 font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-6 backdrop-blur-sm drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                                 {subtitle || t('trip.theHimalayasAwait')}
                             </span>
-                            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 leading-[0.9] tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
                                 {title}
                             </h1>
                         </div>
@@ -191,7 +191,9 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                             <p className="text-gray-500 text-lg font-light mb-8 max-w-xl">
                                 {t('trip.elevationDesc')}
                             </p>
-                            <ElevationGraph data={elevationData} />
+                            <React.Suspense fallback={<div className="w-full h-[400px] bg-gray-50/50 animate-pulse mt-8"></div>}>
+                                <ElevationGraph data={elevationData} />
+                            </React.Suspense>
                         </section>
                     )}
 
@@ -218,8 +220,8 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                     </div>
 
                                     {/* Card Container */}
-                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border border-transparent ${activeDay === index ? 'bg-white shadow-xl border-l-4 border-l-brand my-4 md:my-6 md:scale-[1.02]' : 'bg-transparent border-b-gray-100'}`}>
-                                    <div
+                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border ${activeDay === index ? 'bg-white shadow-xl border-l-4 border-l-brand my-4 md:my-6 md:scale-[1.02]' : 'bg-white/60 border-gray-100 hover:border-gray-200'}`}>
+                                        <div
                                             role="button"
                                             tabIndex={0}
                                             onClick={() => setActiveDay(prev => prev === index ? null : index)}
@@ -229,9 +231,10 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                                     setActiveDay(prev => prev === index ? null : index);
                                                 }
                                             }}
-                                            className="w-full relative z-10 block cursor-pointer text-left focus:outline-none transition-colors select-none outline-hidden"
+                                            className="w-full relative z-10 cursor-pointer text-left focus:outline-none transition-colors select-none p-5 md:p-8 block"
+                                            aria-expanded={activeDay === index}
                                         >
-                                            <div className="flex flex-row items-start gap-5 p-5 md:p-8">
+                                            <div className="flex flex-row items-start justify-between gap-5 w-full">
                                                 {/* Number */}
                                                 <div className={`shrink-0 w-10 md:w-auto flex flex-col items-center justify-start transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-300'}`}>
                                                     <span className={`text-xl md:text-5xl font-serif italic font-bold leading-none ${activeDay === index ? 'text-brand drop-shadow-sm' : ''}`}>{index + 1}</span>
@@ -251,45 +254,72 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                                 </div>
 
                                                 {/* Arrow Icon */}
-                                                <div className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border transition-all duration-300 shrink-0 mt-0.5 ${activeDay === index ? 'rotate-180 bg-brand border-brand text-white shadow-lg' : 'border-gray-100 text-gray-300 bg-white'}`}>
+                                                <div className={`w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full border transition-all duration-300 shrink-0 mt-0.5 ${activeDay === index ? 'rotate-180 bg-brand border-brand text-white shadow-lg' : 'border-gray-200 text-gray-400 bg-white'}`}>
                                                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div 
-                                            className={`transition-all duration-500 ease-in-out ${activeDay === index ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+                                            className={`transition-all duration-500 ease-in-out overflow-hidden ${activeDay === index ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
                                         >
-                                            <div className="px-6 pb-6 md:px-8 md:pb-10 pt-2 ml-0 md:ml-16 md:pl-8 md:border-l border-gray-100">
-                                                {(day.stats?.altitude || day.stats?.distance || day.stats?.duration) && (
-                                                    <div className="flex flex-wrap gap-3 mb-8">
-                                                        {day.stats?.altitude && (
-                                                            <div className="flex items-center gap-2 text-[10px] font-bold text-brand uppercase tracking-widest bg-brand/5 px-4 py-2 rounded-none border border-brand/10">
-                                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 19.5L15 12l-6 9H3l7-10 6 10h6.5z"></path></svg>
-                                                                {day.stats.altitude}
-                                                            </div>
-                                                        )}
-                                                        {day.stats?.distance && (
-                                                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
-                                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-                                                                {day.stats.distance}
-                                                            </div>
-                                                        )}
-                                                        {day.stats?.duration && (
-                                                            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
-                                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                                                {day.stats.duration}
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                )}
-                                                <p className="text-gray-600 leading-relaxed font-light text-lg">{day.description}</p>
+                                            <div className="overflow-hidden min-h-0">
+                                                <div className="px-6 pb-6 md:px-8 md:pb-10 pt-2 ml-0 md:ml-16 md:pl-8 md:border-l border-gray-100">
+                                                    {(day.stats?.altitude || day.stats?.distance || day.stats?.duration) && (
+                                                        <div className="flex flex-wrap gap-3 mb-8">
+                                                            {day.stats?.altitude && (
+                                                                <div className="flex items-center gap-2 text-[10px] font-bold text-brand uppercase tracking-widest bg-brand/5 px-4 py-2 rounded-none border border-brand/10">
+                                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.5 19.5L15 12l-6 9H3l7-10 6 10h6.5z"></path></svg>
+                                                                    {day.stats.altitude}
+                                                                </div>
+                                                            )}
+                                                            {day.stats?.distance && (
+                                                                <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
+                                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                                                                    {day.stats.distance}
+                                                                </div>
+                                                            )}
+                                                            {day.stats?.duration && (
+                                                                <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-50 px-4 py-2 rounded-none border border-gray-200">
+                                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                                                    {day.stats.duration}
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                    <p className="text-gray-600 leading-relaxed font-light text-lg">{day.description}</p>
+                                                </div>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             ))}
+                        </div>
+
+                        {/* Booking CTA at end of Itinerary */}
+                        <div className="mt-12 p-8 md:p-10 bg-linear-to-r from-brand-dark via-brand to-brand-dark text-white rounded-none shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+                            <div className="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+                            <div className="relative z-10 text-center md:text-left">
+                                <span className="inline-block px-3.5 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-3 text-white">
+                                    {t('trip.readyToExplore') || 'Ready for this Expedition?'}
+                                </span>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                                    {t('trip.bookThisTrip')}
+                                </h3>
+                                <p className="text-white/80 text-sm md:text-base font-light max-w-xl">
+                                    {t('trip.bookDesc') || t('trip.secureSpot')}
+                                </p>
+                            </div>
+                            <div className="relative z-10 shrink-0 w-full md:w-auto">
+                                <button
+                                    onClick={() => setIsModalOpen(true)}
+                                    className="w-full md:w-auto px-8 py-4 bg-white text-brand-dark hover:bg-gray-100 font-bold uppercase tracking-[0.2em] text-xs transition-all transform hover:-translate-y-1 shadow-2xl shadow-black/20 cursor-pointer flex items-center justify-center gap-3 group"
+                                >
+                                    <span>{t('trip.enquireNow')}</span>
+                                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </button>
+                            </div>
                         </div>
                     </section>
 
