@@ -106,16 +106,24 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             </button>
           </div>
 
-          <a href={getBaseUrl() || '/'} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a 
+            href={getBaseUrl() || '/'} 
+            onClick={onClose} 
+            onMouseEnter={() => setActiveSub(null)}
+            className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight cursor-pointer"
+          >
             {t('nav.home')}
           </a>
 
-          <div className="relative group shrink-0">
+          <div 
+            className="relative group shrink-0"
+            onMouseEnter={() => setActiveSub('destination')}
+          >
             <div className="flex items-center justify-between w-full">
               <button
                 type="button"
                 onClick={() => setActiveSub(activeSub === 'destination' ? null : 'destination')}
-                className={`text-lg md:text-2xl font-bold transition-colors text-left outline-none tracking-tight ${activeSub === 'destination' ? 'text-white' : 'text-white hover:text-white/80'}`}
+                className={`text-lg md:text-2xl font-bold transition-colors text-left outline-none tracking-tight cursor-pointer ${activeSub === 'destination' ? 'text-white' : 'text-white hover:text-white/80'}`}
               >
                 {t('nav.destinations')}
               </button>
@@ -125,7 +133,8 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                   e.stopPropagation();
                   setActiveSub(activeSub === 'destination' ? null : 'destination');
                 }}
-                className="pl-4 outline-none relative z-30"
+                className="pl-4 outline-none relative z-30 cursor-pointer"
+                aria-label={t('nav.destinations')}
               >
                 <span className={`text-2xl transition-transform duration-300 block ${activeSub === 'destination' ? 'rotate-90 text-white' : 'text-white/50'}`}>›</span>
               </button>
@@ -141,7 +150,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                     <button
                       type="button"
                       onClick={() => setActiveNestedSub(activeNestedSub === 'nepal' ? null : 'nepal')}
-                      className="flex items-center justify-between group outline-none w-full"
+                      className="flex items-center justify-between group outline-none w-full cursor-pointer"
                     >
                       <span className={`font-bold text-lg text-left ${activeNestedSub === 'nepal' ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>{t('destinations.nepal')}</span>
                       <span className={`text-xl transition-transform duration-300 ${activeNestedSub === 'nepal' ? 'rotate-90 text-white' : 'text-white/50'}`}>›</span>
@@ -161,7 +170,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                     <button
                       type="button"
                       onClick={() => setActiveNestedSub(activeNestedSub === 'bhutan' ? null : 'bhutan')}
-                      className="flex items-center justify-between group outline-none w-full"
+                      className="flex items-center justify-between group outline-none w-full cursor-pointer"
                     >
                       <span className={`font-bold text-lg text-left ${activeNestedSub === 'bhutan' ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>{t('destinations.bhutan')}</span>
                       <span className={`text-xl transition-transform duration-300 ${activeNestedSub === 'bhutan' ? 'rotate-90 text-white' : 'text-white/50'}`}>›</span>
@@ -180,7 +189,7 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
                     <button
                       type="button"
                       onClick={() => setActiveNestedSub(activeNestedSub === 'tibet' ? null : 'tibet')}
-                      className="flex items-center justify-between group outline-none w-full"
+                      className="flex items-center justify-between group outline-none w-full cursor-pointer"
                     >
                       <span className={`font-bold text-lg text-left ${activeNestedSub === 'tibet' ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>{t('destinations.tibet')}</span>
                       <span className={`text-xl transition-transform duration-300 ${activeNestedSub === 'tibet' ? 'rotate-90 text-white' : 'text-white/50'}`}>›</span>
@@ -198,33 +207,61 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             )}
           </div>
 
-          <a href={`${getBaseUrl()}/community`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a 
+            href={`${getBaseUrl()}/community`} 
+            onClick={onClose} 
+            onMouseEnter={() => setActiveSub(null)}
+            className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight cursor-pointer"
+          >
             {t('nav.community')}
           </a>
-          <a href={`${getBaseUrl()}/about`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a 
+            href={`${getBaseUrl()}/about`} 
+            onClick={onClose} 
+            onMouseEnter={() => setActiveSub(null)}
+            className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight cursor-pointer"
+          >
             {t('nav.about')}
           </a>
-          <a href={`${getBaseUrl()}/blog`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a 
+            href={`${getBaseUrl()}/blog`} 
+            onClick={onClose} 
+            onMouseEnter={() => setActiveSub(null)}
+            className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight cursor-pointer"
+          >
             {t('nav.journal')}
           </a>
-          <a href={`${getBaseUrl()}/contact`} onClick={onClose} className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight">
+          <a 
+            href={`${getBaseUrl()}/contact`} 
+            onClick={onClose} 
+            onMouseEnter={() => setActiveSub(null)}
+            className="group text-lg md:text-2xl font-bold text-white hover:text-white/80 transition-colors inline-flex items-center justify-between gap-4 shrink-0 text-left tracking-tight cursor-pointer"
+          >
             {t('nav.contact')}
           </a>
         </nav>
 
         {activeSub === 'destination' && (
-          <div className="hidden xl:flex w-[20%] flex-col gap-8 bg-brand border-r border-white/10 py-20 px-12 animate-in fade-in slide-in-from-left-4 duration-500 z-10 transition-all">
+          <div className="hidden xl:flex w-[25%] flex-col gap-8 bg-brand border-r border-white/10 py-20 px-12 animate-in fade-in slide-in-from-left-4 duration-500 z-10 transition-all">
 
             {/* Nepal Group */}
-            <div className="flex flex-col gap-3">
-              <a
-                href={`${getBaseUrl()}/nepal`}
-                onMouseEnter={() => setActiveNestedSub('nepal')}
-                onClick={onClose}
-                className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'nepal' ? 'text-white' : 'text-white/50 hover:text-white'}`}
-              >
-                {t('destinations.nepal')}
-              </a>
+            <div className="flex flex-col gap-3" onMouseEnter={() => setActiveNestedSub('nepal')}>
+              <div className="flex items-center justify-between">
+                <a
+                  href={`${getBaseUrl()}/nepal`}
+                  onClick={onClose}
+                  className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'nepal' ? 'text-white font-bold' : 'text-white/50 hover:text-white'}`}
+                >
+                  {t('destinations.nepal')}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActiveNestedSub(activeNestedSub === 'nepal' ? null : 'nepal')}
+                  className="text-white/50 hover:text-white transition-all px-2 cursor-pointer"
+                >
+                  <span className={`text-xl transition-transform duration-300 block ${activeNestedSub === 'nepal' ? 'rotate-90 text-white' : ''}`}>›</span>
+                </button>
+              </div>
               {activeNestedSub === 'nepal' && (
                 <div className="flex flex-col gap-2 pl-4 animate-in fade-in slide-in-from-top-1 duration-200 border-l-2 border-white/20">
                   {nepalItems.map(item => (
@@ -242,15 +279,23 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             </div>
 
             {/* Bhutan Group */}
-            <div className="flex flex-col gap-3">
-              <a
-                href={`${getBaseUrl()}/bhutan`}
-                onMouseEnter={() => setActiveNestedSub('bhutan')}
-                onClick={onClose}
-                className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'bhutan' ? 'text-white' : 'text-white/50 hover:text-white'}`}
-              >
-                {t('destinations.bhutan')}
-              </a>
+            <div className="flex flex-col gap-3" onMouseEnter={() => setActiveNestedSub('bhutan')}>
+              <div className="flex items-center justify-between">
+                <a
+                  href={`${getBaseUrl()}/bhutan`}
+                  onClick={onClose}
+                  className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'bhutan' ? 'text-white font-bold' : 'text-white/50 hover:text-white'}`}
+                >
+                  {t('destinations.bhutan')}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActiveNestedSub(activeNestedSub === 'bhutan' ? null : 'bhutan')}
+                  className="text-white/50 hover:text-white transition-all px-2 cursor-pointer"
+                >
+                  <span className={`text-xl transition-transform duration-300 block ${activeNestedSub === 'bhutan' ? 'rotate-90 text-white' : ''}`}>›</span>
+                </button>
+              </div>
               {activeNestedSub === 'bhutan' && (
                 <div className="flex flex-col gap-2 pl-4 animate-in fade-in slide-in-from-top-1 duration-200 border-l-2 border-white/20">
                   {bhutanItems.map(item => (
@@ -268,15 +313,23 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose, menuI
             </div>
 
             {/* Tibet Group */}
-            <div className="flex flex-col gap-3">
-              <a
-                href={`${getBaseUrl()}/tibet`}
-                onMouseEnter={() => setActiveNestedSub('tibet')}
-                onClick={onClose}
-                className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'tibet' ? 'text-white' : 'text-white/50 hover:text-white'}`}
-              >
-                {t('destinations.tibet')}
-              </a>
+            <div className="flex flex-col gap-3" onMouseEnter={() => setActiveNestedSub('tibet')}>
+              <div className="flex items-center justify-between">
+                <a
+                  href={`${getBaseUrl()}/tibet`}
+                  onClick={onClose}
+                  className={`text-2xl font-medium transition-colors cursor-pointer ${activeNestedSub === 'tibet' ? 'text-white font-bold' : 'text-white/50 hover:text-white'}`}
+                >
+                  {t('destinations.tibet')}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setActiveNestedSub(activeNestedSub === 'tibet' ? null : 'tibet')}
+                  className="text-white/50 hover:text-white transition-all px-2 cursor-pointer"
+                >
+                  <span className={`text-xl transition-transform duration-300 block ${activeNestedSub === 'tibet' ? 'rotate-90 text-white' : ''}`}>›</span>
+                </button>
+              </div>
               {activeNestedSub === 'tibet' && (
                 <div className="flex flex-col gap-2 pl-4 animate-in fade-in slide-in-from-top-1 duration-200 border-l-2 border-white/20">
                   {tibetItems.map(item => (
