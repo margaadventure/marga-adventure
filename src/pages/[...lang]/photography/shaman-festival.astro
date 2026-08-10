@@ -5,36 +5,65 @@ export function getStaticPaths() {
 
 import { useAstroI18n } from "../../../i18n/astro";
 import Layout from "../../../layouts/Layout.astro";
-import ExpeditionSpecialLayout from "../../../components/ExpeditionSpecialLayout";
+import TripItineraryPage from "../../../components/TripItineraryPage";
 
-import shamanImg1 from "../../../assets/images/activities/photography/Shaman 1.webp";
-import shamanImg2 from "../../../assets/images/activities/photography/Shaman nepal.webp";
+import shamanPortraitImg from "../../../assets/images/activities/photography/Shaman portrait.webp";
 import type { Locale } from "../../../i18n/i18n";
 
 const { lang, baseUrl, tripData, dict, enDict } = await useAstroI18n(Astro.url);
 const trip = tripData("photography.shaman") || {};
 
-const images = [shamanImg1.src, shamanImg2.src];
+const packingList = [
+    {
+        category: "Camera Gear",
+        items: [
+            "Full-frame DSLR / Mirrorless Body (backup body recommended)",
+            "Wide-angle Lens (16-35mm) for village architecture & festival dances",
+            "Fast Prime Lens (35mm or 50mm f/1.4 - f/1.8) for low-light shaman rituals & portraits",
+            "Telephoto Lens (70-200mm) for candid portraits and wildlife in Dhorpatan",
+            "Sturdy Tripod & remote shutter release",
+            "Rain covers & dust protection for camera gear",
+            "Extra Batteries & high-capacity memory cards (limited charging in remote villages)",
+        ],
+    },
+    {
+        category: "Clothing & Off-Road Essentials",
+        items: [
+            "Sturdy trekking boots / comfortable walking shoes",
+            "Warm layers (fleece / down jacket for cool high-altitude mornings)",
+            "Lightweight rain jacket & trousers (July monsoon season)",
+            "Dust mask or buff for dirt road vehicle journeys",
+            "Personal water filter or purification tablets",
+            "Small daypack with waterproof cover",
+        ],
+    },
+];
 ---
 <Layout
-    title={`${trip.title || 'Shaman Festival Photography'} | Marga Adventure`}
-    image={images[0]}
-    keywords="Shaman Festival Nepal, Lukum village shaman, Nepal cultural photography, mystical Nepal tours, adventure photography Nepal"
+    title={`${trip.title || 'Shaman Festival Expedition'} | Marga Adventure`}
+    image={shamanPortraitImg.src}
+    keywords="Shaman Festival Nepal, Jhakri Mela Lukum, Lukum village shaman, Nepal cultural photography, Rukum East trek, Dhorpatan wilderness"
 >
-    <ExpeditionSpecialLayout
-        title={trip.title || "Shaman Festival"}
+    <TripItineraryPage
+        title={trip.title || "Shaman Festival Expedition"}
+        subtitle={trip.subtitle || "Sacred Rituals, Kham Magar Culture & Dhorpatan Wilderness"}
+        heroImage={shamanPortraitImg.src}
         overview={trip.overview || ""}
-        images={images}
         highlights={trip.highlights || []}
-        features={trip.features || []}
+        itinerary={trip.itinerary || []}
         tripStats={{
-            destination: trip.destination || "East Rukum, Nepal",
+            duration: trip.duration || "12 Days",
+            maxAltitude: trip.maxAltitude || "2,850m",
+            maxAltitudeLabel: trip.maxAltitudeLabel || "Max Altitude",
             difficulty: trip.difficulty || "Moderate",
-            groupSize: trip.groupSize || "4-8",
-            season: trip.season || "Mid-July",
+            groupSize: trip.groupSize || "2-10",
         }}
-        client:visible
-     initialLocale={lang}
-     initialDict={dict}
-     initialFallbackDict={enDict} />
+        showElevationGraph={false}
+        packingList={packingList}
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+        initialFallbackDict={enDict}
+    />
 </Layout>
+
