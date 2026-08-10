@@ -5,7 +5,6 @@ export function getStaticPaths() {
 
 import { useAstroI18n } from "../../../i18n/astro";
 import Layout from "../../../layouts/Layout.astro";
-import ActivityPage from "../../../components/ActivityPage";
 import TripItineraryPage from "../../../components/TripItineraryPage";
 
 import mustangImg from "../../../assets/images/activities/photography/mustang deserts.webp";
@@ -14,48 +13,59 @@ import type { Locale } from "../../../i18n/i18n";
 const { lang, baseUrl, tripData, dict, enDict } = await useAstroI18n(Astro.url);
 const trip = tripData("photography.mustang") || {};
 
-const images = [mustangImg.src];
-
 const packingList = [
     {
-        category: "Camera Gear",
+        category: "Camera Gear & Lenses",
         items: [
-            "DSLR or Mirrorless Body (Backup body recommended)",
-            "Wide angle lens (16-35mm) for landscapes",
-            "Mid-range zoom (24-70mm) for street/general",
-            "Telephoto lens (70-200mm or longer) for wildlife & portraits",
-            "Fast prime lens (35mm or 50mm f/1.8) for low light",
-            "Tripod for landscapes and long exposures",
-            "Plenty of memory cards and spare batteries",
-            "Polarizing filter and ND filters",
-            "Cleaning kit (dust is an issue in Mustang)",
+            "Full-frame DSLR or Mirrorless Body (Backup body highly recommended)",
+            "Wide-angle lens (16-35mm) for trans-Himalayan canyons and Durbar Squares",
+            "Mid-range zoom (24-70mm) for Tiji Festival masked dances & street photography",
+            "Super Telephoto lens (100-400mm or 200-600mm) for Bengal tigers & river wildlife in Bardiya",
+            "Fast Prime lens (35mm or 50mm f/1.4 - f/1.8) for low-light monastery interiors",
+            "Sturdy Tripod for star trails & landscape panoramas",
+            "Camera sensor cleaning kit & dust blowers (essential for Mustang desert winds)",
+            "Rain/dust protective camera covers & dry bags",
+            "Extra batteries & solar/power banks (limited power in high Mustang villages)",
+        ],
+    },
+    {
+        category: "Clothing & Off-Road Gear",
+        items: [
+            "Sturdy high-ankle trekking boots for rocky desert terrain",
+            "Warm thermal base layers, fleece jacket & down coat (cold Mustang mornings)",
+            "Breathable lightweight safari clothing for hot, humid Bardiya jungle days",
+            "Sun hat, UV sunglasses & high-factor sunscreen",
+            "Dust mask or buff for dirt road vehicle drives",
+            "Water filtration bottle or purification tablets",
         ],
     },
 ];
 ---
 <Layout
-    title={`${trip.title || 'Mustang & Chitwan Photography Expedition'} | Marga Adventure`}
-    image={images[0]}
-    keywords="Mustang Chitwan Photography, Tiji Festival photography, Nepal wildlife photography, Upper Mustang trek, landscape photography Nepal"
+    title={`${trip.title || 'Mustang & Bardiya Tiji Festival Expedition'} | Marga Adventure`}
+    image={mustangImg.src}
+    keywords="Mustang Bardiya Photography, Tiji Festival photography, Royal Bardiya tiger tracking, Upper Mustang trek, Lo Manthang festival, Nepal wildlife safari"
 >
     <TripItineraryPage
-        title={trip.title || "Tiji Festival Mustang Adventure"}
-        heroImage={images[0]}
+        title={trip.title || "Mustang & Bardiya Tiji Festival Expedition"}
+        subtitle={trip.subtitle || "Ancient Tibetan Rituals, Trans-Himalayan Deserts & Royal Bardiya Wilderness"}
+        heroImage={mustangImg.src}
         overview={trip.overview || ""}
         highlights={trip.highlights || []}
         itinerary={trip.itinerary || []}
-        packingList={packingList}
-        showElevationGraph={false}
         tripStats={{
             duration: trip.duration || "14 Days",
             maxAltitude: trip.maxAltitude || "3,840m",
+            maxAltitudeLabel: trip.maxAltitudeLabel || "Max Altitude",
             difficulty: trip.difficulty || "Moderate",
             groupSize: trip.groupSize || "2-10",
-            maxAltitudeLabel: trip.maxAltitudeLabel || "Max Altitude",
         }}
+        showElevationGraph={false}
+        packingList={packingList}
         client:load
         initialLocale={lang}
         initialDict={dict}
         initialFallbackDict={enDict}
     />
 </Layout>
+
