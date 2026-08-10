@@ -5,35 +5,66 @@ export function getStaticPaths() {
 
 import { useAstroI18n } from "../../../i18n/astro";
 import Layout from "../../../layouts/Layout.astro";
-import ExpeditionSpecialLayout from "../../../components/ExpeditionSpecialLayout";
+import TripItineraryPage from "../../../components/TripItineraryPage";
 
 import holiImg1 from "../../../assets/images/activities/photography/holi 1.webp";
 import holiImg2 from "../../../assets/images/activities/photography/holi 2.webp";
 import type { Locale } from "../../../i18n/i18n";
 
-const { lang, baseUrl, t, tripData, dict } = await useAstroI18n(Astro.url);
-// Fetch trip data from trips.json
-const trip = tripData("photography.holi");
+const { lang, baseUrl, tripData, dict, enDict } = await useAstroI18n(Astro.url);
+const trip = tripData("photography.holi") || {};
+
+const packingList = [
+    {
+        category: "Camera Gear & Protection",
+        items: [
+            "DSLR / Mirrorless body (plus a backup body)",
+            "Protective camera rain/dust covers (essential for powder and water protection)",
+            "Fast Prime Lens (35mm or 50mm f/1.4 - f/1.8) for low light & street portraits",
+            "Wide-angle Lens (16-35mm) for vibrant crowd scenes and Durbar Squares",
+            "Telephoto Lens (70-200mm) for capturing candid expressions from a safe distance",
+            "Clear UV Filters on all lenses to protect glass from colored powder (gulal)",
+            "Lens cleaning supplies, blower, and microfiber cloths",
+            "Extra batteries and memory cards",
+        ],
+    },
+    {
+        category: "Clothing & Festival Essentials",
+        items: [
+            "White or light-colored cotton clothes (which will get stained with vibrant colors!)",
+            "Sunglasses / protective eyewear to guard eyes from airborne color powders",
+            "Comfortable, closed walking shoes or old sneakers",
+            "Small dry-bag or waterproof pouch for mobile phone and personal items",
+            "Sun hat and high-factor sunscreen",
+        ],
+    },
+];
 ---
 <Layout
-    title={trip.title}
+    title={`${trip.title || 'Holi Festival Photography Expedition'} | Marga Adventure`}
     image={holiImg1.src}
-    keywords="Holi Festival photography, Fagu Purnima Nepal, Kathmandu festival photography, cultural photography tour, Nepal festivals"
+    keywords="Holi Festival photography, Fagu Purnima Nepal, Kathmandu festival photography, Patan Durbar Square, Bhaktapur Holi, cultural photography tour"
 >
-    <ExpeditionSpecialLayout
-        title={trip.title}
-        overview={trip.overview}
-        images={[holiImg1.src, holiImg2.src]}
-        highlights={trip.highlights}
-        features={trip.features}
+    <TripItineraryPage
+        title={trip.title || "Holi Festival Photography Expedition"}
+        subtitle={trip.subtitle || "Vibrant Colors, Historic Durbar Squares & Ancient Newar Traditions"}
+        heroImage={holiImg1.src}
+        overview={trip.overview || ""}
+        highlights={trip.highlights || []}
+        itinerary={trip.itinerary || []}
         tripStats={{
-            destination: "Kathmandu Valley",
-            difficulty: t("trip.easy"),
-            groupSize: "4-10",
-            season: "March (Spring)",
+            duration: trip.duration || "11 Days",
+            maxAltitude: trip.maxAltitude || "1,400m",
+            maxAltitudeLabel: trip.maxAltitudeLabel || "Max Altitude",
+            difficulty: trip.difficulty || "Easy",
+            groupSize: trip.groupSize || "2-10",
         }}
+        showElevationGraph={false}
+        packingList={packingList}
         client:load
         initialLocale={lang}
         initialDict={dict}
+        initialFallbackDict={enDict}
     />
 </Layout>
+
