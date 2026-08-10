@@ -67,10 +67,9 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuOpen, forceOpaque = false }) => {
 
         <div className="flex items-center gap-6 md:gap-10">
           {/* Language switcher — EN | FR */}
-          {/* Language toggle button */}
           <button
             onClick={() => switchLanguage(locale === 'en' ? 'fr' : 'en')}
-            className={`font-bold text-sm tracking-wider transition-colors px-2 py-1 border-b-2 ${
+            className={`font-bold text-sm tracking-wider transition-colors px-2 py-1 border-b-2 cursor-pointer ${
               isOpaque 
                 ? 'text-brand border-brand/20 hover:border-brand' 
                 : 'text-white border-white/20 hover:border-white'
