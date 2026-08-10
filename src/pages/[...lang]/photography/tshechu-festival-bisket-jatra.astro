@@ -35,32 +35,33 @@ const packingList = [
     },
 ];
 
-import bgImage from "../../../assets/images/activities/photography/Bisket Jatra.webp";
+import bgImage from "../../../assets/images/activities/photography/tshechu-photography_5.webp";
 import type { Locale } from "../../../i18n/i18n";
 ---
 <Layout
-    title={`${trip.title || 'Tshechu Festival & Bisket Jatra'} | Marga Adventure`}
+    title={`${trip.title || 'Tshechu Festival & Sacred Cham Dances'} | Marga Adventure`}
     image={bgImage.src}
-    keywords="Tshechu Festival photography, Bisket Jatra Nepal, Bhaktapur festival, Buddhist festival photography, cultural tours Nepal"
+    keywords="Tshechu Festival photography, Cham masked dance Nepal, Shechen monastery, Tibetan Buddhist rituals, Nepal cultural photography"
 >
     <TripItineraryPage
-        title={trip.title || "Tshechu Festival & Bisket Jatra"}
-        subtitle={trip.subtitle || "A Visual Pilgrimage"}
+        title={trip.title || "Tshechu Festival & Sacred Cham Dances"}
+        subtitle={trip.subtitle || "Monastic Rituals, Masked Cham Dances & Himalayan Culture"}
         heroImage={bgImage.src}
         overview={trip.overview || ""}
         highlights={trip.highlights || []}
         itinerary={trip.itinerary || []}
         tripStats={{
-            duration: trip.duration || "14 Days",
-            maxAltitude: trip.maxAltitude || "Culture / Photo",
+            duration: trip.duration || "12 Days",
+            maxAltitude: trip.maxAltitude || "Monastic & Photo",
             maxAltitudeLabel: trip.maxAltitudeLabel || "Trip Type",
-            difficulty: trip.difficulty || "Moderate",
+            difficulty: trip.difficulty || "Easy",
             groupSize: trip.groupSize || "2-10",
         }}
         showElevationGraph={false}
         packingList={packingList}
-        client:visible
-     initialLocale={lang}
-     initialDict={dict}
-     initialFallbackDict={enDict} />
+        client:load
+        initialLocale={lang}
+        initialDict={dict}
+        initialFallbackDict={enDict}
+    />
 </Layout>
