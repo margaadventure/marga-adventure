@@ -22,14 +22,46 @@ export const LOCALE_CHANGE_EVENT = 'marga:language-changed';
 // ─── In-memory cache ──────────────────────────────────────────────────────────
 const cache: Partial<Record<Locale, TranslationDict>> = {};
 
+export function deepMerge(target: any, source: any) {
+  const result = { ...target };
+  for (const key in source) {
+    if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+      result[key] = deepMerge(target[key] || {}, source[key]);
+    } else {
+      if (target[key] === undefined) {
+        result[key] = source[key];
+      }
+    }
+  }
+  return result;
+}
+
+export function setLocaleCache(locale: Locale, dict: TranslationDict) {
+  if (dict && Object.keys(dict).length > 0) {
+    cache[locale] = deepMerge(cache[locale] || {}, dict);
+  }
+}
+
 // ─── Loader ───────────────────────────────────────────────────────────────────
 export async function loadLocale(locale: Locale): Promise<TranslationDict> {
-  if (cache[locale]) return cache[locale]!;
+  if (cache[locale] && Object.keys(cache[locale]!).length > 0) return cache[locale]!;
 
   try {
-    const res = await fetch(`/locales/${locale}/common.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = (await res.json()) as TranslationDict;
+    const [commonRes, tripsRes] = await Promise.all([
+      fetch(`/locales/${locale}/common.json`).catch(() => null),
+      fetch(`/locales/${locale}/trips.json`).catch(() => null),
+    ]);
+
+    let commonData: TranslationDict = {};
+    if (commonRes && commonRes.ok) {
+      commonData = (await commonRes.json()) as TranslationDict;
+    }
+    let tripsData: TranslationDict = {};
+    if (tripsRes && tripsRes.ok) {
+      tripsData = (await tripsRes.json()) as TranslationDict;
+    }
+
+    const data = deepMerge(commonData, tripsData);
     cache[locale] = data;
     return data;
   } catch (err) {
