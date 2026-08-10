@@ -22,6 +22,7 @@ import {
   resolveInitialLocale,
   storeLocale,
   dispatchLocaleChange,
+  setLocaleCache,
   type Locale,
   type TranslationDict,
   DEFAULT_LOCALE,
@@ -65,6 +66,16 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
   const [fallbackDict, setFallbackDict] = useState<TranslationDict>(initialFallbackDict ?? {});
   const [isLoading, setIsLoading] = useState(!initialDict);
 
+  // Populate cache on mount if initialDict / initialFallbackDict are provided
+  useEffect(() => {
+    if (initialLocale && initialDict) {
+      setLocaleCache(initialLocale, initialDict);
+    }
+    if (initialFallbackDict) {
+      setLocaleCache(DEFAULT_LOCALE, initialFallbackDict);
+    }
+  }, [initialLocale, initialDict, initialFallbackDict]);
+
   // Load English fallback dictionary on mount
   useEffect(() => {
     if (DEFAULT_LOCALE === initialLocale && initialDict) {
@@ -88,11 +99,18 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
   // Load translation dict whenever locale changes
   useEffect(() => {
     let cancelled = false;
+
+    // If initialDict was provided for this locale and dict is already populated, skip re-fetching
+    if (initialDict && locale === initialLocale && Object.keys(dict).length > 0) {
+      setIsLoading(false);
+      return;
+    }
+
     setIsLoading(true);
 
     loadLocale(locale).then((data) => {
       if (!cancelled) {
-        setDict(data);
+        setDict((prev) => ({ ...data, ...prev }));
         setIsLoading(false);
       }
     });
@@ -100,7 +118,7 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
     return () => {
       cancelled = true;
     };
-  }, [locale]);
+  }, [locale, initialLocale, initialDict]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
