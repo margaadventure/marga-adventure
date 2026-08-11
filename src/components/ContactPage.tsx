@@ -26,36 +26,56 @@ const ContactPage: React.FC = () => {
       return () => observer.disconnect();
    }, []);
 
-   React.useEffect(() => {
-      const scriptId = 'web3forms-script';
-      if (!document.getElementById(scriptId)) {
-         const script = document.createElement('script');
-         script.id = scriptId;
-         script.src = "https://web3forms.com/client/script.js";
-         script.async = true;
-         script.defer = true;
-         document.body.appendChild(script);
-      }
-   }, []);
+   const captchaRef = React.useRef<HTMLDivElement>(null);
 
-   // Reinitialize Web3Forms script when formKey changes (form reset)
    React.useEffect(() => {
-      if (formKey > 0) {
-         const scriptId = 'web3forms-script';
-         const existingScript = document.getElementById(scriptId);
-         if (existingScript) {
-            existingScript.remove();
+      let isMounted = true;
+
+      const renderCaptcha = () => {
+         if (captchaRef.current && window.hcaptcha) {
+            try {
+               captchaRef.current.innerHTML = '';
+               window.hcaptcha.render(captchaRef.current, {
+                  sitekey: '50b2fe65-b00b-4b9e-ad62-3ba471098be2',
+                  theme: 'light'
+               });
+            } catch (err) {
+               console.error('hCaptcha render error:', err);
+            }
          }
+      };
 
-         setTimeout(() => {
+      const loadScriptAndRender = () => {
+         const scriptId = 'hcaptcha-api-script';
+         if (window.hcaptcha) {
+            renderCaptcha();
+         } else if (!document.getElementById(scriptId)) {
             const script = document.createElement('script');
             script.id = scriptId;
-            script.src = "https://web3forms.com/client/script.js";
+            script.src = "https://js.hcaptcha.com/1/api.js?render=explicit";
             script.async = true;
             script.defer = true;
+            script.onload = () => {
+               if (isMounted) renderCaptcha();
+            };
             document.body.appendChild(script);
-         }, 100);
-      }
+         } else {
+            const checkInterval = setInterval(() => {
+               if (window.hcaptcha) {
+                  clearInterval(checkInterval);
+                  if (isMounted) renderCaptcha();
+               }
+            }, 100);
+            setTimeout(() => clearInterval(checkInterval), 5000);
+         }
+      };
+
+      const timer = setTimeout(loadScriptAndRender, 150);
+
+      return () => {
+         isMounted = false;
+         clearTimeout(timer);
+      };
    }, [formKey]);
 
 
@@ -298,7 +318,7 @@ const ContactPage: React.FC = () => {
 
                      {message && <p className={`text-sm text-center font-bold ${message.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>{message}</p>}
 
-                     <div key={formKey} className="h-captcha mb-6" data-captcha="true"></div>
+                     <div ref={captchaRef} key={formKey} className="h-captcha mb-6 flex justify-center min-h-[78px]" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
 
                      <button
                         type="submit"

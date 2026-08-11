@@ -297,60 +297,36 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                             ))}
                         </div>
 
-                        {/* Booking CTA at end of Itinerary */}
-                        <div className="mt-12 p-8 md:p-10 bg-linear-to-r from-brand-dark via-brand to-brand-dark text-white rounded-none shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
-                            <div className="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
-                            <div className="relative z-10 text-center md:text-left">
-                                <span className="inline-block px-3.5 py-1 bg-white/20 backdrop-blur-md rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-3 text-white">
-                                    {t('trip.readyToExplore') || 'Ready for this Expedition?'}
-                                </span>
-                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
-                                    {t('trip.bookThisTrip')}
-                                </h3>
-                                <p className="text-white/80 text-sm md:text-base font-light max-w-xl">
-                                    {t('trip.bookDesc') || t('trip.secureSpot')}
-                                </p>
-                            </div>
-                            <div className="relative z-10 shrink-0 w-full md:w-auto">
-                                <button
-                                    onClick={() => setIsModalOpen(true)}
-                                    className="w-full md:w-auto px-8 py-4 bg-white text-brand-dark hover:bg-gray-100 font-bold uppercase tracking-[0.2em] text-xs transition-all transform hover:-translate-y-1 shadow-2xl shadow-black/20 cursor-pointer flex items-center justify-center gap-3 group"
-                                >
-                                    <span>{t('trip.enquireNow')}</span>
-                                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </button>
-                            </div>
-                        </div>
                     </section>
 
                 </div>
 
                 {/* Right Column (Sticky Sidebar) */}
                 <div className="lg:col-span-1">
-                    <div className="sticky top-24 space-y-8">
+                    <div className="sticky top-28 space-y-8 z-30">
                         {/* Booking Card */}
-                        <div className="bg-white p-10 border border-gray-100 shadow-2xl shadow-gray-200/50 relative overflow-hidden group hover:shadow-brand/10 transition-shadow duration-500">
+                        <div className="bg-white p-8 md:p-10 border border-gray-100 shadow-2xl shadow-gray-200/50 relative overflow-hidden group hover:shadow-brand/10 transition-shadow duration-500">
                             <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-brand to-brand-light"></div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('trip.bookThisTrip')}</h3>
-                            <p className="text-gray-500 text-sm mb-8 font-light">{t('trip.bookDesc')}</p>
+                            <p className="text-gray-500 text-sm mb-6 font-light">{t('trip.bookDesc')}</p>
 
-                            <div className="space-y-4 mb-8">
+                            <div className="space-y-4 mb-6">
                                 <button
                                     onClick={() => setIsModalOpen(true)}
-                                    className="block w-full bg-brand text-white text-center py-5 font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-brand/20"
+                                    className="block w-full bg-brand text-white text-center py-4 md:py-5 font-bold uppercase tracking-[0.2em] text-xs hover:bg-brand-dark transition-all transform hover:-translate-y-1 shadow-xl shadow-brand/20 cursor-pointer"
                                 >
                                     {t('trip.enquireNow')}
                                 </button>
                             </div>
 
-                            <div className="border-t border-gray-100 pt-6 text-center">
-                                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-2">{t('trip.haveQuestions')}</p>
-                                <a href="tel:+9779700050945" className="text-brand font-bold text-lg hover:underline decoration-2 underline-offset-4">+977 970-0050945</a>
+                            <div className="border-t border-gray-100 pt-5 text-center">
+                                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest mb-1">{t('trip.haveQuestions')}</p>
+                                <a href="tel:+9779700050945" className="text-brand font-bold text-base md:text-lg hover:underline decoration-2 underline-offset-4">+977 970-0050945</a>
                             </div>
                         </div>
 
                         {/* Why Choose Us */}
-                        <div className="bg-brand-dark text-white p-10 relative overflow-hidden">
+                        <div className="bg-brand-dark text-white p-8 md:p-10 relative overflow-hidden">
                             <div className="absolute top-0 right-0 -mr-8 -mt-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
                             <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-32 h-32 bg-brand/20 rounded-full blur-2xl"></div>
 
@@ -379,6 +355,33 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                     </div>
                 </div>
 
+            </div>
+
+            {/* Web & Mobile Sticky Floating Booking Bar - Always present on scroll */}
+            <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-3.5 px-6 md:px-12 lg:px-24 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.1)] flex items-center justify-between gap-6">
+                <div className="flex items-center gap-6">
+                    <div className="hidden sm:block">
+                        <span className="text-[10px] text-brand font-bold uppercase tracking-widest block">{t('trip.readyToExplore') || 'Ready for this Expedition?'}</span>
+                        <p className="text-sm font-bold text-gray-900 leading-tight">{title}</p>
+                    </div>
+                    <div className="border-l border-gray-200 pl-6 hidden md:block">
+                        <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-0.5">{t('trip.haveQuestions')}</p>
+                        <a href="tel:+9779700050945" className="text-brand font-bold text-sm hover:underline">+977 970-0050945</a>
+                    </div>
+                </div>
+                <div className="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                    <div className="sm:hidden">
+                        <p className="text-xs font-bold text-gray-900">{t('trip.bookThisTrip')}</p>
+                        <a href="tel:+9779700050945" className="text-brand font-bold text-xs hover:underline">+977 970-0050945</a>
+                    </div>
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="bg-brand text-white px-8 py-3.5 font-bold uppercase tracking-[0.2em] text-xs shadow-lg shadow-brand/20 hover:bg-brand-dark transition-all transform hover:-translate-y-0.5 shrink-0 cursor-pointer flex items-center gap-2 group"
+                    >
+                        <span>{t('trip.enquireNow')}</span>
+                        <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </div>
             </div>
 
             <ContactModal

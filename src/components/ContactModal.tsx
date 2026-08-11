@@ -7,6 +7,12 @@ interface ContactModalProps {
     tripTitle?: string;
 }
 
+declare global {
+    interface Window {
+        hcaptcha?: any;
+    }
+}
+
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle }) => {
     const { t } = useTranslation();
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,6 +20,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
     const [message, setMessage] = useState('');
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [formKey, setFormKey] = useState(0);
+    const captchaRef = React.useRef<HTMLDivElement>(null);
+    const widgetIdRef = React.useRef<any>(null);
 
     // Close on Escape key
     useEffect(() => {
@@ -21,33 +29,69 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
             if (e.key === 'Escape' && isOpen) onClose();
         };
         window.addEventListener('keydown', handleEsc);
+        return () => window.removeEventListener('keydown', handleEsc);
+    }, [isOpen, onClose]);
 
-        // Dynamically load Web3Forms script when modal opens
-        if (isOpen) {
-            // Yield to main thread before script injection to allow modal animation
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    const scriptId = 'web3forms-script';
-                    if (!document.getElementById(scriptId)) {
-                        const script = document.createElement('script');
-                        script.id = scriptId;
-                        script.src = "https://web3forms.com/client/script.js";
-                        script.async = true;
-                        script.defer = true;
-                        document.body.appendChild(script);
-                    }
-                });
-            });
-        } else {
-            // Reset form key when modal closes to ensure fresh captcha on reopen
+    // Handle hCaptcha rendering when modal opens or resets
+    useEffect(() => {
+        if (!isOpen) {
             setFormKey(prev => prev + 1);
             setIsSuccess(false);
             setMessage('');
             setErrors({});
+            widgetIdRef.current = null;
+            return;
         }
 
-        return () => window.removeEventListener('keydown', handleEsc);
-    }, [isOpen, onClose]);
+        let isMounted = true;
+
+        const renderCaptcha = () => {
+            if (captchaRef.current && window.hcaptcha) {
+                try {
+                    captchaRef.current.innerHTML = '';
+                    const id = window.hcaptcha.render(captchaRef.current, {
+                        sitekey: '50b2fe65-b00b-4b9e-ad62-3ba471098be2',
+                        theme: 'light'
+                    });
+                    widgetIdRef.current = id;
+                } catch (err) {
+                    console.error('hCaptcha render error:', err);
+                }
+            }
+        };
+
+        const loadScriptAndRender = () => {
+            const scriptId = 'hcaptcha-api-script';
+            if (window.hcaptcha) {
+                renderCaptcha();
+            } else if (!document.getElementById(scriptId)) {
+                const script = document.createElement('script');
+                script.id = scriptId;
+                script.src = "https://js.hcaptcha.com/1/api.js?render=explicit";
+                script.async = true;
+                script.defer = true;
+                script.onload = () => {
+                    if (isMounted) renderCaptcha();
+                };
+                document.body.appendChild(script);
+            } else {
+                const checkInterval = setInterval(() => {
+                    if (window.hcaptcha) {
+                        clearInterval(checkInterval);
+                        if (isMounted) renderCaptcha();
+                    }
+                }, 100);
+                setTimeout(() => clearInterval(checkInterval), 5000);
+            }
+        };
+
+        const timer = setTimeout(loadScriptAndRender, 150);
+
+        return () => {
+            isMounted = false;
+            clearTimeout(timer);
+        };
+    }, [isOpen, formKey]);
 
     const validateForm = (formData: FormData) => {
         const newErrors: Record<string, string> = {};
@@ -231,7 +275,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
 
                                 {message && <p className={`text-xs text-center ${message.includes('Thank') ? 'text-green-600' : 'text-red-500'}`}>{message}</p>}
 
-                                <div key={formKey} className="h-captcha mb-4" data-captcha="true"></div>
+                                <div ref={captchaRef} key={formKey} className="h-captcha mb-4 flex justify-center min-h-[78px]" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
 
                                 <button
                                     type="submit"
