@@ -212,7 +212,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, tripTitle 
 
                             <form key={formKey} onSubmit={handleSubmit} className="space-y-5" noValidate>
                                 <input type="hidden" name="access_key" value="33ad888f-94c9-434b-8f55-54b98c72d921" />
-                                <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || '<span translate="no">Marga Adventure</span>'}`} />
+                                <input type="hidden" name="subject" value={`New Enquiry for ${tripTitle || 'Marga Adventure'}`} />
                                 <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
                                 {/* Web3Forms hCaptcha Widget Container moved to bottom */}
 

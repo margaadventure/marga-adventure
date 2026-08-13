@@ -80,7 +80,7 @@ const NepalPageContent: React.FC<any> = (props) => {
             >
               <img
                 src={activity.image}
-                alt={`${activity.title} - <span translate="no">Marga Adventure</span> Activity in Nepal`}
+                alt={`${activity.title} - Marga Adventure Activity in Nepal`}
                 className="w-full h-full object-cover transition-transform duration-700 md:group-hover:scale-110"
                 loading="lazy"
                 decoding="async"

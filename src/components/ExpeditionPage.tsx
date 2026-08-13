@@ -45,7 +45,7 @@ const ExpeditionPageContent: React.FC<ExpeditionPageProps> = ({
             {/* Hero Section */}
             <div className="relative h-[85vh] min-h-[700px]">
                 <div className="absolute inset-0">
-                    <img src={heroImage} alt={`${title} Expedition - <span translate="no">Marga Adventure</span>`} className="w-full h-full object-cover" />
+                    <img src={heroImage} alt={`${title} Expedition - Marga Adventure`} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/80"></div>
                 </div>
                 <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 lg:p-24 pb-56">
