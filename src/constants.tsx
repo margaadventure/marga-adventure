@@ -2,7 +2,6 @@ import type { ElevationPoint } from './types';
 
 // Carousel Images
 import spiritual1 from './assets/images/activities/spiritual/waterfall-yoga-spiritual.webp';
-import spiritualHeadstand from './assets/images/activities/spiritual/headstand-yoga-spiritual.webp';
 import spiritual2 from './assets/images/activities/spiritual/sunlight-spiritual_5.webp';
 import spiritual3 from './assets/images/activities/spiritual/yoga-spiritual_1.webp';
 import spiritual4 from './assets/images/activities/spiritual/healing-bowl_spritual_4.webp';
@@ -68,7 +67,7 @@ export const JOURNEY_CATEGORIES = [
     titleKey: 'home.spiritualTitle',
     description: 'Spirituality is the quiet conversation between your true self and the universe. It is a profound stillness that transcends religious dogmas. Nepal is a sanctuary where the peaks of the Himalayas meet ancient wisdom. Marga carves the route to self through these monumental experiences.',
     descriptionKey: 'home.spiritualDesc',
-    images: [spiritual1, spiritualHeadstand, spiritual2, spiritual3, spiritual4, spiritual5],
+    images: [spiritual1, spiritual2, spiritual3, spiritual4, spiritual5],
     alignment: 'right' as const
   },
   {
