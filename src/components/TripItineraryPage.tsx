@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PageHero from './PageHero';
 const ElevationGraph = React.lazy(() => import('./ElevationGraph'));
 import ContactModal from './ContactModal';
+import CollapsibleGallery, { type GalleryImage } from './CollapsibleGallery';
+import BlockImageCard, { type BlockImage } from './BlockImageCard';
 import { useTranslation } from '../i18n/useTranslation';
 import I18nShell from '../i18n/I18nShell';
 import type { Locale } from '../i18n/i18n';
@@ -34,6 +36,10 @@ interface TripItineraryPageProps {
     price?: string;
     packingList?: { category: string; items: string[] }[];
     showElevationGraph?: boolean;
+    galleryImages?: GalleryImage[];
+    galleryTitle?: string;
+    gallerySubtitle?: string;
+    blockImages?: BlockImage[];
     initialLocale?: string;
     initialDict?: any;
     initialFallbackDict?: any;
@@ -54,7 +60,11 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
     },
     price = "On Request",
     packingList,
-    showElevationGraph = true
+    showElevationGraph = true,
+    galleryImages,
+    galleryTitle,
+    gallerySubtitle,
+    blockImages = []
 }) => {
     const { t, locale } = useTranslation();
     const [activeDay, setActiveDay] = useState<number | null>(0);
@@ -72,7 +82,7 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
     }, [itinerary]);
 
     return (
-        <div className="bg-white font-sans text-gray-800">
+        <div className="bg-white font-sans text-gray-800 overflow-x-hidden w-full max-w-full">
             {/* Hero Section */}
             <div className="relative h-[85vh] min-h-[700px]">
                 <div className="absolute inset-0">
@@ -94,8 +104,8 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                 </div>
 
                 {/* Quick Stats Bar - Floating */}
-                <div className="absolute -bottom-16 left-0 right-0 px-6 md:px-12 lg:px-24">
-                    <div className="max-w-7xl mx-auto bg-white/95 backdrop-blur-md shadow-2xl shadow-black/10 border border-white/20 px-8 py-8 grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-20 rounded-none transform transition-transform hover:-translate-y-1 duration-500">
+                <div className="absolute -bottom-16 left-0 right-0 px-4 sm:px-6 md:px-12 lg:px-24">
+                    <div className="max-w-7xl mx-auto bg-white/95 backdrop-blur-md shadow-2xl shadow-black/10 border border-white/20 px-4 sm:px-6 md:px-8 py-6 sm:py-8 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 relative z-20 rounded-none transform transition-transform hover:-translate-y-1 duration-500 overflow-hidden">
                         <div className="flex items-center gap-5 border-r border-gray-100 last:border-0 pr-4">
                             <div className="p-3.5 bg-brand text-white shadow-lg shadow-brand/30 rounded-none shrink-0">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -141,10 +151,10 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
             </div>
 
             {/* Main Content Layout */}
-            <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-32 grid lg:grid-cols-3 gap-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24 py-24 sm:py-32 grid lg:grid-cols-3 gap-12 sm:gap-16 lg:gap-20 w-full max-w-full overflow-hidden box-border">
 
                 {/* Left Column (Content) */}
-                <div className="lg:col-span-2 space-y-24">
+                <div className="lg:col-span-2 space-y-24 min-w-0 w-full max-w-full overflow-hidden">
 
                     {/* Overview */}
                     <section id="overview">
@@ -159,7 +169,12 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                             <p className="whitespace-pre-line text-lg">{overview}</p>
                         </div>
 
-                        <div className="bg-gray-50 p-10 border-l-4 border-brand mt-12 hover:bg-gray-50/80 transition-colors">
+                        {/* Inline Section Block Image (Overview) */}
+                        {blockImages.find(img => img.location === 'overview') && (
+                            <BlockImageCard image={blockImages.find(img => img.location === 'overview')!} />
+                        )}
+
+                        <div className="bg-gray-50 p-5 sm:p-8 md:p-10 border-l-4 border-brand mt-12 hover:bg-gray-50/80 transition-colors overflow-hidden">
                             <h3 className="text-xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                                 <svg className="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
                                 {t('trip.highlightExperiences')}
@@ -178,6 +193,11 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                 ))}
                             </div>
                         </div>
+
+                        {/* Inline Section Block Image (Highlights) */}
+                        {blockImages.find(img => img.location === 'highlights') && (
+                            <BlockImageCard image={blockImages.find(img => img.location === 'highlights')!} />
+                        )}
                     </section>
 
                     {/* Elevation Graph */}
@@ -210,17 +230,17 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                             {t('trip.dayByDay')} <span className="text-brand italic font-serif">{t('trip.itinerary')}</span>
                         </h2>
 
-                        <div className="relative border-l border-gray-200 ml-6 md:ml-8 pl-8 md:pl-12 space-y-8">
+                        <div className="relative border-l border-gray-200 ml-3 sm:ml-6 md:ml-8 pl-4 sm:pl-8 md:pl-12 space-y-6 sm:space-y-8">
                             {itinerary.map((day, index) => (
-                                <div key={index} className="relative z-0 mb-6 last:mb-0">
+                                <div key={index} className="relative z-0 mb-4 sm:mb-6 last:mb-0">
                                     {/* Timeline Dot */}
-                                    <div className={`absolute -left-[41px] md:-left-[57px] top-8 flex items-center justify-center transition-all duration-300 z-0 pointer-events-none ${activeDay === index ? 'translate-y-8' : ''}`}>
+                                    <div className={`absolute -left-[21px] sm:-left-[41px] md:-left-[57px] top-8 flex items-center justify-center transition-all duration-300 z-0 pointer-events-none ${activeDay === index ? 'translate-y-8' : ''}`}>
                                         <div className={`w-4 h-4 rounded-full border-2 border-white ring-1 ring-gray-200 transition-all duration-300 ${activeDay === index ? 'bg-brand scale-125 ring-brand/50 shadow-[0_0_0_4px_rgba(30,115,190,0.15)]' : 'bg-gray-100 lg:group-hover:bg-brand/50 lg:group-hover:ring-brand/30'}`}></div>
                                         {activeDay === index && <div className="absolute w-8 h-8 rounded-full bg-brand/10 animate-ping"></div>}
                                     </div>
 
                                     {/* Card Container */}
-                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border ${activeDay === index ? 'bg-white shadow-xl border-l-4 border-l-brand my-4 md:my-6 md:scale-[1.02]' : 'bg-white/60 border-gray-100 hover:border-gray-200'}`}>
+                                    <div className={`relative transition-all duration-300 rounded-lg overflow-hidden border ${activeDay === index ? 'bg-white shadow-xl border-l-4 border-l-brand my-4 md:my-6' : 'bg-white/60 border-gray-100 hover:border-gray-200'}`}>
                                         <div
                                             role="button"
                                             tabIndex={0}
@@ -231,10 +251,10 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                                     setActiveDay(prev => prev === index ? null : index);
                                                 }
                                             }}
-                                            className="w-full relative z-10 cursor-pointer text-left focus:outline-none transition-colors select-none p-5 md:p-8 block"
+                                            className="w-full relative z-10 cursor-pointer text-left focus:outline-none transition-colors select-none p-3 sm:p-5 md:p-8 block"
                                             aria-expanded={activeDay === index}
                                         >
-                                            <div className="flex flex-row items-start justify-between gap-5 w-full">
+                                            <div className="flex flex-row items-start justify-between gap-3 sm:gap-5 w-full">
                                                 {/* Number */}
                                                 <div className={`shrink-0 w-10 md:w-auto flex flex-col items-center justify-start transition-colors duration-300 ${activeDay === index ? 'text-brand' : 'text-gray-300'}`}>
                                                     <span className={`text-xl md:text-5xl font-serif italic font-bold leading-none ${activeDay === index ? 'text-brand drop-shadow-sm' : ''}`}>{index + 1}</span>
@@ -242,7 +262,7 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                                 
                                                 {/* Title & Info */}
                                                 <div className="flex-1 min-w-0 -mt-1">
-                                                    <h3 className={`text-lg md:text-2xl font-bold transition-all duration-300 leading-tight mb-2 pr-2 ${activeDay === index ? 'text-gray-900' : 'text-gray-700'}`}>
+                                                    <h3 className={`text-lg md:text-2xl font-bold transition-all duration-300 leading-tight mb-2 pr-2 break-words ${activeDay === index ? 'text-gray-900' : 'text-gray-700'}`}>
                                                         {day.title}
                                                     </h3>
                                                     <div className="flex items-center gap-3">
@@ -264,7 +284,7 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                                             className={`transition-all duration-500 ease-in-out overflow-hidden ${activeDay === index ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'}`}
                                         >
                                             <div className="overflow-hidden min-h-0">
-                                                <div className="px-6 pb-6 md:px-8 md:pb-10 pt-2 ml-0 md:ml-16 md:pl-8 md:border-l border-gray-100">
+                                                <div className="px-3 sm:px-6 pb-4 sm:pb-6 md:px-8 md:pb-10 pt-2 ml-0 md:ml-16 md:pl-8 md:border-l border-gray-100">
                                                     {(day.stats?.altitude || day.stats?.distance || day.stats?.duration) && (
                                                         <div className="flex flex-wrap gap-3 mb-8">
                                                             {day.stats?.altitude && (
@@ -298,6 +318,15 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
                         </div>
 
                     </section>
+
+                    {/* Collapsible Gallery Section */}
+                    {galleryImages && galleryImages.length > 0 && (
+                        <CollapsibleGallery
+                            images={galleryImages}
+                            title={galleryTitle}
+                            subtitle={gallerySubtitle}
+                        />
+                    )}
 
                 </div>
 
@@ -358,7 +387,7 @@ const TripItineraryPageContent: React.FC<TripItineraryPageProps> = ({
             </div>
 
             {/* Web & Mobile Sticky Floating Booking Bar - Always present on scroll */}
-            <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-3.5 px-6 md:px-12 lg:px-24 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.1)] flex items-center justify-between gap-6">
+            <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gray-200 py-3 sm:py-3.5 px-3 sm:px-6 md:px-12 lg:px-24 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.1)] flex items-center justify-between gap-3 sm:gap-6 max-w-[100vw] overflow-hidden">
                 <div className="flex items-center gap-6">
                     <div className="hidden sm:block">
                         <span className="text-[10px] text-brand font-bold uppercase tracking-widest block">{t('trip.readyToExplore') || 'Ready for this Expedition?'}</span>

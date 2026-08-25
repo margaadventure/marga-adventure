@@ -37,7 +37,112 @@ const packingList = [
 ];
 
 import bgImage from "../../../assets/images/activities/photography/Photography 1_.webp";
+import imgHeadstand from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_headstand_meditation.webp";
+import imgMistyProcession from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_misty_procession.webp";
+import imgTraditionalAttire from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_traditional_attire.webp";
+import imgHorseCart from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_horse_cart_driver.webp";
+import imgPlowingTerraces from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_pllowing_terraces.webp";
+
+import imgRhinos from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_chitwan_rhinos.webp";
+import imgNyatapola from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_nyatapola_temple.webp";
+import imgBoudhanath from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_boudhanath_stupa.webp";
+import imgSadhu from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_pashupatinath_sadhu.webp";
+import imgMonks from "../../../assets/images/activities/photography/shivaratri-gallery/shivaratri_monks_machhapuchhre.webp";
 import type { Locale } from "../../../i18n/i18n";
+
+const shivaratriBlockImages = [
+    {
+        src: imgSadhu.src,
+        caption: "Portrait of a Devout Sadhu at Pashupatinath",
+        alt: "Revered Hindu Sadhu with floral crown and sacred ash face paint during Shivaratri festival at Pashupatinath",
+        subtitle: "Sacred Festival & Spiritual Invocations",
+        location: "overview",
+        width: imgSadhu.width,
+        height: imgSadhu.height
+    },
+    {
+        src: imgBoudhanath.src,
+        caption: "Devotional Reflections at Boudhanath Stupa",
+        alt: "Boudhanath Stupa with colorful prayer flags and brass offering bowls in Kathmandu Valley",
+        subtitle: "Kathmandu Valley Cultural Heritage",
+        location: "highlights",
+        width: imgBoudhanath.width,
+        height: imgBoudhanath.height
+    }
+];
+
+const shivaratriGalleryImages = [
+    {
+        src: imgSadhu.src,
+        caption: "Portrait of a Devout Sadhu at Pashupatinath",
+        alt: "Hindu Sadhu with floral crown at Pashupatinath",
+        width: imgSadhu.width,
+        height: imgSadhu.height
+    },
+    {
+        src: imgBoudhanath.src,
+        caption: "Devotional Reflections at Boudhanath Stupa",
+        alt: "Boudhanath Stupa with prayer flags and offering bowls",
+        width: imgBoudhanath.width,
+        height: imgBoudhanath.height
+    },
+    {
+        src: imgNyatapola.src,
+        caption: "Nyatapola Pagoda Temple of Bhaktapur",
+        alt: "Five-story Nyatapola Temple pagoda in Bhaktapur Durbar Square",
+        width: imgNyatapola.width,
+        height: imgNyatapola.height
+    },
+    {
+        src: imgMonks.src,
+        caption: "Monks Contemplating Machhapuchhre Peak",
+        alt: "Young Buddhist monks in red robes before Fishtail mountain",
+        width: imgMonks.width,
+        height: imgMonks.height
+    },
+    {
+        src: imgRhinos.src,
+        caption: "Wild One-Horned Rhinos of Chitwan",
+        alt: "Three One-Horned Rhinoceroses in Chitwan National Park",
+        width: imgRhinos.width,
+        height: imgRhinos.height
+    },
+    {
+        src: imgHeadstand.src,
+        caption: "Yogic Transformation Under Himalayan Peaks",
+        alt: "Yogi practicing Shirshasana headstand pose in high mountain meadow",
+        width: imgHeadstand.width,
+        height: imgHeadstand.height
+    },
+    {
+        src: imgTraditionalAttire.src,
+        caption: "Elegance of Ancient Himalayan Dress",
+        alt: "Himalayan woman in traditional blue and maroon chubba",
+        width: imgTraditionalAttire.width,
+        height: imgTraditionalAttire.height
+    },
+    {
+        src: imgMistyProcession.src,
+        caption: "Misty Morning Procession in Himalayan Foothills",
+        alt: "Villagers walking through misty forest carrying harvest bundles",
+        width: imgMistyProcession.width,
+        height: imgMistyProcession.height
+    },
+    {
+        src: imgHorseCart.src,
+        caption: "Journey Across Dusty Mountain Trails",
+        alt: "Horse cart driver on dirt road with orange cloth wrapped around face",
+        width: imgHorseCart.width,
+        height: imgHorseCart.height
+    },
+    {
+        src: imgPlowingTerraces.src,
+        caption: "Timeless Harvest Beneath Sacred Peaks",
+        alt: "Farmers plowing terraced fields with oxen under Annapurna mountains",
+        width: imgPlowingTerraces.width,
+        height: imgPlowingTerraces.height
+    }
+];
 ---
 <Layout
     title={`${trip.title || 'Shivaratri Festival: Color and Contrast to Nepal'} | Marga Adventure`}
@@ -60,6 +165,10 @@ import type { Locale } from "../../../i18n/i18n";
         }}
         showElevationGraph={false}
         packingList={packingList}
+        blockImages={shivaratriBlockImages}
+        galleryImages={shivaratriGalleryImages}
+        galleryTitle="Shivaratri Festival Photography Collection"
+        gallerySubtitle="Color and Contrast of Nepal Expedition"
         client:load
         initialLocale={lang}
         initialDict={dict}

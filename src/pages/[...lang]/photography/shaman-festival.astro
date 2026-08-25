@@ -8,10 +8,108 @@ import Layout from "../../../layouts/Layout.astro";
 import TripItineraryPage from "../../../components/TripItineraryPage";
 
 import shamanPortraitImg from "../../../assets/images/activities/photography/Shaman portrait.webp";
+import shamanSacredSmoke from "../../../assets/images/activities/photography/shaman-gallery/shaman_sacred_smoke.webp";
+import shamanPassingWisdom from "../../../assets/images/activities/photography/shaman-gallery/shaman_passing_wisdom.webp";
+import shamanSpiritualGuardian from "../../../assets/images/activities/photography/shaman-gallery/shaman_spiritual_guardian.webp";
+import shamanInvokingSpirits from "../../../assets/images/activities/photography/shaman-gallery/shaman_invoking_spirits.webp";
+import shamanDrumsNakchhong from "../../../assets/images/activities/photography/shaman-gallery/shaman_drums_nakchhong.webp";
+
+import shamanGuardianOfRituals from "../../../assets/images/activities/photography/shaman-gallery/shaman_guardian_of_rituals.webp";
+import shamanUnforgettableFriendships from "../../../assets/images/activities/photography/shaman-gallery/shaman_unforgettable_friendships.webp";
+import shamanMudLaughter from "../../../assets/images/activities/photography/shaman-gallery/shaman_mud_laughter.webp";
 import type { Locale } from "../../../i18n/i18n";
 
 const { lang, baseUrl, tripData, dict, enDict } = await useAstroI18n(Astro.url);
 const trip = tripData("photography.shaman") || {};
+
+const shamanBlockImages = [
+    {
+        src: shamanGuardianOfRituals.src,
+        caption: "Guardian of Rituals",
+        alt: "Elder Magar shaman guardian wrapped in traditional woven hemp cloak in Lukum Village",
+        subtitle: "Sacred Spiritual Heritage",
+        location: "overview",
+        width: shamanGuardianOfRituals.width,
+        height: shamanGuardianOfRituals.height
+    },
+    {
+        src: shamanUnforgettableFriendships.src,
+        caption: "Where Culture Creates Unforgettable Friendships",
+        alt: "Young Kham Magar shamans and villagers laughing together during ceremonial festivities",
+        subtitle: "Authentic Cultural Connection",
+        location: "highlights",
+        width: shamanUnforgettableFriendships.width,
+        height: shamanUnforgettableFriendships.height
+    },
+    {
+        src: shamanMudLaughter.src,
+        caption: "Mud, Laughter, Tradition",
+        alt: "Kham Magar woman with mountain soil on face and hands during Day 2 Shaman Festival celebration",
+        subtitle: "Jhakri Mela Earth Celebration",
+        location: "day-5",
+        width: shamanMudLaughter.width,
+        height: shamanMudLaughter.height
+    }
+];
+
+const shamanGalleryImages = [
+    {
+        src: shamanGuardianOfRituals.src,
+        caption: "Guardian of Rituals",
+        alt: "Elder Magar shaman guardian in Lukum Village",
+        width: shamanGuardianOfRituals.width,
+        height: shamanGuardianOfRituals.height
+    },
+    {
+        src: shamanUnforgettableFriendships.src,
+        caption: "Where Culture Creates Unforgettable Friendships",
+        alt: "Kham Magar shamans laughing together during festivities",
+        width: shamanUnforgettableFriendships.width,
+        height: shamanUnforgettableFriendships.height
+    },
+    {
+        src: shamanMudLaughter.src,
+        caption: "Mud, Laughter, Tradition",
+        alt: "Kham Magar woman with mountain soil during earth celebration",
+        width: shamanMudLaughter.width,
+        height: shamanMudLaughter.height
+    },
+    {
+        src: shamanSacredSmoke.src,
+        caption: "Sacred Smoke, Ancient Blessings",
+        alt: "Shaman smoking sacred pipe during ceremony in Lukum village",
+        width: shamanSacredSmoke.width,
+        height: shamanSacredSmoke.height
+    },
+    {
+        src: shamanPassingWisdom.src,
+        caption: "Passing Wisdom Across Generations",
+        alt: "Young Kham Magar shaman apprentice with sacred drum",
+        width: shamanPassingWisdom.width,
+        height: shamanPassingWisdom.height
+    },
+    {
+        src: shamanSpiritualGuardian.src,
+        caption: "Portrait of a Spiritual Guardian",
+        alt: "Kham Magar shaman with ceremonial monal feather crown",
+        width: shamanSpiritualGuardian.width,
+        height: shamanSpiritualGuardian.height
+    },
+    {
+        src: shamanInvokingSpirits.src,
+        caption: "Invoking Spirits Through Sacred Chant",
+        alt: "Shaman practitioners performing ancestral chants during Jhakri Mela",
+        width: shamanInvokingSpirits.width,
+        height: shamanInvokingSpirits.height
+    },
+    {
+        src: shamanDrumsNakchhong.src,
+        caption: "Drums of the Nakchhong Tradition",
+        alt: "Shaman kneeling with traditional dhyangro drum in Rukum East",
+        width: shamanDrumsNakchhong.width,
+        height: shamanDrumsNakchhong.height
+    }
+];
 
 const packingList = [
     {
@@ -60,6 +158,10 @@ const packingList = [
         }}
         showElevationGraph={false}
         packingList={packingList}
+        blockImages={shamanBlockImages}
+        galleryImages={shamanGalleryImages}
+        galleryTitle="Shaman Festival (Jhakri Mela) Photography Collection"
+        gallerySubtitle="Sacred Healing Rituals & Kham Magar Culture"
         client:load
         initialLocale={lang}
         initialDict={dict}

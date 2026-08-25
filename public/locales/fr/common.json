@@ -405,8 +405,16 @@
     "season": "Saison",
     "level": "Niveau",
     "expedition": "Expédition",
-    "fullScreenView": "Vue plein écran",
-    "theHimalayasAwait": "L'Himalaya vous attend"
+    "theHimalayasAwait": "L'Himalaya vous attend",
+    "viewGalleryRelated": "Voir la Galerie Photos Associées",
+    "gallerySubtitle": "Collection de photos du Festival Chamanique (Jhakri Mela)",
+    "clickToExpand": "Cliquer pour Afficher",
+    "clickToHide": "Cliquer pour Masquer",
+    "photos": "Photos",
+    "hideGallery": "Masquer la Galerie",
+    "viewGallery": "Voir la Galerie",
+    "photo": "Photo",
+    "lightboxHint": "Utilisez les touches ← et → pour naviguer, Échap pour fermer"
   },
   "wildlife": {
     "birdingTitle": "Des Ailes sur l'Himalaya",

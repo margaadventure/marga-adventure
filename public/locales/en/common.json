@@ -398,6 +398,15 @@
     "strenuous": "Strenuous",
     "elevation": "Elevation",
     "gain": "Gain",
+    "viewGalleryRelated": "View Gallery Related Pictures",
+    "gallerySubtitle": "Shaman Festival (Jhakri Mela) Photography Collection",
+    "clickToExpand": "Click to View",
+    "clickToHide": "Click to Hide",
+    "photos": "Photos",
+    "hideGallery": "Hide Gallery",
+    "viewGallery": "View Gallery",
+    "photo": "Photo",
+    "lightboxHint": "Use ← and → arrow keys to navigate, Esc to close",
     "elevationDesc": "A visual breakdown of the altitude gain and loss throughout the trek.",
     "bookDesc": "Secure your spot for an unforgettable Himalayan adventure.",
     "maxElevation": "Max Elevation",
@@ -405,7 +414,6 @@
     "season": "Season",
     "level": "Level",
     "expedition": "Expedition",
-    "fullScreenView": "Full Screen View",
     "theHimalayasAwait": "The Himalayas Await"
   },
   "wildlife": {
